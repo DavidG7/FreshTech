@@ -13,10 +13,10 @@ public interface EmployeeManager
 	//////////// READ ////////////
 	public Employee findByName(String employeeName);
 	public ArrayList<Employee> getEmployees();
- 
-	/////////// UPDATE ///////////
+	
+	// UPDATE
 	public void updateEmployee (Employee employee);
- 
-	/////////// DELETE ///////////
+	
+	// DELETE 
 	public void removeEmployee (Employee employee);
 }
