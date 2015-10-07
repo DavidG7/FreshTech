@@ -1,11 +1,22 @@
 package com.netbuilder.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * 
  * @author dgordon
  *
  */
+
+@Entity
 public class Employee {
 
+	@Id
+	@GeneratedValue ( 
+	strategy = GenerationType.IDENTITY)
 	private int employeeID;
 	private String employeeName;
 	private String employeeUsername;
