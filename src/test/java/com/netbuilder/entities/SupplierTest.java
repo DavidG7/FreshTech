@@ -14,7 +14,6 @@ public class SupplierTest {
 	 *  The remaining test methods use @Test and assertEquals() to validate test data
 	 *  
 	 */
-	
 	@BeforeClass
 	public static void testConstructor(){
 		tester = new Supplier(321, "Test", "3@2.1", "12321", "Phone");
