@@ -2,18 +2,22 @@ package com.netbuilder.entities;
 
 import static org.junit.Assert.*;
 
+import java.util.Calendar;
+import java.util.Date;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CustomerOrderTest {
+	static CustomerOrder test ;
 
-	@Test
-	public void testCustomerOrder() {
-		fail("Not yet implemented");
-	}
+	
+	
 
-	@Test
-	public void testCustomerOrderIntIntIntString() {
-		fail("Not yet implemented");
+	@BeforeClass
+	public static void testCustomerOrderintDateStringString() {
+		test = new CustomerOrder (12, new Date(), "status", "adresss");
+
 	}
 
 	@Test
@@ -28,42 +32,52 @@ public class CustomerOrderTest {
 
 	@Test
 	public void testGetDataOfOrder() {
-		fail("Not yet implemented");
+			System.out.println(test.getDataOfOrder());
+			
 	}
 
 	@Test
 	public void testSetDataOfOrder() {
-		fail("Not yet implemented");
+		Calendar myCal = Calendar.getInstance();
+		myCal.set(Calendar.YEAR, 2040);
+		myCal.set(Calendar.MONTH, 9);
+		myCal.set(Calendar.DAY_OF_MONTH, 10);
+		Date theDate = myCal.getTime();
+		test.setDataOfOrder(theDate);
+		System.out.println(test.getDataOfOrder());
 	}
 
 	@Test
 	public void testGetCustomerOrderID() {
-		fail("Not yet implemented");
+		 System.out.println(test.getCustomerOrderID());
 	}
 
 	@Test
 	public void testSetCustomerOrderID() {
-		fail("Not yet implemented");
+		test.setCustomerOrderID(10001);
+		System.out.println(test.getCustomerOrderID());
 	}
 
 	@Test
 	public void testGetCustomerOrderStatus() {
-		fail("Not yet implemented");
+		System.out.println(test.getCustomerOrderStatus());
 	}
 
 	@Test
 	public void testSetCustomerOrderStatus() {
-		fail("Not yet implemented");
+		test.setCustomerOrderStatus("done");
+		System.out.println(test.getCustomerOrderStatus());
 	}
 
 	@Test
 	public void testGetDeliveryAddress() {
-		fail("Not yet implemented");
+		System.out.println(test.getDeliveryAddress());
 	}
 
 	@Test
 	public void testSetDeliveryAddress() {
-		fail("Not yet implemented");
+		test.setDeliveryAddress("adddess1244");
+		System.out.println(test.getDeliveryAddress());
 	}
 
 }

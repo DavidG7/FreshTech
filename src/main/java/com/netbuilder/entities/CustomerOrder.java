@@ -1,10 +1,13 @@
 package com.netbuilder.entities;
 
-import java.sql.Date;
+import java.util.Date;
+
+
 
 public class CustomerOrder {
 	/**
 	 * @author Ricky Luu
+	 * 
 	 * 
 	 */
 	
@@ -18,9 +21,15 @@ public class CustomerOrder {
 //	Address address;
 	
 	
-	public CustomerOrder (){
-		
-	}
+	public CustomerOrder(){}
+	
+	/**
+	 * Create a new Order 
+	 * @param customerOrderID
+	 * @param dataOfOrder
+	 * @param customerOrderStatus
+	 * @param deliveryAddress
+	 */
 	
 	public CustomerOrder(int customerOrderID, Date dataOfOrder, String customerOrderStatus, String deliveryAddress ){
 		this.customerOrderID=customerOrderID;
@@ -35,40 +44,17 @@ public class CustomerOrder {
 	public void updateCustomerOrder(){}
 	
 	/**
-	 * 
+	 * Displays Orders 
 	 */
 	
 	public void  viewCustomerOrder(){}
 
-	public Date getDataOfOrder() {
-		return dataOfOrder;
-	}
-
-	public void setDataOfOrder(Date dataOfOrder) {
-		this.dataOfOrder = dataOfOrder;
-	}
-
-	public int getCustomerOrderID() {
-		return customerOrderID;
-	}
-
-	public void setCustomerOrderID(int customerOrderID) {
-		this.customerOrderID = customerOrderID;
-	}
-
-	public String getCustomerOrderStatus() {
-		return customerOrderStatus;
-	}
-
-	public void setCustomerOrderStatus(String customerOrderStatus) {
-		this.customerOrderStatus = customerOrderStatus;
-	}
-
-	public String getDeliveryAddress() {
-		return deliveryAddress;
-	}
-
-	public void setDeliveryAddress(String deliveryAddress) {
-		this.deliveryAddress = deliveryAddress;
-	}
+	public Date getDataOfOrder() {return dataOfOrder;}
+	public void setDataOfOrder(Date dataOfOrder) {this.dataOfOrder = dataOfOrder;}
+	public int getCustomerOrderID() {return customerOrderID;}
+	public void setCustomerOrderID(int customerOrderID) {this.customerOrderID = customerOrderID;}
+	public String getCustomerOrderStatus() {return customerOrderStatus;}
+	public void setCustomerOrderStatus(String customerOrderStatus) {this.customerOrderStatus = customerOrderStatus;}
+	public String getDeliveryAddress() {return deliveryAddress;}
+	public void setDeliveryAddress(String deliveryAddress) {this.deliveryAddress = deliveryAddress;}
 }
