@@ -1,5 +1,9 @@
 package com.netbuilder.entities;
-
+/**
+ * this class is used in customer orders so they can assign an address to each order giving them a choice.
+ * @author jham
+ *
+ */
 public class Address {
 	/**
 	 * attributes used in the address class
