@@ -1,7 +1,14 @@
 package com.netbuilder.entitymanagers;
 
 import java.util.List;
+/**
+ * 
+ * @author dgordon
+ *
+ */
 
+
+/**/
 public interface GenericEntityManager<E>{
 	
 	/**
