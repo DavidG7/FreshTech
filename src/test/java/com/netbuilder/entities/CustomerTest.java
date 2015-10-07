@@ -15,7 +15,7 @@ import org.junit.Test;
 public class CustomerTest 
 {
 	Customer testCustomer = new Customer(1, "01782566491", 10000f, "George Freshwater",
-			"freshwater@gmail.com", "fresh", "water123");
+			"freshwater@gmail.com", "fresh", "water123", "EMAIL");
 	
 	/**
 	 * Tests the functionality of the get methods for the customer class
@@ -30,6 +30,7 @@ public class CustomerTest
 		assertEquals("freshwater@gmail.com", testCustomer.getCustomerEmail());
 		assertEquals("fresh", testCustomer.getCustomerUsername());
 		assertEquals("water123", testCustomer.getCustomerPassword());
+		assertEquals("EMAIL", testCustomer.getCustomerContactMethod());
 	}
 	
 	/**
@@ -60,6 +61,9 @@ public class CustomerTest
 		
 		testCustomer.setCustomerPassword("springer123");
 		assertEquals("springer123", testCustomer.getCustomerPassword());
+		
+		testCustomer.setCustomerContactMethod("PHONE");
+		assertEquals("PHONE", testCustomer.getCustomerContactMethod());
 	}
 	
 }
