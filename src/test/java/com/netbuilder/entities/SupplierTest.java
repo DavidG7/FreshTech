@@ -6,7 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SupplierTest {
-	Supplier tester;
+	static Supplier tester;
 	
 	/**
 	 *  By using @BeforeClass - we can make sure that our test object is instantiated
@@ -16,8 +16,8 @@ public class SupplierTest {
 	 */
 	
 	@BeforeClass
-	public void testConstructor(){
-		tester = new Supplier(321, "Test", "3@2.1", 12321, "Phone");
+	public static void testConstructor(){
+		tester = new Supplier(321, "Test", "3@2.1", "12321", "Phone");
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class SupplierTest {
 	@Test
 	public void testGetName(){
 		String result = tester.getName();
-		assertEquals(result, 321);
+		assertEquals(result, "Test");
 	}
 	
 	@Test
@@ -55,19 +55,19 @@ public class SupplierTest {
 	public void testSetEmail(){
 		String result = "1@2.3";
 		tester.setEmail(result);
-		assertEquals(tester.getName(), result);
+		assertEquals(tester.getEmail(), result);
 	}
 	
 	@Test
 	public void testGetPhone(){
-		int result = tester.getPhone();
+		String result = tester.getPhone();
 		assertEquals(result, 12321);
 	}
 	
 	@Test
 	public void testSetPhone(){
-		int num = 54345;
-		tester.setId(num);
+		String num = "54345";
+		tester.setPhone(num);
 		assertEquals(tester.getPhone(), num);
 	}
 	

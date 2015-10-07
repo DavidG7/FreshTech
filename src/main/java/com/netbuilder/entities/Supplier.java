@@ -6,11 +6,10 @@ package com.netbuilder.entities;
  */
 public class Supplier {
 
-	
 	private int supplierId;
 	private String supplierName;
 	private String email = "";
-	private int phone = 0;
+	private String phone = "";
 	private String preferredContactMethod = "";
 	
 	/**
@@ -19,7 +18,7 @@ public class Supplier {
 	 * -------------------------------------------------------------------------------------------------------------------------------------
 	 * Supplier can be Constructor using one of two constructors:
 	 * 		Supplier(int id, String name) creates a Supplier with a non-null supplierId and supplierName
-	 * 		Supplier(int id, String name, String email, int phone, String pref) creates a fully instantiated Supplier, where pref 
+	 * 		Supplier(int id, String name, String email, String phone, String pref) creates a fully instantiated Supplier, where pref 
 	 *                                                                          is the preferredContactMethod of the Supplier
 	 *		
 	 * 		Supplier contains no methods besides getters and setters.
@@ -34,13 +33,14 @@ public class Supplier {
 		this.supplierName = name;
 	}
 	
-	public Supplier (int id, String name, String email, int phone, String pref){
+	public Supplier (int id, String name, String email, String phone, String pref){
 		this.supplierId = id;
 		this.supplierName = name;
 		this.email = email;
 		this.phone = phone;
-		this.preferredContactMethod = pref;
+		this.preferredContactMethod = pref; //This may be better as an Enum
 	}
+	
 	
 	public void setId(int x){	supplierId = x;	}
 	public int getId(){	return supplierId;	}
@@ -51,8 +51,8 @@ public class Supplier {
 	public void setEmail(String x){	email = x;	}
 	public String getEmail(){	return email;	}
 	
-	public void setPhone(int x){	phone = x;	}
-	public int getPhone(){	return phone;	}
+	public void setPhone(String x){	phone = x;	}
+	public String getPhone(){	return phone;	}
 	
 	public void setPreferredContactMethod(String x){	preferredContactMethod = x;	}
 	public String getPreferredContactMethod(){	return preferredContactMethod;	}
