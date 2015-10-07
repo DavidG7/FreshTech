@@ -4,16 +4,17 @@ public class Supplier {
 	
 	private int supplierId;
 	private String supplierName;
-	private String email;
-	private int phone;
-	private String preferredContactMethod;
+	private String email = "";
+	private int phone = 0;
+	private String preferredContactMethod = "";
 	
 	/**-------------------------------------------------------------------------------------------------------------------------------------
 	 * Supplier:
 	 * -------------------------------------------------------------------------------------------------------------------------------------
 	 * Supplier can be Constructor using one of two constructors:
 	 * 		Supplier(int id, String name) creates a Supplier with a non-null supplierId and supplierName
-	 * 		Supplier(int id, String name, String email, int phone, String pref) creates a fully instantiated Supplier
+	 * 		Supplier(int id, String name, String email, int phone, String pref) creates a fully instantiated Supplier, where pref 
+	 *                                                                          is the preferredContactMethod of the Supplier
 	 *		
 	 * 		Supplier contains no methods besides getters and setters.
 	 * 
