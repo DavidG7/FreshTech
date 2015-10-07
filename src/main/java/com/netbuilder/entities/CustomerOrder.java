@@ -1,24 +1,50 @@
 package com.netbuilder.entities;
 
+import java.sql.Date;
+
 public class CustomerOrder {
+	/**
+	 * @author Ricky Luu
+	 * 
+	 */
+	
+	
 	private int customerOrderID ;
-	private int dataOfOrder;
-	private int customerOrderStatus;
+	private Date dataOfOrder;
+	private String customerOrderStatus;
 	private String deliveryAddress;
 //	Customer customer;
 //  Product product;
 //	Address address;
 	
 	
+	public CustomerOrder (){
+		
+	}
+	
+	public CustomerOrder(int customerOrderID, Date dataOfOrder, String customerOrderStatus, String deliveryAddress ){
+		this.customerOrderID=customerOrderID;
+		this.dataOfOrder=dataOfOrder;
+		this.customerOrderStatus=customerOrderStatus;
+		this.deliveryAddress=deliveryAddress;
+	}
+	
+	/**
+	 * Updates Customer Orders 
+	 */
 	public void updateCustomerOrder(){}
+	
+	/**
+	 * 
+	 */
 	
 	public void  viewCustomerOrder(){}
 
-	public int getDataOfOrder() {
+	public Date getDataOfOrder() {
 		return dataOfOrder;
 	}
 
-	public void setDataOfOrder(int dataOfOrder) {
+	public void setDataOfOrder(Date dataOfOrder) {
 		this.dataOfOrder = dataOfOrder;
 	}
 
@@ -30,11 +56,11 @@ public class CustomerOrder {
 		this.customerOrderID = customerOrderID;
 	}
 
-	public int getCustomerOrderStatus() {
+	public String getCustomerOrderStatus() {
 		return customerOrderStatus;
 	}
 
-	public void setCustomerOrderStatus(int customerOrderStatus) {
+	public void setCustomerOrderStatus(String customerOrderStatus) {
 		this.customerOrderStatus = customerOrderStatus;
 	}
 
