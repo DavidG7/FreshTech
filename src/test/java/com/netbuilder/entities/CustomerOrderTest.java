@@ -33,7 +33,7 @@ public class CustomerOrderTest {
 	@Test
 	public void testGetDataOfOrder() {
 			System.out.println(test.getDataOfOrder());
-			
+		
 	}
 
 	@Test
