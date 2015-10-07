@@ -13,7 +13,8 @@ package com.netbuilder.entities;
 public class Customer 
 {
 	private int customerID;
-	private int customerPhone;
+	private String customerPhone;
+	
 	
 	private float availableCredit; 
 	
@@ -26,7 +27,17 @@ public class Customer
 	
 	public enum preferedCustomerContactMethod {EMAIL, PHONE};
 	
-	public Customer(int custID, int custPhone, float availableCred, String custName, 
+	/**
+	 * 
+	 * @param custID
+	 * @param custPhone
+	 * @param availableCred
+	 * @param custName
+	 * @param custEmail
+	 * @param custUsername
+	 * @param custPassword
+	 */
+	public Customer(int custID, String custPhone, float availableCred, String custName, 
 			String custEmail, String custUsername, String custPassword)
 	{
 		this.customerID = custID;
@@ -48,24 +59,24 @@ public class Customer
 		this.customerID = customerID;
 	}
 
-	public int getCustomerPhone() 
+	public String getCustomerPhone() 
 	{
 		return customerPhone;
 	}
 
-	public void setCustomerPhone(int customerPhone) 
+	public void setCustomerPhone(String customerPhone) 
 	{
 		this.customerPhone = customerPhone;
 	}
 
-	public float getAvialableCredit() 
+	public float getAvailableCredit() 
 	{
 		return availableCredit;
 	}
 
-	public void setAvialableCredit(float avialableCredit) 
+	public void setAvailableCredit(float availableCredit) 
 	{
-		this.availableCredit = avialableCredit;
+		this.availableCredit = availableCredit;
 	}
 
 	public String getCustomerName() 
