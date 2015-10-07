@@ -6,17 +6,20 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
-
+import org.junit.runners.MethodSorters;
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CustomerOrderTest {
 	static CustomerOrder test ;
+	static Date d =new Date();
 
 	
 	
 
 	@BeforeClass
 	public static void testCustomerOrderintDateStringString() {
-		test = new CustomerOrder (12, new Date(), "status", "adresss");
+		test = new CustomerOrder(0,12, d, "status", "adresss");
 
 	}
 
@@ -27,12 +30,14 @@ public class CustomerOrderTest {
 
 	@Test
 	public void testViewCustomerOrder() {
-		fail("Not yet implemented");
+		System.out.println(test.viewCustomerOrder());
+		assertEquals(test.viewCustomerOrder(),"OrderID:10001\nCustomerID:12\nCustomer Order Status:done\nDelivery Address:adddess1244");
+		
 	}
 
 	@Test
 	public void testGetDataOfOrder() {
-			System.out.println(test.getDataOfOrder());
+		assertEquals(test.getDateOfOrder(),d);
 		
 	}
 
@@ -43,41 +48,41 @@ public class CustomerOrderTest {
 		myCal.set(Calendar.MONTH, 9);
 		myCal.set(Calendar.DAY_OF_MONTH, 10);
 		Date theDate = myCal.getTime();
-		test.setDataOfOrder(theDate);
-		System.out.println(test.getDataOfOrder());
+		test.setDateOfOrder(theDate);
+		assertEquals(test.getDateOfOrder(),theDate);
 	}
 
 	@Test
 	public void testGetCustomerOrderID() {
-		 System.out.println(test.getCustomerOrderID());
+		assertEquals(test.getCustomerID(),12);
 	}
 
 	@Test
 	public void testSetCustomerOrderID() {
 		test.setCustomerOrderID(10001);
-		System.out.println(test.getCustomerOrderID());
+		assertEquals(test.getCustomerOrderID(), 10001);
 	}
 
 	@Test
 	public void testGetCustomerOrderStatus() {
-		System.out.println(test.getCustomerOrderStatus());
+		assertEquals(test.getCustomerOrderStatus(),"status");
 	}
 
 	@Test
 	public void testSetCustomerOrderStatus() {
 		test.setCustomerOrderStatus("done");
-		System.out.println(test.getCustomerOrderStatus());
+		assertEquals(test.getCustomerOrderStatus(),"done");
 	}
 
 	@Test
 	public void testGetDeliveryAddress() {
-		System.out.println(test.getDeliveryAddress());
+		assertEquals(test.getDeliveryAddress(),"adresss");
 	}
 
 	@Test
 	public void testSetDeliveryAddress() {
 		test.setDeliveryAddress("adddess1244");
-		System.out.println(test.getDeliveryAddress());
+		assertEquals(test.getDeliveryAddress(),"adddess1244");
 	}
 
 }

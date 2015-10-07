@@ -1,11 +1,18 @@
 package com.netbuilder.entities;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author sraspin
  *
  */
-public class Product {
+public class Product implements Serializable  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7337349035516644812L;
 	private boolean discontinued = false;
 	private boolean porusware = false;
 	private int productId = 0;
@@ -27,25 +34,25 @@ public class Product {
 	 *
 	 */
 	
-	Product(int Id, int level, float Price, String Category, String name){
-		productName = name;
-		productId = Id;
-		stockLevel = level;
-		category = Category;
-		price = Price;
+	public Product(int productID, int stock_level, float the_price, String product_category, String product_name){
+		productName = product_name;
+		productId = productID;
+		stockLevel = stock_level;
+		category = product_category;
+		price = the_price;
 	}
 	
-	Product(boolean Dis, boolean Por, int PId, int SLv, int Rat, float Price, String Cat, String PDs, String Image, String PNm){
-		discontinued = Dis;
-		porusware = Por;
-		productId = PId;
-		stockLevel = SLv;
-		rating = Rat;
-		price = Price;
-		category = Cat;
-		productDescription = PDs;
-		image = Image;
-		productName = PNm;
+	public Product(int productID, int stock_level, float the_price, String product_category, String product_name, boolean discontinue, boolean porousware, int product_rating, String product_description, String picture){
+		discontinued = discontinue;
+		porusware = porousware;
+		productId = productID;
+		stockLevel = stock_level;
+		rating = product_rating;
+		price = the_price;
+		category = product_category;
+		productDescription = product_description;
+		image = picture;
+		productName = product_name;
 	}
 	
 	public void setDiscontinued(boolean value){
