@@ -6,7 +6,14 @@ import com.netbuilder.entities.Employee;
 
 import java.util.List;
 
+/**
+ * 
+ * @author dgordon
+ *
+ */
+
 /**/
+
 public interface EmployeeManager {
 	/**
 	 * This method will return a single Employee entity based on the employeeID passed in

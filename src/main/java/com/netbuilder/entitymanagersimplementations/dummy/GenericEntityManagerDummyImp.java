@@ -10,6 +10,13 @@ import com.netbuilder.data.DummyData;
 import com.netbuilder.entitymanagers.GenericEntityManager;
 
 
+/**
+ * 
+ * @author dgordon
+ *
+ * @param <E>
+ */
+
 /**/
 @Alternative
 public class GenericEntityManagerDummyImp<E> implements GenericEntityManager<E> {
