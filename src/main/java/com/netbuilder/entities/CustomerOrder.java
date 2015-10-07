@@ -2,36 +2,51 @@ package com.netbuilder.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 
+@Entity
 public class CustomerOrder {
 	/**
 	 * @author Ricky Luu
-	 * 
-	 * 
+	 * Holds customers Orders details 
 	 */
 	
-	
-	private int customerOrderID ;
+	@Id
+	@GeneratedValue (
+			strategy = GenerationType.IDENTITY
+	)
+	private int customerOrderID;
+	@OneToMany
+	@PrimaryKeyJoinColumn (
+			name="customerID"
+			
+	)
+	private Customer customer;
+	private Address address;
 	private Date dataOfOrder;
 	private String customerOrderStatus;
 	private String deliveryAddress;
-//	Customer customer;
-//  Product product;
-//	Address address;
+	// Product address;
 	
 	
 	public CustomerOrder(){}
 	
 	/**
-	 * Create a new Order 
+	 * Create a new CustomerOrder 
 	 * @param customerOrderID
+	 * @param customerID
 	 * @param dataOfOrder
 	 * @param customerOrderStatus
 	 * @param deliveryAddress
 	 */
 	
-	public CustomerOrder(int customerOrderID, Date dataOfOrder, String customerOrderStatus, String deliveryAddress ){
+	public CustomerOrder(int customerOrderID,Date dataOfOrder, String customerOrderStatus, String deliveryAddress ){
 		this.customerOrderID=customerOrderID;
 		this.dataOfOrder=dataOfOrder;
 		this.customerOrderStatus=customerOrderStatus;
@@ -48,7 +63,6 @@ public class CustomerOrder {
 	 */
 	
 	public void  viewCustomerOrder(){}
-
 	public Date getDataOfOrder() {return dataOfOrder;}
 	public void setDataOfOrder(Date dataOfOrder) {this.dataOfOrder = dataOfOrder;}
 	public int getCustomerOrderID() {return customerOrderID;}
