@@ -1,11 +1,18 @@
 package com.netbuilder.entities;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author sraspin
  *
  */
-public class Product {
+public class Product implements Serializable  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7337349035516644812L;
 	private boolean discontinued = false;
 	private boolean porusware = false;
 	private int productId = 0;
@@ -27,25 +34,25 @@ public class Product {
 	 *
 	 */
 	
-	Product(int Id, int level, float Price, String Category, String name){
+	public Product(int Id, int level, float money, String cat, String name){
 		productName = name;
 		productId = Id;
 		stockLevel = level;
-		category = Category;
-		price = Price;
+		category = cat;
+		price = money;
 	}
 	
-	Product(boolean Dis, boolean Por, int PId, int SLv, int Rat, float Price, String Cat, String PDs, String Image, String PNm){
-		discontinued = Dis;
-		porusware = Por;
-		productId = PId;
-		stockLevel = SLv;
-		rating = Rat;
-		price = Price;
-		category = Cat;
-		productDescription = PDs;
-		image = Image;
-		productName = PNm;
+	public Product(int Id, int level, float money, String cat, String name, boolean dis, boolean por, int rat, String desc, String picture){
+		discontinued = dis;
+		porusware = por;
+		productId = Id;
+		stockLevel = level;
+		rating = rat;
+		price = money;
+		category = cat;
+		productDescription = desc;
+		image = picture;
+		productName = name;
 	}
 	
 	public void setDiscontinued(boolean value){
