@@ -10,7 +10,7 @@ import com.netbuilder.data.DummyData;
 import com.netbuilder.entitymanagers.GenericEntityManager;
 
 
-
+/**/
 @Alternative
 public class GenericEntityManagerDummyImp<E> implements GenericEntityManager<E> {
 	@Inject
