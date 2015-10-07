@@ -1,13 +1,19 @@
+
 package com.netbuilder.entities;
 /**
  * this class is used in customer orders so they can assign an address to each order giving them a choice.
  * @author jham
  *
  */
+
+import org.springframework.data.annotation.Id;
+
+
 public class Address {
 	/**
 	 * attributes used in the address class
 	 * **/
+	 @Id
 	private int addressid;
 	private String address;
 	private String postcode;
