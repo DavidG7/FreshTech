@@ -4,19 +4,30 @@ import java.util.ArrayList;
 
 import com.netbuilder.entities.Employee;
 
-public interface EmployeeManager
-{
-	/////////// CREATE ///////////
-	public void persistEmployee (Employee employee);
-	public void persistEmployees(ArrayList<Employee> employees);
+import java.util.List;
+
+/**
+ * 
+ * @author dgordon
+ *
+ */
+
+/**/
+
+public interface EmployeeManager {
+	/**
+	 * This method will return a single Employee entity based on the employeeID passed in
+	 * 
+	 * @param employeeID
+	 * @return
+	 */
+	public Employee findByID(long employeeID);
 	
-	//////////// READ ////////////
-	public Employee findByName(String employeeName);
-	public ArrayList<Employee> getEmployees();
-	
-	// UPDATE
-	public void updateEmployee (Employee employee);
-	
-	// DELETE 
-	public void removeEmployee (Employee employee);
+	/**
+	 * This method returns a list of all employees with the provided accessLevel.
+	 * 
+	 * @param accessLevel
+	 * @return
+	 */
+	public List<Employee> findByAccessLevel(int accessLevel);
 }

@@ -23,6 +23,8 @@ public class Employee {
 	private String employeePassword;
 	private int accessLevel;
 	
+	public Employee() {}
+	
 	/**
 	 * 
 	 * @param employeeName

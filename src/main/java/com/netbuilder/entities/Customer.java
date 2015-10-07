@@ -1,7 +1,14 @@
 package com.netbuilder.entities;
 
+import java.io.Serializable;
+import java.sql.Struct;
+import java.util.ArrayList;
+
+import org.springframework.data.annotation.Id;
+
 /**
  * TODO discuss return types and argument variables for methods.
+ * TODO Need Error checking for the input of preferredCustomerContactMethod
  * @author Thomas Dudley
  * 
  * Customer class will allows the creation of the customer
@@ -10,23 +17,72 @@ package com.netbuilder.entities;
  *
  */
 
-public class Customer 
+public class Customer implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -469127124351435736L;
+	
+	@Id
 	private int customerID;
 	private String customerPhone;
-	
 	
 	private float availableCredit; 
 	
 	private String customerName;
 	private String customerEmail;
-	
-
 	private String customerUsername;
 	private String customerPassword;
 	
-	public enum preferedCustomerContactMethod {EMAIL, PHONE};
+	private enum ContactMethod {EMAIL, PHONE, MAIL};
 	
+	private ContactMethod preferredCustomerContactMethod;
+	
+	/**
+	 * @author Thomas Dudley
+	 * Small class within the customer for the basket
+	 * Saves having a 2D ArrayList when an object can hold
+	 * information and then be stored within an ArrayList  
+	 *
+	 */
+	private class Basket
+	{
+		private Product product;
+		private int quantity;
+		
+		public Basket(Product prod, int quant)
+		{
+			this.product = prod;
+			this.quantity = quant;
+		}
+		
+		public void setProduct(Product product) 
+		{
+			this.product = product;
+		}
+
+		public Product getProduct()
+		{
+			return this.product;
+		}
+		
+		public int getQuantity()
+		{
+			return this.quantity;
+		}
+		
+		public void setQuantity(int quantity)
+		{
+			this.quantity = quantity;
+		}
+	}
+	
+	private ArrayList<Product> wishList;
+	private ArrayList<Payment> paymentArray;
+	private ArrayList<Address> addressArray;
+	private ArrayList<Basket> basketArray;
+		
 	/**
 	 * 
 	 * @param custID
@@ -47,6 +103,42 @@ public class Customer
 		this.customerEmail = custEmail;
 		this.customerUsername = custUsername;
 		this.customerPassword = custPassword;
+		
+	}
+	
+	public Customer(int custID, String custPhone, float availableCred, String custName, 
+			String custEmail, String custUsername, String custPassword, String preferedContactMethod)
+	{
+		this.customerID = custID;
+		this.customerPhone = custPhone;
+		this.availableCredit = availableCred;
+		this.customerName = custName;
+		this.customerEmail = custEmail;
+		this.customerUsername = custUsername;
+		this.customerPassword = custPassword;
+		
+		if(ContactMethod.EMAIL.toString().equalsIgnoreCase(preferedContactMethod))
+		{
+			this.preferredCustomerContactMethod = preferredCustomerContactMethod.EMAIL;
+		}
+		else if(ContactMethod.PHONE.toString().equalsIgnoreCase(preferedContactMethod))
+		{
+			this.preferredCustomerContactMethod = preferredCustomerContactMethod.PHONE;
+		}
+		else if(ContactMethod.MAIL.toString().equalsIgnoreCase(preferedContactMethod))
+		{
+			this.preferredCustomerContactMethod = preferredCustomerContactMethod.MAIL;
+		}
+		else
+		{
+			/*
+			 * Need to system.out.println this error when there is a UI.
+			 */
+			
+			this.preferredCustomerContactMethod = null;
+			
+			
+		}
 	}
 	
 	public int getCustomerID() 
@@ -117,6 +209,34 @@ public class Customer
 	public void setCustomerPassword(String customerPassword) 
 	{
 		this.customerPassword = customerPassword;
+	}
+	
+	public void setCustomerContactMethod(String contactMethod)
+	{
+		if(ContactMethod.EMAIL.toString().equalsIgnoreCase(contactMethod))
+		{
+			this.preferredCustomerContactMethod = preferredCustomerContactMethod.EMAIL;
+		}
+		else if(ContactMethod.PHONE.toString().equalsIgnoreCase(contactMethod))
+		{
+			this.preferredCustomerContactMethod = preferredCustomerContactMethod.PHONE;
+		}
+		else if(ContactMethod.MAIL.toString().equalsIgnoreCase(contactMethod))
+		{
+			this.preferredCustomerContactMethod = preferredCustomerContactMethod.MAIL;
+		}
+		else
+		{
+			/*
+			 * Need to system.out.println this error when there is a UI.
+			 */
+		}
+			
+	}
+	
+	public String getCustomerContactMethod()
+	{
+		return this.preferredCustomerContactMethod.toString();
 	}
 	
 	/**
