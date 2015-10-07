@@ -1,5 +1,9 @@
 package com.netbuilder.entities;
-
+/**
+ * 
+ * @author cpoole
+ *
+ */
 public class Supplier {
 	
 	private int supplierId;
