@@ -1,7 +1,6 @@
 package com.netbuilder.entities;
 
 import java.io.Serializable;
-import java.sql.Struct;
 import java.util.ArrayList;
 
 import org.springframework.data.annotation.Id;
