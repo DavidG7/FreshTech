@@ -1,5 +1,7 @@
 package com.netbuilder.entities;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * 
  * @author pnewman
