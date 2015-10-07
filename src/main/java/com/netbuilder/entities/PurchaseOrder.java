@@ -39,17 +39,21 @@ public class PurchaseOrder {
 			this.purchaseOrderStatus = purchaseOrderStatus;
 		}
 		
-		public void updatePurchaseOrder(){
-			//TODO method stub
+		public void updatePurchaseOrder(int purchaseOrderID, String purchaseOrderStatus){
+			setPurchaseOrderID(purchaseOrderID);
+			setPurchaseOrderStatus(purchaseOrderStatus);
 		}
 		
 		public void viewPurchaseOrder(){
-			//TODO method stub
+		
+			System.out.println("Purchase Order ID: "+purchaseOrderID+" Purchase Order Status: "+purchaseOrderStatus+"");
+					
 		}
 		
 		public void purchaseOrderProcessed(){
 			//TODO method stub
 		}
+		
 		
 		
 

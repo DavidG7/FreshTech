@@ -34,25 +34,25 @@ public class Product implements Serializable  {
 	 *
 	 */
 	
-	public Product(int Id, int level, float money, String cat, String name){
-		productName = name;
-		productId = Id;
-		stockLevel = level;
-		category = cat;
-		price = money;
+	public Product(int productID, int stock_level, float the_price, String product_category, String product_name){
+		productName = product_name;
+		productId = productID;
+		stockLevel = stock_level;
+		category = product_category;
+		price = the_price;
 	}
 	
-	public Product(int Id, int level, float money, String cat, String name, boolean dis, boolean por, int rat, String desc, String picture){
-		discontinued = dis;
-		porusware = por;
-		productId = Id;
-		stockLevel = level;
-		rating = rat;
-		price = money;
-		category = cat;
-		productDescription = desc;
+	public Product(int productID, int stock_level, float the_price, String product_category, String product_name, boolean discontinue, boolean porousware, int product_rating, String product_description, String picture){
+		discontinued = discontinue;
+		porusware = porousware;
+		productId = productID;
+		stockLevel = stock_level;
+		rating = product_rating;
+		price = the_price;
+		category = product_category;
+		productDescription = product_description;
 		image = picture;
-		productName = name;
+		productName = product_name;
 	}
 	
 	public void setDiscontinued(boolean value){
