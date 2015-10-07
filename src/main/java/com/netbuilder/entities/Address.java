@@ -6,10 +6,16 @@ package com.netbuilder.entities;
  *
  */
 
+import java.io.Serializable;
+
 import org.springframework.data.annotation.Id;
 
 
-public class Address {
+public class Address implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4033621458726921518L;
 	/**
 	 * attributes used in the address class
 	 * **/
@@ -20,7 +26,7 @@ public class Address {
 	private int customerid;
 	
    /**class constructors**/
-	Address (int addressid, String address, String postcode, int customerid){
+	public Address (int addressid, String address, String postcode, int customerid){
 		this.addressid = addressid;
 		this.address = address;
 		this.postcode = postcode;
