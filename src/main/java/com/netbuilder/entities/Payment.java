@@ -10,7 +10,7 @@ import org.springframework.data.annotation.Id;
 
 public class Payment {
 	
-	private int paymentID;
+	@Id private int paymentID;
 	private int cardNumber;
 	private String sortCode;
 	
@@ -63,12 +63,22 @@ public class Payment {
 	 * TODO Discuss method return types.
 	 */
 
+	
+	/**
+	 * This method prints the attributes contained in the class.
+	 */
 	public void viewPaymentMethod(){
-		//TODO method stub
+		
+		System.out.println("Card Number: "+cardNumber+" Sort Code: "+sortCode);
+		
 	}
 	
-	public void updatePaymentMethod(){
-		//TODO method stub
+	public void updatePaymentMethod(int cardNumber, String sortCode){
+
+		setCardNumber(cardNumber);
+		
+		setSortCode(sortCode);
+		
 	}
 	
 	
