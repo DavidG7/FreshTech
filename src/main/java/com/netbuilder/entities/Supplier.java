@@ -5,6 +5,7 @@ package com.netbuilder.entities;
  *
  */
 public class Supplier {
+
 	
 	private int supplierId;
 	private String supplierName;
@@ -55,5 +56,4 @@ public class Supplier {
 	
 	public void setPreferredContactMethod(String x){	preferredContactMethod = x;	}
 	public String getPreferredContactMethod(){	return preferredContactMethod;	}
-	
 }
