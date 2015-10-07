@@ -5,6 +5,10 @@ public class CustomerOrder {
 	private int dataOfOrder;
 	private int customerOrderStatus;
 	private String deliveryAddress;
+//	Customer customer;
+//  Product product;
+//	Address address;
+	
 	
 	public void updateCustomerOrder(){}
 	
