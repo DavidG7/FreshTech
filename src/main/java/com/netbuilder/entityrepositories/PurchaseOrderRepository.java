@@ -1,4 +1,4 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entityrepositories;
 
 import org.springframework.data.repository.CrudRepository;
 import com.netbuilder.entities.PurchaseOrder;
