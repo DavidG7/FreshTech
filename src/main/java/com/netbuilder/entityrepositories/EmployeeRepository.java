@@ -23,6 +23,7 @@ import org.springframework.data
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 	
 	public Iterable<Employee> findByEmployeeName(String name);
+	
     public Iterable<Employee> findByAccessLevel(int accessLevel);
     
 }
