@@ -31,6 +31,11 @@ public class Address implements Serializable {
 		this.postcode = postcode;
 		this.customerid = customerid;
 }
+	
+	public Address()
+	{
+		
+	}
 
 	/**
 	 * method for updating address

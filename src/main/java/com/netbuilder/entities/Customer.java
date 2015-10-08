@@ -120,6 +120,11 @@ public class Customer implements Serializable
 			
 	}
 	
+	public Customer()
+	{
+		
+	}
+	
 	public int getCustomerID() 
 	{
 		return customerID;
@@ -194,15 +199,15 @@ public class Customer implements Serializable
 	{
 		if(ContactMethod.EMAIL.toString().equalsIgnoreCase(contactMethod))
 		{
-			this.preferredCustomerContactMethod = preferredCustomerContactMethod.EMAIL;
+			this.preferredCustomerContactMethod = ContactMethod.EMAIL;
 		}
 		else if(ContactMethod.PHONE.toString().equalsIgnoreCase(contactMethod))
 		{
-			this.preferredCustomerContactMethod = preferredCustomerContactMethod.PHONE;
+			this.preferredCustomerContactMethod = ContactMethod.PHONE;
 		}
 		else if(ContactMethod.MAIL.toString().equalsIgnoreCase(contactMethod))
 		{
-			this.preferredCustomerContactMethod = preferredCustomerContactMethod.MAIL;
+			this.preferredCustomerContactMethod = ContactMethod.MAIL;
 		}
 		else
 		{
@@ -216,6 +221,16 @@ public class Customer implements Serializable
 	public String getCustomerContactMethod()
 	{
 		return this.preferredCustomerContactMethod.toString();
+	}
+	
+	public ArrayList<Address> getCustomerAddressArray()
+	{
+		return addressArray;
+	}
+	
+	public Address getCustomerAddressAt(int i)
+	{
+		return addressArray.get(i);
 	}
 	
 	/**
