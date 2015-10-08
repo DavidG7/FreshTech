@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -24,7 +25,7 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 {
 	
 	@Inject 
-	private DummyData initialData;
+	private DummyData initialData = new DummyData();
 
 	@Override
 	public List<Customer> findAll() {
@@ -230,24 +231,23 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 	@Override
-	public List<Customer> findByCustomerAddress(ArrayList<Address> addressArray) 
+	public List<Customer> findByCustomerAddress(Address address) 
 	{
 		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
-		
+			
 		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
 		
-		
-		
-		for (int i = 0 ; i < customer.size(); i++)
+		for(int i = 0; i < customer.size(); i++)
 		{
-			/*if(customer.get(i).getCustomerUsername().equalsIgnoreCase(customerAddress));
+			for(int j = 0; j < customer.get(i).getCustomerAddressArray().size(); j++)
 			{
-				Address tempAddress = new Address();
-				
-				foundCustomer.add(customer.get(i));			
-			}*/
+				if(address == customer.get(i).getCustomerAddressAt(j))
+				{
+					foundCustomer.add(customer.get(i));
+				}
+			}
 		}
-		
+				
 		return foundCustomer;
 	}
 

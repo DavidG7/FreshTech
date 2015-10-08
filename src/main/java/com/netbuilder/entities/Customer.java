@@ -223,6 +223,16 @@ public class Customer implements Serializable
 		return this.preferredCustomerContactMethod.toString();
 	}
 	
+	public ArrayList<Address> getCustomerAddressArray()
+	{
+		return addressArray;
+	}
+	
+	public Address getCustomerAddressAt(int i)
+	{
+		return addressArray.get(i);
+	}
+	
 	/**
 	 * Method that allows the customer to log in to the website.
 	 */
