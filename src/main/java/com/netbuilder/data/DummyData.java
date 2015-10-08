@@ -58,7 +58,7 @@ public class DummyData {
 		
 	}
 	
-	
+	/*
 	@SuppressWarnings("unchecked")
 	public <T>ArrayList<T> getEntitiyList(String entityName){
 		if(entityName.equalsIgnoreCase("employees")){
@@ -88,18 +88,18 @@ public class DummyData {
 		
 		return  new ArrayList<T>();
 	}
+	*/
 
 	/**
 	 * This is a generic get method. 
 	 * If an array of the passed in entity exists it will return it.
 	 * If no array of the passed in entity exists it will return an empty array.
 	 * As we add entities we will need to add if statements for each one.
-	 * @deprecated use getEntityList(String entityName)
 	 * @param entityType
 	 * @return
 	 */
 	
-	@Deprecated
+	
 	@SuppressWarnings("unchecked")
 	public <E> ArrayList<E> getEntityList(E entityType) {
 		
