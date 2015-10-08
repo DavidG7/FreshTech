@@ -120,6 +120,11 @@ public class Customer implements Serializable
 			
 	}
 	
+	public Customer()
+	{
+		
+	}
+	
 	public int getCustomerID() 
 	{
 		return customerID;

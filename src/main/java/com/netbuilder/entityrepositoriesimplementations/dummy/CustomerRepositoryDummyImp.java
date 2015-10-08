@@ -2,20 +2,33 @@ package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositories.CustomerRepository;
 
+/**
+ * 
+ * @author Thomas Dudley
+ *
+ * This class is to implement the functionality of the repository.
+ */
+
 public class CustomerRepositoryDummyImp implements CustomerRepository
 {
+	
+	@Inject 
+	private DummyData initialData;
 
 	@Override
 	public List<Customer> findAll() {
-		// TODO Auto-generated method stub
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
 		return null;
 	}
 
