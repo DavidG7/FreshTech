@@ -31,7 +31,9 @@ public class Address implements Serializable {
 		this.postcode = postcode;
 		this.customerid = customerid;
 }
-	
+/**
+ * @author Tom
+ */
 	public Address()
 	{
 		
