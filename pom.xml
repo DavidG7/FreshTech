@@ -77,13 +77,5 @@
 			<url>https://repo.spring.io/libs-release</url>
 		</pluginRepository>
 	</pluginRepositories>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-web</artifactId>
-				<version>4.2.1.RELEASE</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	
 </project>
