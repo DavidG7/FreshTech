@@ -1,4 +1,4 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entityrepositories;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
