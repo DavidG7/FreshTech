@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.stereotype.Repository;
+
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
@@ -15,6 +17,7 @@ import com.netbuilder.entityrepositories.EmployeeRepository;
  */
 
 /**/
+@Repository
 public class EmployeeRepositoryDummyImp implements EmployeeRepository{
 
 	

@@ -1,8 +1,8 @@
 package com.netbuilder.entities;
 
 import java.io.Serializable;
-//import com.netbuilder.entities.*;
-//import com.netbuilder.data.DummyData;
+
+import javax.persistence.Id;
 
 /**
  * 
@@ -17,6 +17,7 @@ public class Product implements Serializable  {
 	private static final long serialVersionUID = -7337349035516644812L;
 	private boolean discontinued = false;
 	private boolean porusware = false;
+	@Id
 	private int productId = 0;
 	private int stockLevel = 0;
 	private int rating = 0;
@@ -132,9 +133,6 @@ public class Product implements Serializable  {
 	 * 
 	 */
 	public void viewProductList(){
-		//DummyData dummyData = new DummyData();
-		
-		//dummyData.getEntityList(products.getclass());
 		/*connect to database
 		 * String[] prodList = new String[#products]
 		 * 

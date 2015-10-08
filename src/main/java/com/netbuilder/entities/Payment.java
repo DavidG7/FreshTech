@@ -1,5 +1,7 @@
 package com.netbuilder.entities;
 
+import java.io.Serializable;
+
 import org.springframework.data.annotation.Id;
 
 /**
@@ -8,9 +10,15 @@ import org.springframework.data.annotation.Id;
  *
  */
 
-public class Payment {
+public class Payment implements Serializable{
 	
-	@Id private int paymentID;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id 
+	private int paymentID;
 	private int customerID;
 	private int cardNumber;
 	private String sortCode;

@@ -33,8 +33,8 @@ public class Supplier {
 	@Id
 	@GeneratedValue(
 	strategy = GenerationType.IDENTITY)
-	
 	private int supplierId;
+	
 	private String supplierName;
 	private String email = "";
 	private String phone = "";
