@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import com.netbuilder.data.DummyData;
-
 /**
  * @author Ricky Luu Holds customers Orders details
  */

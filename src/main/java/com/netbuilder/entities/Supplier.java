@@ -55,7 +55,6 @@ public class Supplier {
 		this.preferredContactMethod = pref; //This may be better as an Enum
 	}
 	
-	
 	public void setId(int x){	supplierId = x;	}
 	public int getId(){	return supplierId;	}
 	
