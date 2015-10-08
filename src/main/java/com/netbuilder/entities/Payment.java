@@ -11,6 +11,7 @@ import org.springframework.data.annotation.Id;
 public class Payment {
 	
 	@Id private int paymentID;
+	private int customerID;
 	private int cardNumber;
 	private String sortCode;
 	
@@ -59,6 +60,15 @@ public class Payment {
 		this.sortCode = sortCode;
 	}
 
+	
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	
 	/*
 	 * TODO Discuss method return types.
 	 */
@@ -73,6 +83,11 @@ public class Payment {
 		
 	}
 	
+	/**
+	 * This method sets the card number and sort code of a payment method.
+	 * @param cardNumber
+	 * @param sortCode
+	 */
 	public void updatePaymentMethod(int cardNumber, String sortCode){
 
 		setCardNumber(cardNumber);
