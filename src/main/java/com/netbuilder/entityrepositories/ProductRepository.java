@@ -40,5 +40,5 @@ public interface ProductRepository extends MongoRepository<Product,Integer>{
 	 * @param rating
 	 * @return
 	 */
-	public List<Product> findByRating(String rating);
+	public List<Product> findByRating(int rating);
 }

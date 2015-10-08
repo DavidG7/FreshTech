@@ -36,6 +36,7 @@ public class Product implements Serializable  {
 	 * and the other which sends out an alert when the stock level of a product increases.
 	 *
 	 */
+	public Product(){}
 	
 	public Product(int productID, int stock_level, float the_price, String product_category, String product_name){
 		productName = product_name;
