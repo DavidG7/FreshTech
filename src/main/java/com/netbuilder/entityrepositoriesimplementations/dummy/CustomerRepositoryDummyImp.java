@@ -93,7 +93,7 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 	@Override
-	public boolean exists(Integer arg0) {
+	public boolean exists(Integer customerID) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -117,45 +117,138 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 	@Override
-	public Customer findByCustomerID(int customerID) {
-		// TODO Auto-generated method stub
+	public Customer findByCustomerID(int customerID) 
+	{
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		Customer foundCustomer = new Customer();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerID() == customerID)
+			{
+				foundCustomer = customer.get(i);
+				
+				return foundCustomer;
+			}
+		}
 		return null;
 	}
 
 	@Override
-	public List<Customer> findByCustomerPhone(String customerPhone) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> findByCustomerPhone(String customerPhone) 
+	{
+		
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerPhone().equalsIgnoreCase(customerPhone));
+			{
+				foundCustomer.add(customer.get(i));
+			}
+		}
+		
+		return foundCustomer;
 	}
 
 	@Override
-	public List<Customer> findByCustomerAvailableCredit(float availableCredit) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> findByCustomerAvailableCredit(float availableCredit) 
+	{
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getAvailableCredit() == availableCredit);
+			{
+				foundCustomer.add(customer.get(i));
+			}
+		}
+		
+		return foundCustomer;
 	}
 
 	@Override
-	public List<Customer> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> findByName(String name) 
+	{
+		
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerName().equalsIgnoreCase(name));
+			{
+				foundCustomer.add(customer.get(i));
+			}
+		}
+		
+		return foundCustomer;
 	}
 
 	@Override
-	public Customer findByCustomerEmailAddress(String customerEmail) {
-		// TODO Auto-generated method stub
-		return null;
+	public Customer findByCustomerEmailAddress(String customerEmail) 
+	{
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		Customer foundCustomer = new Customer();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerEmail().equalsIgnoreCase(customerEmail));
+			{
+				foundCustomer = customer.get(i);			
+			}
+		}
+		
+		return foundCustomer;
+		
 	}
 
 	@Override
-	public Customer findByCustomerUsername(String customerUsername) {
-		// TODO Auto-generated method stub
-		return null;
+	public Customer findByCustomerUsername(String customerUsername) 
+	{
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		Customer foundCustomer = new Customer();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerUsername().equalsIgnoreCase(customerUsername));
+			{
+				foundCustomer = customer.get(i);			
+			}
+		}
+		
+		return foundCustomer;
+		
 	}
 
 	@Override
-	public List<Customer> findByCustomerAddress(ArrayList<Address> addressArray) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> findByCustomerAddress(ArrayList<Address> addressArray) 
+	{
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
+		
+		
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			/*if(customer.get(i).getCustomerUsername().equalsIgnoreCase(customerAddress));
+			{
+				Address tempAddress = new Address();
+				
+				foundCustomer.add(customer.get(i));			
+			}*/
+		}
+		
+		return foundCustomer;
 	}
 
 }
