@@ -62,7 +62,7 @@ public interface CustomerRepository extends MongoRepository<Customer, Integer>
 	 * @param addressArray
 	 * @return
 	 */
-	public List<Customer> findByCustomerAddress(ArrayList<Address> addressArray);
+	public List<Customer> findByCustomerAddress(Address addressArray);
 
 	
 }
