@@ -60,7 +60,7 @@ public class SupplierTest {
 	@Test
 	public void testGetPhone(){
 		String result = tester.getPhone();
-		assertEquals(result, 12321);
+		assertEquals(result, "12321");
 	}
 	
 	@Test

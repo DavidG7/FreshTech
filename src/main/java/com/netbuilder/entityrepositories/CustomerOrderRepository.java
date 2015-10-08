@@ -1,4 +1,4 @@
-package com.netbuilder.entitymanagers;
+package com.netbuilder.entityrepositories;
 import java.util.ArrayList;
 import java.util.Date;
 
