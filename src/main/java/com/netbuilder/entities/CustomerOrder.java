@@ -1,5 +1,6 @@
 package com.netbuilder.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import com.netbuilder.data.DummyData;
 
 /**
  * @author Ricky Luu Holds customers Orders details
@@ -26,8 +29,10 @@ public class CustomerOrder {
 	private int  customerID;
 	private Date dateOfOrder;
 	private String customerOrderStatus;
-	private int orderTotal;
+	private float orderTotal;
 	private String deliveryAddress;
+	private DummyData data = new DummyData();
+	
 	
 
 	public CustomerOrder() {
@@ -52,12 +57,16 @@ public class CustomerOrder {
 		this.deliveryAddress = deliveryAddress;
 		
 		
+		
 	}
 
 	/**
 	 * Updates Customer Orders
 	 */
-	public void updateCustomerOrder() {}
+	public void updateCustomerOrder() {
+		
+		
+	}
 	/**
 	 * Displays Orders
 	 */
@@ -75,7 +84,7 @@ public class CustomerOrder {
 	public void setDeliveryAddress(String deliveryAddress) {this.deliveryAddress = deliveryAddress;}
 	public int getCustomerID () {return customerID;}
 	public void setCustomerID(int customerID) {this.customerID = customerID;}
-	public int getOrderTotal() {return orderTotal;}
+	public float getOrderTotal() {return orderTotal;}
 	public void setOrderTotal(int orderTotal) {this.orderTotal = orderTotal;}
 	
 	

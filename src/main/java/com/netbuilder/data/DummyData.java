@@ -57,16 +57,49 @@ public class DummyData {
 
 		
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public <T>ArrayList<T> getEntitiyList(String entityName){
+		if(entityName.equalsIgnoreCase("employees")){
+			return (ArrayList<T>) employees;
+		}
+		if(entityName.equalsIgnoreCase("payment")){
+			return (ArrayList<T>) payments;
+		}
+		if(entityName.equalsIgnoreCase("address")){
+			return (ArrayList<T>) addresses;
+		}
+		if(entityName.equalsIgnoreCase("customer")){
+			return (ArrayList<T>) customers;
+		}
+		if(entityName.equalsIgnoreCase("customerOrder")){
+			return (ArrayList<T>) customerOrders;
+		}
+		if(entityName.equalsIgnoreCase("product")){
+			return (ArrayList<T>) products;
+		}
+		if(entityName.equalsIgnoreCase("purchaseOrder")){
+			return (ArrayList<T>) purchaseOrders;
+		}
+		if(entityName.equalsIgnoreCase("supplier")){
+			return (ArrayList<T>) suppliers;
+		}
+		
+		return  new ArrayList<T>();
+	}
 
 	/**
 	 * This is a generic get method. 
 	 * If an array of the passed in entity exists it will return it.
 	 * If no array of the passed in entity exists it will return an empty array.
 	 * As we add entities we will need to add if statements for each one.
-	 * 
+	 * @deprecated use getEntityList(String entityName)
 	 * @param entityType
 	 * @return
 	 */
+	
+	@Deprecated
 	@SuppressWarnings("unchecked")
 	public <E> ArrayList<E> getEntityList(E entityType) {
 		
