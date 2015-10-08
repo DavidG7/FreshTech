@@ -18,6 +18,7 @@ public class Employee {
 	@GeneratedValue ( 
 	strategy = GenerationType.IDENTITY)
 	private int employeeID;
+	
 	private String employeeName;
 	private String employeeUsername;
 	private String employeePassword;
