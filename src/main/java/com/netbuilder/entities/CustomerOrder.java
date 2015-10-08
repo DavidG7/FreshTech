@@ -31,7 +31,7 @@ public class CustomerOrder {
 	private String customerOrderStatus;
 	private float orderTotal;
 	private String deliveryAddress;
-	private DummyData data = new DummyData();
+	//private DummyData data = new DummyData();
 	
 	
 
