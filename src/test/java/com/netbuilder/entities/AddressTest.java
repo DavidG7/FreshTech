@@ -14,12 +14,16 @@ import org.junit.Test;
  */ 
 
 	public class AddressTest {
-		     Address address = new Address(123,"netbuilder way","mc123g",1);
+		     static Address address;
 
+		     @BeforeClass
+		     public static void testConstructor(){
+		    	 address = new Address(123,"netbuilder way","mc123g",1);
+		     }
 
 		     @Test
 		     public void 	AddressGetters(){
-		    	 assertEquals(123, address.getAddressid());
+		    	assertEquals(123, address.getAddressid());
 		 		assertEquals("netbuilder way", address.getAddress());
 		 		assertEquals("mc123g", address.getPostcode());
 		 		assertEquals(1, address.getCustomerid());

@@ -1,7 +1,6 @@
 package com.netbuilder.entities;
 
 import java.io.Serializable;
-import java.sql.Struct;
 import java.util.ArrayList;
 
 import org.springframework.data.annotation.Id;
@@ -117,28 +116,8 @@ public class Customer implements Serializable
 		this.customerUsername = custUsername;
 		this.customerPassword = custPassword;
 		
-		if(ContactMethod.EMAIL.toString().equalsIgnoreCase(preferedContactMethod))
-		{
-			this.preferredCustomerContactMethod = preferredCustomerContactMethod.EMAIL;
-		}
-		else if(ContactMethod.PHONE.toString().equalsIgnoreCase(preferedContactMethod))
-		{
-			this.preferredCustomerContactMethod = preferredCustomerContactMethod.PHONE;
-		}
-		else if(ContactMethod.MAIL.toString().equalsIgnoreCase(preferedContactMethod))
-		{
-			this.preferredCustomerContactMethod = preferredCustomerContactMethod.MAIL;
-		}
-		else
-		{
-			/*
-			 * Need to system.out.println this error when there is a UI.
-			 */
+		setCustomerContactMethod(preferedContactMethod);
 			
-			this.preferredCustomerContactMethod = null;
-			
-			
-		}
 	}
 	
 	public int getCustomerID() 
