@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.cglib.core.CollectionUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
+import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.CustomerRepository;
 
 /**
@@ -28,9 +28,11 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	private DummyData initialData = new DummyData();
 
 	@Override
-	public List<Customer> findAll() {
+	public List<Customer> findAll() 
+	{
 		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
-		return null;
+		
+		return customer;
 	}
 
 	@Override
@@ -70,14 +72,34 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Integer customerID) 
+	{
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
 		
+		for(int i = 0; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerID() == customerID)
+			{
+				customer.remove(i);
+			}
+		}
+		
+		initialData.setEntityList(customer);
 	}
 
 	@Override
 	public void delete(Customer arg0) {
-		// TODO Auto-generated method stub
+		
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		
+		for(Customer c : customer)
+		{
+			if(c.equals(arg0))
+			{
+				initialData.getEntityList(new Customer()).remove(c);
+			}
+		}
+		
 		
 	}
 
@@ -89,8 +111,12 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
 		
+		for(Customer c : customer)
+		{
+			initialData.getEntityList(new Customer()).remove(c);
+		}
 	}
 
 	@Override
