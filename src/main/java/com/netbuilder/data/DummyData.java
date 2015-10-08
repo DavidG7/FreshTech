@@ -8,9 +8,8 @@ import javax.ejb.Singleton;
 import com.netbuilder.entities.*;
 
 /**
- * 
  * @author dgordon
- *
+ * @author pnewman
  */
 
 @Singleton
@@ -25,7 +24,9 @@ public class DummyData {
 	private ArrayList<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
 	private ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
 	
-	
+	/**
+	 * This constructor instantiates dummy data for all entities.
+	 */
 	public DummyData() {
 		employees.add(new Employee("Ben Back", "BennyBack7","spikelife7", 1));
 		employees.add(new Employee("Ray Smithy", "ArrogantManNum1", "sellsomeshit", 1));
