@@ -1,6 +1,8 @@
 package com.netbuilder.entities;
 
 import java.io.Serializable;
+//import com.netbuilder.entities.*;
+//import com.netbuilder.data.DummyData;
 
 /**
  * 
@@ -130,6 +132,9 @@ public class Product implements Serializable  {
 	 * 
 	 */
 	public void viewProductList(){
+		//DummyData dummyData = new DummyData();
+		
+		//dummyData.getEntityList(products.getclass());
 		/*connect to database
 		 * String[] prodList = new String[#products]
 		 * 
