@@ -25,7 +25,7 @@ public class CustomerOrderTest {
 
 	@Test
 	public void testUpdateCustomerOrder() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
