@@ -53,7 +53,7 @@ public class DummyData {
 		
 		suppliers.add(new Supplier(1,"name1"));
 		suppliers.add(new Supplier(2,"name2"));
-		suppliers.add(new Supplier(4,"name3", "email3", "phone3", "pref3"));
+		suppliers.add(new Supplier(3,"name3", "email3", "phone3", "pref3"));
 		suppliers.add(new Supplier(4,"name4", "email4", "phone4", "pref4"));
 
 		
@@ -92,10 +92,23 @@ public class DummyData {
 	*/
 
 	/**
+	 * * * * * * * * Usage: READ * * * * * * * *
 	 * This is a generic get method. 
 	 * If an array of the passed in entity exists it will return it.
 	 * If no array of the passed in entity exists it will return an empty array.
 	 * As we add entities we will need to add if statements for each one.
+	 * 
+	 * Example usage:
+	 * 
+	 * ArrayList<Employee> employeeList = getEntityList(new Employee())		//call current employee list
+	 * for(Employee employee : employeeList){								//iterate through the list
+	 * 		System.out.println(product.getEmployeeName());						//and print all the employee names
+	 * }
+	 * 
+	 * Console:
+	 * >Ben Back
+	 * >Ray Smithy
+	 * 
 	 * @param entityType
 	 * @return
 	 */
@@ -157,10 +170,17 @@ public class DummyData {
 	}
 
 	/**
+	 * * * * * * * * Usage: CREATE, UPDATE, DELETE * * * * * * * *
 	 * This is a generic set method. 
 	 * If an array of the same type as the passed in array exists it will replace the stored array.
 	 * If no array of the same type exists then nothing will happen.
 	 * As we add entities we will need to add if statements for each one.
+	 * 
+	 * Example usage (UPDATE):
+	 * 
+	 * ArrayList employeeList = getEntityList(new Employee());      //call current employee list
+	 * employeeList.add(Employee("John Mann", "JonhhyM", "john23", 3));   //add a new entry for John Mann
+	 * setEntityList(employeeList);                                 //set the new list to be the employee list
 	 * 
 	 * @param entities
 	 */
