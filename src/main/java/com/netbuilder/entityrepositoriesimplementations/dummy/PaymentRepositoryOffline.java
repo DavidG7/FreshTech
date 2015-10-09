@@ -3,7 +3,6 @@ package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
