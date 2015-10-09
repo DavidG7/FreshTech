@@ -2,7 +2,7 @@
 
 <bean 
 	class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
-	p:prefix="/WEB-INF/jsp" 
+	p:prefix="/WEB-INF" 
 	p:suffix=".jsp" 
 	p:order="1"
 />
