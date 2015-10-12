@@ -1,0 +1,21 @@
+h4{
+	 display: inline-block;
+}
+
+.address {
+	float: center;
+}
+
+.telephone {
+	float: left;
+	 width: 30%;
+}
+.email {
+	float: right;
+	
+}
+p{
+	
+display: inline-block;
+font-size: 24px;
+}
