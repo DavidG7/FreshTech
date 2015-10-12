@@ -61,7 +61,11 @@
 	/*
 	margin-top : 100px;
 	*/
+<<<<<<< HEAD
 >>>>>>> 13f55b8802e5e732ce80b4217998ee9c3aebbb71
+=======
+	clear : both;
+>>>>>>> 8b4bbd08a0299ebfc3af31a164fec5e1395c8158
 }
 
 .navbar-nav li a:hover{
