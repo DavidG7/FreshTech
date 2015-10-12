@@ -1,9 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-#carousel-main {
-	margin-top : -30px;
-}
-
 .carousel .item {
   height: 300px;
 }
