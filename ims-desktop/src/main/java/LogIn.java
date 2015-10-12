@@ -5,7 +5,8 @@ import javax.swing.*;
 public class LogIn extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	JTextField userField, passField;
+	JTextField userField;
+	JPasswordField passField;
     Font regularFont, italicFont;
     JLabel logInDisplay;
     final static int GAP = 10;
@@ -16,13 +17,23 @@ public class LogIn extends JPanel implements ActionListener {
         JPanel leftHalf = new JPanel() {
 			private static final long serialVersionUID = 1L;
         };
-        JPanel ;
+        JPanel rightHalf = new JPanel(){
+			private static final long serialVersionUID = 1L;
+        	
+        };
         leftHalf.setLayout(new BoxLayout(leftHalf,BoxLayout.PAGE_AXIS));
+        rightHalf.setLayout(new BorderLayout());
+        rightHalf.add(new JLabel("  Welcome to NBGardens IMS"), BorderLayout.CENTER);
+        
         leftHalf.add(createEntryFields());
         leftHalf.add(createButton());
  
         add(leftHalf);
-        add(createLogInDisplay());
+        add(new JSeparator(JSeparator.VERTICAL),BorderLayout.LINE_START);
+      //  add(createLogInDisplay());
+        add(rightHalf);
+
+
     }
  
     protected JComponent createButton() {
@@ -39,12 +50,9 @@ public class LogIn extends JPanel implements ActionListener {
         return panel;
     }
  
-    /**
-     * Called when the user clicks the button or presses
-     * Enter in a text field.
-     */
+
     public void actionPerformed(ActionEvent e) {
-       
+    	
     }
  
  
@@ -89,7 +97,7 @@ public class LogIn extends JPanel implements ActionListener {
         userField.setColumns(20);
         fields[fieldNum++] = userField;
  
-        passField = new JTextField();
+        passField = new JPasswordField();
         passField.setColumns(20);
         fields[fieldNum++] = passField;
 
