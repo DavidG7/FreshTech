@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 public class LogIn extends JPanel implements ActionListener {
@@ -16,7 +17,7 @@ public class LogIn extends JPanel implements ActionListener {
         JPanel leftHalf = new JPanel() {
 			private static final long serialVersionUID = 1L;
         };
-        JPanel ;
+        
         leftHalf.setLayout(new BoxLayout(leftHalf,BoxLayout.PAGE_AXIS));
         leftHalf.add(createEntryFields());
         leftHalf.add(createButton());
@@ -116,13 +117,14 @@ public class LogIn extends JPanel implements ActionListener {
  
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Please Log In");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      //  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
-        frame.add(new LogIn());
-
+        //frame.add(new LogIn());
+        //frame.setSize(300, 300);
+       // frame.setLayout(new GridLayout(4, 1));
+        frame.add(new AddDiscontinue());
         frame.pack();
-        frame.setResizable(false);
-        frame.setLocation(700,300);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
  
