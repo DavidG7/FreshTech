@@ -21,12 +21,13 @@
 
 .jumbotron{
 	margin-top : -25px;
-	margin-bottom : -30px;
-	padding-left : 20px;
+	margin-bottom : 0px;
+	padding-left : 40px;
 	background : #006600;
 	color:white;
 	padding-top : 10px;
 	padding-bottom : 20px;
+
 }
 
 #top-search {
@@ -46,12 +47,13 @@
 }
 
 .panel-footer {
-	position : relative;
+	position : fixed;
 	bottom:0;
 	width:100%;
   	height: 100px;
 	background : rgb(34,34,34);
 	color:white;
+	margin-top : 30px;
 }
 
 .navbar-nav li a:hover{
