@@ -20,8 +20,8 @@ public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerOrderID;
-	@ManyToOne
-	@PrimaryKeyJoinColumn(name = "customerID"
+	//@ManyToOne
+	@PrimaryKeyJoinColumn(name = "customerOrderID"
 
 	)
 	private int  customerID;
