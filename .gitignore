@@ -3,3 +3,13 @@
 .classpath
 
 /target/
+fire/bin/
+
+fire/.classpath
+
+fire/target/
+ims-desktop/bin/
+
+ims-desktop/.classpath
+
+ims-desktop/target/
