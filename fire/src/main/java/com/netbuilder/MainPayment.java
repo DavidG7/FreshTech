@@ -1,3 +1,4 @@
+
 package com.netbuilder;
 
 import java.util.List;
@@ -7,21 +8,17 @@ import org.springframework.context.annotation.*;
 
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Payment;
+import com.netbuilder.entityrepositories.PaymentRepository;
 import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryOffline;
+import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryOfflineConfig;
 
-public class MainDummy {
+public class MainPayment {
    public static void main(String[] args) {
 	   
 	   ApplicationContext ctx = new AnnotationConfigApplicationContext(PaymentRepositoryOfflineConfig.class);
 	   
-	   PaymentRepositoryOffline paymentRepo = ctx.getBean(PaymentRepositoryOffline.class);
+	   PaymentRepository paymentRepo = ctx.getBean(PaymentRepositoryOffline.class);
 	   
-	   /*
-      ApplicationContext ctx = 
-      new AnnotationConfigApplicationContext(DummyConfig.class);
-   
-      DummyData dummyData = ctx.getBean(DummyData.class);
-      */
       List<Payment> payments =  paymentRepo.findAll();
 		
 		for (Payment payment : payments){

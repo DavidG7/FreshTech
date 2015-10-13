@@ -15,12 +15,9 @@
 	float:left; margin:10px;
 }
 #topfont{
-	font-size: 20px;
+	font-size: 10px;
 }
-.container > span:hover:before {
-   content: "\2605";
-   position: absolute;
-}
-#space{
-	margin-bottom : 300px;
+#totheright{
+	float:right;
+	font-size:16px;
 }
