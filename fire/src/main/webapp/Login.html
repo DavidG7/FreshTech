@@ -11,9 +11,11 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "PaymentAgreement.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "ChooseAddress.css"/>
+		
+		<link type = "text/css" rel = "stylesheet" href = "Login.css"/>
 
-		<title>NB Gardens Payment Agreement</title>
+		<title>NB Gardens Add Details</title>
 		
 	</head>
 	
@@ -65,7 +67,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="ProductCatalogue.html" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>
@@ -76,7 +78,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="ProductCatalogue.html" id = "home-button-top">
+		        		<a href="Landing.html" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
@@ -100,7 +102,7 @@
 		          
 		          		</a>
 		          
-			          	<ul class="dropdown-menu" id="basket-dropdown">
+			         <ul class="dropdown-menu" id="basket-dropdown">
 				            <li><a href="Basket.html">View basket</a></li>
 				            <li><a href="PaymentAgreement.html">Checkout</a></li>
 				            <li><a href="AddPaymentDetails.html">Review Payment Methods</a></li>
@@ -159,9 +161,10 @@
 		
 			<div class = "jumbotron">
 			
-				<h2> <b> Payment Agreement </b> </h2>
+				<h2> <b> Login </b> </h2>
 				
-				<h4> Please review your items below before proceeding to payment. </h4>				
+				<h4> Please enter Log in details </h4>
+						
 			
 			</div>		
 
@@ -173,75 +176,20 @@
 			
 		
 		<div class = "panel-body">
-	    <form action="action_page.php">
-		
-	<div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <div id="rightpanel">
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 </div>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>  
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>   
-	 <br>
-     <h4>To be delivered to:</h4>
-     	<p>Bob Jones</p>
-     	<p>12 Gnomeway Drive</p>
-     	<p>Gnomington </p>
-     	<p>Cheshire </p>
-     	<p>England </p>
-     	<p>M45 5GH</p>       
-       
-       
-     <br>
-     <br>
-       <a href="Basket.html"><img class="img-responsive left-block" src="ImageFolder/Proceedtocheckout.png" alt="Proceedtocheckout"></a>
-     <br>
-     <br>
-       <a href="ChooseAddress.html"><img class="img-responsive left-block" src="ImageFolder/Editdeliverydetails.png" alt="Editdeliverydetails"></a>
-  
-  
+	    
+	   <div id="centre">
+		    <p>Username :<br>
+			<input type = "text" name = "username">
+			</p>
+			
+			<p>Password :<br>
+			<input type = "text" name = "password">
+			</p>
+			
+			<a href="#"><img class="img-responsive Center-block" src="ImageFolder/Login.png" alt="Login"></a>
 		</div>
-</form>
+	   
+
 </div>
 
 <div id = "space"></div>

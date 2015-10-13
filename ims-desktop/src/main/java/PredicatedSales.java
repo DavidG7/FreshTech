@@ -7,7 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
-
+/**
+ * 
+ * @author Ricky Luu
+ *
+ */
 public class PredicatedSales extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -43,5 +47,5 @@ public class PredicatedSales extends JFrame {
 	
 	public static void main(String [] args){
 		new PredicatedSales();
-	}
+ }
 }
