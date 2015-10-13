@@ -1,6 +1,7 @@
-import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -29,34 +30,38 @@ public class PurchaseOrder extends JPanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JPanel purchaseOrderPanel;	
-
 	public PurchaseOrder()
 	{		
-		setLayout(new FlowLayout());
-		
-		purchaseOrderPanel = new JPanel();
-		
+		setLayout(new GridLayout(5,5));
+			
 		add(createInformationPanel());
 		add(createProductListPanel());
 		add(createPurchaseOrderInfoPanel());
-		add(createActionPanel());
-				
-		add(purchaseOrderPanel);
-						
+
 	}
 	
 	public JComponent createInformationPanel()
 	{
-		JPanel infoPanel = new JPanel(new FlowLayout());
+		JPanel infoPanel = new JPanel(new GridBagLayout());
+		
+		GridBagConstraints c = new GridBagConstraints();
 		
 		JLabel title = new JLabel("Purchase Order");
 		JLabel subTitle = new JLabel("Place a purchase order here");
 		
 		title.setLocation(10,  10);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		
+		
 		subTitle.setLocation(10, 40);
 		
+		
+		
 		infoPanel.add(title);
+		
+		
+		
 		infoPanel.add(subTitle);
 		
 		return infoPanel;
@@ -66,7 +71,7 @@ public class PurchaseOrder extends JPanel
 	{
 		JPanel productPanel = new JPanel();
 		
-		productPanel.setLayout(new FlowLayout());
+		productPanel.setLayout(new GridLayout(2, 1));
 		
 		JLabel instructionSet = new JLabel ("(1) Select a product");
 		
@@ -79,16 +84,18 @@ public class PurchaseOrder extends JPanel
 		
 		JScrollPane scrollPane = new JScrollPane(productTable);
 		
+		JButton placeOrder = new JButton("Place Order");
+				
 		productPanel.add(instructionSet);
 		productPanel.add(scrollPane);
+		productPanel.add(placeOrder);
 		
 		return productPanel;
-		
 	}
 	
 	public JComponent createPurchaseOrderInfoPanel()
 	{
-		JPanel orderInfoPanel = new JPanel(new FlowLayout());
+		JPanel orderInfoPanel = new JPanel(new GridLayout(4, 1));
 		
 		String[] tempNames = new String[5];
 		
@@ -118,20 +125,7 @@ public class PurchaseOrder extends JPanel
 		
 		return orderInfoPanel;
 	}
-	
-	public JComponent createActionPanel()
-	{		
-		JPanel actionPanel = new JPanel();
-		
-		actionPanel.setLayout(new FlowLayout());
-		
-		JButton placeOrder = new JButton("Place Order");
-		
-		actionPanel.add(placeOrder);
-		
-		return actionPanel;
-	}
-	
+
 	public static void createJFrame()
 	{
 		JFrame main = new JFrame("Purchase Order");
