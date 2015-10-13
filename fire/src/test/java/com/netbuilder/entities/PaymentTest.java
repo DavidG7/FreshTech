@@ -28,12 +28,14 @@ public class PaymentTest {
 
 	}
 	
+	@Test
 	public void testSetCardNumber(){
 		
 		assertEquals("Actual was not expected",2, testing.getCardNumber());
 	
 	}	
 	
+	@Test
 	public void testSetSortCode(){
 		
 		assertEquals("Actual was not expected","test", testing.getSortCode());

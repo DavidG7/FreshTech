@@ -9,15 +9,15 @@ import org.springframework.context.annotation.*;
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Payment;
 import com.netbuilder.entityrepositories.PaymentRepository;
-import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryOffline;
-import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryOfflineConfig;
+import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryDummy;
+import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryDummyConfig;
 
 public class MainPayment {
    public static void main(String[] args) {
 	   
-	   ApplicationContext ctx = new AnnotationConfigApplicationContext(PaymentRepositoryOfflineConfig.class);
+	   ApplicationContext ctx = new AnnotationConfigApplicationContext(PaymentRepositoryDummyConfig.class);
 	   
-	   PaymentRepository paymentRepo = ctx.getBean(PaymentRepositoryOffline.class);
+	   PaymentRepository paymentRepo = ctx.getBean(PaymentRepositoryDummy.class);
 	   
       List<Payment> payments =  paymentRepo.findAll();
 		

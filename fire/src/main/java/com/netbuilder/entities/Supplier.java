@@ -30,8 +30,8 @@ public class Supplier {
 	private int supplierId;
 	
 	private String supplierName;
-	private String email = "";
-	private String phone = "";
+	private String supplierEmail = "";
+	private String supplierPhone = "";
 	private ContactMethod preferredContactMethod = ContactMethod.NONE;
 	
 	public Supplier (int id, String name){
@@ -42,8 +42,8 @@ public class Supplier {
 	public Supplier (int id, String name, String email, String phone, ContactMethod pref){
 		this.supplierId = id;
 		this.supplierName = name;
-		this.email = email;
-		this.phone = phone;
+		this.supplierEmail = email;
+		this.supplierPhone = phone;
 		this.preferredContactMethod = pref; //This may be better as an Enum
 	}
 	
@@ -53,11 +53,11 @@ public class Supplier {
 	public void setName(String x){	supplierName = x;	}
 	public String getName(){	return supplierName;	}
 	
-	public void setEmail(String x){	email = x;	}
-	public String getEmail(){	return email;	}
+	public void setEmail(String x){	supplierEmail = x;	}
+	public String getEmail(){	return supplierEmail;	}
 	
-	public void setPhone(String x){	phone = x;	}
-	public String getPhone(){	return phone;	}
+	public void setPhone(String x){	supplierPhone = x;	}
+	public String getPhone(){	return supplierPhone;	}
 	
 	public void setPreferredContactMethod(ContactMethod x){	preferredContactMethod = x;	}
 	public ContactMethod getPreferredContactMethod(){	return preferredContactMethod;	}

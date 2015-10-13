@@ -20,7 +20,7 @@ public class CustomerOrder {
 	@PrimaryKeyJoinColumn(name = "customerOrderID")
 	private int  customerID;
 	private Date dateOfOrder;
-	private String customerOrderStatus;
+	private String orderStatus;
 	private float orderTotal;
 	private String deliveryAddress;
 	//private DummyData data = new DummyData();
@@ -41,7 +41,7 @@ public class CustomerOrder {
 		this.customerOrderID = customerOrderID;
 		this.customerID = customerID;
 		this.dateOfOrder = dataOfOrder;
-		this.customerOrderStatus = customerOrderStatus;
+		this.orderStatus = customerOrderStatus;
 		this.deliveryAddress = deliveryAddress;
 	}
 
@@ -56,15 +56,15 @@ public class CustomerOrder {
 	 * Displays Orders
 	 */
 	public String  viewCustomerOrder() {
-		return  "OrderID:" +customerOrderID + "\nCustomerID:"+customerID+"\nCustomer Order Status:"+customerOrderStatus+ "\nDelivery Address:"+deliveryAddress;
+		return  "OrderID:" +customerOrderID + "\nCustomerID:"+customerID+"\nCustomer Order Status:"+orderStatus+ "\nDelivery Address:"+deliveryAddress;
 	}
 	
 	public Date getDateOfOrder() {return dateOfOrder;}
 	public void setDateOfOrder(Date dateOfOrder) {this.dateOfOrder = dateOfOrder;}
 	public int getCustomerOrderID() {return customerOrderID;}
 	public void setCustomerOrderID(int customerOrderID) {this.customerOrderID = customerOrderID;}
-	public String getCustomerOrderStatus() {return customerOrderStatus;}
-	public void setCustomerOrderStatus(String customerOrderStatus) {this.customerOrderStatus = customerOrderStatus;}
+	public String getCustomerOrderStatus() {return orderStatus;}
+	public void setCustomerOrderStatus(String customerOrderStatus) {this.orderStatus = customerOrderStatus;}
 	public String getDeliveryAddress() {return deliveryAddress;}
 	public void setDeliveryAddress(String deliveryAddress) {this.deliveryAddress = deliveryAddress;}
 	public int getCustomerID () {return customerID;}

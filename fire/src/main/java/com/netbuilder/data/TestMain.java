@@ -7,7 +7,7 @@ import com.netbuilder.entityrepositoriesimplementations.dummy.*;
 
 public class TestMain {
 	public static void main(String[] args) {
-		PaymentRepositoryOffline paymentRepo = new PaymentRepositoryOffline();
+		PaymentRepositoryDummy paymentRepo = new PaymentRepositoryDummy();
 		ArrayList<Payment> payments = (ArrayList<Payment>) paymentRepo.findAll();
 		/* TODO Auto-generated method stub
 		DummyData dummyData = new DummyData();

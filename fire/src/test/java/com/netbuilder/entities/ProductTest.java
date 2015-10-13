@@ -17,14 +17,14 @@ public class ProductTest {
 	}
 	
 	@Test
-	public void testGetProdId(){
+	public void testGetProdID(){
 		int result = product.getProductId();
 		
 		assertEquals(1, result);
 	}
 	
 	@Test
-	public void testSetProdId(){
+	public void testSetProdID(){
 		int num = 234;
 		product.setProductId(num);
 		int value = product.getProductId();
