@@ -1,7 +1,10 @@
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -9,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -32,11 +36,21 @@ public class PurchaseOrder extends JPanel
 
 	public PurchaseOrder()
 	{		
-		setLayout(new GridLayout(5,5));
+		setLayout(new GridLayout(2,1));
 			
 		add(createInformationPanel());
-		add(createProductListPanel());
-		add(createPurchaseOrderInfoPanel());
+		
+		JPanel splitPanel = new JPanel();
+		
+		splitPanel.setSize(600, 600);
+		splitPanel.setLayout(new BoxLayout(splitPanel, BoxLayout.LINE_AXIS));
+		
+		splitPanel.add(createProductListPanel());
+		splitPanel.add(new JSeparator(JSeparator.VERTICAL),BorderLayout.LINE_START);
+		
+		splitPanel.add(createPurchaseOrderInfoPanel());
+		
+		add(splitPanel);
 
 	}
 	
@@ -48,21 +62,20 @@ public class PurchaseOrder extends JPanel
 		
 		JLabel title = new JLabel("Purchase Order");
 		JLabel subTitle = new JLabel("Place a purchase order here");
+			
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
 		
-		title.setLocation(10,  10);
+		infoPanel.add(title, c);
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 1;
 		
+		infoPanel.add(subTitle, c);
 		
-		subTitle.setLocation(10, 40);
-		
-		
-		
-		infoPanel.add(title);
-		
-		
-		
-		infoPanel.add(subTitle);
+		infoPanel.setSize(600, 200);
 		
 		return infoPanel;
 	}
@@ -71,12 +84,18 @@ public class PurchaseOrder extends JPanel
 	{
 		JPanel productPanel = new JPanel();
 		
-		productPanel.setLayout(new GridLayout(2, 1));
+		GridBagConstraints c = new GridBagConstraints();
+		
+		productPanel.setLayout(new GridBagLayout());
 		
 		JLabel instructionSet = new JLabel ("(1) Select a product");
 		
 		DefaultTableModel productModel = new DefaultTableModel();
-		JTable productTable = new JTable(productModel);
+		
+		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
+		Object[][] data = new Object [5][5];
+		
+		JTable productTable = new JTable(data, colNames);
 	
 		productModel.addColumn("Product ID");
 		productModel.addColumn("Product Name");
@@ -86,16 +105,33 @@ public class PurchaseOrder extends JPanel
 		
 		JButton placeOrder = new JButton("Place Order");
 				
-		productPanel.add(instructionSet);
-		productPanel.add(scrollPane);
-		productPanel.add(placeOrder);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		productPanel.add(instructionSet, c);
+					
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0.5;
+		c.ipady = 200; 
+		c.gridx = 0;
+		c.gridy = 10;
+		productPanel.add(scrollPane, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0;
+		c.ipady = 1; 
+		c.gridx = 0;
+		c.gridy = 20;
+		productPanel.add(placeOrder, c);
 		
 		return productPanel;
 	}
 	
 	public JComponent createPurchaseOrderInfoPanel()
 	{
-		JPanel orderInfoPanel = new JPanel(new GridLayout(4, 1));
+		JPanel orderInfoPanel = new JPanel(new GridBagLayout());
+		
+		GridBagConstraints c = new GridBagConstraints();
 		
 		String[] tempNames = new String[5];
 		
@@ -118,10 +154,31 @@ public class PurchaseOrder extends JPanel
 		JComboBox<String> listOfSuppliers = new JComboBox<String>(tempNames);
 		JComboBox<String> quantityRequired = new JComboBox<String>(quantity);
 		
-		orderInfoPanel.add(instruction);
-		orderInfoPanel.add(listOfSuppliers);
-		orderInfoPanel.add(instructionTwo);
-		orderInfoPanel.add(quantityRequired);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipady = 20;
+		c.gridx = 0;
+		c.gridy = 0;
+		orderInfoPanel.add(instruction, c);
+				
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipady = 40;
+		c.gridx = 0;
+		c.gridy = 20;
+		orderInfoPanel.add(listOfSuppliers, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0;
+		c.ipady = 40; 
+		c.gridx = 0;
+		c.gridy = 40;
+		orderInfoPanel.add(instructionTwo, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 0;
+		c.ipady = 40;
+		c.gridx = 0;
+		c.gridy = 60;
+		orderInfoPanel.add(quantityRequired, c);
 		
 		return orderInfoPanel;
 	}
@@ -136,7 +193,9 @@ public class PurchaseOrder extends JPanel
 	
 		main.pack();
 	    
-	    main.setLocation(700,300);
+	    main.setLocation(400,300);
+	    main.setMinimumSize(new Dimension(800,600));
+	    main.setSize(800, 600);
 	    main.setVisible(true);
 	}
 		
