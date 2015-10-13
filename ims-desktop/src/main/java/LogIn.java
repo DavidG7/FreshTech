@@ -127,12 +127,14 @@ public class LogIn extends JPanel implements ActionListener {
  
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Please Log In");
+
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new LogIn());
        // frame.setSize(300, 300);
         frame.setLayout(new GridLayout(4, 1));
         //frame.add(new AddDiscontinue());
         frame.pack();
+
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
