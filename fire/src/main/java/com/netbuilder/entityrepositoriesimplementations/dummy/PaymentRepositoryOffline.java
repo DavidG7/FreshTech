@@ -6,6 +6,9 @@ import java.util.List;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -17,12 +20,15 @@ import com.netbuilder.data.DummyData;
 @Alternative
 public class PaymentRepositoryOffline implements PaymentRepository {
 	
-	/*
-	@Inject
-	private DummyData dummyData;
-	*/
+	@Bean
+	public PaymentRepositoryOffline paymentRepositoryOffline(){
+		return new PaymentRepositoryOffline();
+	}
 	
-	DummyData dummyData = new DummyData();
+	@Autowired
+	private DummyData dummyData;
+	
+	//DummyData dummyData = new DummyData();
 	
 	/**
 	 * This method returns all payment methods in an ArrayList.

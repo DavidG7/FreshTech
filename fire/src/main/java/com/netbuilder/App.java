@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Import;
+
 import com.netbuilder.entities.Payment;
 import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryOffline;
 
@@ -19,7 +23,10 @@ public class App  implements CommandLineRunner{
 	public void run(String... arg0) throws Exception {
 		System.out.println("hello world");
 		
-		PaymentRepositoryOffline paymentRepo = new PaymentRepositoryOffline();
+		ApplicationContext ctx = 
+			      new AnnotationConfigApplicationContext(PaymentRepositoryOffline.class);
+		
+		PaymentRepositoryOffline paymentRepo = ctx.getBean(PaymentRepositoryOffline.class);
 		ArrayList<Payment> payments = (ArrayList<Payment>) paymentRepo.findAll();
 		for(Payment payment : payments){
 			System.out.println(payment.getCardNumber());

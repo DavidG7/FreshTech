@@ -5,6 +5,10 @@ import java.util.Date;
 
 import javax.ejb.Singleton;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import com.netbuilder.entities.*;
 
 /**
@@ -57,6 +61,11 @@ public class DummyData {
 		suppliers.add(new Supplier(4,"name4", "email4", "phone4", "pref4"));
 
 		
+	}
+	
+	@Bean
+	public DummyData dummyData(){
+		return new DummyData();
 	}
 	
 	/*
