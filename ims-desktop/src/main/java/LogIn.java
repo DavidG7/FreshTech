@@ -130,10 +130,10 @@ public class LogIn extends JPanel implements ActionListener {
       //  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //frame.add(new LogIn());
-        //frame.setSize(300, 300);
+        frame.setSize(800, 600);
        // frame.setLayout(new GridLayout(4, 1));
         frame.add(new AddDiscontinue());
-        frame.pack();
+        //frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
