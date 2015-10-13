@@ -13,6 +13,6 @@
   <%
     }
   %>
-  <a href="<%= request.getRequestURI() %>"><h3>Try Again</h3></a>
+  <a href="/Landing.html"><h3>Try Again</h3></a>
 </body>
 </html>
