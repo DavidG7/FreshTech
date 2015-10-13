@@ -46,9 +46,6 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	 * @return ArrayList<CustomerOrder>
 	 *//*
 	public ArrayList<CustomerOrder> findByTotal(float total);
-	
-	
-
 
 }
 */

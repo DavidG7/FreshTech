@@ -26,9 +26,5 @@ public interface PurchaseOrderRepository  extends CrudRepository<PurchaseOrder, 
 	 *
 	
 	public List<PurchaseOrder> findByPurchaseOrderStatus(String PurchaseOrderStatus);
-	
-	
-
-
 }
 */

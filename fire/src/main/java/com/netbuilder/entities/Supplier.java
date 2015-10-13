@@ -4,14 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import com.netbuilder.util.ContactMethod;
 
 /**
- * 
  * @author cpoole
- *
- */
-
-/**
  * -------------------------------------------------------------------------------------------------------------------------------------
  * Supplier:
  * -------------------------------------------------------------------------------------------------------------------------------------
@@ -26,10 +22,8 @@ import javax.persistence.Id;
  * 			  Currently a String is being used with either the value "Phone" or "Email"
  * -------------------------------------------------------------------------------------------------------------------------------------
  */
-
 @Entity
 public class Supplier {
-	
 	@Id
 	@GeneratedValue(
 	strategy = GenerationType.IDENTITY)
@@ -38,16 +32,14 @@ public class Supplier {
 	private String supplierName;
 	private String email = "";
 	private String phone = "";
-	private String preferredContactMethod = "";
-	
-	
+	private ContactMethod preferredContactMethod = ContactMethod.NONE;
 	
 	public Supplier (int id, String name){
 		this.supplierId = id;
 		this.supplierName = name;
 	}
 	
-	public Supplier (int id, String name, String email, String phone, String pref){
+	public Supplier (int id, String name, String email, String phone, ContactMethod pref){
 		this.supplierId = id;
 		this.supplierName = name;
 		this.email = email;
@@ -67,6 +59,6 @@ public class Supplier {
 	public void setPhone(String x){	phone = x;	}
 	public String getPhone(){	return phone;	}
 	
-	public void setPreferredContactMethod(String x){	preferredContactMethod = x;	}
-	public String getPreferredContactMethod(){	return preferredContactMethod;	}
+	public void setPreferredContactMethod(ContactMethod x){	preferredContactMethod = x;	}
+	public ContactMethod getPreferredContactMethod(){	return preferredContactMethod;	}
 }

@@ -10,10 +10,6 @@ import javax.persistence.Id;
  *
  */
 public class Product implements Serializable  {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7337349035516644812L;
 	private boolean discontinued = false;
 	private boolean porusware = false;
@@ -36,7 +32,7 @@ public class Product implements Serializable  {
 	 * and the other which sends out an alert when the stock level of a product increases.
 	 *
 	 */
-	public Product(){}
+	public Product() { }
 	
 	public Product(int productID, int stock_level, float the_price, String product_category, String product_name){
 		productName = product_name;
@@ -122,7 +118,6 @@ public class Product implements Serializable  {
 		return this.image;
 	}
 	
-	
 	public void setProductName(String value){
 		this.productName = value;
 	}
@@ -133,7 +128,9 @@ public class Product implements Serializable  {
 	/**
 	 * 
 	 */
+	@Deprecated
 	public void viewProductList(){
+		// TODO
 		/*connect to database
 		 * String[] prodList = new String[#products]
 		 * 
@@ -146,8 +143,9 @@ public class Product implements Serializable  {
 		 */ 
 	}
 	
-	
+	@Deprecated
 	public void alertStockIncrease(){
+		// TODO
 		/*connect to database
 		 *setStockLevel(stockLevel + newDeliveryLevel)
 		 * System.out.println(Product + " stock level is: " + stockLevel);
