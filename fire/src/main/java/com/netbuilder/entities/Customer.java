@@ -22,7 +22,7 @@ public class Customer implements Serializable {
 	private int customerID;
 	private String customerPhone;
 	
-	private float availableCredit; 
+	private float customerAvailableCredit; 
 	
 	private String customerName;
 	private String customerEmail;
@@ -40,17 +40,17 @@ public class Customer implements Serializable {
 	 * 
 	 * @param custID
 	 * @param custPhone
-	 * @param availableCred
+	 * @param customerAvailableCred
 	 * @param custName
 	 * @param custEmail
 	 * @param custUsername
 	 * @param custPassword
 	 */
-	public Customer(int custID, String custPhone, float availableCred, String custName, 
+	public Customer(int custID, String custPhone, float customerAvailableCred, String custName, 
 			String custEmail, String custUsername, String custPassword) {
 		this.customerID = custID;
 		this.customerPhone = custPhone;
-		this.availableCredit = availableCred;
+		this.customerAvailableCredit = customerAvailableCred;
 		this.customerName = custName;
 		this.customerEmail = custEmail;
 		this.customerUsername = custUsername;
@@ -61,7 +61,7 @@ public class Customer implements Serializable {
 			String custEmail, String custUsername, String custPassword, String preferedContactMethod) {
 		this.customerID = custID;
 		this.customerPhone = custPhone;
-		this.availableCredit = availableCred;
+		this.customerAvailableCredit = availableCred;
 		this.customerName = custName;
 		this.customerEmail = custEmail;
 		this.customerUsername = custUsername;
@@ -89,11 +89,11 @@ public class Customer implements Serializable {
 	}
 
 	public float getAvailableCredit() {
-		return availableCredit;
+		return customerAvailableCredit;
 	}
 
 	public void setAvailableCredit(float availableCredit) {
-		this.availableCredit = availableCredit;
+		this.customerAvailableCredit = availableCredit;
 	}
 
 	public String getCustomerName() {
@@ -139,9 +139,9 @@ public class Customer implements Serializable {
 			this.preferredCustomerContactMethod = ContactMethod.MAIL;
 		}
 		else {
-			/*
-			 * TODO Need to system.out.println this error when there is a UI.
-			 */
+			
+			 //TODO Need to system.out.println this error when there is a UI.
+			 
 		}
 			
 	}
@@ -150,6 +150,7 @@ public class Customer implements Serializable {
 		return this.preferredCustomerContactMethod.toString();
 	}
 	
+
 	public ArrayList<Address> getCustomerAddressArray() {
 		return addressArray;
 	}
@@ -157,6 +158,7 @@ public class Customer implements Serializable {
 	public Address getCustomerAddressAt(int i) {
 		return addressArray.get(i);
 	}
+	
 	
 	/**
 	 * Method that allows the customer to log in to the website.

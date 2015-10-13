@@ -18,16 +18,17 @@ ul.rig li {
 	-webkit-box-sizing: border-box;
 }
 ul.rig li img {
-	max-width: 100%;
+	max-width: 40%;
 	height: auto;
 	margin: 0 0 10px;
+	float: right;
 }
 ul.rig li h3 {
 	margin: 0 0 5px;
 		color: #333333;
 }
 ul.rig li p {
-	font-size: 4em;
+	font-size: 2em;
 	line-height: 1.5em;
 	color: #333333;
 }
@@ -56,10 +57,15 @@ ul.rig.columns-4 li {
 		margin-left: 0;
 	}
 	ul.rig li {
-		width: 100% !important; /* over-ride all li styles */
+		width: 30% !important; /* over-ride all li styles */
 		margin: 0 0 20px;
 	}
 }
 p.price {
 	font-size: 30px;
+}
+ul.rig.li.star {
+	position: absolute;
+	bottom:0;
+	margin-right: 0;
 }
