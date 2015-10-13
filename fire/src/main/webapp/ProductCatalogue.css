@@ -1,0 +1,66 @@
+#main_block{
+font-size:11px;
+color:#464646;
+overflow:hidden;
+
+	display: inline-block;
+position:absolute;
+left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+width:752px;
+}
+.item img{
+margin:26px 0 0 25px;
+}
+.item span{
+display:block;
+float:left;
+font-family:Arial, Helvetica, sans-serif;
+font-size:18px;
+color:#E9410E;
+width:70px;
+padding:0 0 0 20px;
+}
+.view{
+display:block;
+float:left;
+line-height:18px;
+margin:3px 3px 0 0;
+width:41px;
+text-align:center;
+
+background-position:top left;
+background-repeat:no-repeat;
+color:#fff;
+text-decoration:none
+}
+.buy{
+display:block;
+float:left;
+line-height:18px;
+margin:3px 3px 0 0;
+width:92px;
+text-align:center;
+
+background-position:top left;
+background-repeat:no-repeat;
+color:#CAFF34;
+text-decoration:none
+}
+#items{
+float:left;
+padding:22px 0 0 0;
+width:770px;
+}
+.item{
+width:241px;
+height:265px;
+float:left;
+background-image:url(images/item_bg.gif);
+background-position:top left;
+background-repeat:no-repeat;
+padding:0 12px 15px 0;
+display:inline;
+}
