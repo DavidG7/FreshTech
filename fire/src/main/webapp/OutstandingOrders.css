@@ -14,9 +14,8 @@
 #identify{
 	float:left; margin:10px;
 }
-#others{
-	font-size: 16px;
-	font-style: italic;
+#topfont{
+	font-size: 20px;
 }
 .container > span:hover:before {
    content: "\2605";
