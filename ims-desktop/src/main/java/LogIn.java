@@ -127,6 +127,7 @@ public class LogIn extends JPanel implements ActionListener {
  
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Please Log In");
+<<<<<<< HEAD
       //  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //frame.add(new LogIn());
@@ -134,6 +135,14 @@ public class LogIn extends JPanel implements ActionListener {
        // frame.setLayout(new GridLayout(4, 1));
         frame.add(new AddDiscontinue());
         //frame.pack();
+=======
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(new LogIn());
+       // frame.setSize(300, 300);
+        frame.setLayout(new GridLayout(4, 1));
+        //frame.add(new AddDiscontinue());
+        frame.pack();
+>>>>>>> c90df40ed1fa40a4940227b2b64fc88271bac9b1
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }

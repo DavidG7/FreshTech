@@ -34,5 +34,4 @@ public interface PaymentRepository extends MongoRepository<Payment,String>{
 	 * @return
 	 */
 	public List<Payment> findBySortCode(String sortCode);	
-	
 }

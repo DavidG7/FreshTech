@@ -1,40 +1,31 @@
 package com.netbuilder.entities;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  * @author Ricky Luu Holds customers Orders details
  */
-
 @Entity
 public class CustomerOrder {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerOrderID;
 	//@ManyToOne
-	@PrimaryKeyJoinColumn(name = "customerOrderID"
-
-	)
+	@PrimaryKeyJoinColumn(name = "customerOrderID")
 	private int  customerID;
 	private Date dateOfOrder;
 	private String customerOrderStatus;
 	private float orderTotal;
 	private String deliveryAddress;
 	//private DummyData data = new DummyData();
-	
-	
 
-	public CustomerOrder() {
-	}
+	public CustomerOrder() { }
 
 	/**
 	 * Create a new CustomerOrder
@@ -45,7 +36,6 @@ public class CustomerOrder {
 	 * @param customerOrderStatus
 	 * @param deliveryAddress
 	 */
-
 	public CustomerOrder(int customerOrderID, int customerID, Date dataOfOrder,
 			String customerOrderStatus, String deliveryAddress) {
 		this.customerOrderID = customerOrderID;
@@ -53,24 +43,21 @@ public class CustomerOrder {
 		this.dateOfOrder = dataOfOrder;
 		this.customerOrderStatus = customerOrderStatus;
 		this.deliveryAddress = deliveryAddress;
-		
-		
-		
 	}
 
 	/**
 	 * Updates Customer Orders
 	 */
+	@Deprecated
 	public void updateCustomerOrder() {
-		
-		
+		// TODO	
 	}
 	/**
 	 * Displays Orders
 	 */
 	public String  viewCustomerOrder() {
 		return  "OrderID:" +customerOrderID + "\nCustomerID:"+customerID+"\nCustomer Order Status:"+customerOrderStatus+ "\nDelivery Address:"+deliveryAddress;
-		}
+	}
 	
 	public Date getDateOfOrder() {return dateOfOrder;}
 	public void setDateOfOrder(Date dateOfOrder) {this.dateOfOrder = dateOfOrder;}
@@ -84,6 +71,4 @@ public class CustomerOrder {
 	public void setCustomerID(int customerID) {this.customerID = customerID;}
 	public float getOrderTotal() {return orderTotal;}
 	public void setOrderTotal(int orderTotal) {this.orderTotal = orderTotal;}
-	
-	
 }

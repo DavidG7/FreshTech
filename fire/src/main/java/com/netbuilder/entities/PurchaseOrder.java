@@ -13,7 +13,6 @@ import javax.persistence.Id;
 /**/
 @Entity
 public class PurchaseOrder {
-	
 		@Id
 		@GeneratedValue (strategy = GenerationType.IDENTITY)
 		private int purchaseOrderID;
@@ -24,8 +23,7 @@ public class PurchaseOrder {
 		 * @param purchaseOrderID
 		 * @param purchaseOrderStatus
 		 */
-		
-		public PurchaseOrder (int purchaseOrderID, String purchaseOrderStatus){
+		public PurchaseOrder (int purchaseOrderID, String purchaseOrderStatus) {
 			this.purchaseOrderID = purchaseOrderID;
 			this.purchaseOrderStatus = purchaseOrderStatus;
 		}
@@ -51,17 +49,21 @@ public class PurchaseOrder {
 			setPurchaseOrderStatus(purchaseOrderStatus);
 		}
 		
+		/**
+		 * Depreciated in favour of overridden toString method
+		 */
+		@Deprecated
 		public void viewPurchaseOrder(){
-		
-			System.out.println("Purchase Order ID: "+purchaseOrderID+" Purchase Order Status: "+purchaseOrderStatus+"");
-					
+			System.out.println("Purchase Order ID: "+purchaseOrderID+" Purchase Order Status: "+purchaseOrderStatus+"");					
 		}
 		
+		@Deprecated
 		public void purchaseOrderProcessed(){
 			//TODO method stub
 		}
 		
-		
-		
-
+		@Override
+		public String toString() {
+			return "Purchase Order ID: "+purchaseOrderID+" Purchase Order Status: "+purchaseOrderStatus+"";
+		}
 }

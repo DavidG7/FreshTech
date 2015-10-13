@@ -1,7 +1,6 @@
 package com.netbuilder.entities;
 
 import java.io.Serializable;
-
 import org.springframework.data.annotation.Id;
 
 /**
@@ -9,12 +8,7 @@ import org.springframework.data.annotation.Id;
  * @author pnewman
  *
  */
-
-public class Payment implements Serializable{
-	
-	/**
-	 * 
-	 */
+public class Payment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id 
@@ -26,10 +20,7 @@ public class Payment implements Serializable{
 	/*
 	 * TODO Are both constructors needed?
 	 */
-	
-	public Payment(){
-		
-	}
+	public Payment() { }
 	
 	/**
 	 * Instantiates Payment object.
@@ -37,8 +28,7 @@ public class Payment implements Serializable{
 	 * @param cardNumber
 	 * @param sortCode
 	 */
-	
-	public Payment(int paymentID, int cardNumber, String sortCode){
+	public Payment(int paymentID, int cardNumber, String sortCode) {
 		this.paymentID = paymentID;
 		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
@@ -47,7 +37,6 @@ public class Payment implements Serializable{
 	/*
 	 * TODO Do we need all getters/setters.
 	 */
-	
 	public int getPaymentID() {
 		return paymentID;
 	}
@@ -81,14 +70,14 @@ public class Payment implements Serializable{
 	 * TODO Discuss method return types.
 	 */
 
-	
 	/**
 	 * This method prints the attributes contained in the class.
+	 * 
+	 * Depreciated in favour of overridden toString method.
 	 */
-	public void viewPaymentMethod(){
-		
+	@Deprecated
+	public void viewPaymentMethod() {
 		System.out.println("Card Number: "+cardNumber+" Sort Code: "+sortCode);
-		
 	}
 	
 	/**
@@ -97,12 +86,12 @@ public class Payment implements Serializable{
 	 * @param sortCode
 	 */
 	public void updatePaymentMethod(int cardNumber, String sortCode){
-
 		setCardNumber(cardNumber);
-		
 		setSortCode(sortCode);
-		
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Card Number: "+cardNumber+" Sort Code: "+sortCode;
+	}
 }

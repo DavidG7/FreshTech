@@ -2,19 +2,19 @@ package com.netbuilder.data;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import javax.ejb.Singleton;
 
+import org.springframework.context.annotation.Bean;
+
 import com.netbuilder.entities.*;
+import com.netbuilder.util.ContactMethod;
 
 /**
  * @author dgordon
  * @author pnewman
  */
-
 @Singleton
 public class DummyData {
-	
 	private ArrayList<Employee> employees = new ArrayList<Employee>();
 	private ArrayList<Payment> payments = new ArrayList<Payment>();
 	private ArrayList<Address> addresses = new ArrayList<Address>();
@@ -53,10 +53,106 @@ public class DummyData {
 		
 		suppliers.add(new Supplier(1,"name1"));
 		suppliers.add(new Supplier(2,"name2"));
-		suppliers.add(new Supplier(3,"name3", "email3", "phone3", "pref3"));
-		suppliers.add(new Supplier(4,"name4", "email4", "phone4", "pref4"));
+		suppliers.add(new Supplier(3,"name3", "email3", "phone3", ContactMethod.NONE));
+		suppliers.add(new Supplier(4,"name4", "email4", "phone4", ContactMethod.NONE));
+	}
+	
+	@Bean
+	public DummyData dummyData(){
+		return new DummyData();
+	}
 
-		
+	/**
+	 * * * * * * * * Usage: READ * * * * * * * *
+	 * This is a generic get method. 
+	 * If an array of the passed in entity exists it will return it.
+	 * If no array of the passed in entity exists it will return an empty array.
+	 * As we add entities we will need to add if statements for each one.
+	 * 
+	 * Example usage:
+	 * 
+	 * ArrayList<Employee> employeeList = getEntityList(new Employee())		//call current employee list
+	 * for(Employee employee : employeeList){								//iterate through the list
+	 * 		System.out.println(product.getEmployeeName());						//and print all the employee names
+	 * }
+	 * 
+	 * Console:
+	 * >Ben Back
+	 * >Ray Smithy
+	 * 
+	 * @param entityType
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public <E> ArrayList<E> getEntityList(E entityType) {
+		if (entityType.getClass() == employees.get(0).getClass()){
+			return (ArrayList<E>) employees;
+		}
+		if (entityType.getClass() == payments.get(0).getClass()){	
+			return (ArrayList<E>) payments;
+		}
+		if (entityType.getClass() == addresses.get(0).getClass()){	
+			return (ArrayList<E>) addresses;
+		}
+		if (entityType.getClass() == customers.get(0).getClass()){
+			return (ArrayList<E>) customers;	
+		}
+		if (entityType.getClass() == customerOrders.get(0).getClass()){
+			return (ArrayList<E>) customerOrders;
+		}
+		if (entityType.getClass() == products.get(0).getClass()){	
+			return (ArrayList<E>) products;
+		}
+		if (entityType.getClass() == purchaseOrders.get(0).getClass()){	
+			return (ArrayList<E>) purchaseOrders;
+		}
+		if (entityType.getClass() == suppliers.get(0).getClass()){	
+			return (ArrayList<E>) suppliers;
+		}
+		return new ArrayList<E>();
+	}
+
+	/**
+	 * * * * * * * * Usage: CREATE, UPDATE, DELETE * * * * * * * *
+	 * This is a generic set method. 
+	 * If an array of the same type as the passed in array exists it will replace the stored array.
+	 * If no array of the same type exists then nothing will happen.
+	 * As we add entities we will need to add if statements for each one.
+	 * 
+	 * Example usage (UPDATE):
+	 * 
+	 * ArrayList employeeList = getEntityList(new Employee());      //call current employee list
+	 * employeeList.add(Employee("John Mann", "JonhhyM", "john23", 3));   //add a new entry for John Mann
+	 * setEntityList(employeeList);                                 //set the new list to be the employee list
+	 * 
+	 * @param entities
+	 */
+	@SuppressWarnings("unchecked")
+	public <E> void setEntityList(ArrayList<E> entities) {
+		if(entities.get(0).getClass() == employees.get(0).getClass()){
+			employees = (ArrayList<Employee>) entities;
+		}
+		if(entities.get(0).getClass() == payments.get(0).getClass()){
+			payments = (ArrayList<Payment>) entities;
+		}
+		if(entities.get(0).getClass() == addresses.get(0).getClass()){
+			addresses = (ArrayList<Address>) entities;
+		}
+		if(entities.get(0).getClass() == customers.get(0).getClass()){
+			customers = (ArrayList<Customer>) entities;
+		}
+		if(entities.get(0).getClass() == customerOrders.get(0).getClass()){
+			customerOrders = (ArrayList<CustomerOrder>) entities;
+		}
+		if(entities.get(0).getClass() == products.get(0).getClass()){
+			products = (ArrayList<Product>) entities;
+		}
+		if(entities.get(0).getClass() == purchaseOrders.get(0).getClass()){
+			purchaseOrders = (ArrayList<PurchaseOrder>) entities;
+		}
+		if(entities.get(0).getClass() == suppliers.get(0).getClass()){
+			suppliers = (ArrayList<Supplier>) entities;
+		}
 	}
 	
 	/*
@@ -86,137 +182,7 @@ public class DummyData {
 		if(entityName.equalsIgnoreCase("supplier")){
 			return (ArrayList<T>) suppliers;
 		}
-		
 		return  new ArrayList<T>();
 	}
 	*/
-
-	/**
-	 * * * * * * * * Usage: READ * * * * * * * *
-	 * This is a generic get method. 
-	 * If an array of the passed in entity exists it will return it.
-	 * If no array of the passed in entity exists it will return an empty array.
-	 * As we add entities we will need to add if statements for each one.
-	 * 
-	 * Example usage:
-	 * 
-	 * ArrayList<Employee> employeeList = getEntityList(new Employee())		//call current employee list
-	 * for(Employee employee : employeeList){								//iterate through the list
-	 * 		System.out.println(product.getEmployeeName());						//and print all the employee names
-	 * }
-	 * 
-	 * Console:
-	 * >Ben Back
-	 * >Ray Smithy
-	 * 
-	 * @param entityType
-	 * @return
-	 */
-	
-	
-	@SuppressWarnings("unchecked")
-	public <E> ArrayList<E> getEntityList(E entityType) {
-		
-		if (entityType.getClass() == employees.get(0).getClass()){
-		
-		return (ArrayList<E>) employees;
-		
-		}
-		
-		if (entityType.getClass() == payments.get(0).getClass()){
-			
-		return (ArrayList<E>) payments;
-		
-		}
-		
-		if (entityType.getClass() == addresses.get(0).getClass()){
-			
-		return (ArrayList<E>) addresses;
-		
-		}
-		
-		if (entityType.getClass() == customers.get(0).getClass()){
-			
-		return (ArrayList<E>) customers;
-		
-		}
-		
-		if (entityType.getClass() == customerOrders.get(0).getClass()){
-			
-		return (ArrayList<E>) customerOrders;
-		
-		}
-		
-		
-		if (entityType.getClass() == products.get(0).getClass()){
-			
-		return (ArrayList<E>) products;
-		
-		}
-		
-		if (entityType.getClass() == purchaseOrders.get(0).getClass()){
-			
-		return (ArrayList<E>) purchaseOrders;
-		
-		}
-		
-		if (entityType.getClass() == suppliers.get(0).getClass()){
-			
-		return (ArrayList<E>) suppliers;
-		
-		}
-		
-		return new ArrayList<E>();
-	}
-
-	/**
-	 * * * * * * * * Usage: CREATE, UPDATE, DELETE * * * * * * * *
-	 * This is a generic set method. 
-	 * If an array of the same type as the passed in array exists it will replace the stored array.
-	 * If no array of the same type exists then nothing will happen.
-	 * As we add entities we will need to add if statements for each one.
-	 * 
-	 * Example usage (UPDATE):
-	 * 
-	 * ArrayList employeeList = getEntityList(new Employee());      //call current employee list
-	 * employeeList.add(Employee("John Mann", "JonhhyM", "john23", 3));   //add a new entry for John Mann
-	 * setEntityList(employeeList);                                 //set the new list to be the employee list
-	 * 
-	 * @param entities
-	 */
-	@SuppressWarnings("unchecked")
-	public <E> void setEntityList(ArrayList<E> entities) {
-		
-		if(entities.get(0).getClass() == employees.get(0).getClass()){
-			employees = (ArrayList<Employee>) entities;
-		}
-		
-		if(entities.get(0).getClass() == payments.get(0).getClass()){
-			payments = (ArrayList<Payment>) entities;
-		}
-		
-		if(entities.get(0).getClass() == addresses.get(0).getClass()){
-			addresses = (ArrayList<Address>) entities;
-		}
-		
-		if(entities.get(0).getClass() == customers.get(0).getClass()){
-			customers = (ArrayList<Customer>) entities;
-		}
-		
-		if(entities.get(0).getClass() == customerOrders.get(0).getClass()){
-			customerOrders = (ArrayList<CustomerOrder>) entities;
-		}
-		
-		if(entities.get(0).getClass() == products.get(0).getClass()){
-			products = (ArrayList<Product>) entities;
-		}
-		
-		if(entities.get(0).getClass() == purchaseOrders.get(0).getClass()){
-			purchaseOrders = (ArrayList<PurchaseOrder>) entities;
-		}
-		
-		if(entities.get(0).getClass() == suppliers.get(0).getClass()){
-			suppliers = (ArrayList<Supplier>) entities;
-		}
-	}
 }

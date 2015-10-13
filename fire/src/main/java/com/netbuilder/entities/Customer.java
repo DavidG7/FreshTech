@@ -2,8 +2,8 @@ package com.netbuilder.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
 import org.springframework.data.annotation.Id;
+import com.netbuilder.util.ContactMethod;
 
 /**
  * TODO discuss return types and argument variables for methods.
@@ -15,12 +15,7 @@ import org.springframework.data.annotation.Id;
  * and update/view their orders, addresses and payment methods. 
  *
  */
-
-public class Customer implements Serializable
-{
-	/**
-	 * 
-	 */
+public class Customer implements Serializable {
 	private static final long serialVersionUID = -469127124351435736L;
 	
 	@Id
@@ -34,48 +29,7 @@ public class Customer implements Serializable
 	private String customerUsername;
 	private String customerPassword;
 	
-	private enum ContactMethod {EMAIL, PHONE, MAIL};
-	
 	private ContactMethod preferredCustomerContactMethod;
-	
-	/**
-	 * @author Thomas Dudley
-	 * Small class within the customer for the basket
-	 * Saves having a 2D ArrayList when an object can hold
-	 * information and then be stored within an ArrayList  
-	 *
-	 */
-	private class Basket
-	{
-		private Product product;
-		private int quantity;
-		
-		public Basket(Product prod, int quant)
-		{
-			this.product = prod;
-			this.quantity = quant;
-		}
-		
-		public void setProduct(Product product) 
-		{
-			this.product = product;
-		}
-
-		public Product getProduct()
-		{
-			return this.product;
-		}
-		
-		public int getQuantity()
-		{
-			return this.quantity;
-		}
-		
-		public void setQuantity(int quantity)
-		{
-			this.quantity = quantity;
-		}
-	}
 	
 	private ArrayList<Product> wishList;
 	private ArrayList<Payment> paymentArray;
@@ -93,8 +47,7 @@ public class Customer implements Serializable
 	 * @param custPassword
 	 */
 	public Customer(int custID, String custPhone, float availableCred, String custName, 
-			String custEmail, String custUsername, String custPassword)
-	{
+			String custEmail, String custUsername, String custPassword) {
 		this.customerID = custID;
 		this.customerPhone = custPhone;
 		this.availableCredit = availableCred;
@@ -102,12 +55,10 @@ public class Customer implements Serializable
 		this.customerEmail = custEmail;
 		this.customerUsername = custUsername;
 		this.customerPassword = custPassword;
-		
 	}
 	
 	public Customer(int custID, String custPhone, float availableCred, String custName, 
-			String custEmail, String custUsername, String custPassword, String preferedContactMethod)
-	{
+			String custEmail, String custUsername, String custPassword, String preferedContactMethod) {
 		this.customerID = custID;
 		this.customerPhone = custPhone;
 		this.availableCredit = availableCred;
@@ -116,233 +67,207 @@ public class Customer implements Serializable
 		this.customerUsername = custUsername;
 		this.customerPassword = custPassword;
 		
-		setCustomerContactMethod(preferedContactMethod);
-			
+		setCustomerContactMethod(preferedContactMethod);	
 	}
 	
-	public Customer()
-	{
-		
-	}
+	public Customer() { }
 	
-	public int getCustomerID() 
-	{
+	public int getCustomerID() {
 		return customerID;
 	}
 
-	public void setCustomerID(int customerID) 
-	{
+	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
 
-	public String getCustomerPhone() 
-	{
+	public String getCustomerPhone() {
 		return customerPhone;
 	}
 
-	public void setCustomerPhone(String customerPhone) 
-	{
+	public void setCustomerPhone(String customerPhone) {
 		this.customerPhone = customerPhone;
 	}
 
-	public float getAvailableCredit() 
-	{
+	public float getAvailableCredit() {
 		return availableCredit;
 	}
 
-	public void setAvailableCredit(float availableCredit) 
-	{
+	public void setAvailableCredit(float availableCredit) {
 		this.availableCredit = availableCredit;
 	}
 
-	public String getCustomerName() 
-	{
+	public String getCustomerName() {
 		return customerName;
 	}
 
-	public void setCustomerName(String customerName) 
-	{
+	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
 
-	public String getCustomerEmail() 
-	{
+	public String getCustomerEmail() {
 		return customerEmail;
 	}
 
-	public void setCustomerEmail(String customerEmail) 
-	{
+	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
 	}
-
-	public String getCustomerUsername() 
-	{
+	
+	public String getCustomerUsername() {
 		return customerUsername;
 	}
 
-	public void setCustomerUsername(String customerUsername) 
-	{
+	public void setCustomerUsername(String customerUsername) {
 		this.customerUsername = customerUsername;
 	}
 
-	public String getCustomerPassword() 
-	{
+	public String getCustomerPassword() {
 		return customerPassword;
 	}
 
-	public void setCustomerPassword(String customerPassword) 
-	{
+	public void setCustomerPassword(String customerPassword) {
 		this.customerPassword = customerPassword;
 	}
 	
-	public void setCustomerContactMethod(String contactMethod)
-	{
-		if(ContactMethod.EMAIL.toString().equalsIgnoreCase(contactMethod))
-		{
+	public void setCustomerContactMethod(String contactMethod) {
+		if(ContactMethod.EMAIL.toString().equalsIgnoreCase(contactMethod)) {
 			this.preferredCustomerContactMethod = ContactMethod.EMAIL;
 		}
-		else if(ContactMethod.PHONE.toString().equalsIgnoreCase(contactMethod))
-		{
+		else if(ContactMethod.PHONE.toString().equalsIgnoreCase(contactMethod)) {
 			this.preferredCustomerContactMethod = ContactMethod.PHONE;
 		}
-		else if(ContactMethod.MAIL.toString().equalsIgnoreCase(contactMethod))
-		{
+		else if(ContactMethod.MAIL.toString().equalsIgnoreCase(contactMethod)) {
 			this.preferredCustomerContactMethod = ContactMethod.MAIL;
 		}
-		else
-		{
+		else {
 			/*
-			 * Need to system.out.println this error when there is a UI.
+			 * TODO Need to system.out.println this error when there is a UI.
 			 */
 		}
 			
 	}
 	
-	public String getCustomerContactMethod()
-	{
+	public String getCustomerContactMethod() {
 		return this.preferredCustomerContactMethod.toString();
 	}
 	
-	public ArrayList<Address> getCustomerAddressArray()
-	{
+	public ArrayList<Address> getCustomerAddressArray() {
 		return addressArray;
 	}
 	
-	public Address getCustomerAddressAt(int i)
-	{
+	public Address getCustomerAddressAt(int i) {
 		return addressArray.get(i);
 	}
 	
 	/**
 	 * Method that allows the customer to log in to the website.
 	 */
-	public void verifyLogIn()
-	{
-		
+	@Deprecated
+	public void verifyLogIn() {
+		// TODO
 	}
 	
 	/**
 	 * Add or remove products to the customer's basket
 	 */
-	public void updateBasket()
-	{
-		
+	@Deprecated
+	public void updateBasket() {
+		// TODO
 	}
 	
 	/**
 	 * Show the contents of the customer's basket
 	 */
-	public void viewBasket()
-	{
-		
+	@Deprecated
+	public void viewBasket() {
+		// TODO
 	}
 	
 	/**
 	 * Creates a wishlist for the customer
 	 */
-	public void createWishList()
-	{
-		
+	@Deprecated
+	public void createWishList() {
+		// TODO
 	}
 	
 	/**
 	 * Add or remove products to the customer's wishlist
 	 */
-	public void updateWishList()
-	{
-		
+	@Deprecated
+	public void updateWishList() {
+		// TODO
 	}
 	
 	/**
 	 * Shows the contents of the customer's wishlist
 	 */
-	public void viewWishList()
-	{
-		
+	@Deprecated
+	public void viewWishList() {
+		// TODO
 	}
 	
 	/**
 	 * Removes the customer's wishlist
 	 */
-	public void deleteWishList()
-	{
-		
+	@Deprecated
+	public void deleteWishList() {
+		// TODO
 	}
 	
 	/**
 	 * View the remaining amount of this custoemr's credit  
 	 */
-	public void viewCredit()
-	{
-		
+	@Deprecated
+	public void viewCredit() {
+		// TODO
 	}
 	
 	/**
 	 * Creates a customer order from the selected products contained within the basket
 	 * Does not have to be all of the items from the basket though
 	 */
-	public void createCustomerOrder()
-	{
-		
+	@Deprecated
+	public void createCustomerOrder() {
+		// TODO
 	}
 	
 	/**
 	 * Allows the customer to add a payment method such as a debit/credit card
 	 */
-	public void createPaymentMethod()
-	{
-		
+	@Deprecated
+	public void createPaymentMethod() {
+		// TODO
 	}
 	
 	/**
 	 * Allows the customer to add an address
 	 */
-	public void createAddress()
-	{
-		
+	@Deprecated
+	public void createAddress() {
+		// TODO
 	}
 	
 	/**
 	 * Remove an order from the customer
 	 */
-	public void removeOrder()
-	{
-		
+	@Deprecated
+	public void removeOrder() {
+		// TODO
 	}
 	
 	/**
 	 * Removes an address from the customer
 	 */
-	public void removeAddress()
-	{
-		
+	@Deprecated
+	public void removeAddress() {
+		// TODO
 	}
 	
 	/**
 	 * Removes a payment method from the customer
 	 */
-	public void removePaymentMethod()
-	{
-		
+	@Deprecated
+	public void removePaymentMethod() {
+		// TODO
 	}
 }

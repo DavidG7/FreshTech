@@ -10,13 +10,11 @@ import javax.persistence.Id;
  * @author dgordon
  *
  */
-
 @Entity
 public class Employee {
 
 	@Id
-	@GeneratedValue ( 
-	strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int employeeID;
 	
 	private String employeeName;
@@ -33,7 +31,7 @@ public class Employee {
 	 * @param employeePassword
 	 * @param accessLevel
 	 */
-	public Employee(String employeeName, String employeeUsername, String employeePassword, int accessLevel){
+	public Employee(String employeeName, String employeeUsername, String employeePassword, int accessLevel) {
 		this.employeeName = employeeName;
 		this.employeeUsername = employeeUsername;
 		this.employeePassword = employeePassword;
@@ -75,5 +73,4 @@ public class Employee {
 	public void setAccessLevel(int accessLevel){
 		this.accessLevel = accessLevel;
 	}
-		
 }

@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Payment;
 
-
 public interface AddressRepository extends MongoRepository<Address,Integer> {
 	*//**
 	 * This method returns a single address method given by the specified address ID.
@@ -35,8 +34,6 @@ public interface AddressRepository extends MongoRepository<Address,Integer> {
 	 * @return
 	 *//*
 	public List<Address> findBypostcode(String postcode);	
-	
-	
-	
+
 }
 */
