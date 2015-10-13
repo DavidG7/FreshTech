@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-
- <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-<link type = "text/css" rel = "stylesheet" href = "C:\Users\vtomlinson\Downloads\bootstrap-3.3.5-dist\bootstrap-3.3.5-dist\css\bootstrap.css"/>
-
-<script src = "C:\Users\vtomlinson\Downloads\bootstrap-3.3.5-dist\bootstrap-3.3.5-dist\js\bootstrap.js"></script>
-
-<head>
-
-<title>NBGardens</title>
-
-</head>
-
-<body>
-
 	<!DOCTYPE html>
 <html>
 	<head>
@@ -30,12 +11,11 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
 
-		<title>NB Gardens Template</title>
+		<title>NB Gardens Add Details</title>
 		
 	</head>
 	
 	<body>
-	
 <!----------------------------------------------------------------------------------->
 <!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
 <!----------------------------------------------------------------------------------->		
@@ -178,18 +158,38 @@
 <!--------------------------------------------->
 			
 		<div class = "panel-body">
-		<form>
+	    <form action="action_page.php">
 		Name on Card:<br>
 		<input type = "text" name = "firstname">
+		<br>
 		<br>
 		Card Number:<br>
 		<input type = "text" name = "cardnumber">
 		<br> 
+		<br>
 		Card Expiry Date: 
-		
-		</form>
-			
-		</div>
+	   <div class="dropdown">
+   		 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Please choose year
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">2015</a></li>
+      <li><a href="#">2016</a></li>
+      <li><a href="#">2017</a></li>
+      <li><a href="#">2018</a></li>
+      <li><a href="#">2019</a></li>
+      <li><a href="#">2020</a></li>
+      </ul>
+  </div>
+		<br>
+		Security Number:<br>
+		<input type = "text" name = "securitynumber">
+		<br>
+		<br>		
+		<input type="submit" value="Submit">
+
+</div>
+</form>
+</div>
 
 <!----------------------------->
 <!------Footer----------------->		

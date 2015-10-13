@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
@@ -11,14 +11,13 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "About.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "ChooseAddress.css"/>
 
-		<title>NB Gardens Template</title>
+		<title>NB Gardens Add Details</title>
 		
 	</head>
 	
 	<body>
-	
 <!----------------------------------------------------------------------------------->
 <!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
 <!----------------------------------------------------------------------------------->		
@@ -148,40 +147,77 @@
 		
 			<div class = "jumbotron">
 			
-				<h2> About</h2>
+				<h2> <b> Choose delivery method </b> </h2>
 				
-				<h4>NBGardens is a unique garden furniture and Gnome sales
-	business providing top quality products to our huge customer
-	base. We offer the highest quality of service and a huge array
-	of products. We have one of the biggest Gnome collections on
-   earth and are proud to have been in business for over 100 years.<br></h4>
+				<h4> Please select one of the addresses as your primary delivery method </h4>				
 			
 			</div>		
 
 		</div>
-			
-		<div class = "panel-body">
-		 <h2> Contact Information </h2>
 		
-<!--  <img src="images\gnome1.jpg" alt="Theres no business like Gnome business" style="width:620px;height:450px;"> -->
-
+<!--------------------------------------------->
+<!------INSERT PAGE BODY HERE------------------>		
+<!--------------------------------------------->
+			
+		
+		<div class = "panel-body">
+	    <form action="action_page.php">
+		 
+	   <div class="dropdown">
+   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">View Addresses
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">This</a></li>
+      <li><a href="#">is</a></li>
+      <li><a href="#">where</a></li>
+      <li><a href="#">addresses</a></li>
+      <li><a href="#">will</a></li>
+      <li><a href="#">go</a></li>
+      </ul>
+  </div>
   
-   <p class ="telephone">
-   Telephone:<br> 01234567573
-   </p>
-   
-   <p class = "address">
-Address: <br>39 Gnomestreet Way<br>
-			Manchester<br>
-			United Kingdom<br>
-			MO6OAR<br>
-   </p>
-   
-   <p class = "email">
-
-   Email:<br> service@nbgardens.com
-		</p>
+  <h4> Alternatively, please enter a new address below. </h4>
+  
+        First Name :<br>
+		<input type = "text" name = "firstname">
+		<br>
+		<br>
+		Last Name :<br>
+		<input type = "text" name = "lastname">
+		<br>
+		<br>
+		Address Line 1 :<br>
+		<input type = "text" name = "addressline1">
+		<br>
+		<br>
+		Address Line 2 :<br>
+		<input type = "text" name = "addressline2">
+		<br>
+		<br>
+		Address Line 3 :<br>
+		<input type = "text" name = "addressline3">
+		<br>
+		<br>
+		City :<br>
+		<input type = "text" name = "city">
+		<br>
+		<br>
+		County :<br>
+		<input type = "text" name = "county">
+		<br>
+		<br>
+		Postcode :<br>
+		<input type = "text" name = "postcode">
+		<br>
+		<br>
+        <input type="submit" value="Submit">
+  
+  
 		</div>
+</form>
+</div>
+
+<div id = "space"></div>
 
 <!----------------------------->
 <!------Footer----------------->		
@@ -189,10 +225,14 @@ Address: <br>39 Gnomestreet Way<br>
 		
 		<div id = "footer" class = "panel-footer">
 	
-		
+			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 
+				as well as Glyphicons <i>(http://glyphicons.com)</i> for the Halfling icon set.
+			</p>
+			<p>
+				Using the Readable theme <i>(https://bootswatch.com/readable)</i> with our own modifications.
+			</p>
 		
 		</div>	
 		
-	</body>
-	
+</body>
 </html>
