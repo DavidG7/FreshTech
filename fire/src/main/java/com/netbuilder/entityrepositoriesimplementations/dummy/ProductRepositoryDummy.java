@@ -1,4 +1,4 @@
-/*package com.netbuilder.entityrepositoriesimplementations.dummy;
+package com.netbuilder.entityrepositoriesimplementations.dummy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 
-public class ProductRepositoryDummyImp implements ProductRepository{
+public class ProductRepositoryDummy implements ProductRepository{
 	
 	@Inject
 	private DummyData initialData;
@@ -165,4 +165,3 @@ public class ProductRepositoryDummyImp implements ProductRepository{
 		return ps;
 	}
 }
-*/

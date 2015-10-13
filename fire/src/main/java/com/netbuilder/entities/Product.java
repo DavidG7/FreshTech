@@ -14,7 +14,7 @@ public class Product implements Serializable  {
 	private boolean discontinued = false;
 	private boolean porusware = false;
 	@Id
-	private int productId = 0;
+	private int productID = 0;
 	private int stockLevel = 0;
 	private int rating = 0;
 	private float price = 0F;
@@ -35,24 +35,24 @@ public class Product implements Serializable  {
 	public Product() { }
 	
 	public Product(int productID, int stock_level, float the_price, String product_category, String product_name){
-		productName = product_name;
-		productId = productID;
-		stockLevel = stock_level;
-		category = product_category;
-		price = the_price;
+		this.productName = product_name;
+		this.productID = productID;
+		this.stockLevel = stock_level;
+		this.category = product_category;
+		this.price = the_price;
 	}
 	
 	public Product(int productID, int stock_level, float the_price, String product_category, String product_name, boolean discontinue, boolean porousware, int product_rating, String product_description, String picture){
-		discontinued = discontinue;
-		porusware = porousware;
-		productId = productID;
-		stockLevel = stock_level;
-		rating = product_rating;
-		price = the_price;
-		category = product_category;
-		productDescription = product_description;
-		image = picture;
-		productName = product_name;
+		this.discontinued = discontinue;
+		this.porusware = porousware;
+		this.productID = productID;
+		this.stockLevel = stock_level;
+		this.rating = product_rating;
+		this.price = the_price;
+		this.category = product_category;
+		this.productDescription = product_description;
+		this.image = picture;
+		this.productName = product_name;
 	}
 	
 	public void setDiscontinued(boolean value){
@@ -70,10 +70,10 @@ public class Product implements Serializable  {
 	}
 	
 	public void setProductId(int value){
-		this.productId = value;
+		this.productID = value;
 	}
 	public int getProductId(){
-		return this.productId;
+		return this.productID;
 	}
 	
 	public void setStockLevel(int value){

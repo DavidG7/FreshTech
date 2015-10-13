@@ -37,8 +37,10 @@ public class DummyData {
 		addresses.add(new Address(1, "Address", "A10",1));
 		addresses.add(new Address(2, "Address2", "B10",1));
 		
-		customers.add(new Customer(1, "phoneTest", (float)11.11, "name1", "email1", "user1", "pass1"));
-		customers.add(new Customer(2, "phoneTest", (float)22.22, "name2", "email2", "user2", "pass2"));
+		customers.add(new Customer(1, "phoneTest1", (float)11.11, "name1", "email1", "user1", "pass1"));
+		customers.add(new Customer(2, "phoneTest2", (float)22.22, "name2", "email2", "user2", "pass2"));
+		customers.add(new Customer(3, "phoneTest3", (float)33.33, "name3", "email3", "user3", "pass3","contact1"));
+		customers.add(new Customer(4, "phoneTest4", (float)44.44, "name4", "email4", "user4", "pass4", "contact2"));
 		
 		customerOrders.add(new CustomerOrder(1,1, new Date(), "status1", "address1"));
 		customerOrders.add(new CustomerOrder(2,1, new Date(), "status2", "address2"));
@@ -55,11 +57,6 @@ public class DummyData {
 		suppliers.add(new Supplier(2,"name2"));
 		suppliers.add(new Supplier(3,"name3", "email3", "phone3", ContactMethod.NONE));
 		suppliers.add(new Supplier(4,"name4", "email4", "phone4", ContactMethod.NONE));
-	}
-	
-	@Bean
-	public DummyData dummyData(){
-		return new DummyData();
 	}
 
 	/**

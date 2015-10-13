@@ -1,4 +1,4 @@
-/*package com.netbuilder.entityrepositoriesimplementations.dummy;
+package com.netbuilder.entityrepositoriesimplementations.dummy;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ import com.netbuilder.entities.Address;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.data.DummyData;
 
-public class AddressRepositoryDummyImp implements AddressRepository {
+public class AddressRepositoryDummy implements AddressRepository {
 	
 	@Inject 
 	private DummyData initialData;
@@ -111,7 +111,7 @@ public class AddressRepositoryDummyImp implements AddressRepository {
 
 	
 	@Override
-	public Address findByAddressid(int addressid) {
+	public Address findByAddressID(int addressid) {
 		
 		ArrayList<Address> address = initialData.getEntityList(new Address());
 		
@@ -149,7 +149,7 @@ public class AddressRepositoryDummyImp implements AddressRepository {
 
 	
 	@Override
-	public List<Address> findbyAddress(String address) {
+	public List<Address> findByAddress(String address) {
 ArrayList<Address> addressarray = initialData.getEntityList(new Address());
 		
 		ArrayList<Address> foundaddress = new ArrayList<Address>();
@@ -165,10 +165,9 @@ ArrayList<Address> addressarray = initialData.getEntityList(new Address());
 	}
 
 	@Override
-	public List<Address> findBypostcode(String postcode) {
+	public List<Address> findByPostcode(String postcode) {
 		
 		return null;
 	}
 	
 }
-*/

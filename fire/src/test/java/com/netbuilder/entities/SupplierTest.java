@@ -73,12 +73,12 @@ public class SupplierTest {
 	@Test
 	public void testGetPreferredContactMethod(){
 		String result = tester.getPreferredContactMethod().toString();
-		assertEquals(result, "Phone");
+		assertEquals(result, "PHONE");
 	}
 	
 	@Test
 	public void testSetPreferredContactMethod(){
-		String result = ContactMethod.EMAIL.toString();
+		ContactMethod result = ContactMethod.EMAIL;
 		tester.setPreferredContactMethod(ContactMethod.EMAIL);
 		assertEquals(tester.getPreferredContactMethod(), result);
 	}
