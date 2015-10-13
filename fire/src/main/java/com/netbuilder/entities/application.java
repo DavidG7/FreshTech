@@ -1,4 +1,4 @@
-package com.netbuilder.entities;
+/*package com.netbuilder.entities;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,3 +23,4 @@ public class application implements CommandLineRunner {
 	
 
 }
+*/

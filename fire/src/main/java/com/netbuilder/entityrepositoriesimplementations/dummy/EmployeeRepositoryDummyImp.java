@@ -1,4 +1,4 @@
-package com.netbuilder.entityrepositoriesimplementations.dummy;
+/*package com.netbuilder.entityrepositoriesimplementations.dummy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
-/**
+*//**
  * 
  * @author dgordon
  *
- */
+ *//*
 
-/**/
-@Repository
+
+//@Repository
 public class EmployeeRepositoryDummyImp implements EmployeeRepository{
 
 	
@@ -136,3 +136,4 @@ public class EmployeeRepositoryDummyImp implements EmployeeRepository{
 		return es;
 	}
 }
+*/
