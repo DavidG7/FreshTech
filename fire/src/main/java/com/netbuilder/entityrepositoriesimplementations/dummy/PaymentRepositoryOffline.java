@@ -17,8 +17,12 @@ import com.netbuilder.data.DummyData;
 @Alternative
 public class PaymentRepositoryOffline implements PaymentRepository {
 	
+	/*
 	@Inject
 	private DummyData dummyData;
+	*/
+	
+	DummyData dummyData = new DummyData();
 	
 	/**
 	 * This method returns all payment methods in an ArrayList.
