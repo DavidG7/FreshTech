@@ -11,7 +11,6 @@ import javax.security.sasl.SaslException;
 import javax.swing.*;
 
 
-
 class CustomTextArea extends JTextField{
 
   private final String hint;
@@ -29,7 +28,7 @@ class CustomTextArea extends JTextField{
     this.addMouseListener(new MouseAdapter() { 
         public void mousePressed(MouseEvent me) { 
         	if(hint.equals("Price")){
-        		setText("£");
+        		setText("Â£");
         	}else{
         		setText("");
         	}

@@ -12,9 +12,11 @@ public class TransparentImage extends JPanel implements ActionListener {
 	Timer timer=new Timer(100, this);
 	int aplhaCount = 0;
 	Image logoImage;
+	JFrame parent;
 	 
-    TransparentImage() {
+    TransparentImage(JFrame parent) {
     	timer.start();
+    	this.parent = parent;
     }
     
 
@@ -29,17 +31,24 @@ public class TransparentImage extends JPanel implements ActionListener {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-     g.drawImage(logoImage, 285, 200, this);
+     g.drawImage(logoImage, 375, 275, this);
+     
      System.out.println(aplhaCount);
     }
 
    public void actionPerformed(ActionEvent ev){
 	    if(ev.getSource()==timer){
 	      repaint();// this will call at every 1 second
-	      if(aplhaCount < 20){
+	      if(aplhaCount < 25){
 	      aplhaCount++;
 	      }else{
 	    	  timer.stop();
+	    	  parent.remove(this);
+	    	  parent.add(new AddDiscontinue());
+	    	  parent.revalidate();
+	    	  parent.repaint();
+              
+	    	  //getParent().add(new TransparentImage());
 	      }
 	      
 	    }
