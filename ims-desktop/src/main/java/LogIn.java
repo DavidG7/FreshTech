@@ -18,14 +18,12 @@ public class LogIn extends JPanel implements ActionListener {
         JPanel leftHalf = new JPanel() {
 			private static final long serialVersionUID = 1L;
         };
-<<<<<<< HEAD
-        
-=======
+
         JPanel rightHalf = new JPanel(){
 			private static final long serialVersionUID = 1L;
         	
         };
->>>>>>> 5408ab1be20f4c6d5bd5a138aa5de5a909b121b4
+
         leftHalf.setLayout(new BoxLayout(leftHalf,BoxLayout.PAGE_AXIS));
         rightHalf.setLayout(new BorderLayout());
         rightHalf.add(new JLabel("  Welcome to NBGardens IMS"), BorderLayout.CENTER);
