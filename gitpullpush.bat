@@ -1,5 +1,5 @@
 git pull 
-git add .
-git commit -m "ricky"
+git add --all
+git commit -m "stock report gui done"
 git push origin master
 pause

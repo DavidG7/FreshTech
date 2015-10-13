@@ -3,6 +3,9 @@ package com.netbuilder.data;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.ejb.Singleton;
+
+import org.springframework.context.annotation.Bean;
+
 import com.netbuilder.entities.*;
 import com.netbuilder.util.ContactMethod;
 
@@ -52,6 +55,11 @@ public class DummyData {
 		suppliers.add(new Supplier(2,"name2"));
 		suppliers.add(new Supplier(3,"name3", "email3", "phone3", ContactMethod.NONE));
 		suppliers.add(new Supplier(4,"name4", "email4", "phone4", ContactMethod.NONE));
+	}
+	
+	@Bean
+	public DummyData dummyData(){
+		return new DummyData();
 	}
 
 	/**

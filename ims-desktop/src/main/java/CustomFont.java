@@ -5,8 +5,8 @@ public class CustomFont {
 	
 	private Font font;
 
-	public static Font getFont(){
-		Font font = new Font("Arial", Font.ITALIC, 14);
+	public static Font getFont(int fontSize){
+		Font font = new Font("Arial", Font.ITALIC, fontSize);
 		return font;
 	}
 }
