@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class JSPController {
 	
-	 @RequestMapping("/jsp")
+	 @RequestMapping("/")
 	    public String index(ModelAndView modelAndView) {
 	        return "index.jsp";
 	  }
