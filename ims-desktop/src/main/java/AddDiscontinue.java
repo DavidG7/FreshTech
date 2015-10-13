@@ -37,7 +37,6 @@ public class AddDiscontinue extends JPanel{
 		rightPanel = Box.createVerticalBox();
 		leftPanel =  Box.createVerticalBox();
 		optionTwo = new JLabel("(2) Add a new product");
-		optionTwo.setBorder(BorderFactory.createEmptyBorder(10,10,10,10)); 
 		categoryCombo = new JComboBox<String>();
 		optionTwo.setFont(CustomFont.getFont("ITALIC", 14));
 	
@@ -111,6 +110,21 @@ public class AddDiscontinue extends JPanel{
 		this.add(new TransparentImage());*/
 		
 		
+	}
+	
+	
+	public static void main(String[] args){
+		  JFrame frame = new JFrame("Please Log In");
+
+	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	      
+	    
+	       
+	        frame.add(new AddDiscontinue());
+	        frame.pack();
+
+	        frame.setLocationRelativeTo(null);
+	        frame.setVisible(true);
 	}
 
 }
