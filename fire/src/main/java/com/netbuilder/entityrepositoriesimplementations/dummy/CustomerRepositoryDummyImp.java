@@ -1,4 +1,4 @@
-package com.netbuilder.entityrepositoriesimplementations.dummy;
+/*package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +14,12 @@ import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.CustomerRepository;
 
-/**
+*//**
  * 
  * @author Thomas Dudley
  *
  * This class is to implement the functionality of the repository.
- */
+ *//*
 
 public class CustomerRepositoryDummyImp implements CustomerRepository
 {
@@ -278,3 +278,4 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 }
+*/
