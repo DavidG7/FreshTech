@@ -1,10 +1,6 @@
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Insets;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -17,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 
@@ -95,6 +90,8 @@ public class AddDiscontinue extends JPanel{
 		leftPanel.add(optionOne);
 		leftPanel.add(new JScrollPane(productTable));
 		leftPanel.add(discontinueStock);
+		leftPanel.add(new TransparentImage());
+	
       
      
 		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
@@ -105,26 +102,10 @@ public class AddDiscontinue extends JPanel{
 		    top.add(rightPanel);
 		
 		this.add(top);
-		
 		/*this.setLayout(new GridLayout(1,1));
 		this.add(new TransparentImage());*/
 		
 		
-	}
-	
-	
-	public static void main(String[] args){
-		  JFrame frame = new JFrame("Please Log In");
-
-	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      
-	    
-	       
-	        frame.add(new AddDiscontinue());
-	        frame.pack();
-
-	        frame.setLocationRelativeTo(null);
-	        frame.setVisible(true);
 	}
 
 }
