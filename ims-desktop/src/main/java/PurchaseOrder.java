@@ -11,6 +11,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * 
+ * @author Thomas Dudley
+ * 
+ * This class will form the GUI for the Purchase Order page. 
+ * The user will be able to select a product from the list,
+ * select a supplier and and a quantity for the product.
+ * These will then be added to the purchase order.
+ *
+ */
 
 public class PurchaseOrder extends JPanel
 {
