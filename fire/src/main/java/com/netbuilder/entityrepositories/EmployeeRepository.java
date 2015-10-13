@@ -1,4 +1,4 @@
-package com.netbuilder.entityrepositories;
+/*package com.netbuilder.entityrepositories;
 
 import java.util.ArrayList;
 
@@ -6,13 +6,13 @@ import com.netbuilder.entities.Employee;
 
 import java.util.List;
 
-/**
+*//**
  * 
  * @author dgordon
  *
- */
+ *//*
 
-/**/
+
 
 
 
@@ -29,4 +29,4 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 	
     public Iterable<Employee> findByAccessLevel(int accessLevel);
     
-}
+}*/

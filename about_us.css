@@ -1,0 +1,21 @@
+section
+{
+	float:left;
+    display : block;
+    width : 48em;
+    height : 40em;
+    border-width : 0.1em;
+    border-style : dashed;
+    border-color : black;
+}
+
+aside
+{
+	float:right;
+    display : block;
+    width : 12em;
+    height : 40em;
+    border-width : 0.1em;
+    border-style : dashed;
+    border-color : black;
+}
