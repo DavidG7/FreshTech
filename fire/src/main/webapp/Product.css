@@ -1,3 +1,5 @@
+/* Author: Sam Raspin*/
+
 /* Colors to use:
 		default black: 
 		default green: #006600
@@ -21,7 +23,4 @@
 .container > span:hover:before {
    content: "\2605";
    position: absolute;
-}
-#space{
-	margin-bottom : 300px;
 }

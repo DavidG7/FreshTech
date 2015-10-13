@@ -5,8 +5,13 @@ public class CustomFont {
 	
 	private Font font;
 
-	public static Font getFont(int fontSize){
-		Font font = new Font("Arial", Font.ITALIC, fontSize);
+	public static Font getFont(String type, int fontSize){
+		Font font;
+		if(type.equals("ITALIC")){
+			font = new Font("Comic Sans MS", Font.ITALIC, fontSize);
+		}else{
+			font = new Font("Comic Sans MS", Font.BOLD, fontSize);
+		}
 		return font;
 	}
 }
