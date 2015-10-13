@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+#gnome1 {
+	height : 100px;
+	margin : 0 auto;
+}
+
+#leftpanel {
+	float:left;
+}
