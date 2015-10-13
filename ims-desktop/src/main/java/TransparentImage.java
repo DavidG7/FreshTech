@@ -29,7 +29,7 @@ public class TransparentImage extends JPanel implements ActionListener {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-     g.drawImage(logoImage, 300, 200, this);
+     g.drawImage(logoImage, 285, 200, this);
      System.out.println(aplhaCount);
     }
 

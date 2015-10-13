@@ -1,6 +1,10 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Insets;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -13,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 
@@ -32,6 +37,7 @@ public class AddDiscontinue extends JPanel{
 		rightPanel = Box.createVerticalBox();
 		leftPanel =  Box.createVerticalBox();
 		optionTwo = new JLabel("(2) Add a new product");
+		optionTwo.setBorder(BorderFactory.createEmptyBorder(10,10,10,10)); 
 		categoryCombo = new JComboBox<String>();
 		optionTwo.setFont(CustomFont.getFont("ITALIC", 14));
 	
@@ -90,8 +96,6 @@ public class AddDiscontinue extends JPanel{
 		leftPanel.add(optionOne);
 		leftPanel.add(new JScrollPane(productTable));
 		leftPanel.add(discontinueStock);
-		leftPanel.add(new TransparentImage());
-	
       
      
 		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
@@ -102,6 +106,7 @@ public class AddDiscontinue extends JPanel{
 		    top.add(rightPanel);
 		
 		this.add(top);
+		
 		/*this.setLayout(new GridLayout(1,1));
 		this.add(new TransparentImage());*/
 		
