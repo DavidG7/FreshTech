@@ -22,7 +22,7 @@ class CustomTextArea extends JTextField{
     this.hint = hint;
     this.showingHint = true;
     this.setText(hint);
-    this.setFont(CustomFont.getFont(14));
+    this.setFont(CustomFont.getFont("ITALIC",14));
     this.setForeground(Color.GRAY);
     this.setMargin(new Insets(5, 50, 5, 50));
     
