@@ -1,3 +1,4 @@
+package CustomUI;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,8 +11,10 @@ import java.awt.event.MouseEvent;
 import javax.security.sasl.SaslException;
 import javax.swing.*;
 
+import CustomUI.CustomFont;
 
-class CustomTextArea extends JTextField{
+
+public class CustomTextArea extends JTextField{
 
   private final String hint;
   private boolean showingHint;
