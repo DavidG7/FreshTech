@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
@@ -62,7 +63,7 @@ public class PurchaseOrder extends JPanel
 		CustomLabel title = new CustomLabel("Purchase Order", true);
 		CustomLabel subTitle = new CustomLabel("Place a Purchase Order Here", true);
 		CustomLabel instructionSet = new CustomLabel ("(1) Select a Product", false);
-		String [] colNames = {"ProductID","Product Name","Product Quantity"};
+		String [] colNames = {"Product ID","Product Name","Product Quantity"};
 		Object[][] data = new Object [23][23];
 		JTable productTable = new JTable(data, colNames);
 		JScrollPane scrollPane = new JScrollPane(productTable);		
@@ -136,7 +137,7 @@ public class PurchaseOrder extends JPanel
 		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
 		orderInfoPanel.add(instruction);
 		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
-		listOfSuppliers.setPreferredSize(new Dimension(100, 30));
+		listOfSuppliers.setPreferredSize(new Dimension(50, 30));
 		orderInfoPanel.add(listOfSuppliers);
 	
 		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
@@ -154,12 +155,16 @@ public class PurchaseOrder extends JPanel
 	{
 		JPanel purchaseOrderPanel = new JPanel();
 		
-		String [] colNames = {"ProductID", "Product Name", "Product Quantity", " Supplier"};
+		String [] colNames = {"Product ID", "Product Name", "Product Quantity", " Supplier"};
 		Object[][] data = new Object[10][10];
 		JTable purchaseOrderTable = new JTable(data, colNames);
 		JScrollPane scrollPane = new JScrollPane(purchaseOrderTable);
 		
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		scrollPane.getViewport().setBackground(Color.WHITE);
+		
 		purchaseOrderPanel.add(scrollPane);
+		purchaseOrderPanel.setBackground(new Color(255, 255, 255));
 		
 		return purchaseOrderPanel;
 	}
