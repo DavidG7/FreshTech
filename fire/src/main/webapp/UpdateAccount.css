@@ -10,3 +10,16 @@
 #fixit{
 	clear:left;
 }
+#column2{
+	float: left;
+	margin: 20px;
+	margin-left: 90px;
+}
+#container{
+	margin:auto;
+	max-width:802px;
+}
+#dropmenus{
+	float:left;
+	margin:70px;
+}
