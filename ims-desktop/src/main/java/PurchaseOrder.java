@@ -22,6 +22,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import CustomUI.CustomFont;
+
 /**
  * 
  * @author Thomas Dudley
@@ -73,6 +75,8 @@ public class PurchaseOrder extends JPanel
 		JScrollPane scrollPane = new JScrollPane(productTable);
 				
 		JButton placeOrder = new JButton("Place Order");
+		
+		placeOrder.setFont(CustomFont.getFont("PLAIN", 14));
 	
 		productPanel.add(title);
 		productPanel.add(Box.createRigidArea(new Dimension(0, 10)));
