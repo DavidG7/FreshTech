@@ -165,15 +165,19 @@ public class AddDiscontinue extends JPanel{
 	
 	
 	public static void main(String[] args){
-		  JFrame frame = new JFrame("Please Log In");
+		  JFrame frame = new JFrame("Inventory Management System");
 
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      JTabbedPane pane = new JTabbedPane();
 	    //  pane.add(new LogIn());
-	     
-	      pane.add(new DailyStockReport());
-	      pane.add(new PredicatedSales());
-	      pane.add(new AddDiscontinue());
+	   
+	      pane.setForeground(new Color(0,122,0));
+	      pane.setBackground(Color.WHITE);
+	      
+	      pane.addTab("Daily Stock Report", new DailyStockReport());
+	      pane.addTab("Purchase Order", new PurchaseOrder());
+	      pane.addTab("Predicted Sales", new PredicatedSales());
+	      pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
 	         
 	        frame.setSize(1000,800);
 	        frame.add(new TransparentImage(frame, pane));
