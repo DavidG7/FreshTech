@@ -75,7 +75,9 @@ public class PurchaseOrder extends JPanel
 		JButton placeOrder = new JButton("Place Order");
 	
 		productPanel.add(title);
+		productPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 		productPanel.add(subTitle);
+		productPanel.add(Box.createRigidArea(new Dimension(0, 60)));
 		productPanel.add(instructionSet);
 		productPanel.add(scrollPane);
 		productPanel.add(placeOrder);
@@ -86,7 +88,7 @@ public class PurchaseOrder extends JPanel
 	public JComponent createPurchaseOrderInfoPanel()
 	{
 		JPanel orderInfoPanel = new JPanel();
-		GridLayout grid = new GridLayout(15, 1);
+		GridLayout grid = new GridLayout(20, 1);
 
 		orderInfoPanel.setLayout(grid);
 		
@@ -105,18 +107,19 @@ public class PurchaseOrder extends JPanel
 			quantity[i - 1] = "" + i;
 		}
 		
-		JLabel instruction = new JLabel("Select supplier");
-		JLabel instructionTwo = new JLabel("Select Quantity");
+		JLabel instruction = new JLabel("(2) Select Supplier");
+		JLabel instructionTwo = new JLabel("(3) Select Quantity");
 		
 		JComboBox<String> listOfSuppliers = new JComboBox<String>(tempNames);
 		JComboBox<String> quantityRequired = new JComboBox<String>(quantity);
 
 		grid.preferredLayoutSize(orderInfoPanel);
 		
-		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
-		
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
 		orderInfoPanel.add(instruction);
-				
 		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
 		listOfSuppliers.setPreferredSize(new Dimension(100, 20));
 		orderInfoPanel.add(listOfSuppliers);
@@ -124,10 +127,6 @@ public class PurchaseOrder extends JPanel
 		
 		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
 		orderInfoPanel.add(instructionTwo);
-		
-		quantityRequired.setPreferredSize(new Dimension(100, 10));
-		quantityRequired.setMaximumSize(new Dimension(100, 10));
-		quantityRequired.revalidate();
 		orderInfoPanel.add(quantityRequired);
 				
 		return orderInfoPanel;
