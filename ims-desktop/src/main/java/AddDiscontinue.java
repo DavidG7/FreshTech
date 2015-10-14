@@ -169,9 +169,11 @@ public class AddDiscontinue extends JPanel{
 
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      JTabbedPane pane = new JTabbedPane();
-	      pane.add(new LogIn());
-	      pane.add(new AddDiscontinue());
+	    //  pane.add(new LogIn());
+	     
 	      pane.add(new DailyStockReport());
+	      pane.add(new PredicatedSales());
+	      pane.add(new AddDiscontinue());
 	         
 	        frame.setSize(1000,800);
 	        frame.add(new TransparentImage(frame, pane));
