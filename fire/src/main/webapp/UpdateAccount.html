@@ -154,20 +154,29 @@
 		
 		</nav>
 
+<!--------------------------------------------->
+<!------Top banner (Jumbotron)------------------>		
+<!--------------------------------------------->
+	
+		<div class="panel panel-default">
 		
+			<div class = "jumbotron">
+			
+				<h2> <b> Update Details </b> </h2>			
+			
+			</div>		
+
+		</div>
+	
 <!--------------------------------------------->
 <!------INSERT PAGE BODY HERE------------------>		
 <!--------------------------------------------->
 			
 		<div class = "panel-body">
 		
-			<div>
+			<div id="container">
 			
-				<div>
-					<p class="subtitle"><strong>Update Details</strong></p>
-				</div>
-			
-				<div><hr>
+				<div align="center">
 					<p class="subtitle"><strong>Current Details:</strong></p>
 					
 					<p id="writing"><strong>Contact Details:</strong><br>
@@ -195,73 +204,136 @@
 				
 				
 				
-				
-		 		<div class="dropdown" id="writing">
-   		 			<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 1" data-toggle="dropdown">Select Default Delivery Address
-    				<span class="caret"></span></button>
-					<ul class="dropdown-menu">
-					<li><a href="#">This</a></li>
-					<li><a href="#">is</a></li>
-					<li><a href="#">where</a></li>
-					<li><a href="#">addresses</a></li>
-					<li><a href="#">will</a></li>
-					<li><a href="#">go</a></li>
-					</ul>
+				<div id="dropmenus">
+		 			<div class="dropdown">
+   		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 1" data-toggle="dropdown">Select Default Delivery Address
+    					<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+						<li><a href="#">Various</a></li>
+						<li><a href="#">saved</a></li>
+						<li><a href="#">addresses</a></li>
+						<li><a href="#">belong</a></li>
+						<li><a href="#">here</a></li>
+						</ul><p></p>
+					</div>
+					<div><a href="#"><button type="submit"><strong>Edit Address Details</strong></button></a></div>
 				</div>
 				
-				<div class="dropdown" id="writing">
+				<div id="dropmenus">
+					<div class="dropdown">
+   		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Default Payment Details
+    					<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+						<li><a href="#">Various</a></li>
+						<li><a href="#">saved</a></li>
+						<li><a href="#">payment</a></li>
+						<li><a href="#">methods</a></li>
+						<li><a href="#">belong</a></li>
+						<li><a href="#">here</a></li>
+						</ul><p></p>
+					</div>
+					<div><a href="#"><button type="submit"><strong>Edit Payment Details</strong></button></a></div>
+				</div>
+				
+				
+				<div id="fixit"><hr></div>
+				
+				<div id="writing">
+  					<strong>Alternatively, please enter a<br>new address below:</strong><br><br>
+  					
+					Address Line 1 :<br>
+					<input type = "text" name = "addressline1">
+					<br>
+					<br>
+					Address Line 2 :<br>
+					<input type = "text" name = "addressline2">
+					<br>
+					<br>
+					City :<br>
+					<input type = "text" name = "city">
+					<br>
+					<br>
+					County :<br>
+					<input type = "text" name = "county">
+					<br>
+					<br>
+					Postcode :<br>
+					<input type = "text" name = "postcode">
+					<br>
+					<br>
 					
-   		 			<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Default Payment Details
-    				<span class="caret"></span></button>
-					<ul class="dropdown-menu">
-					<li><a href="#">This</a></li>
-					<li><a href="#">is</a></li>
-					<li><a href="#">where</a></li>
-					<li><a href="#">addresses</a></li>
-					<li><a href="#">will</a></li>
-					<li><a href="#">go</a></li>
-					</ul>
-				</div>
-				
-				<div id="fixit">
-  				Alternatively, please enter a<br>new address below.<br>
-  				
-        		First Name :<br>
-				<input type = "text" name = "firstname">
-				<br>
-				<br>
-				Last Name :<br>
-				<input type = "text" name = "lastname">
-				<br>
-				<br>
-				Address Line 1 :<br>
-				<input type = "text" name = "addressline1">
-				<br>
-				<br>
-				Address Line 2 :<br>
-				<input type = "text" name = "addressline2">
-				<br>
-				<br>
-				Address Line 3 :<br>
-				<input type = "text" name = "addressline3">
-				<br>
-				<br>
-				City :<br>
-				<input type = "text" name = "city">
-				<br>
-				<br>
-				County :<br>
-				<input type = "text" name = "county">
-				<br>
-				<br>
-				Postcode :<br>
-				<input type = "text" name = "postcode">
-				<br>
-				<br>
-				</div>
-       			<a href="Landing.html"><img class="img-responsive left-block" src="ImageFolder/Submit.png" alt="Submit"></a>
-			</div>
-
+       				<button type="submit"><strong>Submit</strong></button>
+       			</div>
+			
+				<div id="column2">
+  					<strong>Alternatively, please enter a<br>new payment method below:</strong><br><br>
+  					
+        			<div class="dropdown">
+						
+   		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Card Type
+    					<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+						<li><a>Mastercard</a></li>
+						<li><a>Visa</a></li>
+						<li><a>Visa Electron</a></li>
+						<li><a>American Express</a></li>
+						</ul><p></p>
+					</div>
+					Card Number :<br>
+					<input type = "text" name = "CardNumber">
+					<br>
+					<br>
+					Sort Code :<br>
+					<input type = "text" name = "SortCode">
+					<br>
+					<br>
+					CVV :<br>
+					<input type = "text" name = "CVV">
+					<br>
+					<br>
+					Name on Card :<br>
+					<input type = "text" name = "NameonCard">
+					<br>
+					<br>
+					Billing Address :<br>
+					<input type = "text" name = "BillAdd">
+					<br>
+					<br>
+					Billing Postcode :<br>
+					<input type = "text" name = "BillPost">
+					<br>
+					<br>
+					
+       				<button type="submit"><strong>Submit</strong></button>
+       			</div>
+       			
+       			<div id="column2">
+  					<strong>Update contact details<br>if neccessary:</strong><br><br>
+  					
+					First Name :<br>
+					<input type = "text" name = "FirstName">
+					<br>
+					<br>
+					Surname Name :<br>
+					<input type = "text" name = "SurnameName">
+					<br>
+					<br>
+					Home Telephone :<br>
+					<input type = "text" name = "HomePhone">
+					<br>
+					<br>
+					Mobile Telephone :<br>
+					<input type = "text" name = "MobilePhone">
+					<br>
+					<br>
+					Email Address :<br>
+					<input type = "text" name = "Email">
+					<br>
+					<br>
+					
+       				<button type="submit"><strong>Submit</strong></button>
+       			</div>
+       		</div>
 		</div>
 
 <!----------------------------->
