@@ -1,5 +1,5 @@
 import java.awt.BorderLayout;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -7,10 +7,13 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.ScrollPane;
-=======
+//=======
 import java.awt.GridLayout;
->>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
+//>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
+
+
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -24,12 +27,13 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JRootPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import javax.swing.UIManager;
 import javax.swing.border.Border;
-=======
->>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
+//=======
+//>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
@@ -130,7 +134,7 @@ public class AddDiscontinue extends JPanel{
 	      header.setForeground(Color.WHITE);
 		leftPanel.add(scrollPane);
 		leftPanel.add(discontinueStock);
-		leftPanel.add(new TransparentImage());
+		//leftPanel.add(new TransparentImage());
 	
       
      
@@ -146,16 +150,16 @@ public class AddDiscontinue extends JPanel{
 		    top.add(rightPanel);
 		
 		this.add(top);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	
-=======
->>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
+//=======
+//>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 		/*this.setLayout(new GridLayout(1,1));
 		this.add(new TransparentImage());*/
 		
 		
 	}
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	
 
 	
@@ -164,11 +168,15 @@ public class AddDiscontinue extends JPanel{
 		  JFrame frame = new JFrame("Please Log In");
 
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      
-	    
+	      JTabbedPane pane = new JTabbedPane();
+	      pane.add(new LogIn());
+	      pane.add(new AddDiscontinue());
+	      pane.add(new DailyStockReport());
+	         
 	        frame.setSize(1000,800);
-	        frame.add(new TransparentImage(frame));
+	        frame.add(new TransparentImage(frame, pane));
 	        //frame.pack();
+	        //frame.add(pane);
 
 	        frame.setLocationRelativeTo(null);
 	        frame.setVisible(true);
@@ -181,7 +189,7 @@ public class AddDiscontinue extends JPanel{
 	        UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
 	        UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
 	}
-=======
->>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
+//=======
+//>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
 }
