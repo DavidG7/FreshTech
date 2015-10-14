@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -8,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import CustomUI.CustomScrollPane;
 
 /**
  * 
@@ -29,16 +32,19 @@ public class DailyStockReport extends JPanel{
 
 	public DailyStockReport(){
 		//setTitle("DailyStockReport");
+		setBackground(Color.WHITE);
 		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
 		Object[][] data = new Object [5][5];
 		reportTable = new JTable(data,colNames);
 		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
+		topBar.setBackground(Color.WHITE);
 		topBar.add(label);
 		searchText = new JTextField("Search");
 		topBar.add(searchText);
 		panel.add(topBar, BorderLayout.NORTH);
-		panel.add(new JScrollPane(reportTable),BorderLayout.CENTER);
+		panel.add(new CustomScrollPane(reportTable),BorderLayout.CENTER);
+		bottomBar.setBackground(Color.white);
 		bottomBar.add(date);
 		bottomBar.add(rturn);
 		panel.add(bottomBar,BorderLayout.SOUTH);

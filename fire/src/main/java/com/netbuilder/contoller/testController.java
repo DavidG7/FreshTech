@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ProductController {
+public class testController {
 
 	
-	@RequestMapping("product")
-	public String pageControll(ModelAndView modelAndView){
-		return "Product";
-	}
+	 @RequestMapping("form")
+	    public String index(ModelAndView modelAndView) {
+	        return "form";
+	  }
 }

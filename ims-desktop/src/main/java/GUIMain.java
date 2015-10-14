@@ -28,11 +28,7 @@ public class GUIMain
 	    pane.addTab("Predicted Sales", new PredicatedSales());
 	    pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
 	         
-	    frame.add(new LogIn());
-	    
 	    frame.setSize(1000,800);
-	    
-	    
 	    
 	    frame.add(new TransparentImage(frame, pane));
 	    
