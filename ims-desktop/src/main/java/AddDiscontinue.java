@@ -169,7 +169,7 @@ public class AddDiscontinue extends JPanel{
 
 	
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		  JFrame frame = new JFrame("Inventory Management System");
 
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -199,7 +199,7 @@ public class AddDiscontinue extends JPanel{
 	        UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(new Color(0,122,0) ));
 	        UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
 	        UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
-	}
+	}*/
 //=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
