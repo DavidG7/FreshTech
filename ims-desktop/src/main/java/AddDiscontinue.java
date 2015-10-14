@@ -13,6 +13,9 @@ import java.awt.GridLayout;
 
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import CustomUI.*;
 
 import javax.swing.BorderFactory;
@@ -25,6 +28,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JRootPane;
@@ -105,6 +109,15 @@ public class AddDiscontinue extends JPanel{
 		rightPanel.add(porouswareButtonN);
 		
 		CustomButton addNewStock = new CustomButton("Add new stock item");
+		addNewStock.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	            	JOptionPane.showMessageDialog(getParent(),
+	            	        "Problem writing to backup directory: '" );
+	                    }
+	                    
+	     });
 		
 		rightPanel.add(addNewStock);
 		 /*JFileChooser fileChooser = new JFileChooser();
@@ -124,6 +137,15 @@ public class AddDiscontinue extends JPanel{
 	
 		
 		 CustomButton discontinueStock = new CustomButton("Discontinue selected stock"); 
+		 discontinueStock.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	            	JOptionPane.showMessageDialog(getParent(),
+	            	        "Problem writing to backup directory: '");
+	                   }
+	                    
+	     });
 		
 		
 		Box HeadingandImage = Box.createHorizontalBox();

@@ -34,7 +34,7 @@ public class CustomTextArea extends JTextField{
     this.addMouseListener(new MouseAdapter() { 
         public void mousePressed(MouseEvent me) { 
         	if(hint.equals("Price")){
-        		setText("£");
+        		setText("$");
         	}else if(hint.equals("Your expected sales this quarter for XXXX are £14,000")){
         		
         	}else{
