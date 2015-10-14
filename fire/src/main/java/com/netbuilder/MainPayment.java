@@ -13,7 +13,7 @@ import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryD
 import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryDummyConfig;
 
 public class MainPayment {
-   public static void main(String[] args) {
+  /* public static void main(String[] args) {
 	   
 	   ApplicationContext ctx = new AnnotationConfigApplicationContext(PaymentRepositoryDummyConfig.class);
 	   
@@ -27,5 +27,5 @@ public class MainPayment {
 			
 		}
 
-   }
+   }*/
 }
