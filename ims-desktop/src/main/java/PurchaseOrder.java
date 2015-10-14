@@ -205,7 +205,7 @@ public class PurchaseOrder extends JPanel
 				int productCol = productTable.getSelectedColumn();
 				
 				//Object tempObj = productTable.getValueAt(productRow);
-				product.add((String) tempObj);
+				//product.add((String) tempObj);
 				
 				String tempSupplier = (String) suppliers.getSelectedItem();
 				String tempQuant = (String) quant.getSelectedItem();
