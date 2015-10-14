@@ -35,12 +35,7 @@ public class PredicatedSales extends JPanel{
 	JPanel leftPanel,rightPanel, headingLeft;
 	CustomTextArea salesPrediction;
 	///chart......
-	/*JPanel centre = new JPanel();
-	JButton  rturn = new JButton("Return");
-	String text2 =  "Your expected sales this quarter are £14.333";
-	JLabel textlb2 = new JLabel(text2);
-	JPanel buttonBar  = new JPanel();
-	JPanel panel = new JPanel();*/
+
 	
 	
 	public PredicatedSales(){
@@ -73,10 +68,7 @@ public class PredicatedSales extends JPanel{
 		rightPanel.add(salesPrediction);
 		this.add(leftPanel);
 		this.add(rightPanel);
-		//panel.add(centre, BorderLayout.CENTER);
-		//this.add(panel);
-		//setTitle("PredictedSales");
-		//setSize(400,400);
+		
 		leftPanel.setBackground(Color.WHITE);
 		rightPanel.setBackground(Color.WHITE);
 		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
