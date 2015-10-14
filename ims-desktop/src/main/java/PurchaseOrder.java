@@ -22,7 +22,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import CustomUI.CustomFont;
+import CustomUI.*;
 
 /**
  * 
@@ -62,11 +62,11 @@ public class PurchaseOrder extends JPanel
 	{
 		Box productPanel = Box.createVerticalBox();
 				
-		JLabel title = new JLabel("Purchase Order");
-		JLabel subTitle = new JLabel("Place a purchase order here");
-		JLabel instructionSet = new JLabel ("(1) Select a product");
+		CustomLabel title = new CustomLabel("Purchase Order", true);
+		CustomLabel subTitle = new CustomLabel("Place a purchase order here", true);
+		CustomLabel instructionSet = new CustomLabel ("(1) Select a product", false);
 		String [] colNames = {"ProductID","Product Name","Product Quantity"};
-		Object[][] data = new Object [5][5];
+		Object[][] data = new Object [23][23];
 		JTable productTable = new JTable(data, colNames);
 		JScrollPane scrollPane = new JScrollPane(productTable);		
 		CustomButton placeOrder = new CustomButton("Place Order");
@@ -77,6 +77,7 @@ public class PurchaseOrder extends JPanel
 		instructionSet.setFont(CustomFont.getFont("PLAIN", 14));
 		scrollPane.setFont(CustomFont.getFont("PLAIN", 14));
 		scrollPane.getViewport().setBackground(Color.WHITE);
+		
 		productTable.setFont(CustomFont.getFont("PLAIN", 14));
 		
 		productPanel.add(title);
@@ -94,8 +95,6 @@ public class PurchaseOrder extends JPanel
 	{
 		JPanel orderInfoPanel = new JPanel();
 		GridLayout grid = new GridLayout(20, 1);
-
-		
 		
 		String[] tempNames = new String[5];
 		
@@ -112,8 +111,8 @@ public class PurchaseOrder extends JPanel
 			quantity[i - 1] = "" + i;
 		}
 		
-		JLabel instruction = new JLabel("(2) Select Supplier");
-		JLabel instructionTwo = new JLabel("(3) Select Quantity");
+		CustomLabel instruction = new CustomLabel("(2) Select Supplier", false);
+		CustomLabel instructionTwo = new CustomLabel("(3) Select Quantity", false);
 				
 		JComboBox<String> listOfSuppliers = new JComboBox<String>(tempNames);
 		JComboBox<String> quantityRequired = new JComboBox<String>(quantity);
@@ -125,6 +124,10 @@ public class PurchaseOrder extends JPanel
 		instructionTwo.setFont(CustomFont.getFont("PLAIN", 14));
 		listOfSuppliers.setFont(CustomFont.getFont("PLAIN", 14));
 		quantityRequired.setFont(CustomFont.getFont("PLAIN", 14));
+		
+		listOfSuppliers.setForeground(new Color(0,122,0));
+		quantityRequired.setForeground(new Color(0,122,0));
+		
 		
 		grid.preferredLayoutSize(orderInfoPanel);
 		
@@ -144,7 +147,7 @@ public class PurchaseOrder extends JPanel
 		return orderInfoPanel;
 	}
 
-	public static void createJFrame()
+	/*public static void createJFrame()
 	{
 		JFrame main = new JFrame("Purchase Order");
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -161,6 +164,6 @@ public class PurchaseOrder extends JPanel
 	{
 		createJFrame();
 		
-	}
+	}*/
 	
 }
