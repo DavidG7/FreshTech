@@ -2,6 +2,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -178,5 +181,57 @@ public class PurchaseOrder extends JPanel
 		purchaseOrderPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
 		
 		return purchaseOrderPanel;
+	}
+	
+	public void addPurchaseOrder(CustomButton button, final JTable productTable, 
+			final JComboBox<String> suppliers, final JComboBox<String> quant)
+	{
+		final Vector<String> product = new Vector<String>();
+		
+		button.addMouseListener(new MouseListener()
+		{
+
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) 
+			{
+				int productRow = productTable.getSelectedRow();
+				int productCol = productTable.getSelectedColumn();
+				
+				//Object tempObj = productTable.getValueAt(productRow);
+				product.add((String) tempObj);
+				
+				String tempSupplier = (String) suppliers.getSelectedItem();
+				String tempQuant = (String) quant.getSelectedItem();
+
+			}
+			
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+		});
 	}
 }
