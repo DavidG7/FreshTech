@@ -13,18 +13,9 @@ import com.netbuilder.entities.Product;
 public class JSPController {
 	 @RequestMapping("/")
 	    public String index(ModelAndView modelAndView) {
-	        return "paymentagreement";
+	        return "index.jsp";
 	  }
 	 
 	 
-	 	@RequestMapping(value="checkoutitems")
-	    public ModelAndView  checkoutitems () {
-		 System.out.println("calling");
-		 	DummyData data = new DummyData();
-		 	ArrayList<Product> product = data.getEntityList(new Product());
-	        ModelAndView result = new ModelAndView("checkoutitems");
-	        result.addObject("checkoutitems", product);
-	        return result;
-	       
-	    }
+	 	
 }
