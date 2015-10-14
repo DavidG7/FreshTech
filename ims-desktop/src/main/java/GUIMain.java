@@ -33,15 +33,17 @@ public class GUIMain
 	    frame.add(new TransparentImage(frame, pane));
 	    
 	    frame.setLocationRelativeTo(null);
-	    frame.setVisible(true);
+	    
 	    ImageIcon img = new ImageIcon("NBGardensLogo.png");
 	    frame.setIconImage(img.getImage());
-	    frame.setUndecorated(true);   
-	    frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
-	        
+	    frame.setVisible(true);
+	   // frame.setUndecorated(true);   
+	    //frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
+	 
 	    UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(new Color(0,122,0) ));
 	    UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
 	    UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
+	   
 	}
 	
 	
