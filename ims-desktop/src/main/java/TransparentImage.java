@@ -13,9 +13,9 @@ public class TransparentImage extends JPanel implements ActionListener {
 	int aplhaCount = 0;
 	Image logoImage;
 	JFrame parent;
-	JTabbedPane pane;
+	JComponent pane;
 	 
-    TransparentImage(JFrame parent, JTabbedPane pane) {
+    TransparentImage(JFrame parent, JComponent pane) {
     	timer.start();
     	this.parent = parent;
     	this.pane = pane;
