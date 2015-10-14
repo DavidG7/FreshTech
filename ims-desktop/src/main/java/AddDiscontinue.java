@@ -197,10 +197,14 @@ public class AddDiscontinue extends JPanel{
 	        frame.setIconImage(img.getImage());
 	        frame.setUndecorated(true);   
 	        frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
+//<<<<<<< HEAD
       
 
 	}
 //=======
+	      
+	}
+//>>>>>>> ab27ee42ed16f44b5fc835c5d6eca36714c8db47
+//=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
-}

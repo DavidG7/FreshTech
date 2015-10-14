@@ -9,14 +9,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import CustomUI.CustomButton;
 import CustomUI.CustomImage;
 import CustomUI.CustomLabel;
 import CustomUI.CustomPieChart;
 import CustomUI.CustomScrollPane;
+import CustomUI.CustomTextArea;
 /**
  * 
  * @author Ricky Luu
@@ -29,6 +33,7 @@ public class PredicatedSales extends JPanel{
 	JPanel topBar = new JPanel();
 	CustomJTable table;
 	JPanel leftPanel,rightPanel, headingLeft;
+	CustomTextArea salesPrediction;
 	///chart......
 	/*JPanel centre = new JPanel();
 	JButton  rturn = new JButton("Return");
@@ -61,7 +66,11 @@ public class PredicatedSales extends JPanel{
 		
 		//CustomButton butReturn = new CustomButton("Return");
 		//leftPanel.add(butReturn);
-		rightPanel.add(new CustomPieChart("Sales","Sales"));
+		final CustomPieChart pie = new CustomPieChart("Sales","Sales");
+		rightPanel.add(pie);
+		salesPrediction = new CustomTextArea("Your expected sales this quarter for XXXX are £14,000");
+		salesPrediction.setEditable(false);
+		rightPanel.add(salesPrediction);
 		this.add(leftPanel);
 		this.add(rightPanel);
 		//panel.add(centre, BorderLayout.CENTER);
@@ -74,6 +83,18 @@ public class PredicatedSales extends JPanel{
 		rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
 		
 		setVisible(true);
+		
+		
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		ListSelectionModel selectionModel = table.getSelectionModel();
+
+		selectionModel.addListSelectionListener(new ListSelectionListener() {
+		    public void valueChanged(ListSelectionEvent e) {
+		        pie.refreshChart();
+		    }
+		});
+
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//pack();

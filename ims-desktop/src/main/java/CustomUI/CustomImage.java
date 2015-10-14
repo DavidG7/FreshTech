@@ -28,7 +28,9 @@ public class CustomImage extends JPanel{
        } catch (IOException ex) {
             // handle exception...
        }
-       this.setBackground(Color.WHITE);
+       //this.setBackground(Color.WHITE);
+       this.setOpaque(true);
+       this.setBackground(new Color(0,0,0,0));
     }
 
     @Override

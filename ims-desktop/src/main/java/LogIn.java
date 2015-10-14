@@ -125,7 +125,7 @@ public class LogIn extends JPanel implements ActionListener {
  
 
  
-    private static void createAndShowGUI() {
+    /*private static void createAndShowGUI() {
         JFrame frame = new JFrame("Please Log In");
 
       //  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -149,5 +149,5 @@ public class LogIn extends JPanel implements ActionListener {
  
     public static void main(String[] args) {
         createAndShowGUI();
-    }
+    }*/
 }

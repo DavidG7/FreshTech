@@ -1,5 +1,9 @@
 package CustomUI;
 
+import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -16,17 +20,19 @@ import org.jfree.util.Rotation;
 public class CustomPieChart extends JPanel {
 
   private static final long serialVersionUID = 1L;
+  ChartPanel chartPanel;
+  JFreeChart chart;
 
   public CustomPieChart(String applicationTitle, String chartTitle) {
        
         // This will create the dataset 
         PieDataset dataset = createDataset();
         // based on the dataset we create the chart
-        JFreeChart chart = createChart(dataset, chartTitle);
+        chart = createChart(dataset, chartTitle);
         // we put the chart into a panel
-        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel = new ChartPanel(chart);
         // default size
-        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
+        chartPanel.setPreferredSize(new java.awt.Dimension(450, 300));
 
         this.add(chartPanel);
         // add it to our application
@@ -41,12 +47,26 @@ public class CustomPieChart extends JPanel {
 
     private  PieDataset createDataset() {
         DefaultPieDataset result = new DefaultPieDataset();
-        result.setValue("Linux", 29);
-        result.setValue("Mac", 20);
-        result.setValue("Windows", 51);
-        return result;
-        
-    }
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        int count = 0;
+        String[] seasons = new String[] {"Spr","Sum","Au","Win"};
+        	for(int i = 0; i < 4; i++){
+        		Random rand = new Random();
+        		int randNum = rand.nextInt(100 - 1 + 1) + 1;
+        		count += randNum;
+        		list.add(randNum);
+       
+        	
+        	}
+        	
+        	   for(int i = 0;i<4;i++){
+        		   
+        		    double asPercent = list.get(i)*(100/(double)count);
+        		    System.out.println(count);
+        			result.setValue(seasons[i], (int)asPercent);
+               }
+       return result;
+  }
     
     
 /**
@@ -68,4 +88,24 @@ public class CustomPieChart extends JPanel {
         return chart;
         
     }
+    
+    
+
+    	public void refreshChart() {
+    	    this.removeAll();
+    	    
+    	    this.revalidate(); // This removes the old chart 
+    	    PieDataset dataset = createDataset();
+            // based on the dataset we create the chart
+            JFreeChart chart = createChart(dataset, "Sales");
+            // we put the chart into a panel
+            ChartPanel chartPanel = new ChartPanel(chart);
+            // default size
+            chartPanel.setPreferredSize(new java.awt.Dimension(450, 300));
+
+            this.add(chartPanel);
+    	   
+    	}
+        
+    
 } 
