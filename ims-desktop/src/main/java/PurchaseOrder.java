@@ -22,6 +22,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import CustomUI.CustomFont;
+
 /**
  * 
  * @author Thomas Dudley
