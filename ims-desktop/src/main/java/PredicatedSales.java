@@ -63,7 +63,7 @@ public class PredicatedSales extends JPanel{
 		//leftPanel.add(butReturn);
 		final CustomPieChart pie = new CustomPieChart("Sales","Sales");
 		rightPanel.add(pie);
-		salesPrediction = new CustomTextArea("Your expected sales this quarter for XXXX are £14,000");
+		salesPrediction = new CustomTextArea("Your expected sales this quarter for XXXX are $14,000");
 		salesPrediction.setEditable(false);
 		rightPanel.add(salesPrediction);
 		this.add(leftPanel);
