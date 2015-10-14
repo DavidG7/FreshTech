@@ -9,7 +9,7 @@ import javax.swing.*;
 public class TransparentImage extends JPanel implements ActionListener {
 
 
-	Timer timer=new Timer(100, this);
+	Timer timer=new Timer(50, this);
 	int aplhaCount = 0;
 	Image logoImage;
 	JFrame parent;
@@ -42,7 +42,7 @@ public class TransparentImage extends JPanel implements ActionListener {
    public void actionPerformed(ActionEvent ev){
 	    if(ev.getSource()==timer){
 	      repaint();// this will call at every 1 second
-	      if(aplhaCount < 25){
+	      if(aplhaCount < 35){
 	      aplhaCount++;
 	      }else{
 	    	  timer.stop();
