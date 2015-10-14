@@ -12,7 +12,7 @@ import javax.swing.JTable;
  * @author Ricky Luu
  *
  */
-public class PredicatedSales extends JFrame {
+public class PredicatedSales extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
 	JLabel titlelb = new JLabel("PredictedSales");
@@ -37,15 +37,15 @@ public class PredicatedSales extends JFrame {
 		centre.add(new JScrollPane(table));
 		panel.add(centre, BorderLayout.CENTER);
 		add(panel);
-		setTitle("PredictedSales");
-		setSize(400,400);
+		//setTitle("PredictedSales");
+		//setSize(400,400);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pack();
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//pack();
 	}	
 
 	
-	public static void main(String [] args){
+	/*public static void main(String [] args){
 		new PredicatedSales();
- }
+ }*/
 }

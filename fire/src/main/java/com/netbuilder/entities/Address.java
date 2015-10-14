@@ -15,19 +15,19 @@ public class Address implements Serializable {
 	 * attributes used in the address class
 	 */
 	@Id
-	private int addressid;
+	private int addressID;
 	private String address;
 	private String postcode;
-	private int customerid;
+	private int customerID;
 	
    /**
     * class constructors
     */
 	public Address (int addressid, String address, String postcode, int customerid){
-		this.addressid = addressid;
+		this.addressID = addressid;
 		this.address = address;
 		this.postcode = postcode;
-		this.customerid = customerid;
+		this.customerID = customerid;
 	}
 	
 	/**
@@ -55,14 +55,14 @@ public class Address implements Serializable {
 	 * @return the addressid
 	 */
 	public int getAddressid() {
-		return addressid;
+		return addressID;
 	}
 	
 	/**
 	 * @param addressid the addressid to set
 	 */
 	public void setAddressid(int addressid) {
-		this.addressid = addressid;
+		this.addressID = addressid;
 	}
 	
 	/**
@@ -97,13 +97,13 @@ public class Address implements Serializable {
 	 * @return the customerid
 	 */
 	public int getCustomerid() {
-		return customerid;
+		return customerID;
 	}
 	
 	/**
 	 * @param customerid the customerid to set
 	 */
 	public void setCustomerid(int customerid) {
-		this.customerid = customerid;
+		this.customerID = customerid;
 	}
 }

@@ -1,9 +1,13 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,102 +42,55 @@ public class PurchaseOrder extends JPanel
 
 	public PurchaseOrder()
 	{		
-		setLayout(new GridLayout(2,1));
-			
-		add(createInformationPanel());
+		setLayout(new BorderLayout());
 		
 		JPanel splitPanel = new JPanel();
-		
-		splitPanel.setSize(600, 600);
+	
 		splitPanel.setLayout(new BoxLayout(splitPanel, BoxLayout.LINE_AXIS));
 		
-		splitPanel.add(createProductListPanel());
-		splitPanel.add(new JSeparator(JSeparator.VERTICAL),BorderLayout.LINE_START);
-		
-		splitPanel.add(createPurchaseOrderInfoPanel());
+		splitPanel.add(createProductListPanel(), BorderLayout.WEST);
+		splitPanel.add(createPurchaseOrderInfoPanel(), BorderLayout.CENTER);
 		
 		add(splitPanel);
 
 	}
-	
-	public JComponent createInformationPanel()
+	public JComponent createProductListPanel()
 	{
-		JPanel infoPanel = new JPanel(new GridBagLayout());
-		
-		GridBagConstraints c = new GridBagConstraints();
+		Box productPanel = Box.createVerticalBox();
 		
 		JLabel title = new JLabel("Purchase Order");
 		JLabel subTitle = new JLabel("Place a purchase order here");
-			
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 0;
-		c.gridy = 0;
 		
-		infoPanel.add(title, c);
-		
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 0;
-		c.gridy = 1;
-		
-		infoPanel.add(subTitle, c);
-		
-		infoPanel.setSize(600, 200);
-		
-		return infoPanel;
-	}
-	
-	public JComponent createProductListPanel()
-	{
-		JPanel productPanel = new JPanel();
-		
-		GridBagConstraints c = new GridBagConstraints();
-		
-		productPanel.setLayout(new GridBagLayout());
+		title.setFont(CustomFont.getFont("BOLD", 26));
+		subTitle.setFont(CustomFont.getFont("ITALIC", 14));
 		
 		JLabel instructionSet = new JLabel ("(1) Select a product");
 		
-		DefaultTableModel productModel = new DefaultTableModel();
-		
-		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
+		String [] colNames = {"ProductID","Product Name","Product Quantity"};
 		Object[][] data = new Object [5][5];
 		
 		JTable productTable = new JTable(data, colNames);
-	
-		productModel.addColumn("Product ID");
-		productModel.addColumn("Product Name");
-		productModel.addColumn("Current Quantity");
-		
 		JScrollPane scrollPane = new JScrollPane(productTable);
-		
-		JButton placeOrder = new JButton("Place Order");
 				
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 0;
-		c.gridy = 0;
-		productPanel.add(instructionSet, c);
-					
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0.5;
-		c.ipady = 200; 
-		c.gridx = 0;
-		c.gridy = 10;
-		productPanel.add(scrollPane, c);
-		
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0;
-		c.ipady = 1; 
-		c.gridx = 0;
-		c.gridy = 20;
-		productPanel.add(placeOrder, c);
+		JButton placeOrder = new JButton("Place Order");
+	
+		productPanel.add(title);
+		productPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+		productPanel.add(subTitle);
+		productPanel.add(Box.createRigidArea(new Dimension(0, 60)));
+		productPanel.add(instructionSet);
+		productPanel.add(scrollPane);
+		productPanel.add(placeOrder);
 		
 		return productPanel;
 	}
 	
 	public JComponent createPurchaseOrderInfoPanel()
 	{
-		JPanel orderInfoPanel = new JPanel(new GridBagLayout());
-		
-		GridBagConstraints c = new GridBagConstraints();
+		JPanel orderInfoPanel = new JPanel();
+		GridLayout grid = new GridLayout(20, 1);
+
+		orderInfoPanel.setLayout(grid);
 		
 		String[] tempNames = new String[5];
 		
@@ -148,51 +107,38 @@ public class PurchaseOrder extends JPanel
 			quantity[i - 1] = "" + i;
 		}
 		
-		JLabel instruction = new JLabel("Select supplier");
-		JLabel instructionTwo = new JLabel("Select Quantity");
+		JLabel instruction = new JLabel("(2) Select Supplier");
+		JLabel instructionTwo = new JLabel("(3) Select Quantity");
 		
 		JComboBox<String> listOfSuppliers = new JComboBox<String>(tempNames);
 		JComboBox<String> quantityRequired = new JComboBox<String>(quantity);
+
+		grid.preferredLayoutSize(orderInfoPanel);
 		
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.ipady = 20;
-		c.gridx = 0;
-		c.gridy = 0;
-		orderInfoPanel.add(instruction, c);
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+		orderInfoPanel.add(instruction);
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
+		listOfSuppliers.setPreferredSize(new Dimension(100, 20));
+		orderInfoPanel.add(listOfSuppliers);
+	
+		
+		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
+		orderInfoPanel.add(instructionTwo);
+		orderInfoPanel.add(quantityRequired);
 				
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.ipady = 40;
-		c.gridx = 0;
-		c.gridy = 20;
-		orderInfoPanel.add(listOfSuppliers, c);
-		
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0;
-		c.ipady = 40; 
-		c.gridx = 0;
-		c.gridy = 40;
-		orderInfoPanel.add(instructionTwo, c);
-		
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 0;
-		c.ipady = 40;
-		c.gridx = 0;
-		c.gridy = 60;
-		orderInfoPanel.add(quantityRequired, c);
-		
 		return orderInfoPanel;
 	}
 
 	public static void createJFrame()
 	{
 		JFrame main = new JFrame("Purchase Order");
-		
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		main.add(new PurchaseOrder());
 	
-		main.pack();
-	    
 	    main.setLocation(400,300);
 	    main.setMinimumSize(new Dimension(800,600));
 	    main.setSize(800, 600);

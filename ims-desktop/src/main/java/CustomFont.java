@@ -1,5 +1,9 @@
 import java.awt.Font;
-
+/**
+ * 
+ * @author dgordon
+ *
+ */
 
 public class CustomFont {
 	
@@ -8,9 +12,9 @@ public class CustomFont {
 	public static Font getFont(String type, int fontSize){
 		Font font;
 		if(type.equals("ITALIC")){
-			font = new Font("Comic Sans MS", Font.ITALIC, fontSize);
+			font = new Font("Rockwell", Font.ITALIC, fontSize);
 		}else{
-			font = new Font("Comic Sans MS", Font.BOLD, fontSize);
+			font = new Font("Rockwell", Font.BOLD, fontSize);
 		}
 		return font;
 	}

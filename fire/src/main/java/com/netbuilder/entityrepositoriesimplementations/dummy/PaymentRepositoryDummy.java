@@ -17,12 +17,7 @@ import com.netbuilder.entityrepositories.PaymentRepository;
 import com.netbuilder.data.DummyData;
 
 @Alternative
-public class PaymentRepositoryOffline implements PaymentRepository {
-	
-	@Bean
-	public PaymentRepositoryOffline paymentRepositoryOffline(){
-		return new PaymentRepositoryOffline();
-	}
+public class PaymentRepositoryDummy implements PaymentRepository {
 	
 	@Autowired
 	private DummyData dummyData;

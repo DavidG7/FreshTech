@@ -1,18 +1,24 @@
 <html>
 <head><title>First JSP</title></head>
 <body>
-  <%
-    double num = Math.random();
-    if (num > 0.95) {
-  %>
-      <h2>You'll have a luck day!</h2><p>(<%= num %>)</p>
-  <%
-    } else {
-  %>
-      <h2>Well, life goes on ... </h2><p>(<%= num %>)</p>
-  <%
-    }
-  %>
+  <%!
+  int i;
+    public void  printAll (){
+	  	for(i=0; i<100; i++){
+	  		System.out.println(i);
+	  	}
+	 };
+	 
+	 
+%>
+
+     
+ <% printAll();%>
+       
+
+
+
+
   <a href="/Landing.html"><h3>Try Again</h3></a>
 </body>
 </html>

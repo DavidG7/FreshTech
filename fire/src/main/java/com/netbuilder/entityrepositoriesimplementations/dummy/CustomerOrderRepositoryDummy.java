@@ -1,4 +1,4 @@
-/*package com.netbuilder.entityrepositoriesimplementations.dummy;
+package com.netbuilder.entityrepositoriesimplementations.dummy;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,7 +9,7 @@ import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 
-public class CustomerOrderRepositoryDummyImp implements CustomerOrderRepository{
+public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	
 	@Inject
 	private DummyData data = new DummyData();
@@ -89,13 +89,13 @@ public class CustomerOrderRepositoryDummyImp implements CustomerOrderRepository{
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByAddress(String address) {
+	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByDate(Date dateofOrder) {
+	public ArrayList<CustomerOrder> findByDateOfOrder(Date dateOfOrder) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -107,10 +107,9 @@ public class CustomerOrderRepositoryDummyImp implements CustomerOrderRepository{
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByTotal(float total) {
+	public ArrayList<CustomerOrder> findByOrderTotal(float orderTotal) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 }
-*/

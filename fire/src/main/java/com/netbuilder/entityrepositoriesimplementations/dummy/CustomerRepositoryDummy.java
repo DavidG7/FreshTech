@@ -1,9 +1,11 @@
-/*package com.netbuilder.entityrepositoriesimplementations.dummy;
+package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -11,26 +13,26 @@ import org.springframework.data.domain.Sort;
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
-import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.CustomerRepository;
 
-*//**
+/**
  * 
  * @author Thomas Dudley
  *
- * This class is to implement the functionality of the repository.
- *//*
+ * This class is to implement the functionality of the Customer repository.
+ */
 
-public class CustomerRepositoryDummyImp implements CustomerRepository
+@Alternative
+public class CustomerRepositoryDummy implements CustomerRepository
 {
 	
-	@Inject 
-	private DummyData initialData = new DummyData();
+	@Autowired
+	private DummyData dummyData;
 
 	@Override
 	public List<Customer> findAll() 
 	{
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		return customer;
 	}
@@ -74,7 +76,7 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	@Override
 	public void delete(Integer customerID) 
 	{
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		for(int i = 0; i < customer.size(); i++)
 		{
@@ -84,19 +86,19 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 			}
 		}
 		
-		initialData.setEntityList(customer);
+		dummyData.setEntityList(customer);
 	}
 
 	@Override
 	public void delete(Customer arg0) {
 		
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		for(Customer c : customer)
 		{
 			if(c.equals(arg0))
 			{
-				initialData.getEntityList(new Customer()).remove(c);
+				dummyData.getEntityList(new Customer()).remove(c);
 			}
 		}
 		
@@ -111,11 +113,11 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 
 	@Override
 	public void deleteAll() {
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		for(Customer c : customer)
 		{
-			initialData.getEntityList(new Customer()).remove(c);
+			dummyData.getEntityList(new Customer()).remove(c);
 		}
 	}
 
@@ -146,7 +148,7 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	@Override
 	public Customer findByCustomerID(int customerID) 
 	{
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		Customer foundCustomer = new Customer();
 		
@@ -166,7 +168,7 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	public List<Customer> findByCustomerPhone(String customerPhone) 
 	{
 		
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
 		
@@ -184,7 +186,7 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	@Override
 	public List<Customer> findByCustomerAvailableCredit(float availableCredit) 
 	{
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
 		
@@ -200,10 +202,10 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 	@Override
-	public List<Customer> findByName(String name) 
+	public List<Customer> findByCustomerName(String name) 
 	{
 		
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
 		
@@ -219,9 +221,9 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 	@Override
-	public Customer findByCustomerEmailAddress(String customerEmail) 
+	public Customer findByCustomerEmail(String customerEmail) 
 	{
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		Customer foundCustomer = new Customer();
 		
@@ -240,7 +242,7 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	@Override
 	public Customer findByCustomerUsername(String customerUsername) 
 	{
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		Customer foundCustomer = new Customer();
 		
@@ -256,10 +258,11 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 		
 	}
 
+	
 	@Override
-	public List<Customer> findByCustomerAddress(Address address) 
+	public List<Customer> findByAddressArray(Address address) 
 	{
-		ArrayList<Customer> customer = initialData.getEntityList(new Customer());
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 			
 		ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
 		
@@ -278,4 +281,3 @@ public class CustomerRepositoryDummyImp implements CustomerRepository
 	}
 
 }
-*/

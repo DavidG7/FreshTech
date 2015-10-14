@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  *
  */
 
-public class DailyStockReport extends JFrame{
+public class DailyStockReport extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 	private JTable  reportTable;
@@ -28,7 +28,7 @@ public class DailyStockReport extends JFrame{
 	private JTextField searchText;
 
 	public DailyStockReport(){
-		setTitle("DailyStockReport");
+		//setTitle("DailyStockReport");
 		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
 		Object[][] data = new Object [5][5];
 		reportTable = new JTable(data,colNames);
@@ -43,16 +43,16 @@ public class DailyStockReport extends JFrame{
 		bottomBar.add(rturn);
 		panel.add(bottomBar,BorderLayout.SOUTH);
 		add(panel);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400,250);
-		pack();
+		//pack();
 		setVisible(true);
 		
 	}
 	
 	
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		new DailyStockReport();
-	}
+	}*/
 }
