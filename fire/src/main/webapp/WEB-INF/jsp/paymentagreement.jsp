@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	
-<jsp:include page="WEB-INF/templates/template.jsp">
+<jsp:include page="../templates/template.jsp"/>
 	<!--------------------------------------------->
 	<!------Top banner (Jumbotron)------------------>
 	<!--------------------------------------------->
@@ -41,4 +41,3 @@
 		</form>
 	</div>
 	<div id="space"></div>
-</jsp:include>
