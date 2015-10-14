@@ -12,6 +12,7 @@ import java.awt.GridLayout;
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
 
+import CustomUI.*;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -38,6 +39,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 import javax.swing.table.JTableHeader;
+
+import CustomUI.CustomButton;
+import CustomUI.CustomFont;
+import CustomUI.CustomImage;
+import CustomUI.CustomLabel;
+
 /**
  * 
  * @author dgordon
@@ -47,10 +54,10 @@ import javax.swing.table.JTableHeader;
 public class AddDiscontinue extends JPanel{
 	
 	Box leftPanel,rightPanel;
-	JLabel heading,subHeading,optionOne,optionTwo,porousware;
+	JLabel heading,optionOne,optionTwo,porousware;
 	JComboBox<String> categoryCombo;
 	JRadioButton porouswareButtonY,porouswareButtonN;
-	JTable productTable;
+	CustomJTable productTable;
 	
 	String newline = System.getProperty("line.separator");
 
@@ -59,10 +66,12 @@ public class AddDiscontinue extends JPanel{
 		
 		rightPanel = Box.createVerticalBox();
 		leftPanel =  Box.createVerticalBox();
-		optionTwo = new JLabel("(2) Add a new product");
-		optionTwo.setForeground(new Color(0,122,0));
 		categoryCombo = new JComboBox<String>();
-		optionTwo.setFont(CustomFont.getFont("ITALIC", 14));
+		
+		/*optionTwo = new JLabel("(2) Add a new product");
+		optionTwo.setForeground(new Color(0,122,0));
+		optionTwo.setFont(CustomFont.getFont("ITALIC", 14));*/
+		optionTwo = new CustomLabel("(2) Add a new product", false);
 	
 		rightPanel.add(optionTwo);
 		
@@ -76,8 +85,10 @@ public class AddDiscontinue extends JPanel{
 		rightPanel.add(categoryCombo);
 		
 		rightPanel.add(new CustomTextArea("Price"));
-		porousware = new JLabel("Porousware");
-		porousware.setFont(CustomFont.getFont("ITALIC",14));
+		
+		porousware = new CustomLabel("Porousware", false);
+		/*porousware = new JLabel("Porousware");
+		porousware.setFont(CustomFont.getFont("ITALIC",14));*/
 		rightPanel.add(porousware);
 		
 		porouswareButtonY = new JRadioButton("Y");
@@ -99,19 +110,15 @@ public class AddDiscontinue extends JPanel{
 		 this.add(fileChooser);
 		 fileChooser.setVisible(true);*/
 		
-		heading = new JLabel("Add/Discontinue Stock Item");
-		heading.setFont(CustomFont.getFont("BOLD", 22));
-		heading.setForeground(new Color(0,122,0));
+		//heading = new JLabel("Add/Discontinue Stock Item");
+		heading = new CustomLabel("Add/Discontinue Stock Item", true);
 		
-		subHeading = new JLabel("New products can be added ");
-		subHeading.setFont(CustomFont.getFont("ITALIC" ,16));
-		subHeading.setForeground(new Color(0,122,0));
-		
-		optionOne = new JLabel("(1) Select an existing product to discontinue");
+		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
+		/*optionOne = new JLabel("(1) Select an existing product to discontinue");
 		optionOne.setFont(CustomFont.getFont("ITALIC", 14));
-		optionOne.setForeground(new Color(0,122,0));
+		optionOne.setForeground(new Color(0,122,0));*/
 		
-		productTable = new JTable(new ProductTableModel());
+		productTable = new CustomJTable();
 	
 		
 		 CustomButton discontinueStock = new CustomButton("Discontinue selected stock"); 
@@ -123,15 +130,13 @@ public class AddDiscontinue extends JPanel{
 		HeadingandImage.add(heading);
 
 		leftPanel.add(HeadingandImage);
-		leftPanel.add(subHeading);
 
 		leftPanel.add(optionOne);
-		JScrollPane scrollPane = new JScrollPane(productTable);
+		/*JScrollPane scrollPane = new JScrollPane(productTable);
 		scrollPane.getViewport().setBackground(Color.WHITE);
-		scrollPane.setBorder(BorderFactory.createEmptyBorder());
-		JTableHeader header = productTable.getTableHeader();
-	      header.setBackground(new Color(0,122,0));
-	      header.setForeground(Color.WHITE);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());*/
+		CustomScrollPane scrollPane = new CustomScrollPane(productTable);
+	
 		leftPanel.add(scrollPane);
 		leftPanel.add(discontinueStock);
 		//leftPanel.add(new TransparentImage());
