@@ -11,6 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 
 import CustomUI.*;
 
@@ -84,6 +85,9 @@ public class PurchaseOrder extends JPanel
 		productPanel.add(instructionSet);
 		productPanel.add(scrollPane);
 		productPanel.add(placeOrder);
+
+		productPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
+		//rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
 		
 		return productPanel;
 	}
@@ -139,6 +143,10 @@ public class PurchaseOrder extends JPanel
 		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
 		orderInfoPanel.add(instructionTwo);
 		orderInfoPanel.add(quantityRequired);
+		
+
+		orderInfoPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+
 				
 		return orderInfoPanel;
 	}	

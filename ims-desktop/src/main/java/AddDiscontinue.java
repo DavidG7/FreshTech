@@ -12,6 +12,7 @@ import java.awt.GridLayout;
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
 
+
 import CustomUI.*;
 
 import javax.swing.BorderFactory;
@@ -44,6 +45,7 @@ import CustomUI.CustomButton;
 import CustomUI.CustomFont;
 import CustomUI.CustomImage;
 import CustomUI.CustomLabel;
+import CustomUI.CustomPieChart;
 
 /**
  * 
@@ -169,7 +171,7 @@ public class AddDiscontinue extends JPanel{
 
 	
 	
-	/*public static void main(String[] args){
+	public static void main(String[] args){
 		  JFrame frame = new JFrame("Inventory Management System");
 
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -195,12 +197,14 @@ public class AddDiscontinue extends JPanel{
 	        frame.setIconImage(img.getImage());
 	        frame.setUndecorated(true);   
 	        frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
-	        
-	        UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(new Color(0,122,0) ));
-	        UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
-	        UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
-	}*/
+//<<<<<<< HEAD
+      
+
+	}
+//=======
+	      
+	}
+//>>>>>>> ab27ee42ed16f44b5fc835c5d6eca36714c8db47
 //=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
-}

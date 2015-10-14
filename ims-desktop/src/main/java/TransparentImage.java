@@ -19,13 +19,14 @@ public class TransparentImage extends JPanel implements ActionListener {
     	timer.start();
     	this.parent = parent;
     	this.pane = pane;
+    	this.setBackground(Color.WHITE);
     }
     
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-     this.setBackground(new Color(99, 185, 45, aplhaCount));
+     this.setBackground(new Color(0, 122, 0, aplhaCount));
      File logoFile = new File("NBGardensLogo.png");
      try {
 		logoImage = ImageIO.read(logoFile);
