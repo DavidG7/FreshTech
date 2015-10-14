@@ -1,7 +1,16 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
+import CustomUI.CustomButton;
+import CustomUI.CustomImage;
+import CustomUI.CustomLabel;
 
 public class LogIn extends JPanel implements ActionListener {
 
@@ -11,10 +20,13 @@ public class LogIn extends JPanel implements ActionListener {
     Font regularFont, italicFont;
     JLabel logInDisplay;
     final static int GAP = 10;
+    JFrame topFrame;
  
     public LogIn() {
+    	
+    	//topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
- 
+        setBackground(Color.WHITE);
         JPanel leftHalf = new JPanel() {
 			private static final long serialVersionUID = 1L;
         };
@@ -25,8 +37,22 @@ public class LogIn extends JPanel implements ActionListener {
         };
 
         leftHalf.setLayout(new BoxLayout(leftHalf,BoxLayout.PAGE_AXIS));
-        rightHalf.setLayout(new BorderLayout());
-        rightHalf.add(new JLabel("  Welcome to NBGardens IMS"), BorderLayout.CENTER);
+        rightHalf.setLayout(new BoxLayout(rightHalf, BoxLayout.LINE_AXIS));
+        //rightHalf.add(new CustomLabel("  Welcome to NBGardens IMS",true), BorderLayout.CENTER);
+        BufferedImage myPicture;
+        JLabel picLabel = null;
+		try {
+			myPicture = ImageIO.read(new File("NBGardensLogo.png"));
+			picLabel = new JLabel(new ImageIcon(myPicture));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+      
+        
+        rightHalf.add(picLabel);
+        
+      
         
         leftHalf.add(createEntryFields());
         leftHalf.add(createButton());
@@ -42,7 +68,8 @@ public class LogIn extends JPanel implements ActionListener {
     protected JComponent createButton() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
  
-        JButton button = new JButton("Log in");
+        //JButton button = new JButton("Log in");
+        CustomButton button = new CustomButton("Log In");
         button.addActionListener(this);
         panel.add(button);
  
@@ -56,6 +83,23 @@ public class LogIn extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
     	
+    	topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+    	  
+    	  JTabbedPane pane = new JTabbedPane();
+  	   
+	      pane.setForeground(new Color(0,122,0));
+	      pane.setBackground(Color.WHITE);
+	      
+	      pane.addTab("Daily Stock Report", new DailyStockReport());
+	      pane.addTab("Purchase Order", new PurchaseOrder());
+	      pane.addTab("Predicted Sales", new PredicatedSales());
+	      pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
+	         
+	      topFrame.remove(this);
+    	  topFrame.add(pane);
+    	  topFrame.revalidate();
+    	  topFrame.repaint();
+	       
     }
  
  
@@ -91,7 +135,7 @@ public class LogIn extends JPanel implements ActionListener {
             "Password: "
         };
  
-        JLabel[] labels = new JLabel[labelStrings.length];
+        CustomLabel[] labels = new CustomLabel[labelStrings.length];
         JComponent[] fields = new JComponent[labelStrings.length];
         int fieldNum = 0;
  
@@ -106,7 +150,7 @@ public class LogIn extends JPanel implements ActionListener {
 
 
         for (int i = 0; i < labelStrings.length; i++) {
-            labels[i] = new JLabel(labelStrings[i], JLabel.TRAILING);
+            labels[i] = new CustomLabel(labelStrings[i], false);
             labels[i].setLabelFor(fields[i]);
             panel.add(labels[i]);
             panel.add(fields[i]);

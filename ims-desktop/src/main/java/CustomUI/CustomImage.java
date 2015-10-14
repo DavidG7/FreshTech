@@ -24,7 +24,7 @@ public class CustomImage extends JPanel{
 
     public CustomImage() {
        try {                
-          image = ImageIO.read(new File("NBGardensLogo.png"));
+          image = ImageIO.read(getClass().getResource("/images/NBGardensLogo.png"));
        } catch (IOException ex) {
             // handle exception...
        }

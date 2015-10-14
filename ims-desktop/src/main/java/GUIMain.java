@@ -18,7 +18,7 @@ public class GUIMain
 		JFrame frame = new JFrame("Inventory Management System");
 
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    JTabbedPane pane = new JTabbedPane();
+	   /* JTabbedPane pane = new JTabbedPane();
 	    	   
 	    pane.setForeground(new Color(0,122,0));
 	    pane.setBackground(Color.WHITE);
@@ -26,11 +26,11 @@ public class GUIMain
 	    pane.addTab("Daily Stock Report", new DailyStockReport());
 	    pane.addTab("Purchase Order", new PurchaseOrder());
 	    pane.addTab("Predicted Sales", new PredicatedSales());
-	    pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
+	    pane.addTab("Add/Discontinue Stock", new AddDiscontinue());*/
 	         
 	    frame.setSize(1000,800);
 	    
-	    frame.add(new TransparentImage(frame, pane));
+	    frame.add(new TransparentImage(frame, new LogIn()));
 	    
 	    frame.setLocationRelativeTo(null);
 	    
