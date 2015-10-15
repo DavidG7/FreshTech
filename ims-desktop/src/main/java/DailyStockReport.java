@@ -21,7 +21,7 @@ import CustomUI.CustomScrollPane;
 public class DailyStockReport extends JPanel{
 
 	private static final long serialVersionUID = 1L;
-	private JTable  reportTable;
+	//private JTable  reportTable;
 	private JLabel label = new JLabel("Daily Stock Report");
 	private JPanel panel;
 	private JPanel topBar = new JPanel();
@@ -35,7 +35,8 @@ public class DailyStockReport extends JPanel{
 		setBackground(Color.WHITE);
 		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
 		Object[][] data = new Object [5][5];
-		reportTable = new JTable(data,colNames);
+		CustomJTable reportTable = new CustomJTable();
+		//reportTable = new JTable(data,colNames);
 		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		topBar.setBackground(Color.WHITE);
