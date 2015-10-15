@@ -1,5 +1,3 @@
-<!-- Author: Sam Raspin -->
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,9 +11,9 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Product.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "About.css"/>
 
-		<title>NB Gardens Product</title>
+		<title>NB Gardens Template</title>
 		
 	</head>
 	
@@ -36,7 +34,7 @@
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="Landing.html">
+    			<a class="navbar-brand" href="/">
       				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
       			</a>
 
@@ -68,7 +66,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="/" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>
@@ -79,15 +77,13 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="ProductCatalogue.html" id = "home-button-top">
+		        		<a href="ProductCatalogue" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
 		        	</li>
 		      	
 		      	</ul>
-		      	
-		      	
 		      
 		      	<ul class="nav navbar-nav navbar-right">
 		        
@@ -107,7 +103,7 @@
 				            <li><a href="Basket.html">View basket</a></li>
 				            <li><a href="PaymentAgreement.html">Checkout</a></li>
 				            <li class="divider"></li>
-				            <li><a href="Landing.html">Cancel Basket</a></li>
+				            <li><a href="/">Cancel Basket</a></li>
 			          	</ul>
 		          
 		        	</li>
@@ -127,18 +123,18 @@
 		          
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
-					      <li><a href="OrderHistory.html">Order History</a></li>
-						  <li><a href="OrderTracking.html">Track an Order</a></li>
-						  <li><a href="UpdateAccount.html">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
+						  <li><a href="OrderHistory">Order History</a></li>
+						  <li><a href="OrderTrackingl">Track an Order</a></li>
+						  <li><a href="UpdateAccount">Update your Account</a></li>
+						  <li><a href="ViewCreditDetails">View Credit</a></li>
 						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
+						  <li><a href="/">Logout</a></li>
 						</ul>
+		        	
 		        	</li>
-		        
-		        
+
 		        	<li>
-		        		<a href="About.html" id = "about-button-top">
+		        		<a href="About" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>
@@ -154,96 +150,48 @@
 
 <!--------------------------------------------->
 <!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
-	
-		<div class="panel panel-default">
-		
-			<div class = "jumbotron">
-			
-				<h2> <b> Product </b> </h2>				
-			
-			</div>		
+<!--------------------------------------------->	
+<div class="panel panel-default">
+				<div class = "jumbotron">
+					<h2> About</h2>
+				<h4>NBGardens is a unique garden furniture and Gnome sales
+	business providing top quality products to our huge customer
+	base. We offer the highest quality of service and a huge array
+	of products. We have one of the biggest Gnome collections on
+   earth and are proud to have been in business for over 100 years.<br></h4></div></div>
 
+			
+<div class ="contact">
+		 <h2> Contact Information<br> </h2>
 		</div>
 	
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
-		<div class = "panel-body">
+  
+   <p class ="telephone">
+  <span class= "glyphicon glyphicon-earphone"> Telephone: </span><br> 01234567573
+   </p>
+   
+   <p class = "address">
+ <span class= "glyphicon glyphicon-pencil"> Address: </span> <br>39 Gnomestreet Way<br>
+			Manchester<br>
+			United Kingdom<br>
+			MO6OAR<br>
+   </p>
+   
+   <p class = "email">
+
+  <span class= "glyphicon glyphicon-envelope"> Email: </span><br> service@nbgardens.com
+		</p>
 	
-			<div>
-				<img id="identify" class="img-thumbnail" alt="Go Away Gnome" src="ImageFolder/badGnome.png" height="180" width="180"/>
-				<p class="subtitle"><br><strong>PISSED OFF GNOME<br><br>Description:</strong><br>This is a basic gnome with anger issues.</p>
-			</div><hr>
-			<div class="rating">
-				<p><strong>Item price: &pound1,000,000.05</strong></p>
-				<strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
-				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="submit"><img class="img-thumbnail" alt="hi" src="ImageFolder/shopCart.png" height="28" width="28"><strong> Add to cart</strong></button>
-				<p/>
-			</div><hr>
-			<div>
-				<p id="others" ><strong>Other items you may be interested in:</strong></p>
-			</div>
-			
-			<div id="myCarousel" class="carousel slide container" style="width: 600px; margin: auto;" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
-				</ol>
-				
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newmooney.jpg" alt="newmooney"></a>
-					</div>
-				
-					<div class="item">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newsavage.jpg" alt="newsavage"></a>
-					</div>
-				
-					<div class="item">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend"></a>
-					</div>
-				
-					<div class="item">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newfancy.jpg" alt="newfancy"></a>
-					</div>
-				</div>
-	
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-			
-			<div>
-				<p class="subtitle"><strong>User Reviews:</strong></p><hr>
-				<p>This is a basic user review telling you that the gnome is pretty good, but this page is so well designed!!!</p><hr>
-				<p>I agree with the first review. This page is soooooo well designed!!!</p><hr>
-			</div>
-		
-		</div>
+		<div class = "image">
+<!--  <img src="ImageFolder\200.gif" alt="Theres no business like Gnome business" style="width:310px;height:220px;">-->
+</div>
+
 
 <!----------------------------->
 <!------Footer----------------->		
 <!----------------------------->
 		
-	<footer class="panel-footer">
-      <div class="container">
-        <p class="text-muted"></p>
-      </div>
-    </footer>
-		
+
 		
 		
 	</body>
