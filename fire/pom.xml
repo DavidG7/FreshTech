@@ -42,32 +42,28 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-	    <dependency>
-	    	<groupId>org.hibernate</groupId>
-	    	<artifactId>hibernate-validator</artifactId>
-	    </dependency>
-	    <dependency>
-	    	<groupId>org.codehaus.jackson</groupId>
-	    	<artifactId>jackson-mapper-asl</artifactId>
-	    	<version>1.4.1</version>
-	    </dependency>
-	    <dependency>
-	    	<groupId>com.thoughtworks.xstream</groupId>
-	    	<artifactId>xstream</artifactId>
-	    	<version>1.3.1</version>
-	    </dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.3.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
-		</dependency> 
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.4.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>javax.el-api</artifactId>
-			<version>3.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -85,33 +81,28 @@
 			<version>2.2.1-b04</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>8.0.27</version>
-		</dependency>
-		<dependency>
 			<groupId>com.sun.el</groupId>
 			<artifactId>el-ri</artifactId>
 			<version>1.0</version>
 		</dependency>
-	    <dependency>
-	    	<groupId>org.hibernate</groupId>
-	    	<artifactId>hibernate-validator</artifactId>
-	    </dependency>
-	    <dependency>
-	    	<groupId>org.codehaus.jackson</groupId>
-	    	<artifactId>jackson-mapper-asl</artifactId>
-	    	<version>1.4.1</version>
-	    </dependency>
-	    <dependency>
-	    	<groupId>com.thoughtworks.xstream</groupId>
-	    	<artifactId>xstream</artifactId>
-	    	<version>1.3.1</version>
-	    </dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.3.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -120,16 +111,6 @@
 			<groupId>javax.el</groupId>
 			<artifactId>javax.el-api</artifactId>
 			<version>3.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.el</groupId>
@@ -142,14 +123,26 @@
 			<version>1.2</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>8.0.27</version>
-		</dependency>
-		<dependency>
 			<groupId>com.sun.el</groupId>
 			<artifactId>el-ri</artifactId>
 			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -160,21 +153,21 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-	            <groupId>com.spotify</groupId>
-	            <artifactId>docker-maven-plugin</artifactId>
-	            <version>0.2.3</version>
-	            <configuration>
-	                <imageName>spring.io/${project.artifactId}</imageName>
-	                <dockerDirectory>src/main/docker</dockerDirectory>
-	                <resources>
-	                    <resource>
-	                        <targetPath>/</targetPath>
-	                        <directory>${project.build.directory}</directory>
-	                        <include>${project.build.finalName}.jar</include>
-	                    </resource>
-	                </resources>
-	            </configuration>
-	        </plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.2.3</version>
+				<configuration>
+					<imageName>spring.io/${project.artifactId}</imageName>
+					<dockerDirectory>src/main/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -184,7 +177,7 @@
 			<name>Spring Releases</name>
 			<url>https://repo.spring.io/libs-release</url>
 		</repository>
-		
+
 	</repositories>
 
 	<pluginRepositories>
@@ -194,5 +187,5 @@
 			<url>https://repo.spring.io/libs-release</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 </project>
