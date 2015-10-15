@@ -16,7 +16,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import CustomUI.CustomButton;
-import CustomUI.CustomImage;
 import CustomUI.CustomLabel;
 import CustomUI.CustomPieChart;
 import CustomUI.CustomScrollPane;
