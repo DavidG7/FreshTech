@@ -41,16 +41,16 @@ public class LogIn extends JPanel implements ActionListener {
         //rightHalf.add(new CustomLabel("  Welcome to NBGardens IMS",true), BorderLayout.CENTER);
         BufferedImage myPicture;
         JLabel picLabel = null;
-		try {
+		/*try {
 			myPicture = ImageIO.read(new File("NBGardensLogo.png"));
 			picLabel = new JLabel(new ImageIcon(myPicture));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
       
         
-        rightHalf.add(picLabel);
+        //rightHalf.add(picLabel);
         
       
         
