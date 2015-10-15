@@ -1,4 +1,4 @@
-package com.netbuilder.data;
+/*package com.netbuilder.data;
 
 import java.util.ArrayList;
 
@@ -9,12 +9,12 @@ public class TestMain {
 	public static void main(String[] args) {
 		PaymentRepositoryDummy paymentRepo = new PaymentRepositoryDummy();
 		ArrayList<Payment> payments = (ArrayList<Payment>) paymentRepo.findAll();
-		/* TODO Auto-generated method stub
+		 TODO Auto-generated method stub
 		DummyData dummyData = new DummyData();
 		List<Payment> payments = dummyData.getEntityList(new Payment());
 		for (Payment payment : payments){
 			System.out.println(payment.getCardNumber());
 		}
-		*/
+		
 	}
-}
+}*/

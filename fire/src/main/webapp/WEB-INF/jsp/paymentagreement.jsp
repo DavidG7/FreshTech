@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	
-<jsp:include page="WEB-INF/templates/template.jsp">
+<jsp:include page="../templates/nbgardenstemplate.tag"/>
 	<!--------------------------------------------->
 	<!------Top banner (Jumbotron)------------------>
 	<!--------------------------------------------->
@@ -17,14 +17,16 @@
 	<div class="panel-body">
 		<form action="action_page.php">
 			<div id="leftpanel">
-				<c:forEach var="checkoutitems" items="${checkoutitems}">
-					<td>${product.name}</td>
+			
+				<c:forEach var="checkoutitem" items="${checkoutitems}">
+					<td>${checkoutitem.product.productName}</td>
 					<div id="soandso">
-						<a href=#><img class="img-responsive left-block" src="${product.image}" alt="${product.name}" id="gnome1"></a>
+						<a href=#><img class="img-responsive left-block" src="${checkoutitem.product.image}" alt="${checkoutitem.product.productName}" id="gnome1"></a>
 					</div>
-					<td>${product.price}</td>
+					<td>${checkoutitem.product.price}</td>
 					<p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>					
 				</c:forEach>
+			
 			</div>
 			<br> <br> <br> <br> <br> <br>
 			<h4>To be delivered to:</h4>
@@ -41,4 +43,3 @@
 		</form>
 	</div>
 	<div id="space"></div>
-</jsp:include>
