@@ -47,7 +47,6 @@ import javax.swing.table.JTableHeader;
 
 import CustomUI.CustomButton;
 import CustomUI.CustomFont;
-import CustomUI.CustomImage;
 import CustomUI.CustomLabel;
 import CustomUI.CustomPieChart;
 
@@ -179,54 +178,7 @@ public class AddDiscontinue extends JPanel{
 		    top.add(rightPanel);
 		
 		this.add(top);
-//<<<<<<< HEAD
-	
-//=======
-//>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
-		/*this.setLayout(new GridLayout(1,1));
-		this.add(new TransparentImage());*/
 		
 		
 	}
-//<<<<<<< HEAD
-	
-
-	
-	
-	/*public static void main(String[] args){
-		  JFrame frame = new JFrame("Inventory Management System");
-
-	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      JTabbedPane pane = new JTabbedPane();
-	    //  pane.add(new LogIn());
-	   
-	      pane.setForeground(new Color(0,122,0));
-	      pane.setBackground(Color.WHITE);
-	      
-	      pane.addTab("Daily Stock Report", new DailyStockReport());
-	      pane.addTab("Purchase Order", new PurchaseOrder());
-	      pane.addTab("Predicted Sales", new PredicatedSales());
-	      pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
-	         
-	        frame.setSize(1000,800);
-	        frame.add(new TransparentImage(frame, pane));
-	        //frame.pack();
-	        //frame.add(pane);
-
-	        frame.setLocationRelativeTo(null);
-	        frame.setVisible(true);
-	        ImageIcon img = new ImageIcon("NBGardensLogo.png");
-	        frame.setIconImage(img.getImage());
-	        frame.setUndecorated(true);   
-	        frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
-//<<<<<<< HEAD
-      
-
-	}*/
-//=======
-	      
-	}
-//>>>>>>> ab27ee42ed16f44b5fc835c5d6eca36714c8db47
-//=======
-//>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
-
+}

@@ -2,6 +2,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -12,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.JTableHeader;
 
 import CustomUI.*;
 
@@ -69,6 +73,12 @@ public class PurchaseOrder extends JPanel
 		JScrollPane scrollPane = new JScrollPane(productTable);		
 		CustomButton placeOrder = new CustomButton("Place Order");
 		
+		
+		JTableHeader header = productTable.getTableHeader();
+	    header.setBackground(new Color(0,122,0));
+	    header.setForeground(Color.WHITE);
+	    productTable.setPreferredScrollableViewportSize(productTable.getPreferredSize());
+		
 		productPanel.setForeground(new Color(255, 255, 255));
 		title.setFont(CustomFont.getFont("BOLD", 26));
 		subTitle.setFont(CustomFont.getFont("ITALIC", 14));
@@ -87,8 +97,7 @@ public class PurchaseOrder extends JPanel
 		productPanel.add(placeOrder);
 
 		productPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
-		//rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
-		
+				
 		return productPanel;
 	}
 	
@@ -144,10 +153,8 @@ public class PurchaseOrder extends JPanel
 		orderInfoPanel.add(instructionTwo);
 		orderInfoPanel.add(quantityRequired);
 		
-
 		orderInfoPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-
-				
+		
 		return orderInfoPanel;
 	}	
 	
@@ -160,12 +167,71 @@ public class PurchaseOrder extends JPanel
 		JTable purchaseOrderTable = new JTable(data, colNames);
 		JScrollPane scrollPane = new JScrollPane(purchaseOrderTable);
 		
+		JTableHeader header = purchaseOrderTable.getTableHeader();
+	    header.setBackground(new Color(0,122,0));
+	    header.setForeground(Color.WHITE);
+	    purchaseOrderTable.setPreferredScrollableViewportSize(purchaseOrderTable.getPreferredSize());
+		
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.getViewport().setBackground(Color.WHITE);
 		
 		purchaseOrderPanel.add(scrollPane);
 		purchaseOrderPanel.setBackground(new Color(255, 255, 255));
 		
+		purchaseOrderPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
+		
 		return purchaseOrderPanel;
+	}
+	
+	public void addPurchaseOrder(CustomButton button, final JTable productTable, 
+			final JComboBox<String> suppliers, final JComboBox<String> quant)
+	{
+		final Vector<String> product = new Vector<String>();
+		
+		button.addMouseListener(new MouseListener()
+		{
+
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) 
+			{
+				int productRow = productTable.getSelectedRow();
+				int productCol = productTable.getSelectedColumn();
+				
+				//Object tempObj = productTable.getValueAt(productRow);
+				//product.add((String) tempObj);
+				
+				String tempSupplier = (String) suppliers.getSelectedItem();
+				String tempQuant = (String) quant.getSelectedItem();
+
+			}
+			
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+		});
 	}
 }

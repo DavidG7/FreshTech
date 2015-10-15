@@ -9,7 +9,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import CustomUI.CustomButton;
-import CustomUI.CustomImage;
 import CustomUI.CustomLabel;
 import CustomUI.CustomTextArea;
 
@@ -22,6 +21,7 @@ public class LogIn extends JPanel implements ActionListener {
     JLabel logInDisplay;
     final static int GAP = 10;
     JFrame topFrame;
+    ImageLoader loader;
  
     public LogIn() {
     	
@@ -42,14 +42,11 @@ public class LogIn extends JPanel implements ActionListener {
         //rightHalf.add(new CustomLabel("  Welcome to NBGardens IMS",true), BorderLayout.CENTER);
         BufferedImage myPicture;
         JLabel picLabel = null;
-		try {
-			myPicture = ImageIO.read(new File("NBGardensLogo.png"));
-			picLabel = new JLabel(new ImageIcon(myPicture));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-      
+        loader = new ImageLoader();
+		
+		myPicture = loader.load();
+		picLabel = new JLabel(new ImageIcon(myPicture));
+		
         
         rightHalf.add(picLabel);
         rightHalf.setBorder(new EmptyBorder(200,0,0,0));

@@ -177,7 +177,7 @@ THEN FROM JSP FORM IT ADDES DATA TO DUMMYDATA AND PRINTS IT
 			
 		
 		<div class = "panel-body">
-		<form action="form" method="POST">
+		<form action="form.jsp" method="POST">
 		<div id = "centre">
 		<p> 
          <label for="firstnamesignup" class="fname" data-icon="u">First Name:</label>
