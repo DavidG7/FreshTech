@@ -1,0 +1,26 @@
+/* Author: Sam Raspin*/
+
+/* Colors to use:
+		default black: 
+		default green: #006600
+
+	
+	bootstrap themes : 
+		https://bootswatch.com/
+*/
+
+
+.subtitle {
+	line-height: 100%;
+}
+#identify{
+	float:left; margin:10px;
+}
+#others{
+	font-size: 16px;
+	font-style: italic;
+}
+.container > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}
