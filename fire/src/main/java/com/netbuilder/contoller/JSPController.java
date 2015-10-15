@@ -13,7 +13,7 @@ import com.netbuilder.entities.Product;
 public class JSPController {
 	 @RequestMapping("/")
 	    public String index(ModelAndView modelAndView) {
-	        return "index.jsp";
+	        return "index";
 	  }
 	 
 	 

@@ -13,7 +13,7 @@
 		
 
 
-		<title>NB Gardens Template</title>
+		<title>NB Gardens Edit Payment</title>
 		
 	</head>
 	
@@ -101,7 +101,7 @@
 		          
 			          	<ul class="dropdown-menu" id="basket-dropdown">
 				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="PaymentAgreement.html">Checkout</a></li>
+				            <li><a href="OrderCheckout.html">Checkout</a></li>
 				            <li class="divider"></li>
 				            <li><a href="Landing.html">Cancel Basket</a></li>
 			          	</ul>
@@ -125,6 +125,7 @@
 						  <li><a>Logged in as: ... </a></li>
 						  <li><a href="OrderHistory.html">Order History</a></li>
 						  <li><a href="OrderTracking.html">Track an Order</a></li>
+						  <li><a href="OutstandingOrders.html">Outstanding Orders</a></li>
 						  <li><a href="UpdateAccount.html">Update your Account</a></li>
 						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
 						  <li class="divider"></li>
@@ -155,9 +156,9 @@
 		
 			<div class = "jumbotron">
 			
-				<h2> <b> Create Payments </b> </h2>
+				<h2> <b> Edit Payment Methods </b> </h2>
 				
-				<h4> Please follow the instructions below to create a new payment method </h4>				
+				<h4> Please follow the instructions to edit your payment methods </h4>				
 			
 			</div>		
 
@@ -168,7 +169,15 @@
 <!--------------------------------------------->
 			
 		<div class = "panel-body">
-	    <form action="action_page.php">
+		<div class="dropdown">
+   		 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose payment method to edit
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">payment method 1</a></li>
+      <li><a href="#">payment method 1</a></li>
+      <li><a href="#">payment method 1</a></li>
+      </ul>
+  </div>
 		Name on Card:<br>
 		<input type = "text" name = "firstname">
 		<br>
@@ -196,6 +205,7 @@
 		<br>
 		<br>		
 		<a href = "Landing.html"><button type="submit"><strong>Submit</strong></button></a>
+		<button type="submit"><strong>Delete</strong></button>
 
 </div>
 
@@ -203,7 +213,21 @@
 <!----------------------------->
 <!------Footer----------------->		
 <!----------------------------->
-
+<div id = "footer" class = "panel-footer">
+			
+			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			Telephone: 01234567573 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Email: service@nbgardens.com
+			</p>
+			
+			<p>
+				Terms of service:
+			</p>
+			
+			<p>
+				Privacy policy:
+			</p>
+		
+		</div>	
 		
 </body>
 </html>
