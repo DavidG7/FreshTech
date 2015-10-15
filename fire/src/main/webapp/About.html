@@ -15,6 +15,20 @@
 
 		<title>NB Gardens Template</title>
 		
+		 <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(53.4792, -2.3),
+          zoom: 9,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+		
 	</head>
 	
 	<body>
@@ -101,7 +115,7 @@
 		          
 			          	<ul class="dropdown-menu" id="basket-dropdown">
 				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="PaymentAgreement.html">Checkout</a></li>
+				            <li><a href="OrderCheckout.html">Checkout</a></li>
 				            <li class="divider"></li>
 				            <li><a href="Landing.html">Cancel Basket</a></li>
 			          	</ul>
@@ -125,6 +139,7 @@
 						  <li><a>Logged in as: ... </a></li>
 						  <li><a href="OrderHistory.html">Order History</a></li>
 						  <li><a href="OrderTracking.html">Track an Order</a></li>
+						  <li><a href="OutstandingOrders.html">Outstanding Orders</a></li>
 						  <li><a href="UpdateAccount.html">Update your Account</a></li>
 						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
 						  <li class="divider"></li>
@@ -161,6 +176,8 @@
    earth and are proud to have been in business for over 100 years.<br></h4></div></div>
 
 			
+
+
 <div class ="contact">
 		 <h2> Contact Information<br> </h2>
 		</div>
@@ -168,7 +185,10 @@
   
    <p class ="telephone">
   <span class= "glyphicon glyphicon-earphone"> Telephone: </span><br> 01234567573
-   </p>
+  <br> <br><br><br><br>
+   <span class="glyphicon glyphicon-user"></span><br>John Mann: CEO<br>
+     debbiethorne@netbuilder.com
+  </p>
    
    <p class = "address">
  <span class= "glyphicon glyphicon-pencil"> Address: </span> <br>39 Gnomestreet Way<br>
@@ -180,20 +200,36 @@
    <p class = "email">
 
   <span class= "glyphicon glyphicon-envelope"> Email: </span><br> service@nbgardens.com
-		</p>
+		<br> <br><br><br><br>
+     <span class="glyphicon glyphicon-user"></span><br>Debbie Thorne: CHRO<br>
+     debbiethorne@netbuilder.com
+     
+     </p>
+		
+  <body>
+    <div id="map"></div>
+  </body>
 	
-		<div class = "image">
+
 <!--  <img src="ImageFolder\200.gif" alt="Theres no business like Gnome business" style="width:310px;height:220px;">-->
-</div>
 
 
 <!----------------------------->
 <!------Footer----------------->		
 <!----------------------------->
 		
-
+<!--   <div id = "footer" class = "panel-footer">
+			
+			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			Telephone: 01234567573 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Email: service@nbgardens.com
+			</p>
+			
+			<p>
+				Terms of service:
+			</p>
+			
 		
+		</div>	-->
 		
-	</body>
-	
+</body>
 </html>

@@ -6,20 +6,22 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class TransparentImage extends JPanel implements ActionListener {
+public class SplashScreen extends JPanel implements ActionListener {
 
+	ImageLoader loader;
 
-	Timer timer=new Timer(100, this);
+	Timer timer=new Timer(50, this);
 	int aplhaCount = 0;
 	Image logoImage;
 	JFrame parent;
 	JComponent pane;
 	 
-    TransparentImage(JFrame parent, JComponent pane) {
+    SplashScreen(JFrame parent){//, JComponent pane) {
     	timer.start();
     	this.parent = parent;
     	this.pane = pane;
     	this.setBackground(Color.WHITE);
+    	loader = new ImageLoader();
     }
     
 
@@ -27,13 +29,11 @@ public class TransparentImage extends JPanel implements ActionListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
      this.setBackground(new Color(0, 122, 0, aplhaCount));
-     File logoFile = new File("NBGardensLogo.png");
-     try {
-		logoImage = ImageIO.read(logoFile);
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+
+    	 
+	logoImage = loader.load();
+	
+     
      g.drawImage(logoImage, 375, 275, this);
      
      System.out.println(aplhaCount);
@@ -42,12 +42,12 @@ public class TransparentImage extends JPanel implements ActionListener {
    public void actionPerformed(ActionEvent ev){
 	    if(ev.getSource()==timer){
 	      repaint();// this will call at every 1 second
-	      if(aplhaCount < 25){
+	      if(aplhaCount < 35){
 	      aplhaCount++;
 	      }else{
 	    	  timer.stop();
 	    	  parent.remove(this);
-	    	  parent.add(pane);
+	    	  parent.add(new LogIn());
 	    	  parent.revalidate();
 	    	  parent.repaint();
               

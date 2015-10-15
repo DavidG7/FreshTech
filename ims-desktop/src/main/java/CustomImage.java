@@ -1,4 +1,4 @@
-package CustomUI;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -21,14 +21,13 @@ import javax.swing.JPanel;
 public class CustomImage extends JPanel{
 
     private BufferedImage image;
+    private ImageLoader loader;
 
     public CustomImage() {
-       try {                
-          image = ImageIO.read(getClass().getResource("/images/NBGardensLogo.png"));
-       } catch (IOException ex) {
-            // handle exception...
-       }
-       //this.setBackground(Color.WHITE);
+           
+       loader = new ImageLoader();
+       loader.load();
+       image = loader.load();
        this.setOpaque(true);
        this.setBackground(new Color(0,0,0,0));
     }
@@ -41,7 +40,7 @@ public class CustomImage extends JPanel{
         int x = (this.getWidth() - image2.getWidth(null)) / 2;
         int y = (this.getHeight() - image2.getHeight(null)) / 2;
         g2d.drawImage(image2, x, y, null);
-        //g.drawImage(image2, 0, 0, null); // see javadoc for more info on the parameters            
+  
     }
     
     

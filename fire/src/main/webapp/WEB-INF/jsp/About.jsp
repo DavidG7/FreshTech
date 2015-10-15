@@ -101,7 +101,7 @@
 		          
 			          	<ul class="dropdown-menu" id="basket-dropdown">
 				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="PaymentAgreement.html">Checkout</a></li>
+				            <li><a href="PaymentAgreement">Checkout</a></li>
 				            <li class="divider"></li>
 				            <li><a href="/">Cancel Basket</a></li>
 			          	</ul>

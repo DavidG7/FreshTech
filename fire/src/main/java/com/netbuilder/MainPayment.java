@@ -1,4 +1,4 @@
-
+/*
 package com.netbuilder;
 
 import java.util.List;
@@ -27,5 +27,6 @@ public class MainPayment {
 			
 		}
 
-   }*/
+   }
 }
+*/
