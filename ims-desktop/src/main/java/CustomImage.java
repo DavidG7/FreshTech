@@ -40,7 +40,7 @@ public class CustomImage extends JPanel{
         int x = (this.getWidth() - image2.getWidth(null)) / 2;
         int y = (this.getHeight() - image2.getHeight(null)) / 2;
         g2d.drawImage(image2, x, y, null);
-        //g.drawImage(image2, 0, 0, null); // see javadoc for more info on the parameters            
+  
     }
     
     

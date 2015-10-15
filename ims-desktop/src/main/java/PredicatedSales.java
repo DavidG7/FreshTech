@@ -33,6 +33,7 @@ public class PredicatedSales extends JPanel{
 	CustomJTable table;
 	JPanel leftPanel,rightPanel, headingLeft;
 	CustomTextArea salesPrediction;
+	String productName = "XXXX";
 	///chart......
 
 	
@@ -62,7 +63,7 @@ public class PredicatedSales extends JPanel{
 		//leftPanel.add(butReturn);
 		final CustomPieChart pie = new CustomPieChart("Sales","Sales");
 		rightPanel.add(pie);
-		salesPrediction = new CustomTextArea("Your expected sales this quarter for XXXX are $14,000");
+		salesPrediction = new CustomTextArea("Your expected sales this quarter for " + productName + " are $14,000");
 		salesPrediction.setEditable(false);
 		rightPanel.add(salesPrediction);
 		this.add(leftPanel);
@@ -82,7 +83,10 @@ public class PredicatedSales extends JPanel{
 
 		selectionModel.addListSelectionListener(new ListSelectionListener() {
 		    public void valueChanged(ListSelectionEvent e) {
+		    	//e.get
 		        pie.refreshChart();
+		       // productName = table.getModel().getValueAt(,1);
+		        salesPrediction.setText(("Your expected sales this quarter for " + productName + " are $14,000"));
 		    }
 		});
 
