@@ -10,6 +10,6 @@ public class ProductController {
 	
 	@RequestMapping("product")
 	public String pageControll(ModelAndView modelAndView){
-		return "Product.jsp";
+		return "Product";
 	}
 }

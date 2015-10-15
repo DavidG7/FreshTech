@@ -43,3 +43,9 @@ div.image{
 position:absolute;
  bottom:0;
 }
+
+#map {
+     	width: 500px;
+        height: 500px;
+        background-color: #CCC;
+      }

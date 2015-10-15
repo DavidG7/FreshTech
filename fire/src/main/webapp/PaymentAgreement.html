@@ -1,3 +1,5 @@
+<!-- Authors: Vincent Tomlinson & Sam Raspin -->
+
 	<!DOCTYPE html>
 <html>
 	<head>
@@ -13,7 +15,7 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "PaymentAgreement.css"/>
 
-		<title>NB Gardens Payment Agreement</title>
+		<title>NB Gardens Checkout</title>
 		
 	</head>
 	
@@ -33,7 +35,7 @@
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="#">
+    			<a class="navbar-brand" href="Landing.html">
       				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
       			</a>
 
@@ -102,8 +104,7 @@
 		          
 			          	<ul class="dropdown-menu" id="basket-dropdown">
 				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="PaymentAgreement.html">Checkout</a></li>
-				            <li><a href="AddPaymentDetails.html">Review Payment Methods</a></li>
+				            <li><a href="OrderCheckout.html">Checkout</a></li>
 				            <li class="divider"></li>
 				            <li><a href="Landing.html">Cancel Basket</a></li>
 			          	</ul>
@@ -125,8 +126,9 @@
 		          
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
-						  <li><a href="ChooseAddress.html">View Addresses</a></li>
+						  <li><a href="OrderHistory.html">Order History</a></li>
 						  <li><a href="OrderTracking.html">Track an Order</a></li>
+						  <li><a href="OutstandingOrders.html">Outstanding Orders</a></li>
 						  <li><a href="UpdateAccount.html">Update your Account</a></li>
 						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
 						  <li class="divider"></li>
@@ -159,9 +161,7 @@
 		
 			<div class = "jumbotron">
 			
-				<h2> <b> Payment Agreement </b> </h2>
-				
-				<h4> Please review your items below before proceeding to payment. </h4>				
+				<h2> <b> Checkout </b> </h2>			
 			
 			</div>		
 
@@ -173,76 +173,61 @@
 			
 		
 		<div class = "panel-body">
-	    <form action="action_page.php">
-		
-	<div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <div id="rightpanel">
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 </div>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <div id="leftpanel">	 
-	 <a href=# ><img class="img-responsive left-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
-	 </div>
-	 <p>ITEMS SELECED FOR CHECKOUT WILL GO HERE</p>  
-	 <br>
-	 <br>
-	 <br>
-	 <br>
-	 <br>   
-	 <br>
-     <h4>To be delivered to:</h4>
-     	<p>Bob Jones</p>
-     	<p>12 Gnomeway Drive</p>
-     	<p>Gnomington </p>
-     	<p>Cheshire </p>
-     	<p>England </p>
-     	<p>M45 5GH</p>       
-       
-       
-     <br>
-     <br>
-       <a href="Basket.html"><img class="img-responsive left-block" src="ImageFolder/Proceedtocheckout.png" alt="Proceedtocheckout"></a>
-     <br>
-     <br>
-       <a href="ChooseAddress.html"><img class="img-responsive left-block" src="ImageFolder/Editdeliverydetails.png" alt="Editdeliverydetails"></a>
-  
-  
+			
+			<div>
+				<div id="leftpanel">	 
+					<a href=# ><img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>
+					<!-- <img id="identify" class="img-thumbnail" alt="savage gnome" src="ImageFolder/squaresavage.jpg"/> -->
+				</div>
+				<p class="subtitle" id="leftpanel"><strong>FANCY GNOME<br><br>Order Details</strong><br>Quantity: 3<br>Price: &pound11.50
+				<br>Date of delivery: dd/mm/yyyy<br><strong>Total Price: (price x quantity)</strong></p>
+				<p class="subtitle" id="totheright"><strong>Delivery Address:</strong><br>1 Far Away Magical Place Road<br>Gnome Underground City<br>GUC 51K</p>
+			</div>
+			<div id="fixit"><br><hr></div>
+			
+			<div>
+				<div id="leftpanel">	 
+					<a href=# ><img class="img-thumbnail" src="ImageFolder/squarefancy.jpg" alt="newlittleFriend" id="gnome1"></a>  
+				</div>
+				<p class="subtitle" id="leftpanel"><strong>FANCY GNOME<br><br>Order Details</strong><br>Quantity: 3<br>Price: &pound11.50
+				<br>Date of delivery: dd/mm/yyyy<br><strong>Total Price: (price x quantity)</strong></p>
+				<p class="subtitle" id="totheright"><strong>Delivery Address:</strong><br>1 Far Away Magical Place Road<br>Gnome Underground City<br>GUC 51K</p>
+			</div>
+			<div id="fixit"><br><hr></div>
+			
+			
+			<div id="leftpanel">	 
+				<a href=# ><img class="img-thumbnail" src="ImageFolder/squaresavage.jpg" alt="newlittleFriend" id="gnome1"></a>  
+			</div>
+			<p class="subtitle" id="leftpanel"><strong>FANCY GNOME<br><br>Order Details</strong><br>Quantity: 3<br>Price: &pound11.50
+				<br>Date of delivery: dd/mm/yyyy<br><strong>Total Price: (price x quantity)</strong></p>
+				<p class="subtitle" id="totheright"><strong>Delivery Address:</strong><br>1 Far Away Magical Place Road<br>Gnome Underground City<br>GUC 51K</p>
+			<div id="fixit"><br><hr></div>
+			
+			
+			<div id="leftpanel">	 
+				<a href=# ><img class="img-thumbnail" src="ImageFolder/squaremooney.jpg" alt="newlittleFriend" id="gnome1"></a>  
+			</div>
+			<p class="subtitle" id="leftpanel"><strong>FANCY GNOME<br><br>Order Details</strong><br>Quantity: 3<br>Price: &pound11.50
+				<br>Date of delivery: dd/mm/yyyy<br><strong>Total Price: (price x quantity)</strong></p>
+				<p class="subtitle" id="totheright"><strong>Delivery Address:</strong><br>1 Far Away Magical Place Road<br>Gnome Underground City<br>GUC 51K</p>
+			<div id="fixit"><br><hr></div>
+			
+			
+			<div id="leftpanel">	 
+				<a href=# ><img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" id="gnome1"></a>  
+			</div>
+			<p class="subtitle" id="leftpanel"><strong>FANCY GNOME<br><br>Order Details</strong><br>Quantity: 3<br>Price: &pound11.50
+				<br>Date of delivery: dd/mm/yyyy<br><strong>Total Price: (price x quantity)</strong></p>
+				<p class="subtitle" id="totheright"><strong>Delivery Address:</strong><br>1 Far Away Magical Place Road<br>Gnome Underground City<br>GUC 51K</p>
+			<div id="fixit"><br><hr></div>
+			
+			
+			<br>
+			<br>
+				<a href = "PaymentConfirmation.html"><button type="submit"><strong>Pay using default payment method</strong></button></a>
+			
 		</div>
-</form>
-</div>
 
 <div id = "space"></div>
 
@@ -251,12 +236,17 @@
 <!----------------------------->
 		
 		<div id = "footer" class = "panel-footer">
-	
-			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 
-				as well as Glyphicons <i>(http://glyphicons.com)</i> for the Halfling icon set.
+			
+			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			Telephone: 01234567573 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Email: service@nbgardens.com
 			</p>
+			
 			<p>
-				Using the Readable theme <i>(https://bootswatch.com/readable)</i> with our own modifications.
+				Terms of service:
+			</p>
+			
+			<p>
+				Privacy policy:
 			</p>
 		
 		</div>	

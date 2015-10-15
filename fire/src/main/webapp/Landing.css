@@ -1,9 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-#jumbotrontop{
-	margin-top:168px;
-
-}
 .carousel .item {
   height: 300px;
   
@@ -42,3 +38,9 @@
 .jumbotron-bottom {
 	text-align : center;
 }
+
+ #map {
+     	width: 500px;
+        height: 500px;
+        background-color: #CCC;
+      }

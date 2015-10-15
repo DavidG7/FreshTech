@@ -26,12 +26,17 @@ public class CustomTextArea extends JTextField{
     this.setText(hint);
     this.setFont(CustomFont.getFont("ITALIC",14));
     this.setForeground(Color.GRAY);
-    this.setMargin(new Insets(5, 50, 5, 50));
+    this.setBackground(Color.WHITE);
+    //this.setBorder(BorderFactory.create);
+ 
+
     
     this.addMouseListener(new MouseAdapter() { 
         public void mousePressed(MouseEvent me) { 
         	if(hint.equals("Price")){
-        		setText("£");
+        		setText("$");
+        	}else if(hint.equals("Your expected sales this quarter for XXXX are $14,000")){
+        		
         	}else{
         		setText("");
         	}

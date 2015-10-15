@@ -20,8 +20,6 @@ class ProductTableModel extends AbstractTableModel {
         { "Alison", "Huml","sha"},
         { "Kathy", "Walrath", "Knitting"},
         { "Sharon", "Zakhour", "Speed reading"},
-        { "Mary", "Campione", "Snowboarding" },
-        { "Alison", "Huml","sha"},
         { "Kathy", "Walrath", "Knitting"},
         { "Sharon", "Zakhour", "Speed reading"},
         

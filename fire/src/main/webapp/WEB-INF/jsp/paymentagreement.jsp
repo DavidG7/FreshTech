@@ -42,4 +42,8 @@
 			<a href="ChooseAddress.html"><img class="img-responsive left-block" src="ImageFolder/Editdeliverydetails.png" alt="Editdeliverydetails"></a>
 		</form>
 	</div>
+<<<<<<< HEAD
 	<div id="space"></div>
+=======
+	<div id="space"></div>
+>>>>>>> 9c050329f5ddfc4cb7adfffe75890952a82c6cd1

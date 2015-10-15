@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -7,8 +9,17 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
+import CustomUI.CustomButton;
+import CustomUI.CustomLabel;
+import CustomUI.CustomPieChart;
 import CustomUI.CustomScrollPane;
+import CustomUI.CustomTextArea;
 /**
  * 
  * @author Ricky Luu
@@ -17,37 +28,69 @@ import CustomUI.CustomScrollPane;
 public class PredicatedSales extends JPanel{
 	
 	//private static final long serialVersionUID = 1L;
-	JLabel titlelb = new JLabel("Predicted Sales");
+	JLabel heading, option;
 	JPanel topBar = new JPanel();
 	CustomJTable table;
+	JPanel leftPanel,rightPanel, headingLeft;
+	CustomTextArea salesPrediction;
 	///chart......
-	/*JPanel centre = new JPanel();
-	JButton  rturn = new JButton("Return");
-	String text2 =  "Your expected sales this quarter are £14.333";
-	JLabel textlb2 = new JLabel(text2);
-	JPanel buttonBar  = new JPanel();
-	JPanel panel = new JPanel();*/
+
 	
 	
 	public PredicatedSales(){
-		this.setLayout(new BorderLayout());
-		this.add(titlelb);
-		this.add(topBar,BorderLayout.NORTH);
+		this.setLayout(new GridLayout(1,2));
+		leftPanel = new JPanel(new GridLayout(2,1));
+		rightPanel = new JPanel(new GridLayout(2,1));
+		headingLeft = new JPanel(new GridLayout(1,2));
+		heading = new CustomLabel("Predicted Sales",true);
+		headingLeft.setBackground(Color.WHITE);
+		//option = new CustomLabel("Select a product to view it's predicted sales", false);
+		//option.setVerticalAlignment(SwingConstants.TOP);
+		CustomImage icon = new CustomImage();
 		
+		headingLeft.add(heading);	
+		headingLeft.add(icon);
+		
+		leftPanel.add(headingLeft);
+		//leftPanel.add(option);
+		//this.add(topBar,BorderLayout.NORTH);
 		table = new CustomJTable();
 		CustomScrollPane scrollPane = new CustomScrollPane(table);
-		this.add(scrollPane, BorderLayout.CENTER);
-		//panel.add(centre, BorderLayout.CENTER);
-		//this.add(panel);
-		//setTitle("PredictedSales");
-		//setSize(400,400);
+		leftPanel.add(scrollPane);
+		
+		//CustomButton butReturn = new CustomButton("Return");
+		//leftPanel.add(butReturn);
+		final CustomPieChart pie = new CustomPieChart("Sales","Sales");
+		rightPanel.add(pie);
+		salesPrediction = new CustomTextArea("Your expected sales this quarter for XXXX are $14,000");
+		salesPrediction.setEditable(false);
+		rightPanel.add(salesPrediction);
+		this.add(leftPanel);
+		this.add(rightPanel);
+		
+		leftPanel.setBackground(Color.WHITE);
+		rightPanel.setBackground(Color.WHITE);
+		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
+		rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
+		
 		setVisible(true);
+		
+		
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		ListSelectionModel selectionModel = table.getSelectionModel();
+
+		selectionModel.addListSelectionListener(new ListSelectionListener() {
+		    public void valueChanged(ListSelectionEvent e) {
+		        pie.refreshChart();
+		    }
+		});
+
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		//pack();
 	}	
 
 	
-	/*public static void main(String [] args){
-		new PredicatedSales();
- }*/
+	
 }
