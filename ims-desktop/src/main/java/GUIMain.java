@@ -1,6 +1,11 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JRootPane;
@@ -11,6 +16,7 @@ import javax.swing.plaf.ColorUIResource;
 
 public class GUIMain 
 {
+	
 
 	public static void main(String[] args)
 	{
@@ -18,33 +24,36 @@ public class GUIMain
 		JFrame frame = new JFrame("Inventory Management System");
 
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	   /* JTabbedPane pane = new JTabbedPane();
-	    	   
-	    pane.setForeground(new Color(0,122,0));
-	    pane.setBackground(Color.WHITE);
-	     
-	    pane.addTab("Daily Stock Report", new DailyStockReport());
-	    pane.addTab("Purchase Order", new PurchaseOrder());
-	    pane.addTab("Predicted Sales", new PredicatedSales());
-	    pane.addTab("Add/Discontinue Stock", new AddDiscontinue());*/
+
+	    
+	    
+	    
 	         
 	    frame.setSize(1000,800);
 	    
-	    frame.add(new TransparentImage(frame, new LogIn()));
+	    frame.add(new SplashScreen(frame));
 	    
 	    frame.setLocationRelativeTo(null);
-	    
-	    ImageIcon img = new ImageIcon("NBGardensLogo.png");
-	    frame.setIconImage(img.getImage());
 	    frame.setVisible(true);
-	   // frame.setUndecorated(true);   
-	    //frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
-	 
+	   // ImageIcon img = new ImageIcon("NBGardensLogo.png");
+	    BufferedImage icon = null;
+		try {
+			icon = ImageIO.read(GUIMain.class.getResource("/images/NBGardensLogo.png"));
+			//icon = ImageIO.read(new File("images/NBGardensLogo.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    frame.setIconImage(icon);
+	    frame.setUndecorated(true);   
+	    frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
+	        
 	    UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(new Color(0,122,0) ));
 	    UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
 	    UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
-	   
 	}
+	
+
 	
 	
 }

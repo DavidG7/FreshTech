@@ -1,4 +1,4 @@
-package CustomUI;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -21,14 +21,13 @@ import javax.swing.JPanel;
 public class CustomImage extends JPanel{
 
     private BufferedImage image;
+    private ImageLoader loader;
 
     public CustomImage() {
-       try {                
-          image = ImageIO.read(getClass().getResource("/images/NBGardensLogo.png"));
-       } catch (IOException ex) {
-            // handle exception...
-       }
-       //this.setBackground(Color.WHITE);
+           
+       loader = new ImageLoader();
+       loader.load();
+       image = loader.load();
        this.setOpaque(true);
        this.setBackground(new Color(0,0,0,0));
     }
