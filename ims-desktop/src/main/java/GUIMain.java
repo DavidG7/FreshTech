@@ -1,17 +1,40 @@
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
+import java.awt.image.BufferedImage;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.PaintContext;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
 
-
+import java.awt.image.ColorModel;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 public class GUIMain 
 {
-
+	private BufferedImage image;
+   try {                
+	   image = ImageIO.read(getClass().getResource("/images/NBGardensLogo.png"));
+   } catch (IOException ex) {
+        // handle exception...
+   }
+	
 	public static void main(String[] args)
 	{
 		
@@ -34,8 +57,8 @@ public class GUIMain
 	    
 	    frame.setLocationRelativeTo(null);
 	    
-	    ImageIcon img = new ImageIcon("NBGardensLogo.png");
-	    frame.setIconImage(img.getImage());
+	    
+	    frame.setIconImage(image.getImage());
 	    frame.setVisible(true);
 	   // frame.setUndecorated(true);   
 	    //frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
