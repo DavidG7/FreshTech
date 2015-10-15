@@ -9,24 +9,25 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import CustomUI.CustomButton;
-import CustomUI.CustomImage;
 import CustomUI.CustomLabel;
+import CustomUI.CustomTextArea;
 
 public class LogIn extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	JTextField userField;
-	JPasswordField passField;
+	CustomTextArea userField;
+	CustomTextArea passField;
     Font regularFont, italicFont;
     JLabel logInDisplay;
     final static int GAP = 10;
     JFrame topFrame;
+    ImageLoader loader;
  
     public LogIn() {
     	
     	//topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-        setBackground(Color.WHITE);
+        setLayout(new GridLayout(1,2));
+    
         JPanel leftHalf = new JPanel() {
 			private static final long serialVersionUID = 1L;
         };
@@ -37,20 +38,22 @@ public class LogIn extends JPanel implements ActionListener {
         };
 
         leftHalf.setLayout(new BoxLayout(leftHalf,BoxLayout.PAGE_AXIS));
-        rightHalf.setLayout(new BoxLayout(rightHalf, BoxLayout.LINE_AXIS));
+        //rightHalf.setLayout(new BoxLayout(rightHalf, BoxLayout.PAGE_AXIS));
         //rightHalf.add(new CustomLabel("  Welcome to NBGardens IMS",true), BorderLayout.CENTER);
         BufferedImage myPicture;
         JLabel picLabel = null;
-		/*try {
-			myPicture = ImageIO.read(new File("NBGardensLogo.png"));
-			picLabel = new JLabel(new ImageIcon(myPicture));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-      
+        loader = new ImageLoader();
+		
+		myPicture = loader.load();
+		picLabel = new JLabel(new ImageIcon(myPicture));
+		
         
-        //rightHalf.add(picLabel);
+        rightHalf.add(picLabel);
+        rightHalf.setBorder(new EmptyBorder(200,0,0,0));
+        rightHalf.setBackground(Color.WHITE);
+        leftHalf.setBorder(new EmptyBorder(200,50,50,50));
+        leftHalf.setBackground(Color.WHITE);
+        //rightHalf.add(new JSeparator(SwingConstants.VERTICAL));
         
       
         
@@ -58,7 +61,7 @@ public class LogIn extends JPanel implements ActionListener {
         leftHalf.add(createButton());
  
         add(leftHalf);
-        add(new JSeparator(JSeparator.VERTICAL),BorderLayout.LINE_START);
+        //add(new JSeparator(JSeparator.VERTICAL),BorderLayout.LINE_START);
       //  add(createLogInDisplay());
         add(rightHalf);
 
@@ -67,6 +70,7 @@ public class LogIn extends JPanel implements ActionListener {
  
     protected JComponent createButton() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+        panel.setBackground(Color.WHITE);
  
         //JButton button = new JButton("Log in");
         CustomButton button = new CustomButton("Log In");
@@ -129,6 +133,7 @@ public class LogIn extends JPanel implements ActionListener {
  
     protected JComponent createEntryFields() {
         JPanel panel = new JPanel(new SpringLayout());
+        panel.setBackground(Color.WHITE);
  
         String[] labelStrings = {
             "Username: ",
@@ -136,16 +141,16 @@ public class LogIn extends JPanel implements ActionListener {
         };
  
         CustomLabel[] labels = new CustomLabel[labelStrings.length];
-        JComponent[] fields = new JComponent[labelStrings.length];
+        CustomTextArea[] fields = new CustomTextArea[labelStrings.length];
         int fieldNum = 0;
  
         //Create the text field and set it up.
-        userField  = new JTextField();
-        userField.setColumns(20);
+        userField  = new CustomTextArea("Enter Username");
+        userField.setColumns(10);
         fields[fieldNum++] = userField;
  
-        passField = new JPasswordField();
-        passField.setColumns(20);
+        passField = new CustomTextArea("Password");
+        passField.setColumns(10);
         fields[fieldNum++] = passField;
 
 

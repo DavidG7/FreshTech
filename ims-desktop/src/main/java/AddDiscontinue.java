@@ -47,7 +47,6 @@ import javax.swing.table.JTableHeader;
 
 import CustomUI.CustomButton;
 import CustomUI.CustomFont;
-import CustomUI.CustomImage;
 import CustomUI.CustomLabel;
 import CustomUI.CustomPieChart;
 
@@ -114,7 +113,7 @@ public class AddDiscontinue extends JPanel{
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	            	JOptionPane.showMessageDialog(getParent(),
-	            	        "Problem writing to backup directory: '" );
+	            	        "New product is added to inventory" );
 	                    }
 	                    
 	     });
@@ -136,13 +135,13 @@ public class AddDiscontinue extends JPanel{
 		productTable = new CustomJTable();
 	
 		
-		 CustomButton discontinueStock = new CustomButton("Discontinue selected stock"); 
+		 CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
 		 discontinueStock.addActionListener(new ActionListener() {
 
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	            	JOptionPane.showMessageDialog(getParent(),
-	            	        "Problem writing to backup directory: '");
+	            	        "Product is no longer available");
 	                   }
 	                    
 	     });
@@ -183,4 +182,3 @@ public class AddDiscontinue extends JPanel{
 		
 	}
 }
-
