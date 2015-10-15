@@ -15,6 +15,20 @@
 
 		<title>NB Gardens Template</title>
 		
+		 <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(53.4792, -2.3),
+          zoom: 9,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+		
 	</head>
 	
 	<body>
@@ -182,6 +196,10 @@
 
   <span class= "glyphicon glyphicon-envelope"> Email: </span><br> service@nbgardens.com
 		</p>
+		
+  <body>
+    <div id="map"></div>
+  </body>
 	
 		<div class = "image">
 <!--  <img src="ImageFolder\200.gif" alt="Theres no business like Gnome business" style="width:310px;height:220px;">-->
