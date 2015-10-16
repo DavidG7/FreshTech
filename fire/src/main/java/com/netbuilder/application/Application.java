@@ -1,4 +1,4 @@
-package com.netbuilder.controllertest;
+package com.netbuilder.application;
  
 import javax.servlet.ServletException;
 
