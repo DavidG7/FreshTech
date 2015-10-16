@@ -5,8 +5,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/Bootstrap"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/bootstrap"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/bootstrap"/>
         <property name="java-output-path" value="/test/target/classes"/>
         <property name="context-root" value="fire"/>
     </wb-module>

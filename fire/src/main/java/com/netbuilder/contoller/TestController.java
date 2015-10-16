@@ -16,9 +16,12 @@ public class TestController {
 	@Autowired
 	Payment payment;
 	
-	 @RequestMapping(value = "paymentmethod", method = RequestMethod.GET)
+	 @RequestMapping(value = "/greeting", method = RequestMethod.GET)
 	    public String display(Model model) {
-	        		
-		return "paymentmethod";
+	    Payment testPayment = payment;
+		ModelAndView result = new ModelAndView("/greeting");
+		result.addObject("greeting", testPayment);
+		 
+		return "greeting";
 	  }
 }
