@@ -1,21 +1,23 @@
+/*
+ * This works for just loading pages, but i think each page needs its own controller once we add more functionality (eg LandingController)
+ * -pete.
+ */
 package com.netbuilder.contoller;
-
-import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.netbuilder.data.DummyData;
-import com.netbuilder.entities.Product;
+/**
+ * 
+ * @author rluu
+ * @author pnewman
+ *
+ */
 
 @Controller
 public class JSPController {
-	 @RequestMapping("/")
-	    public String index(ModelAndView modelAndView) {
-	        return "Landing";
-	  }
-	 
+ 
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
 	        return "About";

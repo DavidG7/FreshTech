@@ -59,6 +59,8 @@
 	  <property name="templateEngine" ref="templateEngine" />
 	  <property name="order" value="1" />
 	  <property name="viewNames" value="*.html" />
-	</bean>	 
+	</bean>
+	
+	<context:annotation-config />
 
 </beans>
