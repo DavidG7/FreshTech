@@ -61,6 +61,6 @@
 	  <property name="viewNames" value="*.html" />
 	</bean>
 	
-	<context:annotation-config />
+	
 
 </beans>

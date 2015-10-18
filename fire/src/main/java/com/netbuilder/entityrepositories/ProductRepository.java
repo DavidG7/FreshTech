@@ -5,6 +5,10 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.netbuilder.entities.Product;
 
+/**
+ * @author ??
+ *
+ */
 public interface ProductRepository extends MongoRepository<Product,Integer>{
 
 	
@@ -41,4 +45,12 @@ public interface ProductRepository extends MongoRepository<Product,Integer>{
 	 * @return
 	 */
 	public List<Product> findByRating(int rating);
+	
+	/**
+	 * This method returns a list of all products that are discontinued or of all products that are not.
+	 * @author pnewman
+	 * @param isDiscontinued
+	 * @return
+	 */
+	public List<Product> findByDiscontinued(boolean isDiscontinued);
 }
