@@ -1,15 +1,11 @@
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JRootPane;
-import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 
@@ -41,7 +37,6 @@ public class GUIMain
 			icon = ImageIO.read(GUIMain.class.getResource("/images/NBGardensLogo.png"));
 			//icon = ImageIO.read(new File("images/NBGardensLogo.png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    frame.setIconImage(icon);
