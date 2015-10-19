@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,25 +9,21 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "OrderHistory.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/OrderHistory.css"/>
 
 		<title>NB Gardens Template</title>
 		
 	</head>
 	
 	<body>
-	
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
-				
+
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
+			<!-- br/and and toggle get grouped for better mobile display -->
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
@@ -35,7 +31,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="/">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -48,18 +44,13 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
 			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -147,10 +138,6 @@
 		</div><!-- /.container-fluid -->	
 		
 		</nav>
-
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
 	
 		<div class="panel panel-default">
 		
@@ -230,15 +217,6 @@
 		</div>
 	</li>
 </ul>
-			
-
-					
-
-
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
 		<div id = "footer" class = "footer">
 	
 		
