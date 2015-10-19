@@ -35,7 +35,7 @@ public class DailyStockReport extends JPanel{
 	public DailyStockReport(){
 		
 		setBackground(Color.WHITE);
-		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
+		String [] colNames = {"ProductID","Product Name","Quantity","Status"};
 		Object[][] data = new Object [x][5];// <--- Here is where X is used
 		reportTable = new JTable(data,colNames);
 		panel = new JPanel();

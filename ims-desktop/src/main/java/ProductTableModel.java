@@ -3,7 +3,7 @@ import javax.swing.table.AbstractTableModel;
 class ProductTableModel extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 
-	private String[] columnNames = { "Product ID" , "Product Name" , "Current Quantity", "Yearly Sales" };
+	private String[] columnNames = { "Product ID" , "Product Name" , "Quantity", "Yearly Sales" };
 
     private Object[][] data = {
         { "1", "Red Gnome", 15433, 70100},

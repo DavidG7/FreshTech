@@ -67,10 +67,9 @@ public class PurchaseOrder extends JPanel
 		CustomLabel title = new CustomLabel("Purchase Order", true);
 		CustomLabel subTitle = new CustomLabel("Place a Purchase Order Here", true);
 		CustomLabel instructionSet = new CustomLabel ("(1) Select a Product", false);
-		//String [] colNames = {"Product ID","Product Name","Product Quantity"};
-		//Object[][] data = new Object [23][23];
-		//JTable productTable = new JTable(data, colNames);
+		
 		CustomJTable productTable = new CustomJTable();
+		
 		JScrollPane scrollPane = new JScrollPane(productTable);		
 		CustomButton placeOrder = new CustomButton("Place Order");
 		
