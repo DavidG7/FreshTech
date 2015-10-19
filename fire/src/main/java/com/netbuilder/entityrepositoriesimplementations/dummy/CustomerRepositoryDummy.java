@@ -123,8 +123,18 @@ public class CustomerRepositoryDummy implements CustomerRepository
 
 	@Override
 	public boolean exists(Integer customerID) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
+		
+		for(int i = 0; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerID() == customerID)
+			{
+				return true;
+			}
+		}
+		
+		return boolean;
 	}
 
 	@Override
