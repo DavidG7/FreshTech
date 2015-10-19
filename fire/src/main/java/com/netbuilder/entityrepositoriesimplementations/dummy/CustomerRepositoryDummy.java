@@ -134,7 +134,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 			}
 		}
 		
-		return boolean;
+		return false;
 	}
 
 	@Override
