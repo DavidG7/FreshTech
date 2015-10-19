@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -11,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import CustomUI.CustomScrollPane;
+import CustomUI.CustomTextArea;
 
 /**
  * 
@@ -28,7 +30,7 @@ public class DailyStockReport extends JPanel{
 	private JPanel bottomBar = new JPanel();
 	private JLabel date  = new JLabel(new Date().toString());
 	private JButton rturn = new JButton("return");
-	private JTextField searchText;
+	private CustomTextArea searchText;
 	
 	//TEMPORARY - WILL BE EQUAL TO NUMBER OF PRODUCTS IN STOCK REPORT
 	int x = 25;
@@ -44,7 +46,10 @@ public class DailyStockReport extends JPanel{
 		panel.setLayout(new BorderLayout());
 		topBar.setBackground(Color.WHITE);
 		topBar.add(label);
-		searchText = new JTextField("Search");
+		searchText = new CustomTextArea("Search                  "+
+											"                    "+
+											"                    "+
+											"                    ");
 		topBar.add(searchText);
 		panel.add(topBar, BorderLayout.NORTH);
 		panel.add(new CustomScrollPane(reportTable),BorderLayout.CENTER);

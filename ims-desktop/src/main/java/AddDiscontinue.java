@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 //<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -77,16 +78,23 @@ public class AddDiscontinue extends JPanel{
 	
 		rightPanel.add(optionTwo);
 		
-		rightPanel.add(new CustomTextArea("Name"));
-
-		rightPanel.add(new CustomTextArea("Description"));
-	
+		CustomTextArea name = new CustomTextArea("Name");
+		CustomTextArea desc = new CustomTextArea("Description");
+		CustomTextArea price = new CustomTextArea("Price");		
+		
+		name.setMaximumSize(new Dimension(300,20));
+		desc.setMaximumSize(new Dimension(300,20));
+		price.setMaximumSize(new Dimension(300,20));
+		
+		rightPanel.add(name);
+		rightPanel.add(desc);
+		categoryCombo.setMaximumSize(new Dimension(300,20));
 		categoryCombo.addItem("Gnome");
 		categoryCombo.addItem("Garden Accessory");
 		categoryCombo.addItem("Miscellaneous");
 		rightPanel.add(categoryCombo);
 		
-		rightPanel.add(new CustomTextArea("Price"));
+		rightPanel.add(price);
 		
 		porousware = new CustomLabel("Porousware", false);
 	
