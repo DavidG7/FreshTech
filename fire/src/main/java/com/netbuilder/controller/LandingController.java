@@ -10,6 +10,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
@@ -17,6 +18,7 @@ import com.netbuilder.entityrepositories.ProductRepository;
 @Controller
 public class LandingController {
 
+	
 	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
@@ -27,5 +29,4 @@ public class LandingController {
 		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
 	        return "Landing";
 	  }
-	 
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,7 +9,7 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
 
 
@@ -17,11 +17,7 @@
 		
 	</head>
 	
-	<body>
-	
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
+	<body>	
 				
 		<nav class="navbar navbar-default">
 		  
@@ -35,7 +31,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="Landing.html">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder/NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -48,18 +44,13 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
 			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -147,10 +138,7 @@
 		</div><!-- /.container-fluid -->	
 		
 		</nav>
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
-	
+
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
@@ -162,21 +150,17 @@
 			</div>		
 
 		</div>
-		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
+
 		<div class = "panel-body">
-	    <form action="action_page.php">
-		Name on Card:<br>
-		<input type = "text" name = "firstname">
-		<br>
-		<br>
-		Card Number:<br>
-		<input type = "text" name = "cardnumber">
-		<br> 
-		<br>
+	    <form action="action_page.php"></form>
+		Name on Card:<br/>
+		<input type = "text" name = "firstname"/>
+		<br/>
+		<br/>
+		Card Number:<br/>
+		<input type = "text" name = "cardnumber"/>
+		<br/> 
+		<br/>
 		Card Expiry Date: 
 	   <div class="dropdown">
    		 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Please choose year
@@ -190,20 +174,14 @@
       <li><a href="#">2020</a></li>
       </ul>
   </div>
-		<br>
-		Security Number:<br>
-		<input type = "text" name = "securitynumber">
-		<br>
-		<br>		
+		<br/>
+		Security Number:<br/>
+		<input type = "text" name = "securitynumber"/>
+		<br/>
+		<br/>		
 		<a href = "Landing.html"><button type="submit"><strong>Submit</strong></button></a>
 
 </div>
-
-
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-
 		
 </body>
 </html>

@@ -3,14 +3,12 @@ import java.awt.Color;
 import java.util.Date;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 
 import CustomUI.CustomScrollPane;
+import CustomUI.CustomTextArea;
 
 /**
  * 
@@ -28,19 +26,26 @@ public class DailyStockReport extends JPanel{
 	private JPanel bottomBar = new JPanel();
 	private JLabel date  = new JLabel(new Date().toString());
 	private JButton rturn = new JButton("return");
-	private JTextField searchText;
+	private CustomTextArea searchText;
+	
+	//TEMPORARY - WILL BE EQUAL TO NUMBER OF PRODUCTS IN STOCK REPORT
+	int x = 25;
+	//---------------------------------------------------------------
 
 	public DailyStockReport(){
 		
 		setBackground(Color.WHITE);
-		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
-		Object[][] data = new Object [5][5];
+		String [] colNames = {"ProductID","Product Name","Quantity","Status"};
+		Object[][] data = new Object [x][5];// <--- Here is where X is used
 		reportTable = new JTable(data,colNames);
 		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		topBar.setBackground(Color.WHITE);
 		topBar.add(label);
-		searchText = new JTextField("Search");
+		searchText = new CustomTextArea("Search                  "+
+											"                    "+
+											"                    "+
+											"                    ");
 		topBar.add(searchText);
 		panel.add(topBar, BorderLayout.NORTH);
 		panel.add(new CustomScrollPane(reportTable),BorderLayout.CENTER);
@@ -55,10 +60,5 @@ public class DailyStockReport extends JPanel{
 		setVisible(true);
 		
 	}
-	
-	
-	
-	/*public static void main(String[] args){
-		new DailyStockReport();
-	}*/
+
 }
