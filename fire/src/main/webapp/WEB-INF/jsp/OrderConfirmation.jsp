@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,23 +9,20 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "ChooseAddress.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/ChooseAddress.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Register.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Register.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "CustomerAccountPage.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/CustomerAccountPage.css"/>
 
 		<title>NB Gardens Order Confirmation</title>
 		
 	</head>
 	
 	<body>
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
-				
+
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
@@ -38,7 +35,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="Landing">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder/NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -51,18 +48,13 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
 			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -153,10 +145,6 @@
 		</div><!-- /.container-fluid -->	
 		
 		</nav>
-
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
 	
 		<div class="panel panel-default">
 		
@@ -164,26 +152,13 @@
 			
 				<h2> <b> Thank you for your order!</b> </h2>
 				
-				
-						
-			
 			</div>		
 
 		</div>
 		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
-			
-			<p><h3>You will recieve an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3><p>
+			<h3>You will recieve an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3>
 		
-	
 <div id = "space"></div>
-
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
 		
 		<div id = "footer" class = "panel-footer">
 	

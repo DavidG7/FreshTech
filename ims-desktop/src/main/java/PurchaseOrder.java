@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Vector;
+//import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -67,10 +67,9 @@ public class PurchaseOrder extends JPanel
 		CustomLabel title = new CustomLabel("Purchase Order", true);
 		CustomLabel subTitle = new CustomLabel("Place a Purchase Order Here", true);
 		CustomLabel instructionSet = new CustomLabel ("(1) Select a Product", false);
-		String [] colNames = {"Product ID","Product Name","Product Quantity"};
-		Object[][] data = new Object [23][23];
-		//JTable productTable = new JTable(data, colNames);
+		
 		CustomJTable productTable = new CustomJTable();
+		
 		JScrollPane scrollPane = new JScrollPane(productTable);		
 		CustomButton placeOrder = new CustomButton("Place Order");
 		
@@ -192,7 +191,7 @@ public class PurchaseOrder extends JPanel
 	public void addPurchaseOrder(CustomButton button, final JTable productTable, 
 			final JComboBox<String> suppliers, final JComboBox<String> quant)
 	{
-		final Vector<String> product = new Vector<String>();
+		//final Vector<String> product = new Vector<String>();
 		
 		button.addMouseListener(new MouseListener()
 		{
@@ -207,6 +206,7 @@ public class PurchaseOrder extends JPanel
 			@Override
 			public void mousePressed(MouseEvent e) 
 			{
+				/*
 				int productRow = productTable.getSelectedRow();
 				int productCol = productTable.getSelectedColumn();
 				
@@ -214,7 +214,7 @@ public class PurchaseOrder extends JPanel
 				//product.add((String) tempObj);
 				
 				String tempSupplier = (String) suppliers.getSelectedItem();
-				String tempQuant = (String) quant.getSelectedItem();
+				String tempQuant = (String) quant.getSelectedItem();*/
 
 			}
 			
