@@ -62,7 +62,6 @@ public class CustomPieChart extends JPanel {
         	   for(int i = 0;i<4;i++){
         		   
         		    double asPercent = list.get(i)*(100/(double)count);
-        		    System.out.println(count);
         			result.setValue(seasons[i], (int)asPercent);
                }
        return result;

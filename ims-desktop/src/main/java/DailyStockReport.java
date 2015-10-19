@@ -29,12 +29,16 @@ public class DailyStockReport extends JPanel{
 	private JLabel date  = new JLabel(new Date().toString());
 	private JButton rturn = new JButton("return");
 	private JTextField searchText;
+	
+	//TEMPORARY - WILL BE EQUAL TO NUMBER OF PRODUCTS IN STOCK REPORT
+	int x = 25;
+	//---------------------------------------------------------------
 
 	public DailyStockReport(){
 		
 		setBackground(Color.WHITE);
 		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
-		Object[][] data = new Object [5][5];
+		Object[][] data = new Object [x][5];// <--- Here is where X is used
 		reportTable = new JTable(data,colNames);
 		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
@@ -55,10 +59,5 @@ public class DailyStockReport extends JPanel{
 		setVisible(true);
 		
 	}
-	
-	
-	
-	/*public static void main(String[] args){
-		new DailyStockReport();
-	}*/
+
 }

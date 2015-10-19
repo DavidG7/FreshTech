@@ -35,8 +35,7 @@ public class SplashScreen extends JPanel implements ActionListener {
 	
      
      g.drawImage(logoImage, 375, 275, this);
-     
-     System.out.println(aplhaCount);
+
     }
 
    public void actionPerformed(ActionEvent ev){
