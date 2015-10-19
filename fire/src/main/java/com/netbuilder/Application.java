@@ -1,4 +1,4 @@
-package com.netbuilder.controller;
+package com.netbuilder;
  
 import javax.servlet.ServletException;
 

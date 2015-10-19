@@ -30,7 +30,6 @@ public class DummyData {
 	/**
 	 * This constructor instantiates dummy data for all entities.
 	 */
-	
 	public DummyData() {
 		employees.add(new Employee("Ben Back", "BennyBack7","spikelife7", 1));
 		employees.add(new Employee("Ray Smithy", "ArrogantManNum1", "sellsomeshit", 1));
