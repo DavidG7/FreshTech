@@ -181,9 +181,9 @@ public class AddressRepositoryDummy implements AddressRepository {
 			{
 				foundaddress = address.get(i);
 			}
-			return foundaddress;
+			
 		}
-		return null;
+		return foundaddress;
 	}
 	
 	
@@ -202,7 +202,7 @@ public class AddressRepositoryDummy implements AddressRepository {
 				foundaddress.add(address.get(i));
 			}
 		}
-		return address;
+		return foundaddress;
 	}
 
 	
@@ -220,7 +220,7 @@ public class AddressRepositoryDummy implements AddressRepository {
 				foundAddress.add(addressArray.get(i));
 			}
 		}
-		return null;
+		return foundAddress;
 	}
 
 	@Override
@@ -237,7 +237,7 @@ public class AddressRepositoryDummy implements AddressRepository {
 				foundAddress.add(addressArray.get(i));
 			}
 		}
-		return null;
+		return foundAddress;
 	}
 	
 }
