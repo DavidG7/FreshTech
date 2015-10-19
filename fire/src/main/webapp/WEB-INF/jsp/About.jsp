@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,19 +9,29 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "About.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/About.css"/>
 
 		<title>NB Gardens Template</title>
+		
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(53.4792, -2.3),
+          zoom: 9,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 		
 	</head>
 	
 	<body>
-	
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
 				
 		<nav class="navbar navbar-default">
 		  
@@ -35,7 +45,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="/">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder/NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -48,18 +58,13 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
 			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -148,9 +153,6 @@
 		
 		</nav>
 
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->	
 <div class="panel panel-default">
 				<div class = "jumbotron">
 					<h2> About</h2>
@@ -158,41 +160,35 @@
 	business providing top quality products to our huge customer
 	base. We offer the highest quality of service and a huge array
 	of products. We have one of the biggest Gnome collections on
-   earth and are proud to have been in business for over 100 years.<br></h4></div></div>
+   earth and are proud to have been in business for over 100 years.<br/></h4></div></div>
 
 			
 <div class ="contact">
-		 <h2> Contact Information<br> </h2>
+		 <h2> Contact Information<br/> </h2>
 		</div>
 	
   
    <p class ="telephone">
-  <span class= "glyphicon glyphicon-earphone"> Telephone: </span><br> 01234567573
+  <span class= "glyphicon glyphicon-earphone"> Telephone: </span><br/> 01234567573
    </p>
    
    <p class = "address">
- <span class= "glyphicon glyphicon-pencil"> Address: </span> <br>39 Gnomestreet Way<br>
-			Manchester<br>
-			United Kingdom<br>
-			MO6OAR<br>
+ <span class= "glyphicon glyphicon-pencil"> Address: </span> <br/>39 Gnomestreet Way<br/>
+			Manchester<br/>
+			United Kingdom<br/>
+			MO6OAR<br/>
    </p>
    
    <p class = "email">
 
-  <span class= "glyphicon glyphicon-envelope"> Email: </span><br> service@nbgardens.com
+  <span class= "glyphicon glyphicon-envelope"> Email: </span><br/> service@nbgardens.com
 		</p>
 	
 		<div class = "image">
 <!--  <img src="ImageFolder\200.gif" alt="Theres no business like Gnome business" style="width:310px;height:220px;">-->
 </div>
-
-
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
 		
-
-		
+				    <div id="map"></div>
 		
 	</body>
 	
