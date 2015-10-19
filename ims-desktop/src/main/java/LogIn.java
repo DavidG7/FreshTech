@@ -139,15 +139,15 @@ public class LogIn extends JPanel implements ActionListener {
         };
  
 
-        int fieldNum = 0;
+        
  
         //Create the text field and set it up.
         userField  = new CustomTextArea("Enter Username");
         userField.setColumns(10);
-
+        userField.setMaximumSize(new Dimension(300,100));
  
         passField = new JPasswordField();
-
+        passField.setMaximumSize(new Dimension(300,100));
         
         panel.add(new CustomLabel(labelStrings[0],false));
         panel.add(userField);
