@@ -1,4 +1,5 @@
 package com.netbuilder.entityrepositories;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -6,6 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.netbuilder.entities.Address;
 
+@Repository
 public interface AddressRepository extends MongoRepository<Address,Integer> {
 	/**
 	 * This method returns a single address method given by the specified address ID.

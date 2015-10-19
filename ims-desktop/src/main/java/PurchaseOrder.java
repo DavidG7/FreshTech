@@ -69,7 +69,8 @@ public class PurchaseOrder extends JPanel
 		CustomLabel instructionSet = new CustomLabel ("(1) Select a Product", false);
 		String [] colNames = {"Product ID","Product Name","Product Quantity"};
 		Object[][] data = new Object [23][23];
-		JTable productTable = new JTable(data, colNames);
+		//JTable productTable = new JTable(data, colNames);
+		CustomJTable productTable = new CustomJTable();
 		JScrollPane scrollPane = new JScrollPane(productTable);		
 		CustomButton placeOrder = new CustomButton("Place Order");
 		
@@ -162,7 +163,7 @@ public class PurchaseOrder extends JPanel
 	{
 		JPanel purchaseOrderPanel = new JPanel();
 		
-		String [] colNames = {"Product ID", "Product Name", "Product Quantity", " Supplier"};
+		String [] colNames = {"Product ID", "Product Name", "Product Quantity", "Supplier"};
 		Object[][] data = new Object[10][10];
 		JTable purchaseOrderTable = new JTable(data, colNames);
 		JScrollPane scrollPane = new JScrollPane(purchaseOrderTable);
@@ -171,7 +172,12 @@ public class PurchaseOrder extends JPanel
 	    header.setBackground(new Color(0,122,0));
 	    header.setForeground(Color.WHITE);
 	    purchaseOrderTable.setPreferredScrollableViewportSize(purchaseOrderTable.getPreferredSize());
-		
+	    
+	    purchaseOrderTable.getColumnModel().getColumn(1).setPreferredWidth(125);
+	    purchaseOrderTable.getColumnModel().getColumn(2).setPreferredWidth(125);
+	    
+	    purchaseOrderTable.setPreferredSize(new Dimension(10000, 100));
+	    
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 		scrollPane.getViewport().setBackground(Color.WHITE);
 		

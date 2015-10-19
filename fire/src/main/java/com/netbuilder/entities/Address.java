@@ -3,12 +3,14 @@ package com.netbuilder.entities;
 import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * this class is used in customer orders so they can assign an address to each order giving them a choice.
  * @author jham
  *
  */
+@Document (collection="Address")
 public class Address implements Serializable {
 	private static final long serialVersionUID = -4033621458726921518L;
 	/**
@@ -19,6 +21,7 @@ public class Address implements Serializable {
 	private String address;
 	private String postcode;
 	private int customerID;
+
 	
    /**
     * class constructors

@@ -12,12 +12,38 @@ import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
+import java.awt.image.BufferedImage;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.PaintContext;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
 
-
+import java.awt.image.ColorModel;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 public class GUIMain 
 {
+<<<<<<< HEAD
+	private BufferedImage image;
+   try {                
+	   image = ImageIO.read(getClass().getResource("/images/NBGardensLogo.png"));
+   } catch (IOException ex) {
+        // handle exception...
+   }
+	
+=======
 	
 
+>>>>>>> 0fd12969cadac4d70333612e56de12d5375a1685
 	public static void main(String[] args)
 	{
 		
@@ -34,6 +60,12 @@ public class GUIMain
 	    frame.add(new SplashScreen(frame));
 	    
 	    frame.setLocationRelativeTo(null);
+<<<<<<< HEAD
+	    
+	    
+	    frame.setIconImage(image.getImage());
+=======
+>>>>>>> 0fd12969cadac4d70333612e56de12d5375a1685
 	    frame.setVisible(true);
 	   // ImageIcon img = new ImageIcon("NBGardensLogo.png");
 	    BufferedImage icon = null;

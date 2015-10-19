@@ -31,7 +31,7 @@ public class DailyStockReport extends JPanel{
 	private JTextField searchText;
 
 	public DailyStockReport(){
-		//setTitle("DailyStockReport");
+		
 		setBackground(Color.WHITE);
 		String [] colNames = {"ProductID","Product Name","Product Quantity","Status"};
 		Object[][] data = new Object [5][5];
