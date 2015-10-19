@@ -3,8 +3,9 @@ package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
+import javax.inject.Singleton;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -13,10 +14,14 @@ import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 
+/**
+ * @author ??
+ * @author pnewman (modifications to allow for spring bean configuration)
+ */
+
 public class ProductRepositoryDummy implements ProductRepository{
 	
-	@Inject
-	private DummyData initialData;
+	private DummyData dummyData;
 
 	@Override
 	public List<Product> findAll() {
@@ -110,7 +115,7 @@ public class ProductRepositoryDummy implements ProductRepository{
 
 	@Override
 	public Product findByProductID(int productID) {
-		ArrayList<Product> ps = initialData.getEntityList(new Product());
+		ArrayList<Product> ps = dummyData.getEntityList(new Product());
 		for(Product p : ps) {
 			if(p.getProductId() == productID) {
 				return p;
@@ -121,7 +126,7 @@ public class ProductRepositoryDummy implements ProductRepository{
 
 	@Override
 	public Product findByProductName(String productName) {
-		ArrayList<Product> ps = initialData.getEntityList(new Product());
+		ArrayList<Product> ps = dummyData.getEntityList(new Product());
 		for(Product p : ps) {
 			if(p.getProductName().equals(productName))
 				return p;
@@ -131,7 +136,7 @@ public class ProductRepositoryDummy implements ProductRepository{
 
 	@Override
 	public List<Product> findByPrice(float price) {
-		ArrayList<Product> ps = initialData.getEntityList(new Product());
+		ArrayList<Product> ps = dummyData.getEntityList(new Product());
 		for(int i = 0; i < ps.size(); i--) {
 			if(ps.get(i).getRating()!=price) {
 				ps.remove(i);
@@ -143,7 +148,7 @@ public class ProductRepositoryDummy implements ProductRepository{
 
 	@Override
 	public List<Product> findByCategory(String category) {
-		ArrayList<Product> ps = initialData.getEntityList(new Product());
+		ArrayList<Product> ps = dummyData.getEntityList(new Product());
 		for(int i = 0; i < ps.size(); i--) {
 			if(!ps.get(i).getCategory().equals(category)) {
 				ps.remove(i);
@@ -155,7 +160,7 @@ public class ProductRepositoryDummy implements ProductRepository{
 
 	@Override
 	public List<Product> findByRating(int rating) {
-		ArrayList<Product> ps = initialData.getEntityList(new Product());
+		ArrayList<Product> ps = dummyData.getEntityList(new Product());
 		for(int i = 0; i < ps.size(); i--) {
 			if(ps.get(i).getRating()!=rating) {
 				ps.remove(i);
@@ -163,5 +168,28 @@ public class ProductRepositoryDummy implements ProductRepository{
 			}
 		}
 		return ps;
+	}
+
+	/**
+	 * @author pnewman
+	 */
+	@Override
+	public List<Product> findByDiscontinued(boolean isDiscontinued) {
+		ArrayList<Product> products = dummyData.getEntityList(new Product());
+		ArrayList<Product> discontinuedProducts = new ArrayList<Product>();
+		for(Product product : products){
+			if(product.getDiscontinued() == isDiscontinued){
+				discontinuedProducts.add(product);
+			}
+		}
+		return discontinuedProducts;
+	}
+
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
 	}
 }

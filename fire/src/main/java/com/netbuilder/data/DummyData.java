@@ -2,9 +2,11 @@ package com.netbuilder.data;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import javax.ejb.Singleton;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import com.netbuilder.entities.*;
 import com.netbuilder.util.ContactMethod;
@@ -13,6 +15,7 @@ import com.netbuilder.util.ContactMethod;
  * @author dgordon
  * @author pnewman
  */
+
 @Singleton
 public class DummyData {
 	private ArrayList<Employee> employees = new ArrayList<Employee>();
@@ -27,6 +30,7 @@ public class DummyData {
 	/**
 	 * This constructor instantiates dummy data for all entities.
 	 */
+	
 	public DummyData() {
 		employees.add(new Employee("Ben Back", "BennyBack7","spikelife7", 1));
 		employees.add(new Employee("Ray Smithy", "ArrogantManNum1", "sellsomeshit", 1));
@@ -47,8 +51,8 @@ public class DummyData {
 		
 		products.add(new Product(1,1,(float)11.11, "cat1", "name1"));
 		products.add(new Product(2,2,(float)22.22, "cat2", "name2"));
-		products.add(new Product(3,3,(float)33.33, "cat3", "name3", true, false, 3, "description3", "picture3"));
-		products.add(new Product(4,4,(float)44.44, "cat4", "name4", false, true, 4, "description4", "picture4"));
+		products.add(new Product(3,3,(float)33.33, "gnome", "other", true, false, 3, "description3", "other.jpg"));
+		products.add(new Product(4,4,(float)44.44, "gnome", "savage", true, true, 4, "description4", "savage.jpg"));
 		
 		purchaseOrders.add(new PurchaseOrder(1,"status1"));
 		purchaseOrders.add(new PurchaseOrder(2,"status2"));

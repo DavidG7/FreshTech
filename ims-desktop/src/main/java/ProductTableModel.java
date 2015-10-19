@@ -1,7 +1,9 @@
 import javax.swing.table.AbstractTableModel;
 
 class ProductTableModel extends AbstractTableModel {
-    private String[] columnNames = { "Product ID" , "Product Name" , "Current Quantity", "Yearly Sales" };
+	private static final long serialVersionUID = 1L;
+
+	private String[] columnNames = { "Product ID" , "Product Name" , "Quantity", "Yearly Sales" };
 
     private Object[][] data = {
         { "1", "Red Gnome", 15433, 70100},
@@ -44,7 +46,8 @@ class ProductTableModel extends AbstractTableModel {
      * each cell. If we didn't implement this method, then the last column
      * would contain text ("true"/"false"), rather than a check box.
      */
-    public Class getColumnClass(int c) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public Class getColumnClass(int c) {
       return getValueAt(0, c).getClass();
     }
 

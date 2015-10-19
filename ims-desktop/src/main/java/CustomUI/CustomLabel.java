@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 
 public class CustomLabel extends JLabel {
 
+	private static final long serialVersionUID = 1L;
+
 	public CustomLabel(String message, boolean isHeading) {
 		// TODO Auto-generated constructor stub
 		this.setText(message);
