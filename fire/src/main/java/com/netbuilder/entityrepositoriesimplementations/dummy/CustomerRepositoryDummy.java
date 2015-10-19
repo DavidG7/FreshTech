@@ -27,7 +27,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 {
 	
 	@Autowired
-	private DummyData dummyData;
+	private DummyData dummyData = new DummyData();
 
 	@Override
 	public List<Customer> findAll() 
@@ -184,7 +184,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 		
 		for (int i = 0 ; i < customer.size(); i++)
 		{
-			if(customer.get(i).getCustomerPhone().equalsIgnoreCase(customerPhone));
+			if(customer.get(i).getCustomerPhone().equalsIgnoreCase(customerPhone))
 			{
 				foundCustomer.add(customer.get(i));
 			}
