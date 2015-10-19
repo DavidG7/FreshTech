@@ -1,10 +1,8 @@
 package CustomUI;
 
-import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;

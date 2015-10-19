@@ -1,12 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class SplashScreen extends JPanel implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
 
 	ImageLoader loader;
 
@@ -19,7 +17,6 @@ public class SplashScreen extends JPanel implements ActionListener {
     SplashScreen(JFrame parent){//, JComponent pane) {
     	timer.start();
     	this.parent = parent;
-    	this.pane = pane;
     	this.setBackground(Color.WHITE);
     	loader = new ImageLoader();
     }

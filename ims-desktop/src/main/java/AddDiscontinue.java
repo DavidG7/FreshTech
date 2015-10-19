@@ -1,15 +1,8 @@
 import java.awt.BorderLayout;
 //<<<<<<< HEAD
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.awt.ScrollPane;
 //=======
-import java.awt.GridLayout;
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
 
@@ -19,37 +12,20 @@ import java.awt.event.ActionListener;
 
 import CustomUI.*;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JRootPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 //<<<<<<< HEAD
-import javax.swing.UIManager;
-import javax.swing.border.Border;
 //=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.ColorUIResource;
-import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
-import javax.swing.table.JTableHeader;
 
 import CustomUI.CustomButton;
-import CustomUI.CustomFont;
 import CustomUI.CustomLabel;
-import CustomUI.CustomPieChart;
 
 /**
  * 
@@ -59,6 +35,7 @@ import CustomUI.CustomPieChart;
 
 public class AddDiscontinue extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
 	Box leftPanel,rightPanel;
 	JLabel heading,optionOne,optionTwo,porousware;
 	JComboBox<String> categoryCombo;
