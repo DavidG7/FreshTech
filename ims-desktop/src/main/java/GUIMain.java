@@ -34,9 +34,7 @@ public class GUIMain
 	    frame.setSize(1000,800);
 	    
 	    frame.add(new SplashScreen(frame));
-	    
-	    DatabaseController dbc = new DatabaseController();
-	        
+	      
 	    //mongoClient = new MongoClient(mongohost, port);
 		//db = mongoClient.getDatabase("test"); 
 	    
