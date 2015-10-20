@@ -1,10 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -16,7 +13,7 @@ public class LogIn extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	CustomTextArea userField;
-	CustomTextArea passField;
+	JPasswordField passField;
     Font regularFont, italicFont;
     JLabel logInDisplay;
     final static int GAP = 10;
@@ -38,8 +35,6 @@ public class LogIn extends JPanel implements ActionListener {
         };
 
         leftHalf.setLayout(new BoxLayout(leftHalf,BoxLayout.PAGE_AXIS));
-        //rightHalf.setLayout(new BoxLayout(rightHalf, BoxLayout.PAGE_AXIS));
-        //rightHalf.add(new CustomLabel("  Welcome to NBGardens IMS",true), BorderLayout.CENTER);
         BufferedImage myPicture;
         JLabel picLabel = null;
         loader = new ImageLoader();
@@ -140,63 +135,31 @@ public class LogIn extends JPanel implements ActionListener {
             "Password: "
         };
  
-        CustomLabel[] labels = new CustomLabel[labelStrings.length];
-        CustomTextArea[] fields = new CustomTextArea[labelStrings.length];
-        int fieldNum = 0;
+
+        
  
         //Create the text field and set it up.
         userField  = new CustomTextArea("Enter Username");
         userField.setColumns(10);
-        fields[fieldNum++] = userField;
+        userField.setMaximumSize(new Dimension(300,100));
  
-        passField = new CustomTextArea("Password");
-        passField.setColumns(10);
-        fields[fieldNum++] = passField;
-
-
-        for (int i = 0; i < labelStrings.length; i++) {
-            labels[i] = new CustomLabel(labelStrings[i], false);
-            labels[i].setLabelFor(fields[i]);
-            panel.add(labels[i]);
-            panel.add(fields[i]);
- 
-            //Add listeners to each field.
-            JTextField tf = null;
-            tf = (JTextField)fields[i];
-            tf.addActionListener(this);
-        }
+        passField = new JPasswordField();
+        passField.setMaximumSize(new Dimension(300,100));
+        
+        panel.add(new CustomLabel(labelStrings[0],false));
+        panel.add(userField);
+        panel.add(new CustomLabel(labelStrings[1],false));
+        panel.add(passField);
+        
+        
+        
+        
+        
         SpringUtilities.makeCompactGrid(panel,
                                         labelStrings.length, 2,
                                         GAP, GAP, //init x,y
                                         GAP, GAP/2);//xpad, ypad
         return panel;
     }
- 
 
- 
-    /*private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Please Log In");
-
-      //  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
-        //frame.add(new LogIn());
-        frame.setSize(800, 600);
-       // frame.setLayout(new GridLayout(4, 1));
-        frame.add(new AddDiscontinue());
-        //frame.pack();
-
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(new LogIn());
-       // frame.setSize(300, 300);
-        frame.setLayout(new GridLayout(4, 1));
-        //frame.add(new AddDiscontinue());
-        frame.pack();
-
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
- 
-    public static void main(String[] args) {
-        createAndShowGUI();
-    }*/
 }

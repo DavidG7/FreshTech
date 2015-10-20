@@ -12,18 +12,24 @@
 	
 	<dependencies>
 		<dependency>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>jfreechart</groupId>
-	<artifactId>jfreechart</artifactId>
-	<version>1.0.0</version>
-	<distributionManagement>
-		<relocation>
-		<groupId>jfree</groupId>
-		<artifactId>jfreechart</artifactId>
-		<version>1.0.0</version>
-		</relocation>
-	</distributionManagement>
-	
+			<modelVersion>4.0.0</modelVersion>
+			<groupId>jfreechart</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.0</version>
+			<distributionManagement>
+				<relocation>
+				<groupId>jfree</groupId>
+				<artifactId>jfreechart</artifactId>
+				<version>1.0.0</version>
+				</relocation>
+			</distributionManagement>
+		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
 	</project>
+	
+	

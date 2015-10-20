@@ -23,8 +23,13 @@ public class JSPController {
 	        return "About";
 	  }
 	 
+	 @RequestMapping("AddPaymentDetails")
+	 public String addPaymentDetails(ModelAndView modelAndView) {
+	        return "AddPaymentDetails";
+	 }
+	 
 	 @RequestMapping("Basket")
-	 public String Basket(ModelAndView modelAndView) {
+	 public String basket(ModelAndView modelAndView) {
 	        return "Basket";
 	  }
 	 
@@ -89,5 +94,9 @@ public class JSPController {
 	        return "ViewCreditDetails";
 	  }
 	 
+	 @RequestMapping("Landing")
+	 public String landing2(ModelAndView modelAndView) {
+	        return "Landing";
+	  }
 	 
 }

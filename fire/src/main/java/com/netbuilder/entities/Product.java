@@ -4,11 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * 
  * @author sraspin
  *
  */
+@Document (collection="Product")
 public class Product implements Serializable  {
 	private static final long serialVersionUID = -7337349035516644812L;
 	private boolean discontinued = false;

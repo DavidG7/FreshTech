@@ -1,14 +1,8 @@
 import java.awt.BorderLayout;
 //<<<<<<< HEAD
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.awt.ScrollPane;
+import java.awt.Dimension;
 //=======
-import java.awt.GridLayout;
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 
 
@@ -18,37 +12,20 @@ import java.awt.event.ActionListener;
 
 import CustomUI.*;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JRootPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 //<<<<<<< HEAD
-import javax.swing.UIManager;
-import javax.swing.border.Border;
 //=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.ColorUIResource;
-import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
-import javax.swing.table.JTableHeader;
 
 import CustomUI.CustomButton;
-import CustomUI.CustomFont;
 import CustomUI.CustomLabel;
-import CustomUI.CustomPieChart;
 
 /**
  * 
@@ -58,6 +35,7 @@ import CustomUI.CustomPieChart;
 
 public class AddDiscontinue extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
 	Box leftPanel,rightPanel;
 	JLabel heading,optionOne,optionTwo,porousware;
 	JComboBox<String> categoryCombo;
@@ -77,16 +55,23 @@ public class AddDiscontinue extends JPanel{
 	
 		rightPanel.add(optionTwo);
 		
-		rightPanel.add(new CustomTextArea("Name"));
-
-		rightPanel.add(new CustomTextArea("Description"));
-	
+		CustomTextArea name = new CustomTextArea("Name");
+		CustomTextArea desc = new CustomTextArea("Description");
+		CustomTextArea price = new CustomTextArea("Price");		
+		
+		name.setMaximumSize(new Dimension(300,20));
+		desc.setMaximumSize(new Dimension(300,20));
+		price.setMaximumSize(new Dimension(300,20));
+		
+		rightPanel.add(name);
+		rightPanel.add(desc);
+		categoryCombo.setMaximumSize(new Dimension(300,20));
 		categoryCombo.addItem("Gnome");
 		categoryCombo.addItem("Garden Accessory");
 		categoryCombo.addItem("Miscellaneous");
 		rightPanel.add(categoryCombo);
 		
-		rightPanel.add(new CustomTextArea("Price"));
+		rightPanel.add(price);
 		
 		porousware = new CustomLabel("Porousware", false);
 	
