@@ -4,7 +4,6 @@
       th:include="Template :: page">
       
     <head th:fragment="header">
-		<link  type="text/css" rel="stylesheet" href="css/About.css" />
 	<title>NB Gardens</title>
     </head>
     <body>
@@ -22,7 +21,7 @@
 
 		</div>
 			
-		<div class = "panel-body">
+		<div class = "panel-body" id="centre">
 		 <h1>Order Tracking</h1>
 	<p><br/>
 	Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span>  --- 
@@ -37,10 +36,7 @@
 <p> Expected Delivery: </p>
 <p> Delivery Address: </p>
 		
-		<div id = "footer" class = "footer">
-	
-		
-		</div>
+		<div class="push"></div>
 		</div>	
 		</div>
 	</body>

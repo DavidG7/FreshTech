@@ -6,7 +6,7 @@
     <head th:fragment="header">
 		<link  type="text/css" rel="stylesheet" href="css/ChooseAddress.css" />
 		<link  type="text/css" rel="stylesheet" href="css/Register.css" />
-		<link  type="text/css" rel="stylesheet" href="css/CustomerAccountPage.css" />
+		<link  type="text/css" rel="stylesheet" href="css/CustomerAccount.css" />
 		
 	<title>NB Gardens</title>
     </head>
@@ -51,22 +51,7 @@
         <div class="push"></div>
     </div>
 </div>
-
-		<div class = "panel-footer">
-		<div class = "footer">
-			
-			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR  Email: service@nbgardens.com
-			</p>
-			
-			<p>
-				Terms of service:
-			</p>
-			
-			<p>
-				Privacy policy:
-			</p>
-		</div>
-		</div>	
+	
 		
 </body>
 </html>
