@@ -9,9 +9,20 @@ import javax.swing.JRootPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
+
 
 public class GUIMain 
 {
+	
+	//MongoDB Variables
+	static String mongohost = "";
+	static int port = 27017;
+	static MongoClient mongoClient;
+	static MongoDatabase db;
+	
+		
 	public static void main(String[] args)
 	{
 		
@@ -24,9 +35,9 @@ public class GUIMain
 	    
 	    frame.add(new SplashScreen(frame));
 	    
-	    DatabaseController sql = new DatabaseController("sql"); //Access Database Controller
 	    
-	    System.out.println(sql.toString());	    
+	    mongoClient = new MongoClient(mongohost, port);
+		db = mongoClient.getDatabase("test"); 
 	    
 	    
 	    frame.setLocationRelativeTo(null);
