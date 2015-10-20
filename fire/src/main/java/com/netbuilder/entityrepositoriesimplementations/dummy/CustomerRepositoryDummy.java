@@ -74,9 +74,11 @@ public class CustomerRepositoryDummy implements CustomerRepository
 	}
 
 	@Override
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long count() 
+	{
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
+		
+		return customer.size();
 	}
 
 	@Override

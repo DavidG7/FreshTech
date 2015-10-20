@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -11,9 +11,9 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "UpdateAccount.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/UpdateAccount.css"/>
 
 		<title>NB Gardens Update User Details</title>
 		
@@ -33,7 +33,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="Landing">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -46,7 +46,7 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
@@ -163,27 +163,27 @@
 				<div align="center">
 					<p class="subtitle"><strong>Current Details:</strong></p>
 					
-					<p id="writing"><strong>Contact Details:</strong><br>
-					Joe Bloggs<br>
-					Home telephone: (024) 76 555 555<br>
-					Mob telephone: 077 221 379 50<br>
+					<p id="writing"><strong>Contact Details:</strong><br/>
+					Joe Bloggs<br/>
+					Home telephone: (024) 76 555 555<br/>
+					Mob telephone: 077 221 379 50<br/>
 					E-mail: joseph.bloggs@gmail.com</p>
 					
-					<p id="writing"><strong>Default Delivery Address:</strong><br>
-					51 Bloggs' Road<br>
-					Blogg City<br>
-					BLG 001<br>
+					<p id="writing"><strong>Default Delivery Address:</strong><br/>
+					51 Bloggs' Road<br/>
+					Blogg City<br/>
+					BLG 001<br/>
 					West Midlands</p>
 					
-					<p id="writing"><strong>Default Payment Details:</strong><br>
-					Visa Debit Card<br>
-					Card Number: 3456-9012-5678-1234<br>
-					Sort Code: 012345678<br>
+					<p id="writing"><strong>Default Payment Details:</strong><br/>
+					Visa Debit Card<br/>
+					Card Number: 3456-9012-5678-1234<br/>
+					Sort Code: 012345678<br/>
 					Cardholder Name: MR G NOME</p>
 					
 				</div>
 			
-				<div id="fixit"><hr></div>
+				<div id="fixit"><hr/></div>
 				
 				
 				
@@ -220,37 +220,37 @@
 				</div>
 				
 				
-				<div id="fixit"><hr></div>
+				<div id="fixit"><hr/></div>
 				
 				<div id="writing">
-  					<strong>Alternatively, please enter a<br>new address below:</strong><br><br>
+  					<strong>Alternatively, please enter a<br/>new address below:</strong><br/><br/>
   					
-					Address Line 1 :<br>
-					<input type = "text" name = "addressline1">
-					<br>
-					<br>
-					Address Line 2 :<br>
-					<input type = "text" name = "addressline2">
-					<br>
-					<br>
-					City :<br>
-					<input type = "text" name = "city">
-					<br>
-					<br>
-					County :<br>
-					<input type = "text" name = "county">
-					<br>
-					<br>
-					Postcode :<br>
-					<input type = "text" name = "postcode">
-					<br>
-					<br>
+					Address Line 1 :<br/>
+					<input type = "text" name = "addressline1"/>
+					<br/>
+					<br/>
+					Address Line 2 :<br/>
+					<input type = "text" name = "addressline2"/>
+					<br/>
+					<br/>
+					City :<br/>
+					<input type = "text" name = "city"/>
+					<br/>
+					<br/>
+					County :<br/>
+					<input type = "text" name = "county"/>
+					<br/>
+					<br/>
+					Postcode :<br/>
+					<input type = "text" name = "postcode"/>
+					<br/>
+					<br/>
 					
        				<button type="submit"><strong>Submit</strong></button>
        			</div>
 			
 				<div id="column2">
-  					<strong>Alternatively, please enter a<br>new payment method below:</strong><br><br>
+  					<strong>Alternatively, please enter a<br/>new payment method below:</strong><br/><br/>
   					
         			<div class="dropdown">
 						
@@ -263,57 +263,57 @@
 						<li><a>American Express</a></li>
 						</ul><p></p>
 					</div>
-					Card Number :<br>
-					<input type = "text" name = "CardNumber">
-					<br>
-					<br>
-					Sort Code :<br>
-					<input type = "text" name = "SortCode">
-					<br>
-					<br>
-					CVV :<br>
-					<input type = "text" name = "CVV">
-					<br>
-					<br>
-					Name on Card :<br>
-					<input type = "text" name = "NameonCard">
-					<br>
-					<br>
-					Billing Address :<br>
-					<input type = "text" name = "BillAdd">
-					<br>
-					<br>
-					Billing Postcode :<br>
-					<input type = "text" name = "BillPost">
-					<br>
-					<br>
+					Card Number :<br/>
+					<input type = "text" name = "CardNumber"/>
+					<br/>
+					<br/>
+					Sort Code :<br/>
+					<input type = "text" name = "SortCode"/>
+					<br/>
+					<br/>
+					CVV :<br/>
+					<input type = "text" name = "CVV"/>
+					<br/>
+					<br/>
+					Name on Card :<br/>
+					<input type = "text" name = "NameonCard"/>
+					<br/>
+					<br/>
+					Billing Address :<br/>
+					<input type = "text" name = "BillAdd"/>
+					<br/>
+					<br/>
+					Billing Postcode :<br/>
+					<input type = "text" name = "BillPost"/>
+					<br/>
+					<br/>
 					
        				<button type="submit"><strong>Submit</strong></button>
        			</div>
        			
        			<div id="column2">
-  					<strong>Update contact details<br>if neccessary:</strong><br><br>
+  					<strong>Update contact details<br/>if neccessary:</strong><br/><br/>
   					
-					First Name :<br>
-					<input type = "text" name = "FirstName">
-					<br>
-					<br>
-					Surname Name :<br>
-					<input type = "text" name = "SurnameName">
-					<br>
-					<br>
-					Home Telephone :<br>
-					<input type = "text" name = "HomePhone">
-					<br>
-					<br>
-					Mobile Telephone :<br>
-					<input type = "text" name = "MobilePhone">
-					<br>
-					<br>
-					Email Address :<br>
-					<input type = "text" name = "Email">
-					<br>
-					<br>
+					First Name :<br/>
+					<input type = "text" name = "FirstName"/>
+					<br/>
+					<br/>
+					Surname Name :<br/>
+					<input type = "text" name = "SurnameName"/>
+					<br/>
+					<br/>
+					Home Telephone :<br/>
+					<input type = "text" name = "HomePhone"/>
+					<br/>
+					<br/>
+					Mobile Telephone :<br/>
+					<input type = "text" name = "MobilePhone"/>
+					<br/>
+					<br/>
+					Email Address :<br/>
+					<input type = "text" name = "Email"/>
+					<br/>
+					<br/>
 					
        				<button type="submit"><strong>Submit</strong></button>
        			</div>

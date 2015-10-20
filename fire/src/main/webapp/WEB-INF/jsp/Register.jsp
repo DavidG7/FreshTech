@@ -1,7 +1,7 @@
 	<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,11 +9,11 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "ChooseAddress.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/hooseAddress.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Register.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Register.css"/>
 
 		<title>NB Gardens Add Details</title>
 		
@@ -33,7 +33,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="Landing.html">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -46,7 +46,7 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
@@ -252,7 +252,7 @@
          k=30;
          else
          k=31;
-         while(j++<k){
+         while(j++<k>){
          var s=document.createElement('option');
          var e=document.getElementById('day');
          if(j==0){
@@ -279,6 +279,7 @@
          e.add(s,null);}
          catch(ex){
          e.add(s);}}
+         </k>
          </script> 
     </p>
     <p> 
@@ -292,7 +293,7 @@
 	    
 		 
 	   
-</form>
+
 </div>
 </div>
 

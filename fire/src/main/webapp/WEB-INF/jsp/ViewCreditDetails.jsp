@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,9 +9,9 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "About.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/About.css"/>
 
 		<title>NB Gardens Template</title>
 		
@@ -31,7 +31,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="Landing">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -44,7 +44,7 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
@@ -154,11 +154,11 @@
 		<div class = "panel-body">
 
 		<h2>Credit Score</h2>
-		<br>
-		<br>
+		<br/>
+		<br/>
 		<h3>£50.00</h3>
-		<br>
-		<br>
+		<br/>
+		<br/>
 		
 		
   

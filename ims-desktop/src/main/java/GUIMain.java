@@ -9,9 +9,20 @@ import javax.swing.JRootPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
+
 
 public class GUIMain 
 {
+	
+	//MongoDB Variables
+	static String mongohost = "";
+	static int port = 27017;
+	static MongoClient mongoClient;
+	static MongoDatabase db;
+	
+		
 	public static void main(String[] args)
 	{
 		
@@ -23,6 +34,11 @@ public class GUIMain
 	    frame.setSize(1000,800);
 	    
 	    frame.add(new SplashScreen(frame));
+	    
+	    
+	    mongoClient = new MongoClient(mongohost, port);
+		db = mongoClient.getDatabase("test"); 
+	    
 	    
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
@@ -41,5 +57,8 @@ public class GUIMain
 	    UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(new Color(0,122,0) ));
 	    UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
 	    UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
+	    
+	    
+	    
 	}
 }

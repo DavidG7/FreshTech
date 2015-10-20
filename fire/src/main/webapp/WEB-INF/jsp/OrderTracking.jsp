@@ -23,7 +23,7 @@
 		  
 		<div class="container-fluid">
 		
-			<!-- brand and toggle get grouped for better mobile display -->
+			
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -136,9 +136,9 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>	
 		
 		</nav>
 
