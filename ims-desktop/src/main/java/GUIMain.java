@@ -24,6 +24,11 @@ public class GUIMain
 	    
 	    frame.add(new SplashScreen(frame));
 	    
+	    DatabaseController sql = new DatabaseController("sql"); //Access Database Controller
+	    
+	    System.out.println(sql.toString());	    
+	    
+	    
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
 	   // ImageIcon img = new ImageIcon("NBGardensLogo.png");
@@ -41,5 +46,8 @@ public class GUIMain
 	    UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(new Color(0,122,0) ));
 	    UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
 	    UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
+	    
+	    
+	    
 	}
 }

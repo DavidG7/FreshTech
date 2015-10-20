@@ -69,8 +69,10 @@ public class AddressRepositoryDummy implements AddressRepository {
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
+		
+		return address.size();
 	}
 
 	@Override

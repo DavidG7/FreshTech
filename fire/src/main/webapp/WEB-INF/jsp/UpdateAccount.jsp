@@ -21,15 +21,11 @@
 	
 	<body>
 	
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
-				
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
+		
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
@@ -56,13 +52,9 @@
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div> 
 			
     		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
-
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
 		      	<ul class = "nav navbar-nav">
@@ -147,15 +139,11 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>
 		
 		</nav>
-
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
 	
 		<div class="panel panel-default">
 		
@@ -167,10 +155,7 @@
 
 		</div>
 	
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
+
 		<div class = "panel-body">
 		
 			<div id="container">
@@ -335,10 +320,6 @@
        		</div>
 		</div>
 
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
 		<div id = "footer" class = "panel-footer">
 	
 			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 

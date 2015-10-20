@@ -94,5 +94,9 @@ public class JSPController {
 	        return "ViewCreditDetails";
 	  }
 	 
+	 @RequestMapping("Landing")
+	 public String landing2(ModelAndView modelAndView) {
+	        return "Landing";
+	  }
 	 
 }

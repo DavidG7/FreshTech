@@ -11,6 +11,15 @@
 			</property>
 		</bean>
 		
+		<bean id="CustomerRepositoryDummy" class="com.netbuilder.entityrepositoriesimplementations.dummy.CustomerRepositoryDummy">
+			<property name="dummyData">
+				<ref bean="DummyData"/>
+			</property>
+		</bean>
+		
+		
 		<bean id="DummyData" class="com.netbuilder.data.DummyData"/>
+		
+		<!-- <bean id="data" class="com.netbuilder.data.DummyData"/> -->
 		
 </beans>
