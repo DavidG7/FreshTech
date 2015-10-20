@@ -28,15 +28,13 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	@Override
 	public List<CustomerOrder> findAll() 
 	{
-		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
-		
-		return customer;
+		return dummyData.getEntityList(new CustomerOrder());
 	}
 	
 	@Override
 	public long count() {
-		 //= data.getEntityList(new CustomerOrder());
-		return 0;
+		return dummyData.getEntityList(new CustomerOrder()).size();
+		
 	}
 
 	@Override
@@ -65,9 +63,11 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 		{
 			if(c.equals(arg0))
 			{
-				dummyData.getEntityList(new CustomerOrder()).remove(c);
+				customer.remove(c);
 			}
 		}
+		
+		dummyData.setEntityList(customer);
 		
 	}
 
@@ -84,8 +84,10 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 		
 		for(CustomerOrder c : customer)
 		{
-			dummyData.getEntityList(new CustomerOrder()).remove(c);
+			customer.remove(c);
 		}
+		
+		dummyData.setEntityList(customer);
 		
 	}
 
