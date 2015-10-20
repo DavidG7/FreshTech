@@ -2,10 +2,6 @@ package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -108,9 +104,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 			{
 				dummyData.getEntityList(new Customer()).remove(c);
 			}
-		}
-		
-		
+		}		
 	}
 
 	@Override
