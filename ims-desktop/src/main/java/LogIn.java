@@ -83,7 +83,9 @@ public class LogIn extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
     	
     	if(userField.getText() != null && passField.getPassword().length != 0)
-    	{	
+    	{	LoginSQL login = new LoginSQL();
+    	String password = new String(passField.getPassword());
+    		login.establishlogin(userField.getText(), password);
     		topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
       	  
     		JTabbedPane pane = new JTabbedPane();
@@ -144,7 +146,7 @@ public class LogIn extends JPanel implements ActionListener {
         
  
         //Create the text field and set it up.
-        userField  = new CustomTextArea("Enter Username");
+        userField  = new CustomTextArea("");
         userField.setColumns(10);
         userField.setMaximumSize(new Dimension(300,100));
  
