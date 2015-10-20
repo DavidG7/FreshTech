@@ -125,7 +125,7 @@
 						  <li><a href="UpdateAccount">Update your Account</a></li>
 						  <li><a href="ViewCreditDetails">View Credit</a></li>
 						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
+						  <li><a href="Landing.jsp">Logout</a></li>
 						</ul>
 		        	
 		        	</li>

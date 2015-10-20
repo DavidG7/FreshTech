@@ -71,7 +71,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="ProductCatalogue.html" id = "home-button-top">
+		        		<a href="ProductCatalogue.jsp" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
@@ -131,7 +131,7 @@
 		        
 		        
 		        	<li>
-		        		<a href="About.html" id = "about-button-top">
+		        		<a href="About.jsp" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>

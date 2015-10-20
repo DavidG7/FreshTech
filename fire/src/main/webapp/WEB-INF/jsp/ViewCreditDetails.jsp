@@ -59,7 +59,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="Landing.jsp" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>

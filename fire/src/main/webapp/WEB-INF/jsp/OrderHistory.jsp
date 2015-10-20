@@ -114,7 +114,7 @@
 		          
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
-						  						  <li><a href="OrderHistory.html">Order History</a></li>
+						  						  <li><a href="OrderHistory.jsp">Order History</a></li>
 						  <li><a href="OrderTracking">Track an Order</a></li>
 						  <li><a href="UpdateAccount">Update your Account</a></li>
 						  <li><a href="ViewCreditDetails">View Credit</a></li>

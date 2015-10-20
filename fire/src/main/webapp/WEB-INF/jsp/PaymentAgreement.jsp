@@ -56,7 +56,7 @@
 
 				<ul class="nav navbar-nav">
 
-					<li><a href="Landing.html" id="home-button-top"> <span
+					<li><a href="Landing.jsp" id="home-button-top"> <span
 							class="glyphicon glyphicon-home"></span> Home
 					</a></li>
 
@@ -64,7 +64,7 @@
 
 				<ul class="nav navbar-nav">
 
-					<li><a href="ProductCatalogue.html" id="home-button-top">
+					<li><a href="ProductCatalogue.jsp" id="home-button-top">
 							<span class="glyphicon glyphicon-gift"></span> Products
 					</a></li>
 
@@ -83,10 +83,10 @@
 					</a>
 
 						<ul class="dropdown-menu" id="basket-dropdown">
-							<li><a href="Basket.html">View basket</a></li>
-							<li><a href="OrderCheckout.html">Checkout</a></li>
+							<li><a href="Basket.jsp">View basket</a></li>
+							<li><a href="OrderCheckout.jsp">Checkout</a></li>
 							<li class="divider"></li>
-							<li><a href="Landing.html">Cancel Basket</a></li>
+							<li><a href="Landing.jsp">Cancel Basket</a></li>
 						</ul></li>
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -99,17 +99,17 @@
 
 						<ul class="dropdown-menu" id="account-dropdown">
 							<li><a>Logged in as: ... </a></li>
-							<li><a href="OrderHistory.html">Order History</a></li>
-							<li><a href="OrderTracking.html">Track an Order</a></li>
-							<li><a href="OutstandingOrders.html">Outstanding Orders</a></li>
-							<li><a href="UpdateAccount.html">Update your Account</a></li>
-							<li><a href="ViewCreditDetails.html">View Credit</a></li>
+							<li><a href="OrderHistory.jsp">Order History</a></li>
+							<li><a href="OrderTracking.jsp">Track an Order</a></li>
+							<li><a href="OutstandingOrders.jsp">Outstanding Orders</a></li>
+							<li><a href="UpdateAccount.jsp">Update your Account</a></li>
+							<li><a href="ViewCreditDetails.jsp">View Credit</a></li>
 							<li class="divider"></li>
-							<li><a href="Landing.html">Logout</a></li>
+							<li><a href="Landing.jsp">Logout</a></li>
 						</ul></li>
 
 
-					<li><a href="About.html" id="about-button-top"> <span
+					<li><a href="About.jsp" id="about-button-top"> <span
 							class="glyphicon glyphicon-question-sign"></span> About NB
 							Gardens
 					</a></li>
@@ -257,7 +257,7 @@
 			</div>
 
 
-			<br /> <br /> <a href="PaymentConfirmation.html"><button
+			<br /> <br /> <a href="PaymentConfirmation.jsp"><button
 					type="submit">
 					<strong>Pay using default payment method</strong>
 				</button></a>
