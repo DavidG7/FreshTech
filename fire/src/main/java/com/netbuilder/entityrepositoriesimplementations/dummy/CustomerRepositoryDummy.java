@@ -102,9 +102,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 			{
 				dummyData.getEntityList(new Customer()).remove(c);
 			}
-		}
-		
-		
+		}		
 	}
 
 	@Override
