@@ -217,21 +217,5 @@
 		</div>
 </div>
 
-		<div class = "panel-footer">
-		<div class = "footer">
-			
-			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR  Email: service@nbgardens.com
-			</p>
-			
-			<p>
-				Terms of service:
-			</p>
-			
-			<p>
-				Privacy policy:
-			</p>
-		</div>
-		</div>	
-		
 </body>
 </html>
