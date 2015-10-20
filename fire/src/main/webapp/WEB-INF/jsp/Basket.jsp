@@ -1,4 +1,5 @@
 	<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       th:include="Template :: page">
@@ -23,7 +24,7 @@
 
 		</div>
 
-	<!-- Figure out how to change colour of drop down menus -->
+	
 		
 		<div class = "panel-body">
 	    
@@ -45,7 +46,7 @@
       </ul>
   </div>
   
-<!-- Figure out how to change colour of drop down menus -->
+
   
   <br/>
   <p>ITEM 2 - PLACEHOLDER EXAMPLE                 QUANTITY: 5</p> <div class="dropdown">
@@ -65,7 +66,7 @@
   </div>
     <br/>
   
-  <!-- Figure out how to change colour of drop down menus -->
+
   <p>ITEM 3 - PLACEHOLDER EXAMPLE                 QUANTITY: 2</p> <div class="dropdown">
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
     <span class="caret"></span></button>
@@ -84,7 +85,7 @@
 
 <br/>
 <br/>	    
-<a href="OrderConfirmation.html"><button type="submit" value="Checkout">Checkout</button></a>
+<a href="OrderConfirmation.jsp"><button type="submit" value="Checkout">Checkout</button></a>
 	
 			</div>
 

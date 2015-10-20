@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,9 +9,9 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "ProductCatalogue.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/ProductCatalogue.css"/>
 
 		<title>NB Gardens Template</title>
 		
@@ -19,23 +19,18 @@
 	
 	<body>
 	
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
-				
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
-    		<div class="navbar-header" id="navbar-header">
+			<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
     			<a class="navbar-brand" href="/">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -48,18 +43,15 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div>
 			
     		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -142,74 +134,70 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>	
 		
 		</nav>
 
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
-	
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
 			
 				<h2> Products</h2>
 				
-				<h4>NBGardens is offers the best Gnomes in the world.<br></h4>
+				<h4>NBGardens is offers the best Gnomes in the world.<br/></h4>
 			
 			</div>		
 
 		</div>
 		
 		<ul class="rig columns-3">
-<li><a href="Product.html"><h3>Gnome</h3>
+<li><a href="Product.jsp"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
-<li><a href="Product.html"><h3>Gnome</h3>
+<li><a href="Product.jsp"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.html"><h3>Gnome</h3>
+	<li><a href="Product.jsp"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.html"><h3>Gnome</h3>
+	<li><a href="Product.jsp"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.html"><h3>Gnome</h3>
+	<li><a href="Product.jsp"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.html"><h3>Gnome</h3>
+	<li><a href="Product.jsp"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
@@ -219,10 +207,6 @@
 					
 
 
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
 		<div id = "footer" class = "footer">
 	
 		

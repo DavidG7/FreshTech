@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
 		<script src = "bootstrap\js\bootstrap.js"></script>		
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/bootstrap/css/bootstrap_cosmo.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "bootstrap/css/bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/ChooseAddress.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/ChooseAddress.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/Register.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Register.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/CustomerAccountPage.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/CustomerAccount.css"/>
 
-		<title>NB Gardens Order Confirmation</title>
+		<title>NB Gardens Add Details</title>
 		
 	</head>
 	
 	<body>
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
+
+
 		<div class="wrapper">
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
+			
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="Landing.html">
+    			<a class="navbar-brand" href="Landing">
       				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
@@ -51,25 +50,21 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div>
 			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="Landing" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>
@@ -80,7 +75,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="Landing" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
@@ -105,10 +100,10 @@
 		          		</a>
 		          
 			         <ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="OrderCheckout.html">Checkout</a></li>
+				            <li><a href="Basket">View basket</a></li>
+				            <li><a href="OrderCheckout">Checkout</a></li>
 				            <li class="divider"></li>
-				            <li><a href="Landing.html">Cancel Basket</a></li>
+				            <li><a href="Landing">Cancel Basket</a></li>
 			          	</ul>
 		          
 		        	</li>
@@ -128,20 +123,20 @@
 		          
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
-						 <li><a href="OrderHistory.html">Order History</a></li>
-						  <li><a href="OrderTracking.html">Track an Order</a></li>
-						  <li><a href="OutstandingOrders.html">Outstanding Orders</a></li>
-						  <li><a href="UpdateAccount.html">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
+						 <li><a href="OrderHistory">Order History</a></li>
+						  <li><a href="OrderTracking">Track an Order</a></li>
+						  <li><a href="OutstandingOrders">Outstanding Orders</a></li>
+						  <li><a href="UpdateAccount">Update your Account</a></li>
+						  <li><a href="ViewCreditDetails">View Credit</a></li>
 						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
+						  <li><a href="Landing">Logout</a></li>
 						</ul>
 		        	
 		        	</li>
 		        
 		        
 		        	<li>
-		        		<a href="About.html" id = "about-button-top">
+		        		<a href="About" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>
@@ -149,21 +144,18 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>	
 		
 		</nav>
 
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
 	
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
 			
-				<h2> <b> Thank you for your order!</b> </h2>
+				<h2> <b> Your Account </b> </h2>
 				
 				
 						
@@ -172,20 +164,30 @@
 
 		</div>
 		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
 		
-			
-			<p><h3>You will recieve an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3>
+	<div class = "panel-body">
+		       
+       
+       <div id="centre1">
 		
-	<div class="push"></div>
+		<a href = "OutstandingOrders.html"><button type="submit"><strong>Your Orders</strong></button></a>
+        </div>
+        <br/>
+        <div id="centre3">
+        <a href = "OrderHistory.html"><button type="submit"><strong>Order History</strong></button></a>
+        </div>
+        <br/>
+        <div id="centre4">
+        <a href = "OrderTracking.html"><button type="submit"><strong>Order Tracking</strong></button></a>
+        </div>
+        <br/>
+        <div id="centre5">
+        <a href = "PaymentAgreement.html"><button type="submit"><strong>Payment Agreement</strong></button></a>
+	    </div>
+        <div class="push"></div>
+    </div>
 </div>
 
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
 		<div class = "panel-footer">
 		<div class = "footer">
 			
@@ -200,7 +202,7 @@
 				Privacy policy:
 			</p>
 		</div>
-		</div>
+		</div>	
 		
 </body>
 </html>

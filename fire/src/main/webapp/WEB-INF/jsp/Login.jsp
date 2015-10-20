@@ -12,6 +12,7 @@
     
 <div th:fragment="content">
 
+
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">

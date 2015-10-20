@@ -7,30 +7,28 @@
 		
 		<script src = "bootstrap\js\bootstrap.js"></script>		
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/bootstrap/css/bootstrap_cosmo.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "bootstrap/css/bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/ChooseAddress.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/ChooseAddress.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/Register.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Register.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/CustomerAccountPage.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/CustomerAccountPage.css"/>
 
-		<title>NB Gardens Order Confirmation</title>
+		<title>NB Gardens Payment Confirmation</title>
 		
 	</head>
 	
 	<body>
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
+
 		<div class="wrapper">
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
+			
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
@@ -57,19 +55,16 @@
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div>
 			
     		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="Landing" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>
@@ -80,7 +75,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="Landing" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
@@ -105,10 +100,10 @@
 		          		</a>
 		          
 			         <ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="OrderCheckout.html">Checkout</a></li>
+				            <li><a href="Basket">View basket</a></li>
+				            <li><a href="OrderCheckout">Checkout</a></li>
 				            <li class="divider"></li>
-				            <li><a href="Landing.html">Cancel Basket</a></li>
+				            <li><a href="Landing">Cancel Basket</a></li>
 			          	</ul>
 		          
 		        	</li>
@@ -128,20 +123,20 @@
 		          
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
-						 <li><a href="OrderHistory.html">Order History</a></li>
-						  <li><a href="OrderTracking.html">Track an Order</a></li>
-						  <li><a href="OutstandingOrders.html">Outstanding Orders</a></li>
-						  <li><a href="UpdateAccount.html">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
+						 <li><a href="OrderHistory">Order History</a></li>
+						  <li><a href="OrderTracking">Track an Order</a></li>
+						  <li><a href="OutstandingOrders">Outstanding Orders</a></li>
+						  <li><a href="UpdateAccount">Update your Account</a></li>
+						  <li><a href="ViewCreditDetails">View Credit</a></li>
 						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
+						  <li><a href="Landing">Logout</a></li>
 						</ul>
 		        	
 		        	</li>
 		        
 		        
 		        	<li>
-		        		<a href="About.html" id = "about-button-top">
+		        		<a href="About" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>
@@ -149,21 +144,19 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>	
 		
 		</nav>
 
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
+
 	
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
 			
-				<h2> <b> Thank you for your order!</b> </h2>
+				<h2> <b> Thank you for your payment!</b> </h2>
 				
 				
 						
@@ -171,20 +164,14 @@
 			</div>		
 
 		</div>
-		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-		
+ 
 			
-			<p><h3>You will recieve an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3>
+			
+			<h3>You will recieve an e-mail shortly confirming your payment. Happy Gardening!</h3>
 		
 	<div class="push"></div>
 </div>
 
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
 		
 		<div class = "panel-footer">
 		<div class = "footer">
@@ -200,7 +187,7 @@
 				Privacy policy:
 			</p>
 		</div>
-		</div>
+		</div>	
 		
 </body>
 </html>

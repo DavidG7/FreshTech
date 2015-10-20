@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       th:include="Template :: page">
@@ -51,7 +52,7 @@
 		<input type = "text" name = "securitynumber"/>
 		<br/>
 		<br/>		
-		<a href = "Landing.html"><button type="submit"><strong>Submit</strong></button></a>
+		<a href = "Landing.jsp"><button type="submit"><strong>Submit</strong></button></a>
 
 </div>
 </div>

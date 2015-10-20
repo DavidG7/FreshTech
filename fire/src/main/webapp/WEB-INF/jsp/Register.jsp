@@ -1,7 +1,7 @@
 	<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,34 +9,31 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "ChooseAddress.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/hooseAddress.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Register.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Register.css"/>
 
 		<title>NB Gardens Add Details</title>
 		
 	</head>
 	
 	<body>
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
 				
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
+			
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="Landing.html">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+    			<a class="navbar-brand" href="Landing.jsp">
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -49,19 +46,15 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div>
 			
     		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
-
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
 		      	<ul class = "nav navbar-nav">
@@ -138,7 +131,7 @@
 		        
 		        
 		        	<li>
-		        		<a href="About.html" id = "about-button-top">
+		        		<a href="About.jsp" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>
@@ -146,16 +139,12 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>
 		
 		</nav>
 
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
-	
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
@@ -168,12 +157,7 @@
 			</div>		
 
 		</div>
-		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
-		
+
 		<div class = "panel-body">
 		<div id = "centre">
 		<p> 
@@ -268,7 +252,7 @@
          k=30;
          else
          k=31;
-         while(j++<k){
+         while(j++<k>){
          var s=document.createElement('option');
          var e=document.getElementById('day');
          if(j==0){
@@ -295,6 +279,7 @@
          e.add(s,null);}
          catch(ex){
          e.add(s);}}
+         </k>
          </script> 
     </p>
     <p> 
@@ -308,16 +293,13 @@
 	    
 		 
 	   
-</form>
+
 </div>
 </div>
 
 <div id = "space"></div>
 
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
+
 		<div id = "footer" class = "panel-footer">
 	
 			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 

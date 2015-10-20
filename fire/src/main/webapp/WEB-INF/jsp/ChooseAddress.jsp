@@ -1,26 +1,24 @@
 	<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
 		<script src = "bootstrap\js\bootstrap.js"></script>		
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/bootstrap/css/bootstrap_cosmo.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "bootstrap/css/bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/ChooseAddress.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/ChooseAddress.css"/>
 
 		<title>NB Gardens Edit Address</title>
 		
 	</head>
 	
 	<body>
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
+	
 		<div class="wrapper">
 
 		<nav class="navbar navbar-default">
@@ -34,7 +32,7 @@
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="Landing.html">
+    			<a class="navbar-brand" href="Landing.jsp">
       				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
@@ -48,25 +46,20 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div>
 			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
-
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="ProductCatalogue.html" id = "home-button-top">
+		        		<a href="ProductCatalogue.jsp" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>
@@ -77,7 +70,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="Landing.jsp" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
@@ -102,10 +95,10 @@
 		          		</a>
 		          
 			         <ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="OrderCheckout.html">Checkout</a></li>
+				            <li><a href="Basket.jsp">View basket</a></li>
+				            <li><a href="OrderCheckout.jsp">Checkout</a></li>
 				            <li class="divider"></li>
-				            <li><a href="Landing.html">Cancel Basket</a></li>
+				            <li><a href="Landing.jsp">Cancel Basket</a></li>
 			          	</ul>
 		          
 		        	</li>
@@ -125,20 +118,20 @@
 		          
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
-						  <li><a href="OrderHistory.html">Order History</a></li>
-						  <li><a href="OrderTracking.html">Track an Order</a></li>
-						  <li><a href="OutstandingOrders.html">Outstanding Orders</a></li>
-						  <li><a href="UpdateAccount.html">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
+						  <li><a href="OrderHistory.jsp">Order History</a></li>
+						  <li><a href="OrderTracking.jsp">Track an Order</a></li>
+						  <li><a href="OutstandingOrders.jsp">Outstanding Orders</a></li>
+						  <li><a href="UpdateAccount.jsp">Update your Account</a></li>
+						  <li><a href="ViewCreditDetails.jsp">View Credit</a></li>
 						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
+						  <li><a href="Landing.jsp">Logout</a></li>
 						</ul>
 		        	
 		        	</li>
 		        
 		        
 		        	<li>
-		        		<a href="About.html" id = "about-button-top">
+		        		<a href="About.jsp" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>
@@ -146,15 +139,13 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>
 		
 		</nav>
 
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)----------------->		
-<!--------------------------------------------->
+
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
@@ -167,10 +158,7 @@
 
 		</div>
 		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
+
 		
 		<div class = "panel-body">
 	    
@@ -190,48 +178,45 @@
   
   <h4> Please edit the address as appropraite. </h4>
   
-        First Name :<br>
-		<input type = "text" name = "firstname">
-		<br>
-		<br>
-		Last Name :<br>
-		<input type = "text" name = "lastname">
-		<br>
-		<br>
-		Address Line 1 :<br>
-		<input type = "text" name = "addressline1">
-		<br>
-		<br>
-		Address Line 2 :<br>
-		<input type = "text" name = "addressline2">
-		<br>
-		<br>
-		Address Line 3 :<br>
-		<input type = "text" name = "addressline3">
-		<br>
-		<br>
-		City :<br>
-		<input type = "text" name = "city">
-		<br>
-		<br>
-		County :<br>
-		<input type = "text" name = "county">
-		<br>
-		<br>
-		Postcode :<br>
-		<input type = "text" name = "postcode">
-		<br>
-		<br>
-        <a href = "Landing.html"><button type="submit"><strong>Submit</strong></button></a>
+        First Name :<br/>
+		<input type = "text" name = "firstname"/>
+		<br/>
+		<br/>
+		Last Name :<br/>
+		<input type = "text" name = "lastname"/>
+		<br/>
+		<br/>
+		Address Line 1 :<br/>
+		<input type = "text" name = "addressline1"/>
+		<br/>
+		<br/>
+		Address Line 2 :<br/>
+		<input type = "text" name = "addressline2"/>
+		<br/>
+		<br/>
+		Address Line 3 :<br/>
+		<input type = "text" name = "addressline3"/>
+		<br/>
+		<br/>
+		City :<br/>
+		<input type = "text" name = "city"/>
+		<br/>
+		<br/>
+		County :<br/>
+		<input type = "text" name = "county"/>
+		<br/>
+		<br/>
+		Postcode :<br/>
+		<input type = "text" name = "postcode"/>
+		<br/>
+		<br/>
+        <a href = "Landing.jsp"><button type="submit"><strong>Submit</strong></button></a>
         <button type="submit"><strong>Delete</strong></button>
   
   <div class="push"></div>
 		</div>
 </div>
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
+
 		<div class = "panel-footer">
 		<div class = "footer">
 			

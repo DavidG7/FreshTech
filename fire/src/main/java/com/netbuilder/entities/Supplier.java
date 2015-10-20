@@ -34,6 +34,11 @@ public class Supplier {
 	private String supplierPhone = "";
 	private ContactMethod preferredContactMethod = ContactMethod.NONE;
 	
+	public Supplier()
+	{
+		
+	}
+	
 	public Supplier (int id, String name){
 		this.supplierId = id;
 		this.supplierName = name;

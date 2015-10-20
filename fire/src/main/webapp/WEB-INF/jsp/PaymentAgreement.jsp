@@ -144,7 +144,7 @@
 			</div>
 
 
-			<br /> <br /> <a href="PaymentConfirmation.html"><button
+			<br /> <br /> <a href="PaymentConfirmation.jsp"><button
 					type="submit">
 					<strong>Pay using default payment method</strong>
 				</button></a>
