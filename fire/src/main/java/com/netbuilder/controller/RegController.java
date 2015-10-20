@@ -33,6 +33,7 @@ public class RegController {
 	public String doPost (HttpServletRequest request, HttpServletResponse response) {
 			String name = request.getParameter("firstnamesignup");
 			String lname = request.getParameter("lastnamesignup");
+			String email =  request.getParameter("emailsignup");
 			String username = request.getParameter("usernamesignup");
 			String password = request.getParameter("passwordsignup");
 			String password2 = request.getParameter("passwordsignup_confirm");
@@ -47,7 +48,7 @@ public class RegController {
 			System.out.println(month);
 			System.out.println(day);
 			System.out.println(year);
-			customers.add(new Customer());
+			customers.add(new Customer(1,"0000000000000",50, name,email,username,password,email));
 			return "redirect:/";	
 	}
 }
