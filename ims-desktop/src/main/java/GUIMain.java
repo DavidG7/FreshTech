@@ -35,7 +35,7 @@ public class GUIMain
 	    
 	    frame.add(new SplashScreen(frame));
 	    
-	    //DatabaseController dbc = new DatabaseController();
+	    DatabaseController dbc = new DatabaseController();
 	        
 	    //mongoClient = new MongoClient(mongohost, port);
 		//db = mongoClient.getDatabase("test"); 
@@ -51,15 +51,10 @@ public class GUIMain
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	    frame.setIconImage(icon);
-	    frame.setUndecorated(true);   
-	    frame.getRootPane().setWindowDecorationStyle(JRootPane.WARNING_DIALOG);   
-	        
-	    UIManager.put("InternalFrame.activeTitleBackground", new ColorUIResource(new Color(0,122,0) ));
-	    UIManager.put("InternalFrame.activeTitleForeground", new ColorUIResource(Color.WHITE));
-	    UIManager.put("InternalFrame.titleFont", new Font("Dialog", Font.PLAIN, 11));
+		   frame.setVisible(true);
+	  
 	    
-	    
+	
 	    
 	}
 }
