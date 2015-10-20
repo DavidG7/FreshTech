@@ -88,4 +88,12 @@ public class DatabaseController {
 		}
 	}
 	
+	 public Connection getConn(){
+		 return conn;
+	 }
+	 
+	 public Statement getStmt(){
+		 return stmt;
+	 }
+	
 }
