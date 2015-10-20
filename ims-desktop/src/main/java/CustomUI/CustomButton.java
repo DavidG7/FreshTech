@@ -1,11 +1,10 @@
 package CustomUI;
 import java.awt.Color;
-
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 
 public class CustomButton extends JButton{
+	private static final long serialVersionUID = 1L;
 
 	public CustomButton(String message){
 		this.setText(message);

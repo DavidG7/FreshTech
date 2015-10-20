@@ -1,34 +1,30 @@
-	<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+   		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
 		<script src = "bootstrap\js\bootstrap.js"></script>		
 		
-		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "bootstrap/css/bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
+			
+		<link type = "text/css" rel = "stylesheet" href = "css/ChooseAddress.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "ChooseAddress.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "Login.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Login.css"/>
 
 		<title>NB Gardens Add Details</title>
 		
 	</head>
 	
 	<body>
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
-				
+
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
+			<!-- br/and and toggle get grouped for better mobile display -->
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
@@ -36,7 +32,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="Landing">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder/NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -49,18 +45,13 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
 				</div>
 				
 			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -86,8 +77,6 @@
 		      	
 		      	</ul>
 		      	
-		      	
-		      
 		      	<ul class="nav navbar-nav navbar-right">
 		        
 		        	<li class="dropdown">
@@ -152,10 +141,6 @@
 		
 		</nav>
 
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
-	
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
@@ -168,21 +153,16 @@
 			</div>		
 
 		</div>
-		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
-		
+
 		<div class = "panel-body">
 	    
 	   <div id="centre">
-		    <p>Username :<br>
-			<input type = "text" name = "username">
+		    <p>Username :<br/>
+			<input type = "text" name = "username"/>
 			</p>
 			
-			<p>Password :<br>
-			<input type = "text" name = "password">
+			<p>Password :<br/>
+			<input type = "text" name = "password"/>
 			</p>
 			
 				<a href = "#"><button type="submit"><strong>Log In</strong></button></a>
@@ -193,10 +173,6 @@
 
 <div id = "space"></div>
 
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
 		<div id = "footer" class = "panel-footer">
 	
 			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 

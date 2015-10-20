@@ -1,10 +1,8 @@
 package CustomUI;
 
-import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
@@ -62,7 +60,6 @@ public class CustomPieChart extends JPanel {
         	   for(int i = 0;i<4;i++){
         		   
         		    double asPercent = list.get(i)*(100/(double)count);
-        		    System.out.println(count);
         			result.setValue(seasons[i], (int)asPercent);
                }
        return result;

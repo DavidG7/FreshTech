@@ -1,36 +1,73 @@
 package com.netbuilder.entityrepositoriesimplementations.dummy;
 
+/**
+ * 
+ * @author ???, Thomas Dudley
+ * 
+ * This class it to implement the functionality of the Customer Order Repository
+ * 
+ * 
+ */
+
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import com.netbuilder.data.DummyData;
+import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 
 public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	
 	@Inject
-	private DummyData data = new DummyData();
-	private ArrayList datalist = new ArrayList();
+	private DummyData dummyData = new DummyData();	
 	
+	@Override
+	public List<CustomerOrder> findAll() 
+	{
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		return customer;
+	}
 	
 	@Override
 	public long count() {
-		datalist = data.getEntityList(new CustomerOrder());
+		 //= data.getEntityList(new CustomerOrder());
 		return 0;
 	}
 
 	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Integer customerOrderID) 
+	{
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		for(int i = 0; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerID() == customerOrderID)
+			{
+				customer.remove(i);
+			}
+		}
+		
+		dummyData.setEntityList(customer);
 		
 	}
 
 	@Override
-	public void delete(CustomerOrder arg0) {
-		// TODO Auto-generated method stub
+	public void delete(CustomerOrder arg0) 
+	{
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		for(CustomerOrder c : customer)
+		{
+			if(c.equals(arg0))
+			{
+				dummyData.getEntityList(new CustomerOrder()).remove(c);
+			}
+		}
 		
 	}
 
@@ -41,21 +78,31 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	}
 
 	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
+	public void deleteAll() 
+	{
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		for(CustomerOrder c : customer)
+		{
+			dummyData.getEntityList(new CustomerOrder()).remove(c);
+		}
 		
 	}
 
 	@Override
-	public boolean exists(Integer arg0) {
-		// TODO Auto-generated method stub
+	public boolean exists(Integer customerOrderID) 
+	{
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		for(int i = 0; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerID() == customerOrderID)
+			{
+				return true;
+			}
+		}
+		
 		return false;
-	}
-
-	@Override
-	public Iterable<CustomerOrder> findAll() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -83,33 +130,102 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	}
 
 	@Override
-	public CustomerOrder findByCustomerOrderID(Integer customerOrderID) {
-		// TODO Auto-generated method stub
+	public CustomerOrder findByCustomerOrderID(Integer customerOrderID) 
+	{
+		
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		CustomerOrder foundCustomerOrder = new CustomerOrder();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerID() == customerOrderID)
+			{
+				foundCustomerOrder = customer.get(i);
+				
+				return foundCustomerOrder;
+			}
+		}
 		return null;
+
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) 
+	{
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		ArrayList<CustomerOrder> foundCustomerOrder = new ArrayList<CustomerOrder>();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getDeliveryAddress().equalsIgnoreCase(deliveryAddress))
+			{
+				foundCustomerOrder.add(customer.get(i));
+				
+			}
+		}
+		
+		return foundCustomerOrder;
+		
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByDateOfOrder(Date dateOfOrder) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CustomerOrder> findByDateOfOrder(Date dateOfOrder) 
+	{
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		ArrayList<CustomerOrder> foundCustomerOrder = new ArrayList<CustomerOrder>();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getDateOfOrder().equals(dateOfOrder))
+			{
+				foundCustomerOrder.add(customer.get(i));
+				
+			}
+		}
+		
+		return foundCustomerOrder;
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByOrderStatus(String status) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CustomerOrder> findByOrderStatus(String status) 
+	{
+		
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		ArrayList<CustomerOrder> foundCustomerOrder = new ArrayList<CustomerOrder>();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerOrderStatus().equalsIgnoreCase(status))
+			{
+				foundCustomerOrder.add(customer.get(i));
+				
+			}
+		}
+		
+		return foundCustomerOrder;
+		
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByOrderTotal(float orderTotal) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CustomerOrder> findByOrderTotal(float orderTotal) 
+	{	
+		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
+		
+		ArrayList<CustomerOrder> foundCustomer = new ArrayList<CustomerOrder>();
+		
+		for (int i = 0 ; i < customer.size(); i++)
+		{
+			if(customer.get(i).getOrderTotal() == orderTotal);
+			{
+				foundCustomer.add(customer.get(i));
+			}
+		}
+		
+		return foundCustomer;
 	}
 
 }

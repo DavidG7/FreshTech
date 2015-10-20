@@ -2,25 +2,14 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Paint;
-import java.awt.PaintContext;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class CustomImage extends JPanel{
 
-    private BufferedImage image;
+	private static final long serialVersionUID = 1L;
+	private BufferedImage image;
     private ImageLoader loader;
 
     public CustomImage() {
