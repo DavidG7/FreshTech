@@ -28,7 +28,7 @@
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="Landing.html">
+    			<a class="navbar-brand" href="/">
       				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
@@ -57,7 +57,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
+		        		<a href="/" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>
@@ -68,7 +68,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="ProductCatalogue.html" id = "home-button-top">
+		        		<a href="ProductCatalogue" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
@@ -93,10 +93,10 @@
 		          		</a>
 		          
 			          	<ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="OrderCheckout.html">Checkout</a></li>
+				            <li><a href="Basket">View basket</a></li>
+				            <li><a href="OrderCheckout">Checkout</a></li>
 				            <li class="divider"></li>
-				            <li><a href="Landing.html">Cancel Basket</a></li>
+				            <li><a href="Landing">Cancel Basket</a></li>
 			          	</ul>
 		          
 		        	</li>
@@ -288,9 +288,6 @@
 			</p>
 		
 		</div>	
-		</body><body> beep
-		    <div id="map"></div>
-		
 		
 </body>
 </html>
