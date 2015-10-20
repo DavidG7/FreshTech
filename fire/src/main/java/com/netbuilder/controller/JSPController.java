@@ -78,11 +78,7 @@ public class JSPController {
 	 
 	 
 	 
-	 @RequestMapping("Register")
-	 public String   Register(ModelAndView modelAndView) {
-	        return "Register";
-	  }
-	 
+	
 
 	 @RequestMapping("UpdateAccount")
 	 public String UpdateAccount (ModelAndView modelAndView) {

@@ -48,7 +48,7 @@ public class DatabaseController {
 		      }
 		}
 		
-	/*	try{
+		try{
 			stmt = conn.createStatement();
 			String sql;
 			
@@ -77,7 +77,7 @@ public class DatabaseController {
 			         se.printStackTrace();
 			      }
 		      }
-		}*/
+		}
 	}
 	
 	public void close(){

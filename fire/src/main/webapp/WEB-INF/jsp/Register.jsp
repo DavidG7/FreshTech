@@ -23,7 +23,7 @@
 			</div>		
 
 		</div>
-
+<form th:action="@{/postReg}" method="post" >
 		<div class = "panel-body">
 		<div id = "centre">
 		<p> 
@@ -104,7 +104,7 @@
          <select name="year" id="year">
          <option value="na">Year</option>
          </select>
-         <script language="JavaScript" type="text/javascript">
+         <script type="text/javascript">
          function changeDate(i){
          var e = document.getElementById('day');
          while(e.length>0)
@@ -155,15 +155,12 @@
          <option value="female">Female</option>
          </select>
     </p>
-    	<a href = "#"><button type="submit"><strong>Register</strong></button></a>
-	    
-		 
-	   
-
-</div>
+    	<button type="submit"><strong>Register</strong></button>
 </div>
 </div>
 
+</form>
+</div>
 		
 </body>
 </html>
