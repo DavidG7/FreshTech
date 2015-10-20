@@ -23,7 +23,7 @@
 		  
 		<div class="container-fluid">
 		
-			<!-- Brand and toggle get grouped for better mobile display -->
+			
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				
-			</div> <!-- /.navbar-header -->
+			</div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
@@ -136,9 +136,9 @@
 	        
 				</ul>
     
-			</div><!-- /.navbar-collapse -->
+			</div>
     
-		</div><!-- /.container-fluid -->	
+		</div>
 		
 		</nav>
 	
@@ -154,7 +154,7 @@
 
 		</div>
 
-	<!-- Figure out how to change colour of drop down menus -->
+	
 		
 		<div class = "panel-body">
 	    
@@ -176,7 +176,7 @@
       </ul>
   </div>
   
-<!-- Figure out how to change colour of drop down menus -->
+
   
   <br/>
   <p>ITEM 2 - PLACEHOLDER EXAMPLE                 QUANTITY: 5</p> <div class="dropdown">
@@ -196,7 +196,7 @@
   </div>
     <br/>
   
-  <!-- Figure out how to change colour of drop down menus -->
+
   <p>ITEM 3 - PLACEHOLDER EXAMPLE                 QUANTITY: 2</p> <div class="dropdown">
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
     <span class="caret"></span></button>
