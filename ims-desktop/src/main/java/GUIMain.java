@@ -35,9 +35,8 @@ public class GUIMain
 	    
 	    frame.add(new SplashScreen(frame));
 	    
-	    DatabaseController dbc = new DatabaseController();
-	    
-	    
+	    //DatabaseController dbc = new DatabaseController();
+	        
 	    //mongoClient = new MongoClient(mongohost, port);
 		//db = mongoClient.getDatabase("test"); 
 	    
