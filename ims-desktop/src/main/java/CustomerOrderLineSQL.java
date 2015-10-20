@@ -1,4 +1,4 @@
-package SQLConnection;
+
 
 /**
  * 
@@ -10,10 +10,12 @@ package SQLConnection;
  * 
  */
 
-public class PredicatedSalesSQL 
+public class CustomerOrderLineSQL 
 {
-	public PredicatedSalesSQL()
+
+	public CustomerOrderLineSQL()
 	{
 		
 	}
+	
 }
