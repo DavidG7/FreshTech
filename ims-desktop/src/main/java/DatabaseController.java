@@ -9,9 +9,9 @@ import java.sql.*;
 public class DatabaseController {
 	
 	//SQL Variables
-	String sqlhost = "";
-	String username = "";
-	String password = "";
+	String sqlhost = "jdbc://10.50.15.30:3306/mydb";
+	String username = "root";
+	String password = "password";
 	
 	static Connection conn = null;
 	static Statement stmt = null;
