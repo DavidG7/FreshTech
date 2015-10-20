@@ -1,19 +1,20 @@
-<%@ tag language="java" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script src="bootstrap\js\bootstrap.js"></script>
-	<link type="text/css" rel="stylesheet" href="bootstrap\css\bootstrap_cosmo.css" />
-	<link type="text/css" rel="stylesheet" href="Template.css" />
-	<link type="text/css" rel="stylesheet" href="PaymentAgreement.css" />
-	<title>NB Gardens</title>
-</head>
-<body>
-	<!----------------------------------------------------------------------------------->
-	<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-	<!----------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="page">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="bootstrap\js\bootstrap.js"></script>
+		<link type="text/css" rel="stylesheet" href="bootstrap\css\bootstrap_cosmo.css" />
+		<link type="text/css" rel="stylesheet" href="css/Template.css" />
+    </head>
+    
+     <div th:include="this :: header"></div>
+    
+    <body>
+
+
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -22,7 +23,7 @@
 				data-toggle="collapse" data-target="#navbar-collapse"
 				id="collapse-top"> <span class="glyphicon glyphicon-th-list"></span>
 			</a> <a class="navbar-brand" href="#"> <img id="logo"
-				alt="NB Gardens" src="bootstrap\NBGardensLogo.png" />
+				alt="NB Gardens" src="ImageFolder\NBGardensLogo.png" />
 			</a>
 			<div class="row search-row" id="top-search">
 				<div>
@@ -31,15 +32,13 @@
 							type="button" id="search-button"> <span
 								class="glyphicon glyphicon-search"></span>
 						</a>
-						</span> <input class="form-control" type="text" id="search-bar">
+						</span> <input class="form-control" type="text" id="search-bar"/>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- /.navbar-header -->
-		<!------------------------------------------------------------------------------->
-		<!---------- Collect the nav links, forms, and other content for toggling ------->
-		<!------------------------------------------------------------------------------->
+
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="Landing.html" id="home-button-top"> <span
@@ -84,19 +83,14 @@
 					</a>
 				</li>
 			</ul>
+		</div>        
 		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid --> 
-	</nav>
-	<!----------------------------->
-	<!------Content---------------->
-	<!----------------------------->
-	<jsp:body />
-	<!----------------------------->
-	<!------Footer----------------->
-	<!----------------------------->
-	<div id="footer" class="panel-footer">
+		</nav>
+		
+		
+		<div th:include="this :: content"> </div>
+    
+		<div id="footer" class="panel-footer">
 		<p>
 			Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall
 			website design, as well as Glyphicons <i>(http://glyphicons.com)</i>
@@ -107,5 +101,6 @@
 			with our own modifications.
 		</p>
 	</div>
-</body>
+
+    </body>
 </html>

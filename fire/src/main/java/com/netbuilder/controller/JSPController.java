@@ -96,7 +96,12 @@ public class JSPController {
 	 
 	 @RequestMapping("Landing")
 	 public String landing2(ModelAndView modelAndView) {
-	        return "Landing";
+	        return "LandingTest";
+	  }
+	 
+	 @RequestMapping("Temp")
+	 public String temp(ModelAndView modelAndView) {
+	        return "TemplateTest";
 	  }
 	 
 }
