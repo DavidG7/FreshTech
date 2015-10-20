@@ -78,11 +78,7 @@ public class JSPController {
 	 
 	 
 	 
-	 @RequestMapping("Register")
-	 public String   Register(ModelAndView modelAndView) {
-	        return "Register";
-	  }
-	 
+	
 
 	 @RequestMapping("UpdateAccount")
 	 public String UpdateAccount (ModelAndView modelAndView) {
@@ -96,7 +92,12 @@ public class JSPController {
 	 
 	 @RequestMapping("Landing")
 	 public String landing2(ModelAndView modelAndView) {
-	        return "Landing";
+	        return "LandingTest";
+	  }
+	 
+	 @RequestMapping("Temp")
+	 public String temp(ModelAndView modelAndView) {
+	        return "TemplateTest";
 	  }
 	 
 	 @RequestMapping("ChooseAddress")
@@ -107,6 +108,11 @@ public class JSPController {
 	 @RequestMapping("CustomerAccountPage")
 	 public String CustomerAccountPage (ModelAndView modelAndView) {
 	        return "CustomerAccountPage";
+	  }
+	 
+	 @RequestMapping("PaymentConfirmation")
+	 public String PaymentConfirmation(ModelAndView modelAndView) {
+	        return "PaymentConfirmation";
 	  }
 	 
 }
