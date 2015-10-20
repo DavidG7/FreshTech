@@ -22,12 +22,10 @@ import com.netbuilder.entityrepositories.CustomerRepository;
  * This class is to implement the functionality of the Customer repository.
  */
 
-@Alternative
 public class CustomerRepositoryDummy implements CustomerRepository
 {
 	
-	@Autowired
-	private DummyData dummyData = new DummyData();
+	private DummyData dummyData;
 
 	@Override
 	public List<Customer> findAll() 
@@ -35,6 +33,14 @@ public class CustomerRepositoryDummy implements CustomerRepository
 		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
 		
 		return customer;
+	}
+
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
 	}
 
 	@Override
