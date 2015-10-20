@@ -92,25 +92,21 @@ public class PaymentRepositoryDummy implements PaymentRepository {
 	}
 
 	@Override
-	@Deprecated
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long count() 
+	{
+		return dummyData.getEntityList(new Payment()).size();
 	}
 
 	@Override
 	public void delete(Payment arg0) 
 	{
-		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
+		ArrayList<Payment> payment = new ArrayList<Payment>();
 		
-		for(Payment c : payment)
+		if(dummyData.getEntityList(new Product()).contains(arg0))
 		{
-			if(c.equals(arg0))
-			{
-				dummyData.getEntityList(new Payment()).remove(c);
-			}
-		}
-
+			payment.remove(arg0);
+			dummyData.setEntityList(payment);
+		}	
 	}
 
 	@Override
@@ -120,14 +116,17 @@ public class PaymentRepositoryDummy implements PaymentRepository {
 	}
 
 	@Override
-	public void deleteAll() {
-		
+	public void deleteAll() 
+	{	
 		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
 		
 		for(Payment c : payment)
 		{
-			dummyData.getEntityList(new Payment()).remove(c);
+			payment.remove(c);
 		}
+		
+		dummyData.setEntityList(payment);
+		
 	}
 
 	@Override

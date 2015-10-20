@@ -62,8 +62,8 @@ public class ProductRepositoryDummy implements ProductRepository{
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return dummyData.getEntityList(new Product()).size();
 	}
 
 	@Override
@@ -73,9 +73,15 @@ public class ProductRepositoryDummy implements ProductRepository{
 	}
 
 	@Override
-	public void delete(Product arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Product arg0) 
+	{	
+		ArrayList<Product> product = new ArrayList<Product>();
 		
+		if(dummyData.getEntityList(new Product()).contains(arg0))
+		{
+			product.remove(arg0);
+			dummyData.setEntityList(product);
+		}
 	}
 
 	@Override
@@ -85,15 +91,20 @@ public class ProductRepositoryDummy implements ProductRepository{
 	}
 
 	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
+	public void deleteAll() 
+	{
+		dummyData.getEntityList(new Product()).clear();		
 	}
 
 	@Override
-	public boolean exists(Integer arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean exists(Integer arg0) 
+	{
+		if(dummyData.getEntityList(new Product()).contains(arg0))
+		{
+			return true;
+		}
+		else
+			return false;
 	}
 
 	@Override

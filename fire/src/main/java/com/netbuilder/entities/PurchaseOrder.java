@@ -18,6 +18,11 @@ public class PurchaseOrder {
 		private int purchaseOrderID;
 		private String purchaseOrderStatus;
 		
+		public PurchaseOrder()
+		{
+			
+		}
+		
 		/**
 		 * 
 		 * @param purchaseOrderID
