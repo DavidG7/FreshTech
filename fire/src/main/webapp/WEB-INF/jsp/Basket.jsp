@@ -86,21 +86,11 @@
 <br/>
 <br/>	    
 <a href="OrderConfirmation.jsp"><button type="submit" value="Checkout">Checkout</button></a>
-	
+	<div class = "push"></div>	
 			</div>
 
-<div id = "space"></div>
-		
-		<div id = "footer" class = "panel-footer">
-	
-			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 
-				as well as Glyphicons <i>(http://glyphicons.com)</i> for the Halfling icon set.
-			</p>
-			<p>
-				Using the Readable theme <i>(https://bootswatch.com/readable)</i> with our own modifications.
-			</p>
-		
-		</div>	
-		</div>
+
+</div>
+
 </body>
 </html>
