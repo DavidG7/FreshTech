@@ -191,17 +191,17 @@ public class AddressRepositoryDummy implements AddressRepository {
 	
 
 	@Override
-	public List<Address> findByCustomerID(int customerID) 
+	public Address findByCustomerID(int customerID) 
 	{
 		ArrayList<Address> address = dummyData.getEntityList(new Address());
 		
-		ArrayList<Address> foundaddress = new ArrayList<Address>();
+		Address foundaddress = new Address();
 		
 		for ( int i = 0 ; i < address.size(); i++)
 		{
 			if(address.get(i).getCustomerid() == customerID)
 			{
-				foundaddress.add(address.get(i));
+				foundaddress = address.get(i);
 			}
 		}
 		return foundaddress;
@@ -209,34 +209,34 @@ public class AddressRepositoryDummy implements AddressRepository {
 
 	
 	@Override
-	public List<Address> findByAddress(String address) 
+	public Address findByAddress(String address) 
 	{
 		ArrayList<Address> addressArray = dummyData.getEntityList(new Address());
 		
-		ArrayList<Address> foundAddress = new ArrayList<Address>();
+		Address foundAddress = new Address();
 		
 		for ( int i = 0 ; i < addressArray.size(); i++)
 		{
 			if(addressArray.get(i).getAddress() == address)
 			{
-				foundAddress.add(addressArray.get(i));
+				foundAddress = addressArray.get(i);
 			}
 		}
 		return foundAddress;
 	}
 
 	@Override
-	public List<Address> findByPostcode(String postcode) 
+	public Address findByPostcode(String postcode) 
 	{
 		ArrayList<Address> addressArray = dummyData.getEntityList(new Address());
 		
-		ArrayList<Address> foundAddress = new ArrayList<Address>();
+		Address foundAddress = new Address();
 		
 		for ( int i = 0 ; i < addressArray.size(); i++)
 		{
 			if(addressArray.get(i).getPostcode() == postcode)
 			{
-				foundAddress.add(addressArray.get(i));
+				foundAddress = addressArray.get(i);
 			}
 		}
 		return foundAddress;

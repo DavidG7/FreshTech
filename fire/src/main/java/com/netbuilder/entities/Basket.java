@@ -14,10 +14,17 @@ package com.netbuilder.entities;
 public class Basket {
 	private Product product;
 	private int quantity;
+	private int customerID;
 	
-	public Basket(Product prod, int quant) {
+	public Basket()
+	{
+		
+	}
+	
+	public Basket(Product prod, int quant, int custID) {
 		this.product = prod;
 		this.quantity = quant;
+		this.customerID = custID;
 	}
 	
 	public void setProduct(Product product) {
@@ -34,5 +41,15 @@ public class Basket {
 	
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	public int getCustomerID()
+	{
+		return customerID;
+	}
+	
+	public void setCustomerID(int custID)
+	{
+		this.customerID = custID;
 	}
 }
