@@ -117,11 +117,11 @@
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
 						  <li><a href="OrderHistory">Order History</a></li>
-						  <li><a href="OrderTrackingl">Track an Order</a></li>
+						  <li><a href="OrderTracking">Track an Order</a></li>
 						  <li><a href="UpdateAccount">Update your Account</a></li>
 						  <li><a href="ViewCreditDetails">View Credit</a></li>
 						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
+						  <li><a href="Landing.jsp">Logout</a></li>
 						</ul>
 		        	
 		        	</li>
@@ -215,7 +215,7 @@
 
 <br/>
 <br/>	    
-<a href="OrderConfirmation.html"><button type="submit" value="Checkout">Checkout</button></a>
+<a href="OrderConfirmation.jsp"><button type="submit" value="Checkout">Checkout</button></a>
 	
 			</div>
 

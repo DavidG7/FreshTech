@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1"/>
@@ -7,35 +7,33 @@
 		
 		<script src = "bootstrap\js\bootstrap.js"></script>		
 		
-		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "bootstrap/css/bootstrap_cosmo.css"/>
 		
 		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
 		<link type = "text/css" rel = "stylesheet" href = "css/ChooseAddress.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "css/Register.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "css/CustomerAccountPage.css"/>
 
-		<title>NB Gardens Order Confirmation</title>
+		<title>NB Gardens Edit Address</title>
 		
 	</head>
 	
 	<body>
+	
+		<div class="wrapper">
 
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
 		
-			
+		
     		<div class="navbar-header" id="navbar-header">
     		
    				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="Landing">
-      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder/NBGardensLogo.png"/>
+    			<a class="navbar-brand" href="Landing.jsp">
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -48,20 +46,20 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar"/>
+	     					<input class="form-control" type="text" id="search-bar">
 	     					
 	    				</div>
 					</div>
 				</div>
 				
 			</div>
-
+			
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 		      
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing" id = "home-button-top">
+		        		<a href="ProductCatalogue.jsp" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-home"></span>
 		        		Home
 		        		</a>
@@ -72,7 +70,7 @@
 		      	<ul class = "nav navbar-nav">
 		      	
 		      		<li>
-		        		<a href="Landing" id = "home-button-top">
+		        		<a href="Landing.jsp" id = "home-button-top">
 		        		<span class= "glyphicon glyphicon-gift"></span>
 		        		Products
 		        		</a>
@@ -97,10 +95,10 @@
 		          		</a>
 		          
 			         <ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket">View basket</a></li>
-				            <li><a href="PaymentAgreement">Checkout</a></li>
+				            <li><a href="Basket.jsp">View basket</a></li>
+				            <li><a href="OrderCheckout.jsp">Checkout</a></li>
 				            <li class="divider"></li>
-				            <li><a href="Landing">Cancel Basket</a></li>
+				            <li><a href="Landing.jsp">Cancel Basket</a></li>
 			          	</ul>
 		          
 		        	</li>
@@ -120,10 +118,11 @@
 		          
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
-						 <li><a href="OrderHistory">Order History</a></li>
-						  <li><a href="OrderTracking">Track an Order</a></li>
-						  <li><a href="UpdateAccount">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails">View Credit</a></li>
+						  <li><a href="OrderHistory.jsp">Order History</a></li>
+						  <li><a href="OrderTracking.jsp">Track an Order</a></li>
+						  <li><a href="OutstandingOrders.jsp">Outstanding Orders</a></li>
+						  <li><a href="UpdateAccount.jsp">Update your Account</a></li>
+						  <li><a href="ViewCreditDetails.jsp">View Credit</a></li>
 						  <li class="divider"></li>
 						  <li><a href="Landing.jsp">Logout</a></li>
 						</ul>
@@ -132,7 +131,7 @@
 		        
 		        
 		        	<li>
-		        		<a href="About" id = "about-button-top">
+		        		<a href="About.jsp" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>
@@ -145,30 +144,93 @@
 		</div>
 		
 		</nav>
-	
+
+
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
 			
-				<h2> <b> Thank you for your order!</b> </h2>
+				<h2> <b> Edit Address </b> </h2>
 				
-			</div>		
+				<h4> Please follow the instructions to edit your addresses </h4>
+			
+			</div>
 
 		</div>
 		
-			<h3>You will recieve an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3>
+
 		
-<div id = "space"></div>
-		
-		<div id = "footer" class = "panel-footer">
-	
-			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 
-				as well as Glyphicons <i>(http://glyphicons.com)</i> for the Halfling icon set.
+		<div class = "panel-body">
+	    
+		 
+	   <div class="dropdown">
+   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Choose Address to Edit
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">This</a></li>
+      <li><a href="#">is</a></li>
+      <li><a href="#">where</a></li>
+      <li><a href="#">addresses</a></li>
+      <li><a href="#">will</a></li>
+      <li><a href="#">go</a></li>
+      </ul>
+  </div>
+  
+  <h4> Please edit the address as appropraite. </h4>
+  
+        First Name :<br>
+		<input type = "text" name = "firstname">
+		<br>
+		<br>
+		Last Name :<br>
+		<input type = "text" name = "lastname">
+		<br>
+		<br>
+		Address Line 1 :<br>
+		<input type = "text" name = "addressline1">
+		<br>
+		<br>
+		Address Line 2 :<br>
+		<input type = "text" name = "addressline2">
+		<br>
+		<br>
+		Address Line 3 :<br>
+		<input type = "text" name = "addressline3">
+		<br>
+		<br>
+		City :<br>
+		<input type = "text" name = "city">
+		<br>
+		<br>
+		County :<br>
+		<input type = "text" name = "county">
+		<br>
+		<br>
+		Postcode :<br>
+		<input type = "text" name = "postcode">
+		<br>
+		<br>
+        <a href = "Landing.jsp"><button type="submit"><strong>Submit</strong></button></a>
+        <button type="submit"><strong>Delete</strong></button>
+  
+  <div class="push"></div>
+		</div>
+</div>
+
+		<div class = "panel-footer">
+		<div class = "footer">
+			
+			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR  Email: service@nbgardens.com
 			</p>
+			
 			<p>
-				Using the Readable theme <i>(https://bootswatch.com/readable)</i> with our own modifications.
+				Terms of service:
 			</p>
-		
+			
+			<p>
+				Privacy policy:
+			</p>
+		</div>
 		</div>	
 		
 </body>
