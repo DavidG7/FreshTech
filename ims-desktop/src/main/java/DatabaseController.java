@@ -48,36 +48,6 @@ public class DatabaseController {
 		      }
 		}
 		
-		try{
-			stmt = conn.createStatement();
-			String sql;
-			
-			sql = "SELECT * FROM employee";
-			
-			ResultSet rs = stmt.executeQuery(sql);
-			
-			while(rs.next()){
-		        System.out.println( rs.getInt("employeeid"));
-			}
-			rs.close();
-		}catch(SQLException se){
-			  System.out.println("SQL Exception");
-		      se.printStackTrace();
-	    }catch(Exception e){
-		      e.printStackTrace();
-		}finally{
-		      try{
-		         if(stmt!=null)
-		            stmt.close();
-		      }catch(SQLException se2){
-			      try{
-			         if(conn!=null)
-			            conn.close();
-			      }catch(SQLException se){
-			         se.printStackTrace();
-			      }
-		      }
-		}
 	}
 	
 	public void close(){
