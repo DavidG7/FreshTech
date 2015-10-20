@@ -46,9 +46,11 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 		{
 			if(es.get(i).getEmployeeID() == arg0)
 			{
-				initialData.getEntityList(new Employee()).remove(i);
+				es.remove(es.get(i));
 			}
 		}
+		
+		initialData.setEntityList(es);
 		
 	}
 
@@ -56,10 +58,15 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 	public void delete(Employee arg0) {
 		// TODO Auto-generated method stub
 		ArrayList<Employee> es = initialData.getEntityList(new Employee());
-		for(Employee e : es) {
+		for(Employee e : es) 
+		{
 			if(e.equals(arg0))
-				initialData.getEntityList(new Employee()).remove(e);
+			{
+				es.remove(arg0);
+			}	
 		}
+		
+		initialData.setEntityList(es);
 	}
 
 	@Override

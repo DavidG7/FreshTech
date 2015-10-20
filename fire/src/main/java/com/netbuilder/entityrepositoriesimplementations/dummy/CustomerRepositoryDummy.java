@@ -72,9 +72,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 	@Override
 	public long count() 
 	{
-		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
-		
-		return customer.size();
+		return dummyData.getEntityList(new Customer()).size();
 	}
 
 	@Override
@@ -102,9 +100,11 @@ public class CustomerRepositoryDummy implements CustomerRepository
 		{
 			if(c.equals(arg0))
 			{
-				dummyData.getEntityList(new Customer()).remove(c);
+				customer.remove(arg0);
 			}
 		}		
+		
+		dummyData.setEntityList(customer);
 	}
 
 	@Override
@@ -119,8 +119,10 @@ public class CustomerRepositoryDummy implements CustomerRepository
 		
 		for(Customer c : customer)
 		{
-			dummyData.getEntityList(new Customer()).remove(c);
+			customer.remove(c);
 		}
+		
+		dummyData.setEntityList(customer);
 	}
 
 	@Override
