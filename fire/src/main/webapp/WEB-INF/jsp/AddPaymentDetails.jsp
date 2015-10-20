@@ -52,7 +52,7 @@
 		<input type = "text" name = "securitynumber"/>
 		<br/>
 		<br/>		
-		<a href = "Landing.jsp"><button type="submit"><strong>Submit</strong></button></a>
+		<a href = "Landing"><button type="submit"><strong>Submit</strong></button></a>
 
 </div>
 </div>
