@@ -93,7 +93,14 @@ public class ProductRepositoryDummy implements ProductRepository{
 	@Override
 	public void deleteAll() 
 	{
-		dummyData.getEntityList(new Product()).clear();		
+		 ArrayList<Product> product = new ArrayList<Product>();
+		 
+		 for(Product c : product)
+		 {
+			 product.remove(c);
+		 }
+		 
+		 dummyData.setEntityList(product);
 	}
 
 	@Override
@@ -171,15 +178,20 @@ public class ProductRepositoryDummy implements ProductRepository{
 	}
 
 	@Override
-	public List<Product> findByRating(int rating) {
+	public List<Product> findByRating(int rating) 
+	{
 		ArrayList<Product> ps = dummyData.getEntityList(new Product());
-		for(int i = 0; i < ps.size(); i--) {
-			if(ps.get(i).getRating()!=rating) {
-				ps.remove(i);
-				i--;
+		ArrayList<Product> product = new ArrayList<Product>();
+		
+		for(int i = 0; i < ps.size(); i++) 
+		{
+			if(ps.get(i).getRating() == rating) 
+			{
+				product.add(ps.get(i));
 			}
 		}
-		return ps;
+		
+		return product;
 	}
 
 	/**

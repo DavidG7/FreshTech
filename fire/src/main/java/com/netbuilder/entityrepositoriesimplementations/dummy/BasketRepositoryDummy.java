@@ -20,9 +20,7 @@ public class BasketRepositoryDummy implements BasketRepository
 	@Override
 	public long count() 
 	{
-		ArrayList<Basket> basket = dummyData.getEntityList(new Basket());
-		
-		return basket.size();
+		return dummyData.getEntityList(new Basket()).size();
 	}
 
 	@Override
@@ -35,10 +33,9 @@ public class BasketRepositoryDummy implements BasketRepository
 			if(basket.get(i).getCustomerID() == arg0)
 			{
 				basket.remove(i);
+				dummyData.setEntityList(basket);
 			}
 		}
-		
-		dummyData.setEntityList(basket);
 	}
 
 	
@@ -49,8 +46,10 @@ public class BasketRepositoryDummy implements BasketRepository
 		
 		for(Basket b : basket)
 		{
-			dummyData.getEntityList(new Basket()).remove(b);
+			basket.remove(b);
 		}
+		
+		dummyData.setEntityList(basket);
 		
 	}
 
@@ -68,6 +67,7 @@ public class BasketRepositoryDummy implements BasketRepository
 		}
 		
 		return false;
+		
 	}
 
 	@Override
@@ -92,10 +92,7 @@ public class BasketRepositoryDummy implements BasketRepository
 	@Override
 	public List<Basket> findAll() 
 	{
-	
-		ArrayList<Basket> basket = dummyData.getEntityList(new Basket());
-		
-		return basket;
+		return dummyData.getEntityList(new Basket());
 	}
 
 	@Override
@@ -137,9 +134,11 @@ public class BasketRepositoryDummy implements BasketRepository
 		{
 			if(b.equals(arg0))
 			{
-				dummyData.getEntityList(new Basket()).remove(b);
+				basket.remove(b);
 			}
 		}
+		
+		dummyData.setEntityList(basket);
 	}
 
 	@Override
