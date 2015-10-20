@@ -46,7 +46,7 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
@@ -178,38 +178,38 @@
   
   <h4> Please edit the address as appropraite. </h4>
   
-        First Name :<br>
-		<input type = "text" name = "firstname">
-		<br>
-		<br>
-		Last Name :<br>
-		<input type = "text" name = "lastname">
-		<br>
-		<br>
-		Address Line 1 :<br>
-		<input type = "text" name = "addressline1">
-		<br>
-		<br>
-		Address Line 2 :<br>
-		<input type = "text" name = "addressline2">
-		<br>
-		<br>
-		Address Line 3 :<br>
-		<input type = "text" name = "addressline3">
-		<br>
-		<br>
-		City :<br>
-		<input type = "text" name = "city">
-		<br>
-		<br>
-		County :<br>
-		<input type = "text" name = "county">
-		<br>
-		<br>
-		Postcode :<br>
-		<input type = "text" name = "postcode">
-		<br>
-		<br>
+        First Name :<br/>
+		<input type = "text" name = "firstname"/>
+		<br/>
+		<br/>
+		Last Name :<br/>
+		<input type = "text" name = "lastname"/>
+		<br/>
+		<br/>
+		Address Line 1 :<br/>
+		<input type = "text" name = "addressline1"/>
+		<br/>
+		<br/>
+		Address Line 2 :<br/>
+		<input type = "text" name = "addressline2"/>
+		<br/>
+		<br/>
+		Address Line 3 :<br/>
+		<input type = "text" name = "addressline3"/>
+		<br/>
+		<br/>
+		City :<br/>
+		<input type = "text" name = "city"/>
+		<br/>
+		<br/>
+		County :<br/>
+		<input type = "text" name = "county"/>
+		<br/>
+		<br/>
+		Postcode :<br/>
+		<input type = "text" name = "postcode"/>
+		<br/>
+		<br/>
         <a href = "Landing.jsp"><button type="submit"><strong>Submit</strong></button></a>
         <button type="submit"><strong>Delete</strong></button>
   

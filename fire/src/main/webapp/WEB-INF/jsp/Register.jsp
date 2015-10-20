@@ -1,5 +1,5 @@
 	<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="ISO-8859-1"/>
 	
@@ -157,7 +157,7 @@
 			</div>		
 
 		</div>
-
+<form th:action="@{/postReg}" method="post" >
 		<div class = "panel-body">
 		<div id = "centre">
 		<p> 
@@ -289,13 +289,10 @@
          <option value="female">Female</option>
          </select>
     </p>
-    	<a href = "#"><button type="submit"><strong>Register</strong></button></a>
-	    
-		 
-	   
-
+    	<button type="submit"><strong>Register</strong></button>
 </div>
 </div>
+</form>
 
 <div id = "space"></div>
 
