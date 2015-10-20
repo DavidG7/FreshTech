@@ -10,6 +10,7 @@ package com.netbuilder.entities;
  * Moved into separate class
  *
  */
+
 public class Basket {
 	private Product product;
 	private int quantity;

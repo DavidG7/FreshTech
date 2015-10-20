@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
+		<meta charset="ISO-8859-1"/>
 	
 		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		
@@ -9,9 +9,9 @@
 		
 		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "ProductCatalogue.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "css/ProductCatalogue.css"/>
 
 		<title>NB Gardens Template</title>
 		
@@ -30,7 +30,7 @@
 	      		</a>
    		
     			<a class="navbar-brand" href="/">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
+      				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
 	    		<div class="row search-row" id = "top-search">
@@ -43,7 +43,7 @@
 	      					</span>
 	     					
 
-	     					<input class="form-control" type="text" id="search-bar">
+	     					<input class="form-control" type="text" id="search-bar"/>
 	     					
 	    				</div>
 					</div>
@@ -146,7 +146,7 @@
 			
 				<h2> Products</h2>
 				
-				<h4>NBGardens is offers the best Gnomes in the world.<br></h4>
+				<h4>NBGardens is offers the best Gnomes in the world.<br/></h4>
 			
 			</div>		
 
@@ -157,7 +157,7 @@
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
@@ -165,7 +165,7 @@
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
@@ -173,7 +173,7 @@
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
@@ -181,7 +181,7 @@
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
@@ -189,7 +189,7 @@
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
@@ -197,7 +197,7 @@
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
-		<p><strong>RATING: </strong><span> &#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734 </span><span>&#9734
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>

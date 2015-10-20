@@ -2,7 +2,10 @@ package com.netbuilder.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.netbuilder.util.ContactMethod;
 
 /**
@@ -15,6 +18,7 @@ import com.netbuilder.util.ContactMethod;
  * and update/view their orders, addresses and payment methods. 
  *
  */
+@Document (collection="Customer")
 public class Customer implements Serializable {
 	private static final long serialVersionUID = -469127124351435736L;
 	
