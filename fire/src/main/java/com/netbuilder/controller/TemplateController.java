@@ -2,20 +2,15 @@ package com.netbuilder.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 
-@Controller
-public class LandingController {
-
+public class TemplateController {
 	
 	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
@@ -23,8 +18,7 @@ public class LandingController {
 	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
 	 
 	 @RequestMapping("/")
-	 String index(Model model, HttpSession session) {
-		    session.setAttribute("mySessionAttribute", "someValue");
+	    public String landing(Model model) {
 		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
 	        return "Landing";
 	  }
