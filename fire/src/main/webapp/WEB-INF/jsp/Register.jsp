@@ -32,7 +32,7 @@
 			        <span class="glyphicon glyphicon-th-list"></span>
 	      		</a>
    		
-    			<a class="navbar-brand" href="Landing.html">
+    			<a class="navbar-brand" href="Landing.jsp">
       				<img id = "logo" alt = "NB Gardens" src = "ImageFolder\NBGardensLogo.png"/>
       			</a>
 
@@ -131,7 +131,7 @@
 		        
 		        
 		        	<li>
-		        		<a href="About.html" id = "about-button-top">
+		        		<a href="About.jsp" id = "about-button-top">
 		        		<span class="glyphicon glyphicon-question-sign"></span>
 		        		About NB Gardens
 		        		</a>

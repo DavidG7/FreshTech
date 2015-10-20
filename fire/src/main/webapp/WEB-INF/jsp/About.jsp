@@ -105,7 +105,7 @@
 		          		</a>
 		          
 			          	<ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket.html">View basket</a></li>
+				            <li><a href="Basket.jsp">View basket</a></li>
 				            <li><a href="PaymentAgreement">Checkout</a></li>
 				            <li class="divider"></li>
 				            <li><a href="/">Cancel Basket</a></li>
@@ -129,7 +129,7 @@
 						<ul class="dropdown-menu" id="account-dropdown">
 						  <li><a>Logged in as: ... </a></li>
 						  <li><a href="OrderHistory">Order History</a></li>
-						  <li><a href="OrderTrackingl">Track an Order</a></li>
+						  <li><a href="OrderTracking">Track an Order</a></li>
 						  <li><a href="UpdateAccount">Update your Account</a></li>
 						  <li><a href="ViewCreditDetails">View Credit</a></li>
 						  <li class="divider"></li>

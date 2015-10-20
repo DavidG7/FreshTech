@@ -7,11 +7,11 @@
 		
 		<script src = "bootstrap\js\bootstrap.js"></script>		
 		
-		<link type = "text/css" rel = "stylesheet" href = "../bootstrap/css/bootstrap_cosmo.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/bootstrap/css/bootstrap_cosmo.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../css/Template.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/Template.css"/>
 		
-		<link type = "text/css" rel = "stylesheet" href = "../css/About.css"/>
+		<link type = "text/css" rel = "stylesheet" href = "../../../resources/static/css/ChooseAddress.css"/>
 
 		<title>NB Gardens Template</title>
 		
@@ -22,7 +22,7 @@
 <!----------------------------------------------------------------------------------->
 <!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
 <!----------------------------------------------------------------------------------->		
-				
+		<div class="wrapper">
 		<nav class="navbar navbar-default">
 		  
 		<div class="container-fluid">
@@ -161,33 +161,38 @@
 			<div class = "jumbotron">
 			
 
-				
+				<h1>Order Tracking</h1>
 			
 			</div>		
 
 		</div>
 			
 		<div class = "panel-body">
-		 <h1>Order Tracking</h1>
-	<p><br>
+		 
+	<p id="centre"><br>
 	Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span>  --- 
 	Processing  <span class="glyphicon glyphicon-hourglass"></span>  ---
 	Dispatched  <span class="glyphicon glyphicon-plane"></span> ---
 	Delivered  <span class="glyphicon glyphicon-home"></span>
    </p>
-  
-<p> Order ID: </p>
-<p> Order Date: </p>
-<p> Order Total: </p>
-<p> Expected Delivery: </p>
-<p> Delivery Address: </p>
+<div id="centre">
+<p> Order ID:<br>
+Order Date:<br>
+Order Total:<br>
+Expected Delivery:<br>
+Delivery Address: </p>
+</div>
+<div class="push"></div>
+</div>
+</div>
 <!----------------------------->
 <!------Footer----------------->		
 <!----------------------------->
 		
-		<div id = "footer" class = "panel-footer">
+		<div class = "panel-footer">
+		<div class = "footer">
 			
-			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR Email: service@nbgardens.com
+			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR  Email: service@nbgardens.com
 			</p>
 			
 			<p>
@@ -197,8 +202,7 @@
 			<p>
 				Privacy policy:
 			</p>
-		
-		</div>	
 		</div>
+		</div>	
 </body>
 </html>

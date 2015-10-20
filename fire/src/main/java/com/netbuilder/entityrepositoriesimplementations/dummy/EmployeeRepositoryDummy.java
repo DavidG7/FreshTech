@@ -12,7 +12,7 @@ import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 /**
  * 
- * @author dgordon
+ * @author dgordon, Thomas Dudley
  *
  */
 
@@ -34,9 +34,21 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 		return 0;
 	}
 
+	/**
+	 * Delete by Employee ID
+	 */
 	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Integer arg0) 
+	{
+		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+				
+		for(int i = 0; i < es.size(); i++)
+		{
+			if(es.get(i).getEmployeeID() == arg0)
+			{
+				initialData.getEntityList(new Employee()).remove(i);
+			}
+		}
 		
 	}
 
