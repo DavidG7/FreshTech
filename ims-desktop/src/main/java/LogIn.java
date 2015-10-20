@@ -80,25 +80,29 @@ public class LogIn extends JPanel implements ActionListener {
     }
  
 
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) 
+    {
     	
-    	topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-    	  
-    	  JTabbedPane pane = new JTabbedPane();
-  	   
-	      pane.setForeground(new Color(0,122,0));
-	      pane.setBackground(Color.WHITE);
-	      
-	      pane.addTab("Daily Stock Report", new DailyStockReport());
-	      pane.addTab("Purchase Order", new PurchaseOrder());
-	      pane.addTab("Predicted Sales", new PredicatedSales());
-	      pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
-	         
-	      topFrame.remove(this);
-    	  topFrame.add(pane);
-    	  topFrame.revalidate();
-    	  topFrame.repaint();
-	       
+    	if(userField.getText() != null && passField.getPassword().length != 0)
+    	{	
+    		topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+      	  
+    		JTabbedPane pane = new JTabbedPane();
+    	   
+  	      	pane.setForeground(new Color(0,122,0));
+  	      	pane.setBackground(Color.WHITE);
+  	      
+  	      	pane.addTab("Daily Stock Report", new DailyStockReport());
+  	      	pane.addTab("Purchase Order", new PurchaseOrder());
+  	      	pane.addTab("Predicted Sales", new PredicatedSales());
+  	      	pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
+  	         
+  	      	topFrame.remove(this);
+  	      	topFrame.add(pane);
+  	      	topFrame.revalidate();
+      	  	topFrame.repaint();
+    	}
+    
     }
  
  
