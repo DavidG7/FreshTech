@@ -110,4 +110,9 @@ public class JSPController {
 	        return "CustomerAccountPage";
 	  }
 	 
+	 @RequestMapping("PaymentConfirmation")
+	 public String PaymentConfirmation (ModelAndView modelAndView) {
+	        return "PaymentConfirmation";
+	  }
+	 
 }
