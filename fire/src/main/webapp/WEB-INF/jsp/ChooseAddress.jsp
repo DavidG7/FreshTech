@@ -76,7 +76,7 @@
 		<input type = "text" name = "postcode"/>
 		<br/>
 		<br/>
-        <a href = "Landing.jsp"><button type="submit"><strong>Submit</strong></button></a>
+        <a href = "/"><button type="submit"><strong>Submit</strong></button></a>
         <button type="submit"><strong>Delete</strong></button>
   
   <div class="push"></div>

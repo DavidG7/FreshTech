@@ -34,19 +34,19 @@
        
        <div id="centre1">
 		
-		<a href = "OutstandingOrders.html"><button type="submit"><strong>Your Orders</strong></button></a>
+		<a href = "OutstandingOrders"><button type="submit"><strong>Your Orders</strong></button></a>
         </div>
         <br/>
         <div id="centre3">
-        <a href = "OrderHistory.html"><button type="submit"><strong>Order History</strong></button></a>
+        <a href = "OrderHistory"><button type="submit"><strong>Order History</strong></button></a>
         </div>
         <br/>
         <div id="centre4">
-        <a href = "OrderTracking.html"><button type="submit"><strong>Order Tracking</strong></button></a>
+        <a href = "OrderTracking"><button type="submit"><strong>Order Tracking</strong></button></a>
         </div>
         <br/>
         <div id="centre5">
-        <a href = "PaymentAgreement.html"><button type="submit"><strong>Payment Agreement</strong></button></a>
+        <a href = "PaymentAgreement"><button type="submit"><strong>Payment Agreement</strong></button></a>
 	    </div>
         <div class="push"></div>
     </div>

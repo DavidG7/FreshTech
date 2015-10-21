@@ -73,16 +73,7 @@
 				</p></a>
 	</li>
 </ul>
-			
-
-					
-
-
-		<div id = "footer" class = "footer">
-	
-		
-		
-		</div>	
+		<div class="push"></div>
 		
 		
 		</div>

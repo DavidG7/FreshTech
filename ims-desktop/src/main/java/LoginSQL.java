@@ -91,7 +91,7 @@ public class LoginSQL {
 			for (int i = 0; i < usernameArray.length; i++)
 			{
 				if (username.equalsIgnoreCase(usernameArray[i])){
-					if(password.equalsIgnoreCase(passwordArray[i])){
+					if(password.equals(passwordArray[i])){
 						return true;
 					} 
 				} 
