@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       th:include="Template :: page">
@@ -65,7 +66,7 @@
 						<li><a href="#">here</a></li>
 						</ul><p></p>
 					</div>
-					<div><a href="#"><button type="submit"><strong>Edit Address Details</strong></button></a></div>
+					<div><a href="ChooseAddress"><button type="submit"><strong>Edit Address Details</strong></button></a></div>
 				</div>
 				
 				<div id="dropmenus">
@@ -81,7 +82,7 @@
 						<li><a href="#">here</a></li>
 						</ul><p></p>
 					</div>
-					<div><a href="#"><button type="submit"><strong>Edit Payment Details</strong></button></a></div>
+					<div><a href="AddPaymentDetails"><button type="submit"><strong>Edit Payment Details</strong></button></a></div>
 				</div>
 				
 				

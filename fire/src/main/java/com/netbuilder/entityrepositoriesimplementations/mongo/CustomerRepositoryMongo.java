@@ -26,7 +26,7 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 	public long count() {
 	List<Customer> list = mongoOperation.findAll(Customer.class);
 	for(int i=0; i<list.size(); i++){
-		System.out.println(list.get(i));
+		System.out.println(list.size());
 	}
 		return 0;
 	}
@@ -45,7 +45,7 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 
 	@Override
 	public <S extends Customer> S insert(S arg0) {
-		// TODO Auto-generated method stub
+		mongoOperation.insert(arg0);
 		return null;
 	}
 
@@ -117,7 +117,6 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 
 	@Override
 	public Customer findByCustomerID(int customerID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

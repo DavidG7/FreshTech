@@ -37,7 +37,7 @@
 			<input type = "text" name = "password"/>
 			</p>
 			
-				<a href = "#"><button type="submit"><strong>Log In</strong></button></a>
+				<a href = "/"><button type="submit"><strong>Log In</strong></button></a>
 		</div>
 	   
 	<div class="push"></div>

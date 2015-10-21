@@ -26,8 +26,8 @@ public class ProductRepositoryDummy implements ProductRepository{
 
 	@Override
 	public List<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null; 
+
+		return dummyData.getEntityList(new Product());
 	}
 
 	@Override

@@ -23,6 +23,7 @@
 
 		</div>
 		
+<<<<<<< HEAD
 		<ul class="rig columns-3">
 <li><a href="Product"><h3>Samuel L Gnome</h3>
 <p class ="price">£20 </p> 
@@ -33,6 +34,23 @@
 				</p></a>
 	</li>
 <li><a href="Product"><h3>Dino Gnome</h3>
+=======
+		<ul class="rig columns-3" >
+			<li th:each="product : ${products}"><a href="Product">
+				<h3>Gnome</h3>
+				<p class ="price">£20 </p> 
+				<img th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}"/>
+				<p>
+				<strong>RATING: </strong>
+				<span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
+				</span>
+				</p>
+				</a>
+			</li>
+	
+	<!-- 
+	<li><a href="Product"><h3>Gnome</h3>
+>>>>>>> ae8e06a1d5d42416d23f21976cf248e9540db346
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/DinoGnome.png"/>
 		
@@ -71,18 +89,9 @@
 		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
-	</li>
+	</li>-->
 </ul>
-			
-
-					
-
-
-		<div id = "footer" class = "footer">
-	
-		
-		
-		</div>	
+		<div class="push"></div>
 		
 		
 		</div>

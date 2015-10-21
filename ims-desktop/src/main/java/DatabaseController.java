@@ -15,9 +15,9 @@ public class DatabaseController {
 	
 	String ipaddress = "10.50.15.40";
 	
-	static MysqlDataSource ds = new MysqlDataSource();
-	static Connection conn = null;
-	static Statement stmt = null;
+	MysqlDataSource ds = new MysqlDataSource();
+	Connection conn = null;
+	Statement stmt = null;
 
 
 	public DatabaseController(){	

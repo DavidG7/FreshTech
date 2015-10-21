@@ -60,7 +60,11 @@
 						<li><a href="PaymentAgreement">Checkout</a></li>
 						<li><a href="AddPaymentDetails">Review Payment Methods</a></li>
 						<li class="divider"></li>
+<<<<<<< HEAD
 						<li><a href="Landing">Cancel Basket</a></li>
+=======
+						<li><a href="/">Cancel Basket</a></li>
+>>>>>>> ae8e06a1d5d42416d23f21976cf248e9540db346
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -68,13 +72,21 @@
 						<span class="glyphicon glyphicon-user"></span> My Account <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" id="account-dropdown">
+<<<<<<< HEAD
 						<li><a>Logged in as: ... </a></li>
+=======
+						<li><a href="Register">Log in/Register </a></li>
+>>>>>>> ae8e06a1d5d42416d23f21976cf248e9540db346
 						<li><a href="ChooseAddress">View Addresses</a></li>
 						<li><a href="OrderTracking">Track an Order</a></li>
 						<li><a href="UpdateAccount">Update your Account</a></li>
 						<li><a href="ViewCreditDetails">View Credit</a></li>
 						<li class="divider"></li>
+<<<<<<< HEAD
 						<li><a href="Landing">Logout</a></li>
+=======
+						<li><a href="/">Logout</a></li>
+>>>>>>> ae8e06a1d5d42416d23f21976cf248e9540db346
 					</ul>
 				</li>
 				<li>
