@@ -20,12 +20,17 @@ public class LandingController {
 	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
+	
 	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
+	List<Product> offerProducts = productRepository.findByOnOffer(true);
 	 
 	 @RequestMapping("/")
 	 String index(Model model, HttpSession session) {
-		    session.setAttribute("mySessionAttribute", "someValue");
+		    //session.setAttribute("mySessionAttribute", "someValue");
+		    
 		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
+		 	model.addAttribute("offerProducts", offerProducts);
+		 	
 	        return "Landing";
 	  }
 }

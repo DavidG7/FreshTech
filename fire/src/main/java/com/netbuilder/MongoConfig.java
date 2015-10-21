@@ -19,7 +19,11 @@ public class MongoConfig {
 	
 	@Bean
 	public MongoDbFactory mongoDbFactory() throws Exception {
+<<<<<<< HEAD
 		return new SimpleMongoDbFactory(new MongoClient("localhost"), "test");
+=======
+		return new SimpleMongoDbFactory(new MongoClient(), "FreshTech");
+>>>>>>> 68cc7509d0b6ea2159701946d80662490fe874aa
 	}
 
 	 @Bean

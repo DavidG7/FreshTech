@@ -24,7 +24,27 @@ public class Product implements Serializable  {
 	private String category = null;
 	private String productDescription = null;
 	private String image = null;
+	
 	private String productName = null;
+	private boolean onOffer = false;
+	private float offerPrice = price;
+	
+	public boolean isOnOffer() {
+		return onOffer;
+	}
+
+	public void setOnOffer(boolean onOffer) {
+		this.onOffer = onOffer;
+	}
+
+	public float getOfferPrice() {
+		return offerPrice;
+	}
+
+	public void setOfferPrice(float offerPrice) {
+		this.offerPrice = offerPrice;
+	}
+
 	
 	/**
 	 * The Product class contains 2 constructors.
@@ -56,6 +76,21 @@ public class Product implements Serializable  {
 		this.productDescription = product_description;
 		this.image = picture;
 		this.productName = product_name;
+	}
+	
+	public Product(int productID, int stock_level, float the_price, String product_category, String product_name, boolean discontinue, boolean porousware, int product_rating, String product_description, String picture, boolean onOffer, float offerPrice){
+		this.discontinued = discontinue;
+		this.porusware = porousware;
+		this.productID = productID;
+		this.stockLevel = stock_level;
+		this.rating = product_rating;
+		this.price = the_price;
+		this.category = product_category;
+		this.productDescription = product_description;
+		this.image = picture;
+		this.productName = product_name;
+		this.onOffer = onOffer;
+		this.offerPrice = offerPrice;
 	}
 	
 	public void setDiscontinued(boolean value){
