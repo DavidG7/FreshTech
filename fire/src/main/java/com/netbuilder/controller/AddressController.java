@@ -31,9 +31,15 @@ public class AddressController {
 	
 	
 	 @RequestMapping("Address")
-	 public String HelloWorld(Model model) {
-		 System.out.println("PostCode" + AddressRepositoryMongo.findAll().get(1).getPostcode());
-	        return "HelloWorld";
+	 public String PrintAddresses(Model model) {
+		 for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
+			 System.out.println("Address ID: " + AddressRepositoryMongo.findAll().get(i).getAddressid());
+			 System.out.println("Address: " + AddressRepositoryMongo.findAll().get(i).getAddress());
+			 System.out.println("PostCode: " + AddressRepositoryMongo.findAll().get(i).getPostcode());
+			 System.out.println("Customer ID: " + AddressRepositoryMongo.findAll().get(i).getCustomerId());
+			 System.out.println("");
+		 }
+	        return "Address";
 	  }
 	 
 

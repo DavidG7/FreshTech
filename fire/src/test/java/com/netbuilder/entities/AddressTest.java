@@ -26,7 +26,7 @@ import org.junit.Test;
 		    	assertEquals(123, address.getAddressid());
 		 		assertEquals("netbuilder way", address.getAddress());
 		 		assertEquals("mc123g", address.getPostcode());
-		 		assertEquals(1, address.getCustomerid());
+		 		assertEquals(1, address.getCustomerId());
 		     }
 		     
 		     @Test
@@ -38,7 +38,7 @@ import org.junit.Test;
 		 		address.setPostcode("mc123g");
 		 		assertEquals("mc123g", address.getPostcode());
 		 		address.setCustomerid(1);
-		 		assertEquals(1, address.getCustomerid());
+		 		assertEquals(1, address.getCustomerId());
 		 	}
 		}
 

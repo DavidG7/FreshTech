@@ -141,4 +141,10 @@ public class ProductRepositoryMongo implements ProductRepository{
 		return null;
 	}
 
+	@Override
+	public List<Product> findByOnOffer(boolean isOnOffer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
