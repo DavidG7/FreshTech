@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
  * @author Thomas Dudley
  *
  */
-
+@Repository
 public interface CustomerRepository extends MongoRepository<Customer, Integer>
 {
 	

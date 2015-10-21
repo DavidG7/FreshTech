@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" 
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="
-    http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
-        
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+          http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+          http://www.springframework.org/schema/data/mongo
+          http://www.springframework.org/schema/data/mongo/spring-mongo-1.8.xsd">
+    
+    <bean id="AddressRepositoryMongo" class="com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo">
+    		<property name="mongoTemplate"> <ref bean="MongoTemplate"/> </property>
+	</bean>
+    
+   	<mongo:mongo host="127.0.0.1" port="27017" />
+	<mongo:db-factory dbname="FreshTech" />
+
+	<bean id="MongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
+ 	
 		<bean id="ProductRepositoryDummy" class="com.netbuilder.entityrepositoriesimplementations.dummy.ProductRepositoryDummy">
 			<property name="dummyData">
 				<ref bean="DummyData"/>
 			</property>
 		</bean>
+
 		
 		<bean id="CustomerRepositoryDummy" class="com.netbuilder.entityrepositoriesimplementations.dummy.CustomerRepositoryDummy">
 			<property name="dummyData">
@@ -18,7 +34,8 @@
 		</bean>
 		
 		<bean id="DummyData" class="com.netbuilder.data.DummyData"/>
+
 		
-		<!-- <bean id="data" class="com.netbuilder.data.DummyData"/> -->
+	
 		
 </beans>

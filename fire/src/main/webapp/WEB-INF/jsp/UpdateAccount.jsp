@@ -87,7 +87,7 @@
 				
 				<div id="fixit"><hr/></div>
 				
-				<div id="writing">
+				<div id="column2">
   					<strong>Alternatively, please enter a<br/>new address below:</strong><br/><br/>
   					
 					Address Line 1 :<br/>
@@ -183,8 +183,9 @@
        				<button type="submit"><strong>Submit</strong></button>
        			</div>
        		</div>
+       		
 		</div>
-		
+		<div class="push"></div>
 		</div>
 		
 	</body>

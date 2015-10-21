@@ -26,7 +26,7 @@ import com.netbuilder.data.DummyData;
 
 public class AddressRepositoryDummy implements AddressRepository {
 	
-	@Inject 
+	//@Inject 
 	private DummyData dummyData;
 
 	@Override
@@ -191,11 +191,11 @@ public class AddressRepositoryDummy implements AddressRepository {
 	
 
 	@Override
-	public Address findByCustomerID(int customerID) 
+	public List<Address> findByCustomerID(int customerID) 
 	{
 		ArrayList<Address> address = dummyData.getEntityList(new Address());
 		
-		Address foundaddress = new Address();
+		/*Address foundaddress = new Address();
 		
 		for ( int i = 0 ; i < address.size(); i++)
 		{
@@ -203,17 +203,17 @@ public class AddressRepositoryDummy implements AddressRepository {
 			{
 				foundaddress = address.get(i);
 			}
-		}
-		return foundaddress;
+		}*/
+		return address;
 	}
 
 	
 	@Override
-	public Address findByAddress(String address) 
+	public List<Address> findByAddress(String address) 
 	{
 		ArrayList<Address> addressArray = dummyData.getEntityList(new Address());
 		
-		Address foundAddress = new Address();
+		/*Address foundAddress = new Address();
 		
 		for ( int i = 0 ; i < addressArray.size(); i++)
 		{
@@ -221,16 +221,16 @@ public class AddressRepositoryDummy implements AddressRepository {
 			{
 				foundAddress = addressArray.get(i);
 			}
-		}
-		return foundAddress;
+		}*/
+		return addressArray;
 	}
 
 	@Override
-	public Address findByPostcode(String postcode) 
+	public List<Address> findByPostcode(String postcode) 
 	{
 		ArrayList<Address> addressArray = dummyData.getEntityList(new Address());
 		
-		Address foundAddress = new Address();
+		/*Address foundAddress = new Address();
 		
 		for ( int i = 0 ; i < addressArray.size(); i++)
 		{
@@ -238,8 +238,8 @@ public class AddressRepositoryDummy implements AddressRepository {
 			{
 				foundAddress = addressArray.get(i);
 			}
-		}
-		return foundAddress;
+		}*/
+		return addressArray;
 	}
 	
 }

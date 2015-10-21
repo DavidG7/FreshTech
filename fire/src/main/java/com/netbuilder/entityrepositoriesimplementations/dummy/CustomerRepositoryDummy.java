@@ -26,7 +26,6 @@ public class CustomerRepositoryDummy implements CustomerRepository
 	
 	private DummyData dummyData;
 	
-	//private MongoTemplate mongoTemplate;
 
 	@Override
 	public List<Customer> findAll() 
