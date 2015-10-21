@@ -4,7 +4,10 @@ import com.netbuilder.entities.Customer;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * 
@@ -14,13 +17,15 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface CustomerRepository extends MongoRepository<Customer, Integer>
 {
+	
+	
+	
 	/**
 	 * This method returns a single Customer given by the specified Customer ID
 	 * @param customerID
 	 * @return
 	 */
 	public Customer findByCustomerID(int customerID);
-	
 	/**
 	 * This method returns a list of all customers given by the specified phone number
 	 * @param customerPhone;
