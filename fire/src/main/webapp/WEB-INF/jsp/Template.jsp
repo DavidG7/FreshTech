@@ -14,7 +14,7 @@
     
     <body>
 
-
+	<div class="wrapper">
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -89,18 +89,22 @@
 		
 		
 		<div th:include="this :: content"> </div>
-    
-		<div id="footer" class="panel-footer">
-		<p>
-			Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall
-			website design, as well as Glyphicons <i>(http://glyphicons.com)</i>
-			for the Halfling icon set.
-		</p>
-		<p>
-			Using the Readable theme <i>(https://bootswatch.com/readable)</i>
-			with our own modifications.
-		</p>
-	</div>
+    </div>
+		<div class = "panel-footer">
+		<div class = "footer">
+			
+			<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR  Email: service@nbgardens.com
+			</p>
+			
+			<p>
+				Terms of service:
+			</p>
+			
+			<p>
+				Privacy policy:
+			</p>
+		</div>
+		</div>
 
     </body>
 </html>
