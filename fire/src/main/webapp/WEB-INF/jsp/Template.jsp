@@ -17,7 +17,7 @@
 	<div class="wrapper">
 	<nav class="navbar navbar-default">
 	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
+		
 		<div class="navbar-header" id="navbar-header">
 			<a class="btn btn-default navbar-toggle collapsed" type="button"
 				data-toggle="collapse" data-target="#navbar-collapse"
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- /.navbar-header -->
+		
 
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav">
@@ -60,6 +60,7 @@
 						<li><a href="PaymentAgreement">Checkout</a></li>
 						<li><a href="AddPaymentDetails">Review Payment Methods</a></li>
 						<li class="divider"></li>
+
 						<li><a href="/">Cancel Basket</a></li>
 					</ul>
 				</li>
@@ -74,6 +75,7 @@
 						<li><a href="UpdateAccount">Update your Account</a></li>
 						<li><a href="ViewCreditDetails">View Credit</a></li>
 						<li class="divider"></li>
+
 						<li><a href="/">Logout</a></li>
 					</ul>
 				</li>

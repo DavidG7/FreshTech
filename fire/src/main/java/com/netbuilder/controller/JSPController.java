@@ -70,15 +70,6 @@ public class JSPController {
 	 public String   Product(ModelAndView modelAndView) {
 	        return "Product";
 	  }
-	 
-	 @RequestMapping("ProductCatalogue")
-	 public String   ProductCatalogue(ModelAndView modelAndView) {
-	        return "ProductCatalogue";
-	  }
-	 
-	 
-	 
-	
 
 	 @RequestMapping("UpdateAccount")
 	 public String UpdateAccount (ModelAndView modelAndView) {
@@ -91,7 +82,21 @@ public class JSPController {
 	  }
 
 	 
-	
+
+	 @RequestMapping("Landing")
+	 public String landing2(ModelAndView modelAndView) {
+	        return "Landing";
+	  }
+	 
+	 @RequestMapping("Temp")
+	 public String temp(ModelAndView modelAndView) {
+	        return "Template";
+	  }
+	 
+	 @RequestMapping("ChooseAddress")
+	 public String ChooseAddress (ModelAndView modelAndView) {
+	        return "ChooseAddress";
+	  }
 	
 	 @RequestMapping("CustomerAccountPage")
 	 public String CustomerAccountPage (ModelAndView modelAndView) {
