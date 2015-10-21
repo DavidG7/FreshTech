@@ -38,7 +38,7 @@ public class Application implements CommandLineRunner {
 		// fetch an individual customer
 		System.out.println("Address found with customer Id('1'):");
 		System.out.println("--------------------------------");
-		System.out.println(repository.findByCustomerID(1));
+		System.out.println(repository.findByCustomerId(1));
 
 	}
 

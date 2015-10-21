@@ -41,12 +41,12 @@
 
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="Landing.html" id="home-button-top"> <span
+				<li><a href="/" id="home-button-top"> <span
 						class="glyphicon glyphicon-home"></span> Home
 				</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
-				<li><a href="ProductCatalogue.html" id="home-button-top"> <span
+				<li><a href="ProductCatalogue" id="home-button-top"> <span
 						class="glyphicon glyphicon-gift"></span> Products
 				</a></li>
 			</ul>
@@ -56,11 +56,11 @@
 						<span class="glyphicon glyphicon-shopping-cart"></span> Basket <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" id="basket-dropdown">
-						<li><a href="Basket.html">View basket</a></li>
-						<li><a href="PaymentAgreement.html">Checkout</a></li>
-						<li><a href="AddPaymentDetails.html">Review Payment Methods</a></li>
+						<li><a href="Basket">View basket</a></li>
+						<li><a href="PaymentAgreement">Checkout</a></li>
+						<li><a href="AddPaymentDetails">Review Payment Methods</a></li>
 						<li class="divider"></li>
-						<li><a href="Landing.html">Cancel Basket</a></li>
+						<li><a href="/">Cancel Basket</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -68,17 +68,17 @@
 						<span class="glyphicon glyphicon-user"></span> My Account <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" id="account-dropdown">
-						<li><a>Logged in as: ... </a></li>
-						<li><a href="ChooseAddress.html">View Addresses</a></li>
-						<li><a href="OrderTracking.html">Track an Order</a></li>
-						<li><a href="UpdateAccount.html">Update your Account</a></li>
-						<li><a href="ViewCreditDetails.html">View Credit</a></li>
+						<li><a href="Login">Log in/Register </a></li>
+						<li><a href="ChooseAddress">View Addresses</a></li>
+						<li><a href="OrderTracking">Track an Order</a></li>
+						<li><a href="UpdateAccount">Update your Account</a></li>
+						<li><a href="ViewCreditDetails">View Credit</a></li>
 						<li class="divider"></li>
-						<li><a href="Landing.html">Logout</a></li>
+						<li><a href="/">Logout</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="About.html" id="about-button-top">
+					<a href="About" id="about-button-top">
 						<span class="glyphicon glyphicon-question-sign"></span> About NB Gardens
 					</a>
 				</li>
