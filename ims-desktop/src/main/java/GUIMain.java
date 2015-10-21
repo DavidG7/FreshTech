@@ -11,6 +11,8 @@ import com.mongodb.client.MongoDatabase;
 public class GUIMain 
 {
 	
+	public static JFrame frame;
+	
 	//MongoDB Variables
 	static String mongohost = "";
 	static int port = 27017;
@@ -21,7 +23,7 @@ public class GUIMain
 	public static void main(String[] args)
 	{
 		
-		JFrame frame = new JFrame("Inventory Management System");
+		frame = new JFrame("Inventory Management System");
 
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
