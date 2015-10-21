@@ -1,13 +1,8 @@
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.JRootPane;
-import javax.swing.UIManager;
-import javax.swing.plaf.ColorUIResource;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
@@ -50,9 +45,6 @@ public class GUIMain
 			e.printStackTrace();
 		}
 		   frame.setVisible(true);
-	  
-	    
-	
-	    
+
 	}
 }

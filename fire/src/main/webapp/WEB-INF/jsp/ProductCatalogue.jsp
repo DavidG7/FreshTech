@@ -24,7 +24,7 @@
 		</div>
 		
 		<ul class="rig columns-3">
-<li><a href="Product.jsp"><h3>Gnome</h3>
+<li><a href="Product"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
@@ -32,7 +32,7 @@
 				</span>
 				</p></a>
 	</li>
-<li><a href="Product.jsp"><h3>Gnome</h3>
+<li><a href="Product"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
@@ -40,7 +40,7 @@
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.jsp"><h3>Gnome</h3>
+	<li><a href="Product"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
@@ -48,7 +48,7 @@
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.jsp"><h3>Gnome</h3>
+	<li><a href="Product"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
@@ -56,7 +56,7 @@
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.jsp"><h3>Gnome</h3>
+	<li><a href="Product"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
@@ -64,7 +64,7 @@
 				</span>
 				</p></a>
 	</li>
-	<li><a href="Product.jsp"><h3>Gnome</h3>
+	<li><a href="Product"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
 		
