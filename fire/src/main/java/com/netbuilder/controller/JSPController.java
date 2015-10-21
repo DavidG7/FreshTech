@@ -100,10 +100,7 @@ public class JSPController {
 	        return "TemplateTest";
 	  }
 	 
-	 @RequestMapping("ChooseAddress")
-	 public String ChooseAddress (ModelAndView modelAndView) {
-	        return "ChooseAddress";
-	  }
+	
 	
 	 @RequestMapping("CustomerAccountPage")
 	 public String CustomerAccountPage (ModelAndView modelAndView) {
