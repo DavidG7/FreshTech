@@ -163,3 +163,6 @@ html, body {
 .footer, .push {
     height: 100px;
 }
+#centre {
+	text-align: center;
+}

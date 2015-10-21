@@ -157,6 +157,7 @@
     </p>
     	<button type="submit"><strong>Register</strong></button>
 </div>
+<div class="push"></div>
 </div>
 
 </form>
