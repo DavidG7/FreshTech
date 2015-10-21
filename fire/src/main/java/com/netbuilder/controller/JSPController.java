@@ -76,10 +76,6 @@ public class JSPController {
 	        return "ProductCatalogue";
 	  }
 	 
-	 
-	 
-	
-
 	 @RequestMapping("UpdateAccount")
 	 public String UpdateAccount (ModelAndView modelAndView) {
 	        return "UpdateAccount";
@@ -92,12 +88,12 @@ public class JSPController {
 	 
 	 @RequestMapping("Landing")
 	 public String landing2(ModelAndView modelAndView) {
-	        return "LandingTest";
+	        return "Landing";
 	  }
 	 
 	 @RequestMapping("Temp")
 	 public String temp(ModelAndView modelAndView) {
-	        return "TemplateTest";
+	        return "Template";
 	  }
 	 
 	 @RequestMapping("ChooseAddress")

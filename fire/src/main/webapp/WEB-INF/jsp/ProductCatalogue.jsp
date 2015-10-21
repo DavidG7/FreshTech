@@ -17,24 +17,24 @@
 			
 				<h2> Products</h2>
 				
-				<h4>NBGardens is offers the best Gnomes in the world.<br/></h4>
+				<h4>NBGardens offers the best Gnomes in the world.....we sell garden stuff too.<br/></h4>
 			
 			</div>		
 
 		</div>
 		
 		<ul class="rig columns-3">
-<li><a href="Product"><h3>Gnome</h3>
+<li><a href="Product"><h3>Samuel L Gnome</h3>
 <p class ="price">£20 </p> 
-		<img src="ImageFolder/badGnome.png"/>
+		<img src="ImageFolder/SamuelLGnome.png"/>
 		
 		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p></a>
 	</li>
-<li><a href="Product"><h3>Gnome</h3>
+<li><a href="Product"><h3>Dino Gnome</h3>
 <p class ="price">£20 </p> 
-		<img src="ImageFolder/badGnome.png"/>
+		<img src="ImageFolder/DinoGnome.png"/>
 		
 		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
