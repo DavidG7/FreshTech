@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
 
 import CustomUI.CustomScrollPane;
 import CustomUI.CustomTextArea;
@@ -38,6 +39,9 @@ public class DailyStockReport extends JPanel{
 		String [] colNames = {"ProductID","Product Name","Quantity","Status"};
 		Object[][] data = new Object [x][5];// <--- Here is where X is used
 		reportTable = new JTable(data,colNames);
+		JTableHeader header = reportTable.getTableHeader();
+	      header.setBackground(new Color(0,122,0));
+	      header.setForeground(Color.WHITE);
 		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		topBar.setBackground(Color.WHITE);

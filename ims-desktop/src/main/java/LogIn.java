@@ -23,7 +23,7 @@ public class LogIn extends JPanel implements ActionListener {
     public LogIn() {
     	
     	//topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        setLayout(new GridLayout(1,2));
+        setLayout(new FlowLayout(FlowLayout.CENTER,20,80));
     
         JPanel leftHalf = new JPanel() {
 			private static final long serialVersionUID = 1L;
@@ -42,11 +42,11 @@ public class LogIn extends JPanel implements ActionListener {
 		myPicture = loader.load();
 		picLabel = new JLabel(new ImageIcon(myPicture));
 		
-        
+        this.setBackground(Color.WHITE);
         rightHalf.add(picLabel);
         rightHalf.setBorder(new EmptyBorder(200,0,0,0));
         rightHalf.setBackground(Color.WHITE);
-        leftHalf.setBorder(new EmptyBorder(200,50,50,50));
+        leftHalf.setBorder(new EmptyBorder(220,50,50,0));
         leftHalf.setBackground(Color.WHITE);
         //rightHalf.add(new JSeparator(SwingConstants.VERTICAL));
         
@@ -151,9 +151,11 @@ public class LogIn extends JPanel implements ActionListener {
         userField  = new CustomTextArea("");
         userField.setColumns(10);
         userField.setMaximumSize(new Dimension(300,100));
+        userField.setMinimumSize(new Dimension(300,100));
  
         passField = new JPasswordField();
         passField.setMaximumSize(new Dimension(300,100));
+        passField.setMinimumSize(new Dimension(300,100));
         
         panel.add(new CustomLabel(labelStrings[0],false));
         panel.add(userField);

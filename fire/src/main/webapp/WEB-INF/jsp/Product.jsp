@@ -83,7 +83,7 @@
 				<p>This is a basic user review telling you that the gnome is pretty good, but this page is so well designed!!!</p><hr/>
 				<p>I agree with the first review. This page is soooooo well designed!!!</p><hr/>
 			</div>
-		
+			<div class="push"></div>
 		</div>
 		
 		</div>
