@@ -37,7 +37,7 @@ public class LoginSQL {
 			return;
 		}
 		
-		public void establishlogin(String username, String password){
+		public boolean establishlogin(String username, String password){
 			
 			 try { 
 				 	Statement stmt = db.getConn().createStatement();
@@ -51,32 +51,21 @@ public class LoginSQL {
 				 				// set logged in flag to true
 				 				loggedIn = true;
 				 				System.out.println("Welcome to NBgardens :"+ username);
+				 				return true;
 				 			} 
 				 			else if (!login(getUsername(), getPassword(), rs.getString(6), rs.getString(7)) 
 				 					&& !loggedIn)
-				 			{
-				 				// set logged flag to false
-				 				loggedIn = false;
-				 				continue;
+				 			{ return false;
 				 			}
 				 		}
-				 			
-				 			// If login fails
-				 			if (!loggedIn) {
-				 				// print error message
-				 				System.out.println("Login failed");
-				 				
-				 				// prompt user for details
-				 				
-				 				//app.askLoginDetails();		
-				 			}
+				 		
 		 		} catch (SQLException ex) {
 			 	
 		 			// Database error handling
 		 			System.out.println("Failed to connect to Database...");
 			 	}
 			 
-			 return;
+			 return false;
 		}
 		
 		public boolean login(String username, String password, String dbuser, String dbpassword){
