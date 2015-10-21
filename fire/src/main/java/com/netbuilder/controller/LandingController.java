@@ -10,10 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.netbuilder.entities.Employee;
 import com.netbuilder.entities.Product;
-import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
 
 @Controller
 public class LandingController {
@@ -22,10 +21,12 @@ public class LandingController {
 	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
-	EmployeeRepository employeeRepository = (EmployeeRepository)context.getBean("EmployeeRepositorySQL");
+	EmployeeRepositorySQL employeeRepository = new EmployeeRepositorySQL();
 	
+
 	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
 	List<Product> offerProducts = productRepository.findByOnOffer(true);
+
 	 
 	 @RequestMapping("/")
 	 String index(Model model, HttpSession session) {
@@ -33,7 +34,7 @@ public class LandingController {
 		    
 		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
 		 	model.addAttribute("offerProducts", offerProducts);
-		 	
+
 	        return "Landing";
 	  }
 }
