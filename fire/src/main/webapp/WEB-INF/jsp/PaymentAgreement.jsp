@@ -153,22 +153,9 @@
 			</button>
 
 		</div>
+		<div class="push"></div>
 	</div>
-	<div id="space"></div>
 
-	<div id="footer" class="panel-footer">
-
-		<p>39 Gnomestreet Way, Manchester, United Kingdom, MO6 OAR
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Telephone: 01234567573
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			Email: service@nbgardens.com</p>
-
-		<p>Terms of service:</p>
-
-		<p>Privacy policy:</p>
-
-	</div>
 	</div>
 
 </body>
