@@ -27,9 +27,7 @@
 		<div id="container">
 			<div>
 				<div id="leftpanel">
-					<a href="#"><img class="img-thumbnail"
-						src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend"
-						id="gnome1" /></a>
+					<a href="#"><img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" id="gnome1" /></a>
 					<!-- <img id="identify" class="img-thumbnail" alt="savage gnome" src="ImageFolder/squaresavage.jpg"/> -->
 				</div>
 				<p class="subtitle" id="leftpanel">
@@ -52,9 +50,7 @@
 
 			<div>
 				<div id="leftpanel">
-					<a href="#"><img class="img-thumbnail"
-						src="ImageFolder/squarefancy.jpg" alt="newlittleFriend"
-						id="gnome1"/></a>
+					<a href="#"><img class="img-thumbnail" src="ImageFolder/squarefancy.jpg" alt="newlittleFriend" id="gnome1"/></a>
 				</div>
 				<p class="subtitle" id="leftpanel">
 					<strong>FANCY GNOME<br />
@@ -76,9 +72,7 @@
 
 
 			<div id="leftpanel">
-				<a href="#"><img class="img-thumbnail"
-					src="ImageFolder/squaresavage.jpg" alt="newlittleFriend"
-					id="gnome1"/></a>
+				<a href="#"><img class="img-thumbnail" src="ImageFolder/squaresavage.jpg" alt="newlittleFriend" id="gnome1"/></a>
 			</div>
 			<p class="subtitle" id="leftpanel">
 				<strong>FANCY GNOME<br />
@@ -99,9 +93,7 @@
 
 
 			<div id="leftpanel">
-				<a href="#"><img class="img-thumbnail"
-					src="ImageFolder/squaremooney.jpg" alt="newlittleFriend"
-					id="gnome1"/></a>
+				<a href="#"><img class="img-thumbnail" src="ImageFolder/squaremooney.jpg" alt="newlittleFriend" id="gnome1"/></a>
 			</div>
 			<p class="subtitle" id="leftpanel">
 				<strong>FANCY GNOME<br />
@@ -122,9 +114,7 @@
 
 
 			<div id="leftpanel">
-				<a href="#"><img class="img-thumbnail"
-					src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend"
-					id="gnome1"/></a>
+				<a href="#"><img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" id="gnome1"/></a>
 			</div>
 			<p class="subtitle" id="leftpanel">
 				<strong>FANCY GNOME<br />
