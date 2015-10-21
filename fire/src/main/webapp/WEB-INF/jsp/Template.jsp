@@ -68,7 +68,7 @@
 						<span class="glyphicon glyphicon-user"></span> My Account <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" id="account-dropdown">
-						<li><a href="Login">Log in/Register </a></li>
+						<li><a href="Register">Log in/Register </a></li>
 						<li><a href="ChooseAddress">View Addresses</a></li>
 						<li><a href="OrderTracking">Track an Order</a></li>
 						<li><a href="UpdateAccount">Update your Account</a></li>

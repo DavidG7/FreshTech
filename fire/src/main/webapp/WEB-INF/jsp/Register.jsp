@@ -1,10 +1,10 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       th:include="Template :: page">
       
     <head th:fragment="header">
-		<link  type="text/css" rel="stylesheet" href="css/Register.css" />
+    	<link  type="text/css" rel="stylesheet" href="css/Register.css" />
 	<title>NB Gardens</title>
     </head>
     <body>
@@ -15,17 +15,43 @@
 		
 			<div class = "jumbotron">
 			
-				<h2> <b> Register </b> </h2>
+				<h2> <b> Log in/Register </b> </h2>
 				
-				<h4> Please fill in the form below to register your details </h4>
+				<h4>Existing customers log in. New customers please register your details</h4>
 						
 			
 			</div>		
 
 		</div>
-<form th:action="@{/postReg}" method="post" >
+		<div th:fragment="content">
+<div class="col-md-6">
+
+		
+
+		<div class = "panel-body">
+	    
+	   <div id="centre">
+			<p id="regtext"><strong>Log in</strong></p>
+		    <p><strong>Username :</strong><br/>
+			<input type = "text" name = "username"/>
+			</p>
+			
+			<p><strong>Password :</strong><br/>
+			<input type = "text" name = "password"/>
+			</p>
+			
+				<a href = "/"><button type="submit"><strong>Log In</strong></button></a>
+		</div>
+	   
+	<div class="push"></div>
+</div>
+</div>
+</div>
+<form th:action="@{/postReg}" method="post">
+<div class="col-md-6">
 		<div class = "panel-body">
 		<div id = "centre">
+		<p id="regtext"><strong>Register</strong></p>
 		<p> 
          <label for="firstnamesignup" class="fname" data-icon="u">First Name:</label>
          <input id="firstnamesignup" name="firstnamesignup" required="required" type="text" placeholder="First" />
@@ -159,9 +185,11 @@
 </div>
 <div class="push"></div>
 </div>
+</div>
 
 </form>
 </div>
+
 		
 </body>
 </html>
