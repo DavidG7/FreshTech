@@ -14,28 +14,29 @@ import com.netbuilder.entities.Employee;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
 
 @Controller
 public class LandingController {
 
 	
-	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+	//ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
-	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
-	EmployeeRepository employeeRepository = (EmployeeRepository)context.getBean("EmployeeRepositorySQL");
+	//roductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
+	EmployeeRepositorySQL employeeRepository = new EmployeeRepositorySQL();
 	
-	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
-	List<Product> offerProducts = productRepository.findByOnOffer(true);
+	//List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
+	//List<Product> offerProducts = productRepository.findByOnOffer(true);
 	
-	Iterable<Employee> employeeTest = employeeRepository.findAll();
+	//Iterable<Employee> employeeTest = employeeRepository.findAll();
 	 
 	 @RequestMapping("/")
 	 String index(Model model, HttpSession session) {
 		    //session.setAttribute("mySessionAttribute", "someValue");
 		    
-		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
-		 	model.addAttribute("offerProducts", offerProducts);
-		 	
+		 	//model.addAttribute("discontinuedProducts", discontinuedProducts);
+		 	//model.addAttribute("offerProducts", offerProducts);
+		 System.out.println(employeeRepository.count());
 	        return "Landing";
 	  }
 }
