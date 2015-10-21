@@ -81,6 +81,7 @@ public class LoginSQL {
 			 	System.out.println(ex);
 		 			// Database error handling
 		 			System.out.println("Failed to connect to Database...");
+		 			System.out.println("hello m8");
 			 }
 			 
 			 return false;
