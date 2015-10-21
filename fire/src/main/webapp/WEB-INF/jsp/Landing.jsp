@@ -30,14 +30,14 @@
 		  <div class="carousel-inner">
 		  
 		    <div class="item active">
-		      <img src="ImageFolder/other.jpg" alt="..."/>
+		      <img src="ImageFolder/fishing.jpg" alt="..."/>
 		      <div class="carousel-caption">
 		        ...
 		      </div>
 		    </div>
 		    
 		    <div class="item">
-		      <img src="ImageFolder/savage.jpg" alt="..."/>
+		      <img src="ImageFolder/trek.jpg" alt="..."/>
 		      <div class="carousel-caption">
 		      </div>
 		    </div>
@@ -59,7 +59,7 @@
 		
 		<div class = "jumbotron jumbotron-bottom">
 		
-			<h2> Special offers </h2>
+		
 			
 			<h4></h4>
 		
@@ -70,16 +70,11 @@
 		  <div class="carousel-inner">
 		  
 		    <div class="item active">
-		      <img src="ImageFolder/other.jpg" alt="..."/>
-		      <div class="carousel-caption">
-		        ...
-		      </div>
+		    	<h3>Special Offers</h3>
 		    </div>
 		    
-		    <div class="item">
-		      <img src="ImageFolder/savage.jpg" alt="..."/>
-		      <div class="carousel-caption">
-		      </div>
+			<div class="item" th:each="product : ${offerProducts}">
+		      <img th:src="'ImageFolder/' + ${product.image}" th:alt="${product.productName}"/>
 		    </div>
 		    
 		  </div>
@@ -103,7 +98,7 @@
 			    
 		<div class = "jumbotron jumbotron-bottom">
 		
-			<h2> Limited availability </h2>
+		
 			
 			<h4></h4>
 		
@@ -114,15 +109,11 @@
 		  <div class="carousel-inner">
 
 		    <div class="item active">
-		      <div class="carousel-caption">
-		        ...
-		      </div>
+		    	<h3>Discontinued</h3>
 		    </div>
 		    
 		    <div class="item" th:each="product : ${discontinuedProducts}">
 		      <img th:src="'ImageFolder/' + ${product.image}" th:alt="${product.productName}"/>
-		      <div class="carousel-caption">
-		      </div>
 		    </div>
 		    
 		  </div>

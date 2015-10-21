@@ -23,7 +23,7 @@
 				<ref bean="DummyData"/>
 			</property>
 		</bean>
-
+		
 		<bean id="DummyData" class="com.netbuilder.data.DummyData"/>
 
 		

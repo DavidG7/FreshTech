@@ -53,4 +53,13 @@ public interface ProductRepository extends MongoRepository<Product,Integer>{
 	 * @return
 	 */
 	public List<Product> findByDiscontinued(boolean isDiscontinued);
+	
+	/**
+	 * This method returns a list of all products that are on offer or of all products that are not.
+	 * @author pnewman
+	 * @param isDiscontinued
+	 * @return
+	 */
+	public List<Product> findByOnOffer(boolean isOnOffer);
+
 }
