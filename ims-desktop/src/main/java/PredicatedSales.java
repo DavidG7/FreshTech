@@ -1,4 +1,7 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 
@@ -23,18 +26,18 @@ public class PredicatedSales extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 	//private static final long serialVersionUID = 1L;
-	JLabel heading, option;
+	JLabel heading, option, salesPrediction;
 	JPanel topBar = new JPanel();
+	JPanel main = new JPanel();
 	CustomJTable table;
 	JPanel leftPanel,rightPanel, headingLeft;
-	JTextArea salesPrediction;
 	String productName = "PRODUCTNAME";
 	///chart......
 
 	
 	
 	public PredicatedSales(){
-		this.setLayout(new GridLayout(1,2));
+		this.setLayout(new BorderLayout());
 		leftPanel = new JPanel(new GridLayout(2,1));
 		rightPanel = new JPanel(new GridLayout(2,1));
 		headingLeft = new JPanel(new GridLayout(1,2));
@@ -43,11 +46,13 @@ public class PredicatedSales extends JPanel{
 		//option = new CustomLabel("Select a product to view it's predicted sales", false);
 		//option.setVerticalAlignment(SwingConstants.TOP);
 		CustomImage icon = new CustomImage();
-		
+		heading.setPreferredSize(new Dimension(1000,100));
 		headingLeft.add(heading);	
 		headingLeft.add(icon);
 		
-		leftPanel.add(headingLeft);
+		headingLeft.setBorder(new EmptyBorder(30, 200, 30, 200));
+		
+		add(headingLeft, BorderLayout.NORTH);
 		//leftPanel.add(option);
 		//this.add(topBar,BorderLayout.NORTH);
 		table = new CustomJTable();
@@ -58,20 +63,23 @@ public class PredicatedSales extends JPanel{
 		//leftPanel.add(butReturn);
 		final CustomPieChart pie = new CustomPieChart("Sales","Sales");
 		rightPanel.add(pie);
-		salesPrediction = new JTextArea("Expecting {" + productName + "} to sell 14,000 this quarter");
-		salesPrediction.setEditable(false);
-		salesPrediction.setMargin(new Insets(150,20,150,150));
+		salesPrediction = new JLabel("Expecting {" + productName + "} to sell 14,000 this quarter");
+		//salesPrediction.setMargin(new Insets(150,20,150,150));
 		new CustomFont();
 		salesPrediction.setFont(CustomFont.getFont("BOLD", 12));
-		rightPanel.add(salesPrediction);
-		this.add(leftPanel);
-		this.add(rightPanel);
+		//rightPanel.add(salesPrediction);
+		this.add(main, BorderLayout.CENTER);
 		
+		main.setLayout(new FlowLayout(FlowLayout.CENTER));
+		main.setBackground(Color.WHITE);
+		main.add(leftPanel);
+		main.add(rightPanel);
 		leftPanel.setBackground(Color.WHITE);
 		rightPanel.setBackground(Color.WHITE);
-		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
-		rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
+		leftPanel.setBorder(new EmptyBorder(100, 0, 410, 0));
+		rightPanel.setBorder(new EmptyBorder(90, 0, 410, 0));
 		
+		//GUIMain.frame.pack();
 		setVisible(true);
 		
 		
@@ -87,10 +95,6 @@ public class PredicatedSales extends JPanel{
 		        salesPrediction.setText(("Expected " + productName + " sales this quarter are 14,000"));
 		    }
 		});
-
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		//pack();
 	}	
 
 	
