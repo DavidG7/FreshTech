@@ -79,11 +79,13 @@ public class AddressRepositoryMongo implements AddressRepository{
 	@Override
 	public void deleteAll() {
 		// TODO Auto-generated method stub
+		mongoOperation.dropCollection(Address.class);
 		
 	}
 	@Override
 	public boolean exists(Integer arg0) {
 		// TODO Auto-generated method stub
+	
 		return false;
 	}
 	@Override
@@ -107,7 +109,7 @@ public class AddressRepositoryMongo implements AddressRepository{
 		return null;
 	}
 	@Override
-	public List<Address> findByCustomerID(int customerID) {
+	public List<Address> findByCustomerId(int customerId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -119,6 +121,8 @@ public class AddressRepositoryMongo implements AddressRepository{
 	@Override
 	public List<Address> findByPostcode(String postcode) {
 		// TODO Auto-generated method stub
+		List<Address> address = mongoOperation.findAll(Address.class);
+		//for(int)
 		return null;
 	}
 

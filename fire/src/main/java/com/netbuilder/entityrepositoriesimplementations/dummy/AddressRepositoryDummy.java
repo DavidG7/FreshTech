@@ -191,7 +191,7 @@ public class AddressRepositoryDummy implements AddressRepository {
 	
 
 	@Override
-	public List<Address> findByCustomerID(int customerID) 
+	public List<Address> findByCustomerId(int customerId) 
 	{
 		ArrayList<Address> address = dummyData.getEntityList(new Address());
 		

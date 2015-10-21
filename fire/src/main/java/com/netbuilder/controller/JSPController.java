@@ -89,16 +89,7 @@ public class JSPController {
 	 public String ViewCreditDetails (ModelAndView modelAndView) {
 	        return "ViewCreditDetails";
 	  }
-	 
-	 @RequestMapping("Landing")
-	 public String landing2(ModelAndView modelAndView) {
-	        return "LandingTest";
-	  }
-	 
-	 @RequestMapping("Temp")
-	 public String temp(ModelAndView modelAndView) {
-	        return "TemplateTest";
-	  }
+
 	 
 	
 	

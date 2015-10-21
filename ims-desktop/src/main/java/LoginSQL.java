@@ -1,5 +1,4 @@
 import java.sql.*;
-import java.util.ArrayList;
 
 
 public class LoginSQL {
@@ -45,9 +44,9 @@ public class LoginSQL {
 		public boolean establishlogin(String username, String password){
 			
 			 try { 
-				 	Statement stmt = db.getConn().createStatement();
+				 	db.stmt = db.getConn().createStatement();
 				 	String sql1 = "SELECT employeeusername, employeepassword FROM Employee";
-				 	ResultSet rs = stmt.executeQuery(sql1);
+				 	ResultSet rs = db.stmt.executeQuery(sql1);
 			
 				 	int i = 0;
 				 	
@@ -91,7 +90,8 @@ public class LoginSQL {
 			for (int i = 0; i < usernameArray.length; i++)
 			{
 				if (username.equalsIgnoreCase(usernameArray[i])){
-					if(password.equalsIgnoreCase(passwordArray[i])){
+					if(password.equals(passwordArray[i])){
+						db.close();
 						return true;
 					} 
 				} 

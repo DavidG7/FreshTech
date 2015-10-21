@@ -3,13 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-          http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-          http://www.springframework.org/schema/data/mongo"
-         
->
     
-    
+        <bean id="EmployeeRepositorySQL" class="com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL">
+	</bean>
  	
 		<bean id="ProductRepositoryDummy" class="com.netbuilder.entityrepositoriesimplementations.dummy.ProductRepositoryDummy">
 			<property name="dummyData">
@@ -26,6 +24,14 @@
 		
 		<bean id="DummyData" class="com.netbuilder.data.DummyData"/>
 
+		<bean id="dataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	
+			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+			<property name="url" value="jdbc:mysql://:10:50:15:40/mydb" />
+			<property name="username" value="root" />
+			<property name="password" value="password" />
+		</bean>
 		
 	
 		

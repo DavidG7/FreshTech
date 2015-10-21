@@ -22,7 +22,7 @@ public interface AddressRepository extends MongoRepository<Address,Integer> {
 	 * @param customerID
 	 * @return
 	 */
-	public List<Address> findByCustomerID(int customerID);
+	public List<Address> findByCustomerId(int customerId);
 	
 	/**
 	 * This method returns a single address method given by the specified address.
