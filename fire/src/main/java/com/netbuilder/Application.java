@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 public class Application  {
 	public static void main(String args[]) throws ServletException, LifecycleException {
-		 ApplicationContext context = new AnnotationConfigApplicationContext(MongoConfig.class);
-		ApplicationContext ctx = SpringApplication.run(Application.class, args);
+		
+		 ApplicationContext ctx = SpringApplication.run(Application.class, args);
 	}	
 }
