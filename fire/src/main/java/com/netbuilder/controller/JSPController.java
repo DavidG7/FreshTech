@@ -66,10 +66,7 @@ public class JSPController {
 	        return "PaymentAgreement";
 	  }
 	 
-	 @RequestMapping("Product")
-	 public String   Product(ModelAndView modelAndView) {
-	        return "Product";
-	  }
+	
 	 
 	 @RequestMapping("ProductCatalogue")
 	 public String   ProductCatalogue(ModelAndView modelAndView) {
@@ -84,13 +81,7 @@ public class JSPController {
 	 public String UpdateAccount (ModelAndView modelAndView) {
 	        return "UpdateAccount";
 	  }
-	 
-	 @RequestMapping("ViewCreditDetails")
-	 public String ViewCreditDetails (ModelAndView modelAndView) {
-	        return "ViewCreditDetails";
-	  }
-
-	 
+	
 	
 	
 	 @RequestMapping("CustomerAccountPage")

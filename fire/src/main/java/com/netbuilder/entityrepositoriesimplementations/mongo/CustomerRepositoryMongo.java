@@ -24,17 +24,13 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 	
 	@Override
 	public long count() {
-	List<Customer> list = mongoOperation.findAll(Customer.class);
-	for(int i=0; i<list.size(); i++){
-		System.out.println(list.size());
-	}
-		return 0;
+		return mongoOperation.findAll(Customer.class).size();
 	}
 
 	@Override
 	public List<Customer> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return mongoOperation.findAll(Customer.class);
 	}
 
 	@Override
@@ -117,7 +113,14 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 
 	@Override
 	public Customer findByCustomerID(int customerID) {
-		return null;
+		List<Customer> customers = mongoOperation.findAll(Customer.class);
+		Customer customer = null;
+		for(int i=0; i<customers.size(); i++){
+			if(customers.get(i).getCustomerID()==customerID){
+				customer = customers.get(i);
+			}
+		}
+		return customer;
 	}
 
 	@Override

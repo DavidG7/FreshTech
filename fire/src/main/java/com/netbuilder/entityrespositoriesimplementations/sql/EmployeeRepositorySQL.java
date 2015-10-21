@@ -56,7 +56,8 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public long count() {
-		return jdbcTemplate.queryForLong("SELECT COUNT(employeepassword) FROM Employee;");
+		return jdbcTemplate.queryForLong("SELECT COUNT(*) FROM Employee;");
+	
 	}
 
 	@Override
