@@ -13,7 +13,7 @@ public class AddressController {
 	AddressRepositoryMongo AddressRepositoryMongo = new AddressRepositoryMongo();
 	
 	
-<<<<<<< HEAD
+
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
 		 for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
@@ -24,11 +24,12 @@ public class AddressController {
 			 System.out.println("");
 		 }
 	        return "Address";
-=======
+	 }
+
 	 @RequestMapping("ChooseAddress")
 	 public String getAddress (Model modelAndView) {
 	        return "ChooseAddress";
->>>>>>> 9b85520c1c716546710d56080cd6e26b854c9fa3
+
 	  }
 
 	
