@@ -20,7 +20,6 @@
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-
     </head>
     
     <body>
@@ -40,28 +39,27 @@
 		 <h2> Contact Information<br/> </h2>
 		</div>
 	
-  
-   <p class ="telephone">
+<div class="telephone">
+  <p>
   <span class= "glyphicon glyphicon-earphone"> Telephone: </span><br/> 01234567573
-   </p>
-   
-   <p class = "address">
+  </p>
+</div>
+<div class="address">
+   <p>
  <span class= "glyphicon glyphicon-pencil"> Address: </span> <br/>39 Gnomestreet Way<br/>
 			Manchester<br/>
 			United Kingdom<br/>
 			MO6OAR<br/>
    </p>
-   
-   <p class = "email">
+</div>
+<div class="email">
+   <p>
 
   <span class= "glyphicon glyphicon-envelope"> Email: </span><br/> service@nbgardens.com
 		</p>
-	
-		<div class = "image">
-<!--  <img src="ImageFolder\200.gif" alt="Theres no business like Gnome business" style="width:310px;height:220px;">-->
-</div>
-		
-				    <div id="map"></div>
+</div>		
+				    <div id="map">.</div>
+			<div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div>	    
 </div>
 		
 	</body>

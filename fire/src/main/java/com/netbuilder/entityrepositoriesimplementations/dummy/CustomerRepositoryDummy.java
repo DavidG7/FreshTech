@@ -2,9 +2,12 @@ package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Address;
@@ -17,16 +20,17 @@ import com.netbuilder.entityrepositories.CustomerRepository;
  *
  * This class is to implement the functionality of the Customer repository.
  */
-
+@Repository
 public class CustomerRepositoryDummy implements CustomerRepository
 {
 	
 	private DummyData dummyData;
+	
 
 	@Override
 	public List<Customer> findAll() 
 	{
-		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
+		List<Customer> customer = null;
 		
 		return customer;
 	}

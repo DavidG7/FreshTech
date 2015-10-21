@@ -95,22 +95,9 @@
 				order</label>
 		</div>
 		<hr/>
-
+		<div class="push"></div>
 	</div>
-
-	<div id="footer" class="panel-footer">
-
-		<p>
-			Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall
-			website design, as well as Glyphicons <i>(http://glyphicons.com)</i>
-			for the Halfling icon set.
-		</p>
-		<p>
-			Using the Cosmo theme <i>(https://bootswatch.com/cosmo)</i> with our
-			own modifications.
-		</p>
-
-	</div>
+	
 	</div>
 
 </body>

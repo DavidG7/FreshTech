@@ -26,7 +26,7 @@ import com.netbuilder.data.DummyData;
 
 public class AddressRepositoryDummy implements AddressRepository {
 	
-	@Inject 
+	//@Inject 
 	private DummyData dummyData;
 
 	@Override

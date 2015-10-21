@@ -111,7 +111,7 @@ public class JSPController {
 	  }
 	 
 	 @RequestMapping("PaymentConfirmation")
-	 public String PaymentConfirmation (ModelAndView modelAndView) {
+	 public String PaymentConfirmation(ModelAndView modelAndView) {
 	        return "PaymentConfirmation";
 	  }
 	 
