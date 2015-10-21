@@ -216,4 +216,16 @@ public class ProductRepositoryDummy implements ProductRepository{
 	public void setDummyData(DummyData dummyData) {
 		this.dummyData = dummyData;
 	}
+
+	@Override
+	public List<Product> findByOnOffer(boolean isOnOffer) {
+		ArrayList<Product> products = dummyData.getEntityList(new Product());
+		ArrayList<Product> offerProducts = new ArrayList<Product>();
+		for(Product product : products){
+			if(product.isOnOffer() == isOnOffer){
+				offerProducts.add(product);
+			}
+		}
+		return offerProducts;
+	}
 }
