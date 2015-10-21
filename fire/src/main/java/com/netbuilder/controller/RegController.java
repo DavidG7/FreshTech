@@ -1,6 +1,7 @@
 package com.netbuilder.controller;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,7 +54,8 @@ public class RegController {
 			System.out.println(month);
 			System.out.println(day);
 			System.out.println(year);
-			System.out.println(CustomerRepositoryMongo.count());
-			return "redirect:/";	
+			CustomerRepositoryMongo.insert(new Customer(3, "000000000", 50, name, email, username,  password));
+			CustomerRepositoryMongo.count();
+			return "redirect:/";
 	}
 }

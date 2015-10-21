@@ -19,7 +19,9 @@ public class MongoConfig {
 	
 	@Bean
 	public MongoDbFactory mongoDbFactory() throws Exception {
-		return new SimpleMongoDbFactory(new MongoClient(), "FreshTech");
+
+		return new SimpleMongoDbFactory(new MongoClient("10.50.15.34"), "FreshTech");
+
 	}
 
 	 @Bean

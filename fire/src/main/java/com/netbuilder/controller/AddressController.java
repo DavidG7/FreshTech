@@ -1,35 +1,19 @@
 package com.netbuilder.controller;
 
-import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.netbuilder.BeansConfig;
-import com.netbuilder.MongoConfig;
-import com.netbuilder.entities.Customer;
-import com.netbuilder.entityrepositories.CustomerRepository;
-import com.netbuilder.entityrepositories.ProductRepository;
-import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
+
 
 @Controller
 public class AddressController {
-
-	
 	AddressRepositoryMongo AddressRepositoryMongo = new AddressRepositoryMongo();
 	
 	
+<<<<<<< HEAD
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
 		 for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
@@ -40,7 +24,13 @@ public class AddressController {
 			 System.out.println("");
 		 }
 	        return "Address";
+=======
+	 @RequestMapping("ChooseAddress")
+	 public String getAddress (Model modelAndView) {
+	        return "ChooseAddress";
+>>>>>>> 9b85520c1c716546710d56080cd6e26b854c9fa3
 	  }
-	 
 
+	
 }
+
