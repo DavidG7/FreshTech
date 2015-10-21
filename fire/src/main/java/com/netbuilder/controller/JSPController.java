@@ -66,6 +66,7 @@ public class JSPController {
 	        return "PaymentAgreement";
 	  }
 	 
+<<<<<<< HEAD
 	
 	 
 	 @RequestMapping("ProductCatalogue")
@@ -76,13 +77,44 @@ public class JSPController {
 	 
 	 
 	
+=======
+	 @RequestMapping("Product")
+	 public String   Product(ModelAndView modelAndView) {
+	        return "Product";
+	  }
+>>>>>>> f028feaac593a51487b1c181ecb6799d0bb09255
 
 	 @RequestMapping("UpdateAccount")
 	 public String UpdateAccount (ModelAndView modelAndView) {
 	        return "UpdateAccount";
 	  }
+<<<<<<< HEAD
 	
 	
+=======
+	 
+	 @RequestMapping("ViewCreditDetails")
+	 public String ViewCreditDetails (ModelAndView modelAndView) {
+	        return "ViewCreditDetails";
+	  }
+
+	 
+
+	 @RequestMapping("Landing")
+	 public String landing2(ModelAndView modelAndView) {
+	        return "Landing";
+	  }
+	 
+	 @RequestMapping("Temp")
+	 public String temp(ModelAndView modelAndView) {
+	        return "Template";
+	  }
+	 
+	 @RequestMapping("ChooseAddress")
+	 public String ChooseAddress (ModelAndView modelAndView) {
+	        return "ChooseAddress";
+	  }
+>>>>>>> f028feaac593a51487b1c181ecb6799d0bb09255
 	
 	 @RequestMapping("CustomerAccountPage")
 	 public String CustomerAccountPage (ModelAndView modelAndView) {
