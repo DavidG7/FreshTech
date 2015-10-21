@@ -23,18 +23,6 @@
 
 		</div>
 		
-<<<<<<< HEAD
-		<ul class="rig columns-3">
-<li><a href="Product"><h3>Samuel L Gnome</h3>
-<p class ="price">£20 </p> 
-		<img src="ImageFolder/SamuelLGnome.png"/>
-		
-		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
-				</span>
-				</p></a>
-	</li>
-<li><a href="Product"><h3>Dino Gnome</h3>
-=======
 		<ul class="rig columns-3" >
 			<li th:each="product : ${products}"><a href="Product">
 				<h3>Gnome</h3>
