@@ -91,10 +91,7 @@ public class JSPController {
 	  }
 
 	 
-	 @RequestMapping("ChooseAddress")
-	 public String ChooseAddress (ModelAndView modelAndView) {
-	        return "ChooseAddress";
-	  }
+	
 	
 	 @RequestMapping("CustomerAccountPage")
 	 public String CustomerAccountPage (ModelAndView modelAndView) {

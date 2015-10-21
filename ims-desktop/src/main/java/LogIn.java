@@ -2,7 +2,20 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
+import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
+import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 
 import CustomUI.CustomButton;
@@ -49,9 +62,7 @@ public class LogIn extends JPanel implements ActionListener {
         leftHalf.setBorder(new EmptyBorder(220,50,50,0));
         leftHalf.setBackground(Color.WHITE);
         //rightHalf.add(new JSeparator(SwingConstants.VERTICAL));
-        
-      
-        
+               
         leftHalf.add(createEntryFields());
         leftHalf.add(createButton());
  
@@ -83,9 +94,14 @@ public class LogIn extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
     	
     	if(userField.getText() != null && passField.getPassword().length != 0)
-    	{	LoginSQL login = new LoginSQL();
-    	String password = new String(passField.getPassword());
-    		if (login.establishlogin(userField.getText(), password)){
+    	{	
+    		LoginSQL login = new LoginSQL();
+    		String password = new String(passField.getPassword());
+    		
+    		if (login.establishlogin(userField.getText(), password))
+    		{
+    			//JOptionPane.showMessageDialog(null, "Welcome to NB Gardens: " + userField.getText());
+    			
     			topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
     	      	  
         		JTabbedPane pane = new JTabbedPane();
@@ -104,7 +120,9 @@ public class LogIn extends JPanel implements ActionListener {
           	  	topFrame.repaint();
     		}
   	      	
-    	}else{
+    	}
+    	else
+    	{
     		JOptionPane.showMessageDialog(getParent(),"Please input a correct Username and Password." );
         }
     

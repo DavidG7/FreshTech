@@ -23,7 +23,8 @@ class ProductTableModel extends AbstractTableModel {
         { "15", "Rake", 7665, 12778},
         { "16", "Stool", 1450, 2361},
         { "17", "Garden Kit", 776, 1001},
-        { "18", "Jacuzzi", 120, 340}};
+        { "18", "Jacuzzi", 120, 340}
+    };
 
     public int getColumnCount() {
       return columnNames.length;
