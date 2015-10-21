@@ -71,15 +71,6 @@ public class JSPController {
 	        return "Product";
 	  }
 	 
-	 @RequestMapping("ProductCatalogue")
-	 public String   ProductCatalogue(ModelAndView modelAndView) {
-	        return "ProductCatalogue";
-	  }
-	 
-	 
-	 
-	
-
 	 @RequestMapping("UpdateAccount")
 	 public String UpdateAccount (ModelAndView modelAndView) {
 	        return "UpdateAccount";

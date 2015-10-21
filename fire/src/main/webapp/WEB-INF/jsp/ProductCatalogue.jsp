@@ -23,23 +23,20 @@
 
 		</div>
 		
-		<ul class="rig columns-3">
-<li><a href="Product"><h3>Gnome</h3>
-<p class ="price">£20 </p> 
-		<img src="ImageFolder/badGnome.png"/>
-		
-		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
+		<ul class="rig columns-3" >
+			<li th:each="product : ${products}"><a href="Product">
+				<h3>Gnome</h3>
+				<p class ="price">£20 </p> 
+				<img th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}"/>
+				<p>
+				<strong>RATING: </strong>
+				<span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
-				</p></a>
-	</li>
-<li><a href="Product"><h3>Gnome</h3>
-<p class ="price">£20 </p> 
-		<img src="ImageFolder/badGnome.png"/>
-		
-		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
-				</span>
-				</p></a>
-	</li>
+				</p>
+				</a>
+			</li>
+	
+	<!-- 
 	<li><a href="Product"><h3>Gnome</h3>
 <p class ="price">£20 </p> 
 		<img src="ImageFolder/badGnome.png"/>
@@ -72,6 +69,14 @@
 				</span>
 				</p></a>
 	</li>
+	<li><a href="Product"><h3>Gnome</h3>
+<p class ="price">£20 </p> 
+		<img src="ImageFolder/badGnome.png"/>
+		
+		<p><strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
+				</span>
+				</p></a>
+	</li>-->
 </ul>
 		<div class="push"></div>
 		

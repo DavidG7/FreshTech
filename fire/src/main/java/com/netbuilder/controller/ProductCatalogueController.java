@@ -10,30 +10,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.netbuilder.entities.Employee;
 import com.netbuilder.entities.Product;
-import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 
 @Controller
-public class LandingController {
+public class ProductCatalogueController {
 
 	
 	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
-	EmployeeRepository employeeRepository = (EmployeeRepository)context.getBean("EmployeeRepositorySQL");
+
+	List<Product> products = productRepository.findAll();
 	
-	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
-	List<Product> offerProducts = productRepository.findByOnOffer(true);
 	 
-	 @RequestMapping("/")
+	 @RequestMapping("/ProductCatalogue")
 	 String index(Model model, HttpSession session) {
 		    //session.setAttribute("mySessionAttribute", "someValue");
-		    
-		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
-		 	model.addAttribute("offerProducts", offerProducts);
+		 	model.addAttribute("products",products);
 		 	
-	        return "Landing";
+	        return "ProductCatalogue";
 	  }
 }
