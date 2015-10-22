@@ -45,18 +45,40 @@ public class PurchaseOrder extends JPanel
 		JPanel splitPanel = new JPanel();
 	
 		splitPanel.setLayout(new BoxLayout(splitPanel, BoxLayout.LINE_AXIS));
-		splitPanel.add(createProductListPanel(), BorderLayout.WEST);
+		splitPanel.add(createProductListPanel());
 		
 		JPanel northSouthPanel = new JPanel();
 	
 		northSouthPanel.setLayout(new BorderLayout());
-
+		northSouthPanel.setBorder(new EmptyBorder( 142, 0, 0, 0));
+		northSouthPanel.setBackground(Color.WHITE);
 		northSouthPanel.add(createPurchaseOrderInfoPanel(), BorderLayout.CENTER);
 		northSouthPanel.add(createPurchaseOrderPanel(), BorderLayout.SOUTH);
 		
-		splitPanel.add(northSouthPanel, BorderLayout.SOUTH);
+		JPanel buttons = new JPanel();
+		buttons.setBackground(Color.WHITE);
+		buttons.setPreferredSize(new Dimension(200,200));
+		buttons.setBorder(new EmptyBorder(30,0,0,50));
 		
-		splitPanel.setBackground(new Color(255, 255, 255));
+		
+		CustomButton add = new CustomButton("Add");
+		add.setPreferredSize(new Dimension(150,30));
+		CustomButton remove = new CustomButton("Remove");
+		remove.setPreferredSize(new Dimension(150,30));
+		CustomButton clear = new CustomButton("Clear");
+		clear.setPreferredSize(new Dimension(150,30));
+		CustomButton placeOrder = new CustomButton("Place Order");
+		placeOrder.setPreferredSize(new Dimension(150,30));
+		
+		buttons.add(add);
+		buttons.add(remove);
+		buttons.add(clear);
+		buttons.add(placeOrder);
+		
+		northSouthPanel.add(buttons,BorderLayout.EAST);
+		
+		splitPanel.add(northSouthPanel, BorderLayout.SOUTH);
+		splitPanel.setBackground(Color.WHITE);
 		
 		this.add(splitPanel);
 
@@ -72,9 +94,10 @@ public class PurchaseOrder extends JPanel
 		String [] colNames = {"ProductID","Product Name","Quantity"};
 		Object[][] data = new Object [35][5];
 		JTable productTable = new JTable(data, colNames);
+		productTable.setPreferredSize(new Dimension(400,700));
 		
 		JScrollPane scrollPane = new JScrollPane(productTable);		
-		CustomButton placeOrder = new CustomButton("Place Order");
+		
 		
 		
 		JTableHeader header = productTable.getTableHeader();
@@ -82,7 +105,7 @@ public class PurchaseOrder extends JPanel
 	    header.setForeground(Color.WHITE);
 	    productTable.setPreferredScrollableViewportSize(productTable.getPreferredSize());
 		
-		productPanel.setForeground(new Color(255, 255, 255));
+		productPanel.setForeground(Color.WHITE);
 		title.setFont(CustomFont.getFont("BOLD", 26));
 		subTitle.setFont(CustomFont.getFont("ITALIC", 14));
 		instructionSet.setFont(CustomFont.getFont("PLAIN", 14));
@@ -97,7 +120,6 @@ public class PurchaseOrder extends JPanel
 		productPanel.add(Box.createRigidArea(new Dimension(0, 60)));
 		productPanel.add(instructionSet);
 		productPanel.add(scrollPane);
-		productPanel.add(placeOrder);
 
 		productPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
 				
@@ -107,7 +129,7 @@ public class PurchaseOrder extends JPanel
 	public JComponent createPurchaseOrderInfoPanel()
 	{
 		JPanel orderInfoPanel = new JPanel();
-		GridLayout grid = new GridLayout(15, 1);
+		BoxLayout grid = new BoxLayout(orderInfoPanel, BoxLayout.Y_AXIS);
 		
 		String[] tempNames = new String[5];
 		
@@ -131,7 +153,7 @@ public class PurchaseOrder extends JPanel
 		JComboBox<String> quantityRequired = new JComboBox<String>(quantity);
 
 		orderInfoPanel.setLayout(grid);
-		orderInfoPanel.setBackground(new Color(255, 255, 255));		
+		orderInfoPanel.setBackground(Color.WHITE);		
 		
 		instruction.setFont(CustomFont.getFont("PLAIN", 14));
 		instructionTwo.setFont(CustomFont.getFont("PLAIN", 14));
@@ -140,24 +162,15 @@ public class PurchaseOrder extends JPanel
 		
 		listOfSuppliers.setForeground(new Color(0,122,0));
 		quantityRequired.setForeground(new Color(0,122,0));
-		
-		grid.preferredLayoutSize(orderInfoPanel);
-		
-		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
-		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
-		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
-		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 300)));
+
 		orderInfoPanel.add(instruction);
-		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
 		listOfSuppliers.setPreferredSize(new Dimension(50, 30));
 		orderInfoPanel.add(listOfSuppliers);
 	
-		orderInfoPanel.add(Box.createRigidArea(new Dimension(0, 100)));
 		orderInfoPanel.add(instructionTwo);
 		orderInfoPanel.add(quantityRequired);
 		
 		orderInfoPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-		
 		return orderInfoPanel;
 	}	
 	
@@ -165,28 +178,25 @@ public class PurchaseOrder extends JPanel
 	{
 		JPanel purchaseOrderPanel = new JPanel();
 		
-		String [] colNames = {"Product ID", "Product Name", "Product Quantity", "Supplier"};
-		Object[][] data = new Object[25][4];
+		String [] colNames = {"Product ID", "Product Name", "Quantity"};
+		Object[][] data = new Object[19][4];
 		JTable purchaseOrderTable = new JTable(data, colNames);
-		JScrollPane scrollPane = new JScrollPane(purchaseOrderTable);
+		CustomScrollPane scrollPane = new CustomScrollPane(purchaseOrderTable);
 		
 		JTableHeader header = purchaseOrderTable.getTableHeader();
 	    header.setBackground(new Color(0,122,0));
 	    header.setForeground(Color.WHITE);
+	    purchaseOrderTable.setPreferredSize(new Dimension(450, 300));
 	    purchaseOrderTable.setPreferredScrollableViewportSize(purchaseOrderTable.getPreferredSize());
 	    
-	    purchaseOrderTable.getColumnModel().getColumn(1).setPreferredWidth(125);
-	    purchaseOrderTable.getColumnModel().getColumn(2).setPreferredWidth(125);
+	    //purchaseOrderPanel.setPreferredSize(new Dimension(480,600));
 	    
-	    purchaseOrderTable.setPreferredSize(new Dimension(10000, 100));
-	    
-		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		
 		scrollPane.getViewport().setBackground(Color.WHITE);
-		
+
+	    purchaseOrderPanel.setBorder(new EmptyBorder(50, 0, 25, 38));
 		purchaseOrderPanel.add(scrollPane);
-		purchaseOrderPanel.setBackground(new Color(255, 255, 255));
-		
-		purchaseOrderPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
+		purchaseOrderPanel.setBackground(Color.WHITE);
 		
 		return purchaseOrderPanel;
 	}

@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import com.netbuilder.MongoConfig;
@@ -83,15 +84,30 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	}
 
 	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Integer arg0) 
+	{
 		
+		List<Payment> payment = findAll();
+		
+		//deleteAll();
+		
+		for(int i = 0; i < payment.size(); i++)
+		{
+			if(payment.get(i).getPaymentID() == arg0)
+			{
+				payment.remove(i);
+			}
+		}
+		
+		//mongoOperation.remove(new Query(Criteria.where("_id").is(arg0)), Payment.class);
+	
+		mongoOperation.save(payment, "Payment");
+	
 	}
 
 	@Override
 	public void delete(Payment arg0) {
-		// TODO Auto-generated method stub
-		
+		mongoOperation.remove(arg0);		
 	}
 
 	@Override
@@ -102,56 +118,120 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+
+		mongoOperation.remove(new Query(), Payment.class);
 		
 	}
 
 	@Override
-	public boolean exists(Integer arg0) {
-		// TODO Auto-generated method stub
+	public boolean exists(Integer arg0) 
+	{
+		List<Payment> payments = mongoOperation.findAll(Payment.class);
+		
+		for(int i = 0; i < payments.size(); i++)
+		{
+			if(payments.get(i).getPaymentID() == (arg0))
+			{
+				return true;
+			}
+		}	
 		return false;
 	}
 
 	@Override
 	public Iterable<Payment> findAll(Iterable<Integer> arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Query q = new Query().with(new Sort(Sort.Direction.ASC, "_id"));
+		
+		Iterable<Payment> payments = mongoOperation.find(q,  Payment.class);
+		
+		return payments;
 	}
 
 	@Override
-	public Payment findOne(Integer arg0) {
-		// TODO Auto-generated method stub
+	public Payment findOne(Integer arg0) 
+	{
+		List<Payment> payments = mongoOperation.findAll(Payment.class);
+		
+		for(int i  = 0; i < payments.size(); i++)
+		{
+			if(payments.get(i).getPaymentID() == arg0)
+			{
+				return payments.get(i);
+			}
+		}
+		
 		return null;
 	}
 
 	@Override
 	public <S extends Payment> S save(S arg0) {
-		// TODO Auto-generated method stub
+		mongoOperation.save(arg0);
 		return null;
 	}
 
 	@Override
 	public Payment findByPaymentID(int paymentID) {
-		// TODO Auto-generated method stub
+		
+		List<Payment> payments = mongoOperation.findAll(Payment.class);
+		
+		for(int i = 0; i < payments.size(); i++)
+		{
+			if(payments.get(i).getPaymentID() == paymentID)
+			{
+				return payments.get(i);
+			}
+		}
+		
 		return null;
 	}
 
 	@Override
-	public List<Payment> findByCustomerID(int customerID) {
-		// TODO Auto-generated method stub
+	public List<Payment> findByCustomerID(int customerID) 
+	{	
+		List<Payment> payments = mongoOperation.findAll(Payment.class);
+		
+		for(int i = 0; i < payments.size(); i++)
+		{
+			if(payments.get(i).getCustomerID() == customerID)
+			{
+				payments.add(payments.get(i));
+			}
+		}
+		
+		return payments;
+	}
+
+	@Override
+	public Payment findByCardNumber(int cardNumber) 
+	{
+		List<Payment> payments = mongoOperation.findAll(Payment.class);
+		
+		for(int i = 0; i < payments.size(); i++)
+		{
+			if(payments.get(i).getCardNumber() == cardNumber)
+			{
+				return payments.get(i);
+			}
+		}
+		
 		return null;
 	}
 
 	@Override
-	public Payment findByCardNumber(int cardNumber) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Payment> findBySortCode(String sortCode) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Payment> findBySortCode(String sortCode) 
+	{
+		List<Payment> payments = mongoOperation.findAll(Payment.class);
+		
+		for(int i = 0; i < payments.size(); i++)
+		{
+			if(payments.get(i).getSortCode() == sortCode)
+			{
+				payments.add(payments.get(i));
+			}
+		}
+		
+		return payments;
 	}
 
 }

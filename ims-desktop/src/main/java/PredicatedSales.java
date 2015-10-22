@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -30,18 +32,18 @@ public class PredicatedSales extends JPanel{
 	//private static final long serialVersionUID = 1L;
 	JLabel heading, option, salesPrediction;
 	JPanel topBar = new JPanel();
-	JPanel main = new JPanel();
+	Box main;
 	JTable table;
 	JPanel leftPanel,rightPanel, headingLeft;
 	String productName = "PRODUCTNAME";
 	///chart......
 
-	int x = 25;
+	int x = 35;
 	
 	public PredicatedSales(){
 		this.setLayout(new BorderLayout());
-		leftPanel = new JPanel(new GridLayout(2,1));
-		rightPanel = new JPanel(new GridLayout(2,1));
+		leftPanel = new JPanel();
+		rightPanel = new JPanel();
 		headingLeft = new JPanel(new GridLayout(1,2));
 		heading = new CustomLabel("Predicted Sales",true);
 		headingLeft.setBackground(Color.WHITE);
@@ -69,27 +71,32 @@ public class PredicatedSales extends JPanel{
 	      
 	      
 		CustomScrollPane scrollPane = new CustomScrollPane(table);
+		scrollPane.setPreferredSize(new Dimension(500,500));
 		leftPanel.add(scrollPane);
+		
 		
 		//CustomButton butReturn = new CustomButton("Return");
 		//leftPanel.add(butReturn);
 		final CustomPieChart pie = new CustomPieChart("Sales","Sales");
 		rightPanel.add(pie);
+		pie.setBackground(Color.WHITE);
+		pie.setBorder(new EmptyBorder(70,0,0,0));
 		salesPrediction = new JLabel("Expecting {" + productName + "} to sell 14,000 this quarter");
+		
 		//salesPrediction.setMargin(new Insets(150,20,150,150));
 		new CustomFont();
 		salesPrediction.setFont(CustomFont.getFont("BOLD", 12));
 		//rightPanel.add(salesPrediction);
-		this.add(main, BorderLayout.CENTER);
 		
-		main.setLayout(new FlowLayout(FlowLayout.CENTER));
+		
+		main = Box.createHorizontalBox();
+		this.add(main,BorderLayout.CENTER);
 		main.setBackground(Color.WHITE);
 		main.add(leftPanel);
 		main.add(rightPanel);
 		leftPanel.setBackground(Color.WHITE);
 		rightPanel.setBackground(Color.WHITE);
-		leftPanel.setBorder(new EmptyBorder(100, 0, 410, 0));
-		rightPanel.setBorder(new EmptyBorder(90, 0, 410, 0));
+
 		
 		//GUIMain.frame.pack();
 		setVisible(true);

@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -46,10 +47,9 @@ public class DailyStockReport extends JPanel{
 		panel.setLayout(new BorderLayout());
 		topBar.setBackground(Color.WHITE);
 		topBar.add(label);
-		searchText = new CustomTextArea("Search                  "+
-											"                    "+
-											"                    "+
-											"                    ");
+		searchText = new CustomTextArea("Search");
+		searchText.setPreferredSize(new Dimension(500,25));
+		topBar.setPreferredSize(new Dimension(800,80));
 		topBar.add(searchText);
 		panel.add(topBar, BorderLayout.NORTH);
 		panel.add(new CustomScrollPane(reportTable),BorderLayout.CENTER);

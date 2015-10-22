@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
-import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
+
+/**
+ * 
+ * @author rluu
+ *
+ */
 
 @Controller
 public class RegController {
@@ -70,6 +75,7 @@ public class RegController {
 			System.out.println(year);
 			CustomerRepositoryMongo.insert(new Customer(CustomerRepositoryMongo.findAll().size()+1, "000000000", 10000, name, email, username,  password));
 			CustomerRepositoryMongo.count();
+
 			return "redirect:/";
 	}
 }
