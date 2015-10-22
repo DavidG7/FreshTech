@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
 
 @Controller
