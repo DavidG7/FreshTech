@@ -131,7 +131,7 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 		return null;
 	}
 
-	@Override
+/*	@Override
 	public CustomerOrder findByCustomerOrderID(Integer customerOrderID) 
 	{
 		
@@ -152,7 +152,9 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 
 	}
 
-	@Override
+*/
+
+	/*@Override
 	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) 
 	{
 		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
@@ -171,7 +173,7 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 		return foundCustomerOrder;
 		
 	}
-
+*/
 	@Override
 	public ArrayList<CustomerOrder> findByDateOfOrder(Date dateOfOrder) 
 	{
@@ -228,6 +230,18 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 		}
 		
 		return foundCustomer;
+	}
+
+	@Override
+	public CustomerOrder findByCustomerID(Integer customerID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
