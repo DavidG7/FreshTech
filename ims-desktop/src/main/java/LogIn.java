@@ -59,7 +59,7 @@ public class LogIn extends JPanel implements ActionListener {
         rightHalf.add(picLabel);
         rightHalf.setBorder(new EmptyBorder(200,0,0,0));
         rightHalf.setBackground(Color.WHITE);
-        leftHalf.setBorder(new EmptyBorder(220,50,50,0));
+        leftHalf.setBorder(new EmptyBorder(220,0,50,0));
         leftHalf.setBackground(Color.WHITE);
         //rightHalf.add(new JSeparator(SwingConstants.VERTICAL));
                
@@ -148,7 +148,7 @@ public class LogIn extends JPanel implements ActionListener {
                   BorderLayout.LINE_START);
         panel.add(logInDisplay,
                   BorderLayout.CENTER);
-        panel.setPreferredSize(new Dimension(200, 150));
+        panel.setPreferredSize(new Dimension(400, 150));
  
         return panel;
     }

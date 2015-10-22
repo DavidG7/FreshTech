@@ -23,7 +23,7 @@
 
 		</div>
 		
-			<h3>You will recieve an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3>
+			<h3>You will receive an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3>
 		<div class="push"></div>
 </div>
 

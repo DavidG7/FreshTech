@@ -36,6 +36,7 @@
 						th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}" />
 				</form>
 			
+
 				<p id="clearrating">
 				<strong>RATING: </strong>
 				<span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;

@@ -23,7 +23,6 @@ public class ViewCreditController {
 		 ModelAndView view = new ModelAndView();
 		 view.setViewName("ViewCreditDetails");
 		 String user =session.getAttribute("sessionUser")+"";
-		 System.out.println(user);
 		 if(user.equalsIgnoreCase("null")){
 			 view.setViewName("Register");
 		 }	
