@@ -42,11 +42,7 @@ public class AddressController {
 	        return "Address";
 	 }
 
-	 @RequestMapping("ChooseAddress")
-	 public String getAddress (Model modelAndView) {
-	        return "ChooseAddress";
-
-	  }
+	 
 
 	
 }
