@@ -106,19 +106,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	public <S extends CustomerOrder> Iterable<S> save(Iterable<S> arg0) {
 		// TODO Auto-generated method stub
 		return null;
-<<<<<<< HEAD
 	}
-	@Override
-	public CustomerOrder findByCustomerOrderID(Integer OrderID) {
-		List<CustomerOrder> co= jdbcTemplate.queryForList("SELECT * FROM CustomerOrder WHERE orderid =" + 5);
-		for(int i=0; i<co.size(); i++){
-			  System.out.println(co.get(i).getCustomerID());
-			  System.out.println(co.get(i).getCustomerOrderStatus());
-			  System.out.println(co.get(i).getDeliveryAddress());
-			  System.out.println(co.get(i).getOrderTotal());
-=======
->>>>>>> 49438cefc1b8b3cbb8b55fe14f5435b33d3a544c
-		}
 	
 	
 	@Override
