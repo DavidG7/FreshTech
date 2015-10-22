@@ -24,7 +24,7 @@
 		</div>
 		
 		<ul class="rig columns-3" >
-			<li th:each="product : ${products}"><a href="Product">
+			<li th:each="product : ${products}" id="testimages"><a href="Product">
 				<h3>Gnome</h3>
 				<p class ="price">£20 </p> 
 				<img th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}"/>
