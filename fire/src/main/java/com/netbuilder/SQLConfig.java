@@ -20,7 +20,7 @@ public class SQLConfig {
         dataSource.setDatabaseName("mydb");
         dataSource.setUser("root");
         dataSource.setPassword("password");
-        dataSource.setServerName("10.50.15.40");
+        dataSource.setServerName("10.50.15.41");
         return dataSource;
     }
 	

@@ -24,7 +24,7 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	 * @param customerOrderID
 	 * @return CustomerOrder
 	 */
-	public CustomerOrder findByCustomerOrderID(Integer customerOrderID);
+	public CustomerOrder findByCustomerID(Integer customerID);
 	/**
 	 *  Finds CustomerOrder by Address
 	 * @param address
@@ -49,5 +49,7 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	 * @return ArrayList<CustomerOrder>
 	 */
 	public ArrayList<CustomerOrder> findByOrderTotal(float orderTotal);
+
+
 
 }

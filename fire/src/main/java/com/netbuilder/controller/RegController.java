@@ -7,14 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
 
 @Controller
 public class RegController {
 
 	
 	CustomerRepositoryMongo CustomerRepositoryMongo = new CustomerRepositoryMongo();
+	OrderHistoryRepositorySQL sss  = new OrderHistoryRepositorySQL();
 	
 	
 	 @RequestMapping("Register")
@@ -43,6 +46,8 @@ public class RegController {
 			System.out.println(year);
 			CustomerRepositoryMongo.insert(new Customer(3, "000000000", 50, name, email, username,  password));
 			CustomerRepositoryMongo.count();
+			sss.findByCustomerOrderID(5);
+			
 			return "redirect:/";
 	}
 }

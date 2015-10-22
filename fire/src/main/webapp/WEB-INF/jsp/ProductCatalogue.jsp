@@ -27,8 +27,8 @@
 			<li th:each="product : ${products}" id="testimages"><a href="Product">
 				<h3>Gnome</h3>
 				<p class ="price">£20 </p> 
-				<img th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}"/>
-				<p>
+				<img th:src="'ImageFolder/'+${product.image}" id="gnomeimage" th:alt="${product.productName}"/>
+				<p id="clearrating">
 				<strong>RATING: </strong>
 				<span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
