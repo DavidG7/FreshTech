@@ -9,7 +9,7 @@ public class ProductController {
 
 	
 	
-	 @RequestMapping("product")
+	 @RequestMapping("Product")
 	 public String   Product(Model modelAndView) {
 	        return "Product";
 	  }
