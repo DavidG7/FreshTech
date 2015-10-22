@@ -26,7 +26,7 @@
 		</div>
 		<div th:fragment="content">
 <div class="col-md-6">	
-<form th:action="@{/postLogin}" method="post">
+<form th:action="@{postLogin}" method="post">
 	  <div id="centre">
 				<p id="regtext2345"><strong>Log in</strong></p>
 		   			 <p><strong>Username :</strong><br/>

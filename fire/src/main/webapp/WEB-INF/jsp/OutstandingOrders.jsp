@@ -26,13 +26,9 @@
 	<div class="panel-body">
 
 		<div>
-			<button type="submit">
-				<strong>Pay for selected</strong>
-			</button>
+			<a href="PaymentAgreement"><button type="submit"><strong>Pay for selected</strong></button></a>
 			&nbsp;
-			<button type="submit">
-				<strong>Pay for all</strong>
-			</button>
+			<a href="PaymentAgreement"><button type="submit"><strong>Pay for all</strong></button></a>
 		</div>
 
 		<div>

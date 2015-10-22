@@ -75,6 +75,7 @@ public class RegController {
 			System.out.println(year);
 			CustomerRepositoryMongo.insert(new Customer(CustomerRepositoryMongo.findAll().size()+1, "000000000", 10000, name, email, username,  password));
 			CustomerRepositoryMongo.count();
+
 			return "redirect:/";
 	}
 }
