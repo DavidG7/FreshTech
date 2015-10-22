@@ -72,6 +72,7 @@
 						<li><a href="Register">Log in/Register </a></li>
 						<li><a href="ChooseAddress">View Addresses</a></li>
 						<li><a href="OrderTracking">Track an Order</a></li>
+						<li><a href="OutstandingOrders">Outstanding Orders</a></li>
 						<li><a href="UpdateAccount">Update your Account</a></li>
 						<li><a href="ViewCreditDetails">View Credit</a></li>
 						<li class="divider"></li>
