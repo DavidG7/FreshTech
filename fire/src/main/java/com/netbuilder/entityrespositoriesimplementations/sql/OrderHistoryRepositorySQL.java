@@ -80,10 +80,15 @@ public class OrderHistoryRepositorySQL  implements CustomerOrderRepository {
 	}
 	@Override
 	public CustomerOrder findByCustomerOrderID(Integer OrderID) {
-		List<CustomerOrder> co= (List<CustomerOrder>) jdbcTemplate.query("SELECT orderid, customerorderid, orderdate, ordertotal, customerorderstatus, addressid FROM CustomerOrder WHERE orderid =" + OrderID, new RowMapper());
+		List<CustomerOrder> co= jdbcTemplate.queryForList("SELECT orderid, customerorderid, orderdate, ordertotal, customerorderstatus, addressid FROM CustomerOrder WHERE orderid =" + 5);
+		for(int i=0; i<co.size(); i++){
+			  System.out.println(co.get(i).getCustomerID());
+			  System.out.println(co.get(i).getCustomerOrderStatus());
+			  System.out.println(co.get(i).getDeliveryAddress());
+			  System.out.println(co.get(i).getOrderTotal());
+		}
 		
-		
-		return new CustomerOrder(int customerOrderID, int customerID, Date dataOfOrder,String customerOrderStatus, String deliveryAddress);
+		return null;
 	}
 	@Override
 	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) {
