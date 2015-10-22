@@ -2,46 +2,72 @@ package com.netbuilder.entityrepositoriesimplementations.mongo;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Query;
 
+import com.netbuilder.MongoConfig;
 import com.netbuilder.entities.Payment;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.PaymentRepository;
+
+/**
+ * 
+ * @author Thomas Dudley
+ *
+ *	This interacts with the mongo database
+ *	Allows for updates and deletion
+ *
+ *	TODO implement create methods
+ *
+ */
 
 public class PaymentRepositoryMongo implements PaymentRepository{
 
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
+	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	
 	public PaymentRepositoryMongo() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public List<Payment> findAll() {
-		// TODO Auto-generated method stub
+		
+		return mongoOperation.findAll(Payment.class);
+		
+	}
+
+	@Override
+	public List<Payment> findAll(Sort arg0) 
+	{	
+		Query q = new Query().with(new Sort(Sort.Direction.ASC, "_id"));
+		List<Payment> payments = mongoOperation.find(q,  Payment.class);
+		return payments;
+	}
+
+	@Override
+	public <S extends Payment> S insert(S arg0) 
+	{
+		mongoOperation.insert(arg0);
 		return null;
 	}
 
 	@Override
-	public List<Payment> findAll(Sort arg0) {
-		// TODO Auto-generated method stub
+	public <S extends Payment> List<S> insert(Iterable<S> arg0) 
+	{
+		mongoOperation.insert(arg0);
 		return null;
 	}
 
 	@Override
-	public <S extends Payment> S insert(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Payment> List<S> insert(Iterable<S> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Payment> List<S> save(Iterable<S> arg0) {
-		// TODO Auto-generated method stub
+	public <S extends Payment> List<S> save(Iterable<S> arg0) 
+	{
+		mongoOperation.save(arg0);
 		return null;
 	}
 
@@ -53,8 +79,7 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mongoOperation.count(null, Payment.class);
 	}
 
 	@Override
