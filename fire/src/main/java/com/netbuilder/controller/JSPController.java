@@ -71,11 +71,6 @@ public class JSPController {
 	        return "UpdateAccount";
 	  }
 
-	 @RequestMapping("ViewCreditDetails")
-	 public String ViewCreditDetails (ModelAndView modelAndView) {
-	        return "ViewCreditDetails";
-	  }
-
 	 @RequestMapping("Landing")
 	 public String landing2(ModelAndView modelAndView) {
 	        return "Landing";

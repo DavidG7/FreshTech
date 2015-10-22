@@ -24,7 +24,7 @@ public class ProductCatalogueController {
 	List<Product> products = productRepository.findAll();
 	
 	 
-	 @RequestMapping("/ProductCatalogue")
+	 @RequestMapping("ProductCatalogue")
 	 String index(Model model, HttpSession session) {
 		    //session.setAttribute("mySessionAttribute", "someValue");
 		 	model.addAttribute("products",products);

@@ -17,7 +17,7 @@ public class TemplateController {
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
 	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
 	 
-	 @RequestMapping("/")
+	 @RequestMapping("/temp")
 	    public String landing(Model model) {
 		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
 	        return "Landing";
