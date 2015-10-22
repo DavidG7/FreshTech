@@ -16,7 +16,7 @@
 		<div class="jumbotron">
 
 			<h2>
-				<b> Checkout </b>
+				<b>Order Checkout </b>
 			</h2>
 
 		</div>

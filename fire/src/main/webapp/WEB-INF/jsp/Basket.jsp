@@ -5,7 +5,8 @@
       th:include="Template :: page">
       
     <head th:fragment="header">
-		<link  type="text/css" rel="stylesheet" href="css/ChooseAddress.css" />
+		<link type="text/css" rel="stylesheet" href="css/ChooseAddress.css" />
+		<link type="text/css" rel="stylesheet" href="css/Login.css" />
 	<title>NB Gardens</title>
     </head>
     <body>
@@ -27,17 +28,9 @@
 	
 		
 		<div class = "panel-body">
-	    
-		<div th:each = "product : ${products}">
-		
-			<p th:text = "${product}"></p>
-			
-			
-		
-		</div>
 
 
-<!--	    
+<!-- 	    
 <p>ITEM 1 - PLACEHOLDER EXAMPLE                 QUANTITY: 1</p> <div class="dropdown">
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
     <span class="caret"></span></button>
@@ -93,14 +86,60 @@
 
 <br/>
 
--->
+
 
 <br/>	    
 <a href="OrderCheckout"><button type="submit" value="Checkout">Checkout</button></a>
+-->
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="50%"/>
+		                stuff
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/Dwarf Gnome.png" alt="newlittleFriend" width="50%"/>
+		                and
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="50%"/>
+		                things
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="50%"/>
+		                stuff
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		
 	<div class = "push"></div>	
 			</div>
 
 
+
+
+<!-- Finished doing my stuff at the point -->
 </div>
 
 </body>
