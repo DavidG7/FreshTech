@@ -31,7 +31,7 @@ public interface CustomerRepository extends MongoRepository<Customer, Integer>
 	 * @param customerPhone;
 	 * @return  
 	 */
-	public List<Customer> findByCustomerPhone(String customerPhone);
+	public Customer findByCustomerPhone(String customerPhone);
 	
 	/**
 	 * This method returns a list of all customers given by the specified availableCredit

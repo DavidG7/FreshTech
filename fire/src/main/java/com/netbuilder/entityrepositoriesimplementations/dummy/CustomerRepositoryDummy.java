@@ -183,7 +183,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 	}
 
 	@Override
-	public List<Customer> findByCustomerPhone(String customerPhone) 
+	public Customer findByCustomerPhone(String customerPhone) 
 	{
 		
 		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
@@ -198,7 +198,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 			}
 		}
 		
-		return foundCustomer;
+		return foundCustomer.get(0);
 	}
 
 	@Override
