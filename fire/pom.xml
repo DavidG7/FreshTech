@@ -21,13 +21,6 @@
 
 	<dependencies>
 	
-	<dependency>
-	<groupId>org.springframework</groupId>
-	<artifactId>spring-tx</artifactId>
-	<version>4.2.2.RELEASE</version>
-</dependency>
-	
-	
 		<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
