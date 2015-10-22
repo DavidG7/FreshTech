@@ -45,8 +45,8 @@ public class DummyData {
 		customers.add(new Customer(3, "phoneTest3", (float)33.33, "name3", "email3", "user3", "pass3","contact1"));
 		customers.add(new Customer(4, "phoneTest4", (float)44.44, "name4", "email4", "user4", "pass4", "contact2"));
 		
-		customerOrders.add(new CustomerOrder(1,1, new Date(), "status1", "address1"));
-		customerOrders.add(new CustomerOrder(2,1, new Date(), "status2", "address2"));
+		customerOrders.add(new CustomerOrder(1,1, "22/1", "status1", 1));
+		customerOrders.add(new CustomerOrder(2,1, "11/5", "status2", 2));
 		
 		products.add(new Product(1,1,(float)33.33, "gnome", "badGnome", false, false, 3, "description3", "badGnome.png",true,(float)22.22));
 		products.add(new Product(2,2,(float)44.44, "gnome", "littleFriend", true, true, 4, "description4", "trek.jpg",true, (float)11.11));
