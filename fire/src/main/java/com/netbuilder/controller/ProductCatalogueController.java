@@ -12,29 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
-import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
 
 @Controller
-public class LandingController {
+public class ProductCatalogueController {
 
 	
 	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
-	EmployeeRepositorySQL employeeRepository = new EmployeeRepositorySQL();
+
+	List<Product> products = productRepository.findAll();
 	
-
-	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
-	List<Product> offerProducts = productRepository.findByOnOffer(true);
-
 	 
-	 @RequestMapping("/")
+	 @RequestMapping("/ProductCatalogue")
 	 String index(Model model, HttpSession session) {
 		    //session.setAttribute("mySessionAttribute", "someValue");
-		    
-		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
-		 	model.addAttribute("offerProducts", offerProducts);
-
-	        return "Landing";
+		 	model.addAttribute("products",products);
+		 	
+	        return "ProductCatalogue";
 	  }
 }

@@ -4,11 +4,16 @@
 	margin-left: 45%;
 	
 }
-#regtext{
+#regtext2345 {
 	text-decoration: underline;
+<<<<<<< HEAD
 	font-size: 25px;
 }
 
 #test{
 	color:green;
+=======
+	font-size: 20px;
+	color: green;
+>>>>>>> 19ec382af41815e2cece12485b366537c1e5725d
 }

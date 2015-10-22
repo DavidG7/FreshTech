@@ -1,26 +1,13 @@
 package com.netbuilder.controller;
 
-import java.util.List;
-import java.util.Random;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.netbuilder.BeansConfig;
-import com.netbuilder.MongoConfig;
 import com.netbuilder.entities.Customer;
-import com.netbuilder.entityrepositories.CustomerRepository;
-import com.netbuilder.entityrepositories.ProductRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 
 @Controller

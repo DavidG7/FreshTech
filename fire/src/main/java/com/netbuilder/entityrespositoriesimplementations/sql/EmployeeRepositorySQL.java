@@ -1,18 +1,21 @@
 package com.netbuilder.entityrespositoriesimplementations.sql;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javax.sql.DataSource;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.netbuilder.SQLConfig;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 
 public class EmployeeRepositorySQL implements EmployeeRepository{
 
-	private DataSource dataSource;
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(SQLConfig.class);
+	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
+    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
 	
 	@Override
 	public <S extends Employee> S save(S entity) {
@@ -53,8 +56,8 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.queryForLong("SELECT COUNT(*) FROM Employee;");
+	
 	}
 
 	@Override
