@@ -31,11 +31,9 @@
 		<div class = "panel-body">
 	    
 	   <div id="centre">
-<<<<<<< HEAD
-			<p id="test"><strong>Log in</strong></p>
-=======
+	   
 			<p id="regtext2345"><strong>Log in</strong></p>
->>>>>>> 19ec382af41815e2cece12485b366537c1e5725d
+
 		    <p><strong>Username :</strong><br/>
 			<input type = "text" name = "username"/>
 			</p>
