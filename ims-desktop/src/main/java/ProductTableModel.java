@@ -1,8 +1,42 @@
-import javax.swing.table.AbstractTableModel;
+import java.awt.Color;
 
-class ProductTableModel extends AbstractTableModel {
-	private static final long serialVersionUID = 1L;
+import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
 
+class ProductTableModel  {
+	public ProductTableModel(JTable table, Object[][] data, String[] colNames){
+		buildTable(table, data, colNames);
+	}
+	
+	private JTable buildTable(JTable table, Object[][] data, String[] colNames){
+		table = new JTable(data ,colNames);
+		JTableHeader header = table.getTableHeader();
+	      header.setBackground(new Color(0,122,0));
+	      header.setForeground(Color.WHITE);
+	     
+	      return table;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*
 	private String[] columnNames = { "Product ID" , "Product Name" , "Quantity", "Yearly Sales" };
 
     private Object[][] data = {
@@ -46,7 +80,7 @@ class ProductTableModel extends AbstractTableModel {
      * JTable uses this method to determine the default renderer/ editor for
      * each cell. If we didn't implement this method, then the last column
      * would contain text ("true"/"false"), rather than a check box.
-     */
+     
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public Class getColumnClass(int c) {
       return getValueAt(0, c).getClass();
@@ -54,7 +88,7 @@ class ProductTableModel extends AbstractTableModel {
 
     /*
      * Don't need to implement this method unless your table's editable.
-     */
+     
     public boolean isCellEditable(int row, int col) {
       //Note that the data/cell address is constant,
       //no matter where the cell appears onscreen.
@@ -63,7 +97,7 @@ class ProductTableModel extends AbstractTableModel {
       } else {
         return true;
       }
-    }
+    }*/
 
     /*
      * Don't need to implement this method unless your table's data can
