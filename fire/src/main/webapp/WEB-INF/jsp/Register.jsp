@@ -31,7 +31,9 @@
 		<div class = "panel-body">
 	    
 	   <div id="centre">
+	   
 			<p id="regtext2345"><strong>Log in</strong></p>
+
 		    <p><strong>Username :</strong><br/>
 			<input type = "text" name = "username"/>
 			</p>
