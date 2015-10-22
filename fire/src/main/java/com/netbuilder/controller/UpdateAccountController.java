@@ -1,7 +1,5 @@
 package com.netbuilder.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -32,6 +30,7 @@ public class UpdateAccountController {
 			 }	
 			 else{
 				 Customer customer = CustomerRepositoryMongo.findByCustomerUsername(user);
+				 view.addObject("customerAddress", customer.getCustomerAddressAt(0));	
 				 view.addObject("customer", customer);		
 			 } 
 	        return view;
