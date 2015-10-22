@@ -3,6 +3,7 @@ package com.netbuilder.entityrepositoriesimplementations.mongo;
 import java.beans.Beans;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.data.mongodb.core.query.Update;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -22,7 +23,8 @@ import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositories.AddressRepository;
 
-public class AddressRepositoryMongo implements AddressRepository{
+
+public class AddressRepositoryMongo extends Update implements AddressRepository{
 	
 
 	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
@@ -211,6 +213,7 @@ public class AddressRepositoryMongo implements AddressRepository{
 		}
 		return temp;
 	}
+
 
 		
 }
