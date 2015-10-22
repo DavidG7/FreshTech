@@ -22,7 +22,7 @@
 			<a class="btn btn-default navbar-toggle collapsed" type="button"
 				data-toggle="collapse" data-target="#navbar-collapse"
 				id="collapse-top"> <span class="glyphicon glyphicon-th-list"></span>
-			</a> <a class="navbar-brand" href="#"> <img id="logo"
+			</a> <a class="navbar-brand" href="/"> <img id="logo"
 				alt="NB Gardens" src="ImageFolder\NBGardensLogo.png" />
 			</a>
 			<div class="row search-row" id="top-search">
