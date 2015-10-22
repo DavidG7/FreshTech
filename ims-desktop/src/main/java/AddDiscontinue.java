@@ -19,10 +19,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTable;
 //<<<<<<< HEAD
 //=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.JTableHeader;
 
 import CustomUI.CustomButton;
 import CustomUI.CustomLabel;
@@ -40,10 +42,11 @@ public class AddDiscontinue extends JPanel{
 	JLabel heading,optionOne,optionTwo,porousware;
 	JComboBox<String> categoryCombo;
 	JRadioButton porouswareButtonY,porouswareButtonN;
-	CustomJTable productTable;
+	JTable productTable;
 	
 	String newline = System.getProperty("line.separator");
 
+	int x = 30; //table height
 	public AddDiscontinue(){
 		this.setLayout(new BorderLayout());
 		
@@ -106,9 +109,12 @@ public class AddDiscontinue extends JPanel{
 		heading = new CustomLabel("Add/Discontinue Stock Item", true);
 		
 		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
-	
-		productTable = new CustomJTable();
-	
+		String [] colNames = {"ProductID","Product Name"};
+		Object[][] data = new Object [x][5];
+		productTable = new JTable(data, colNames);
+		JTableHeader header = productTable.getTableHeader();
+	      header.setBackground(new Color(0,122,0));
+	      header.setForeground(Color.WHITE);
 		
 		 CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
 		 discontinueStock.addActionListener(new ActionListener() {

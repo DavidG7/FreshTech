@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 //import java.util.Vector;
 
+
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -68,7 +69,9 @@ public class PurchaseOrder extends JPanel
 		CustomLabel subTitle = new CustomLabel("Place a Purchase Order Here", true);
 		CustomLabel instructionSet = new CustomLabel ("(1) Select a Product", false);
 		
-		CustomJTable productTable = new CustomJTable();
+		String [] colNames = {"ProductID","Product Name","Quantity"};
+		Object[][] data = new Object [35][5];
+		JTable productTable = new JTable(data, colNames);
 		
 		JScrollPane scrollPane = new JScrollPane(productTable);		
 		CustomButton placeOrder = new CustomButton("Place Order");
@@ -163,7 +166,7 @@ public class PurchaseOrder extends JPanel
 		JPanel purchaseOrderPanel = new JPanel();
 		
 		String [] colNames = {"Product ID", "Product Name", "Product Quantity", "Supplier"};
-		Object[][] data = new Object[10][10];
+		Object[][] data = new Object[25][4];
 		JTable purchaseOrderTable = new JTable(data, colNames);
 		JScrollPane scrollPane = new JScrollPane(purchaseOrderTable);
 		
