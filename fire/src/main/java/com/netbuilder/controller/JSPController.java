@@ -65,8 +65,11 @@ public class JSPController {
 	 public String  PaymentAgreement(ModelAndView modelAndView) {
 	        return "PaymentAgreement";
 	  }
+<<<<<<< HEAD
 	 
 
+=======
+>>>>>>> 7389ac8ef9965fe4bbc65ee586e03a700750ee06
 	
 	 
 	 @RequestMapping("ProductCatalogue")
@@ -74,15 +77,21 @@ public class JSPController {
 	        return "ProductCatalogue";
 	  }
 	 
+<<<<<<< HEAD
 	 
 	 
 	
 
+=======
+>>>>>>> 7389ac8ef9965fe4bbc65ee586e03a700750ee06
 	 @RequestMapping("Product")
 	 public String   Product(ModelAndView modelAndView) {
 	        return "Product";
 	  }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7389ac8ef9965fe4bbc65ee586e03a700750ee06
 
 	 @RequestMapping("UpdateAccount")
 	 public String UpdateAccount (ModelAndView modelAndView) {
