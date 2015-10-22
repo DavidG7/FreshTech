@@ -23,33 +23,18 @@
 			</div>		
 
 		</div>
-		<div th:fragment="content">
-<div class="col-md-6">
-
-		
-
-		<div class = "panel-body">
-	    
-	   <div id="centre">
-
-			<p id="test"><strong>Log in</strong></p>
-			<p id="regtext2345"><strong>Log in</strong></p>
-
-		    <p><strong>Username :</strong><br/>
-			<input type = "text" name = "username"/>
-			</p>
-			
-			<p><strong>Password :</strong><br/>
-			<input type = "text" name = "password"/>
-			</p>
-			
-				<a href = "/"><button type="submit"><strong>Log In</strong></button></a>
 		</div>
-	   
-	<div class="push"></div>
-</div>
-</div>
-</div>
+		<div th:fragment="content">
+<div class="col-md-6">	
+<form th:action="@{/postLogin}" method="post">
+	  <div id="centre">
+				<p id="regtext2345"><strong>Log in</strong></p>
+		   			 <p><strong>Username :</strong><br/>
+						<input type = "text" name = "username"/></p>
+							<p><strong>Password :</strong><br/>
+								<input type = "text" name = "password"/></p>
+									<button type="submit"><strong>Log In</strong></button></div></form></div>
+									
 <form th:action="@{/postReg}" method="post">
 <div class="col-md-6">
 		<div class = "panel-body">

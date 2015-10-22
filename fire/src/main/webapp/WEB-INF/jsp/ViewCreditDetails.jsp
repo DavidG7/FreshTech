@@ -26,7 +26,8 @@
 		<h2>Credit Score</h2>
 		<br/>
 		<br/>
-		<h3>${credit}</h3>
+		<div th:text="${session.sessionUser}"></div>
+		<h3 th:text="${credit}"></h3>
 		<br/>
 		<br/>
 		

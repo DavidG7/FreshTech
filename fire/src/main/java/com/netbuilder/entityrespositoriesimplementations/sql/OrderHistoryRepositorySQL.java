@@ -80,7 +80,7 @@ public class OrderHistoryRepositorySQL  implements CustomerOrderRepository {
 	}
 	@Override
 	public CustomerOrder findByCustomerOrderID(Integer OrderID) {
-		List<CustomerOrder> co= jdbcTemplate.queryForList("SELECT orderid, customerorderid, orderdate, ordertotal, customerorderstatus, addressid FROM CustomerOrder WHERE orderid =" + 5);
+		List<CustomerOrder> co= jdbcTemplate.queryForList("SELECT * FROM CustomerOrder WHERE orderid =" + 5);
 		for(int i=0; i<co.size(); i++){
 			  System.out.println(co.get(i).getCustomerID());
 			  System.out.println(co.get(i).getCustomerOrderStatus());

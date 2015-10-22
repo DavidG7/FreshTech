@@ -150,8 +150,15 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 
 	@Override
 	public Customer findByCustomerUsername(String customerUsername) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Customer> customers = mongoOperation.findAll(Customer.class);
+		Customer customer = null;
+		for(int i=0; i<customers.size(); i++){
+			if(customers.get(i).getCustomerUsername().equalsIgnoreCase(customerUsername)){
+				customer = customers.get(i);
+			}
+		}
+
+		return customer;
 	}
 
 	@Override
