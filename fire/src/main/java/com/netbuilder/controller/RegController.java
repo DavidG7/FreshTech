@@ -46,7 +46,7 @@ public class RegController {
 			System.out.println(year);
 			CustomerRepositoryMongo.insert(new Customer(3, "000000000", 50, name, email, username,  password));
 			CustomerRepositoryMongo.count();
-			sss.findByCustomerOrderID(5);
+	//		sss.findByCustomerOrderID(5);
 			
 			return "redirect:/";
 	}

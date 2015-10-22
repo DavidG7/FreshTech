@@ -18,9 +18,9 @@ public class AddressController {
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
 		// AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(1).getAddressid());
-		 AddressRepositoryMongo.save(new Address(1,"Haggard Road 125", "KMNB", 1));
+		 AddressRepositoryMongo.save(new Address(5,"Ricky Road 125", "KMNB", 1));
 		 AddressRepositoryMongo.save(new Address(2,"Serpent Road", "LL09", 1));
-		 AddressRepositoryMongo.save(new Address(4,"Ice and Fire Road", "GGG6", 2));
+		 AddressRepositoryMongo.save(new Address(4,"Ice Road", "GGG6", 2));
 	
 		 for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
 			 System.out.println("");
