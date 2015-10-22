@@ -19,7 +19,7 @@ public class CustomerOrderTest {
 
 	@BeforeClass
 	public static void testCustomerOrderintDateStringString() {
-		test = new CustomerOrder(0,12, d, "status", "adresss");
+		//test = new CustomerOrder(0,12, d, "status", "adresss");
 
 	}
 
@@ -48,7 +48,7 @@ public class CustomerOrderTest {
 		myCal.set(Calendar.MONTH, 9);
 		myCal.set(Calendar.DAY_OF_MONTH, 10);
 		Date theDate = myCal.getTime();
-		test.setDateOfOrder(theDate);
+		//test.setDateOfOrder(theDate);
 		assertEquals(test.getDateOfOrder(),theDate);
 	}
 
@@ -81,7 +81,7 @@ public class CustomerOrderTest {
 
 	@Test
 	public void testSetDeliveryAddress() {
-		test.setDeliveryAddress("adddess1244");
+		//test.setDeliveryAddress("adddess1244");
 		assertEquals(test.getDeliveryAddress(),"adddess1244");
 	}
 
