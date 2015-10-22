@@ -7,7 +7,7 @@ import com.mongodb.MongoClient;
 public class MongoDatabaseController 
 {	
 	//MongoDB Variables
-	static String mongohost = "10.50.15.34";
+	static String mongohost = "10.50.15.51";
 	static int port = 27017;
 	static MongoClient mongoClient;
 	static DB db;	
