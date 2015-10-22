@@ -84,15 +84,30 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	}
 
 	@Override
-	public void delete(Integer arg0) {
-		mongoOperation.remove(new Query(Criteria.where("_id").is(arg0)), "Payment");
+	public void delete(Integer arg0) 
+	{
 		
+		List<Payment> payment = findAll();
+		
+		//deleteAll();
+		
+		for(int i = 0; i < payment.size(); i++)
+		{
+			if(payment.get(i).getPaymentID() == arg0)
+			{
+				payment.remove(i);
+			}
+		}
+		
+		//mongoOperation.remove(new Query(Criteria.where("_id").is(arg0)), Payment.class);
+	
+		mongoOperation.save(payment, "Payment");
+	
 	}
 
 	@Override
 	public void delete(Payment arg0) {
-		mongoOperation.remove(arg0);
-		
+		mongoOperation.remove(arg0);		
 	}
 
 	@Override
@@ -103,15 +118,8 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 
 	@Override
 	public void deleteAll() {
-		
-		List<Payment> payments = findAll();
-		
-		for(Payment p : payments)
-		{
-			payments.remove(p);
-		}
-		
-		mongoOperation.save(payments);
+
+		mongoOperation.remove(new Query(), Payment.class);
 		
 	}
 
