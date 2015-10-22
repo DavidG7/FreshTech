@@ -4,7 +4,7 @@ ul.rig {
 	margin-left: -2.5%; /* should match li left margin */
 }
 
-.img {
+#testimages {
     position: relative;
     float: left;
     width:  500px;
