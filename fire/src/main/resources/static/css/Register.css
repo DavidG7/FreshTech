@@ -6,6 +6,9 @@
 }
 #regtext{
 	text-decoration: underline;
-	font-size: 120px;
-	color: red;
+	font-size: 25px;
+}
+
+#test{
+	color:green;
 }
