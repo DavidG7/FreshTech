@@ -2,29 +2,40 @@ package com.netbuilder.entityrepositoriesimplementations.mongo;
 
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoOperations;
 
+import org.springframework.data.mongodb.core.query.Query;
+
+import com.netbuilder.MongoConfig;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 
 public class ProductRepositoryMongo implements ProductRepository{
 
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
+	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	
+	
 	public ProductRepositoryMongo() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public List<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return mongoOperation.findAll(Product.class);
 	}
 
 	@Override
 	public List<Product> findAll(Sort arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		Query q = new Query().with(new Sort(Sort.Direction.ASC, "_id"));
+		List<Product> products = mongoOperation.find(q,  Product.class);
+		return products;
 	}
 
 	@Override
