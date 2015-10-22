@@ -8,28 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
 
-import com.netbuilder.entities.Product;
-import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
-
 
 @Controller
 public class AddressController {
 	AddressRepositoryMongo AddressRepositoryMongo = new AddressRepositoryMongo();
-	ProductRepositoryMongo ProductRepositoryMongo = new ProductRepositoryMongo();
 	
 	
 
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
-		AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(1).getAddressid());
-
-		System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(0).getAddress());
-		System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
-		 
-		System.out.println("Number of Adresses: " + AddressRepositoryMongo.count());
-		 
-		 
-		for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
+		// AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(1).getAddressid());
+		 AddressRepositoryMongo.save(new Address(1,"Haggard Road 125", "KMNB", 1));
+		 AddressRepositoryMongo.save(new Address(2,"Serpent Road", "LL09", 1));
+		 AddressRepositoryMongo.save(new Address(4,"Ice and Fire Road", "GGG6", 2));
+	
+		 for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
 			 System.out.println("");
 			 System.out.println("Address ID: " + AddressRepositoryMongo.findAll().get(i).getAddressid());
 			 System.out.println("Address: " + AddressRepositoryMongo.findAll().get(i).getAddress());
@@ -40,25 +33,23 @@ public class AddressController {
 			 System.out.println("");
 			 System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByAddressID(3).getAddress());
 			 System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(0).getAddress());
-			 System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
+			// System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
 			 
 			 System.out.println("Number of Adresses: " + AddressRepositoryMongo.count());
 			 
 			 
-			 AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(4));
+			// AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(4));
 			 
-			 AddressRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
 			 
-		 
+			
+			 
+			 //AddressRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
+			 
+	 
 	        return "Address";
 	 }
 
-	 @RequestMapping("ChooseAddress")
-	 public String getAddress (Model modelAndView) {
-	        return "ChooseAddress";
-
-	  }
+	 
 
 	
 }
-

@@ -19,10 +19,10 @@ public class CustomerOrder {
 	//@ManyToOne
 	@PrimaryKeyJoinColumn(name = "customerOrderID")
 	private int  customerID;
-	private Date dateOfOrder;
+	private String dateOfOrder;
 	private String orderStatus;
 	private float orderTotal;
-	private String deliveryAddress;
+	private int deliveryAddress;
 	//private DummyData data = new DummyData();
 
 	public CustomerOrder() { }
@@ -36,8 +36,8 @@ public class CustomerOrder {
 	 * @param customerOrderStatus
 	 * @param deliveryAddress
 	 */
-	public CustomerOrder(int customerOrderID, int customerID, Date dataOfOrder,
-			String customerOrderStatus, String deliveryAddress) {
+	public CustomerOrder(int customerOrderID, int customerID, String dataOfOrder,
+			String customerOrderStatus, int deliveryAddress) {
 		this.customerOrderID = customerOrderID;
 		this.customerID = customerID;
 		this.dateOfOrder = dataOfOrder;
@@ -59,14 +59,14 @@ public class CustomerOrder {
 		return  "OrderID:" +customerOrderID + "\nCustomerID:"+customerID+"\nCustomer Order Status:"+orderStatus+ "\nDelivery Address:"+deliveryAddress;
 	}
 	
-	public Date getDateOfOrder() {return dateOfOrder;}
-	public void setDateOfOrder(Date dateOfOrder) {this.dateOfOrder = dateOfOrder;}
+	public String getDateOfOrder() {return dateOfOrder;}
+	public void setDateOfOrder(String string) {this.dateOfOrder = string;}
 	public int getCustomerOrderID() {return customerOrderID;}
 	public void setCustomerOrderID(int customerOrderID) {this.customerOrderID = customerOrderID;}
 	public String getCustomerOrderStatus() {return orderStatus;}
 	public void setCustomerOrderStatus(String customerOrderStatus) {this.orderStatus = customerOrderStatus;}
-	public String getDeliveryAddress() {return deliveryAddress;}
-	public void setDeliveryAddress(String deliveryAddress) {this.deliveryAddress = deliveryAddress;}
+	public int getDeliveryAddress() {return deliveryAddress;}
+	public void setDeliveryAddress(int deliveryAddress) {this.deliveryAddress = deliveryAddress;}
 	public int getCustomerID () {return customerID;}
 	public void setCustomerID(int customerID) {this.customerID = customerID;}
 	public float getOrderTotal() {return orderTotal;}

@@ -7,11 +7,13 @@ import java.awt.Insets;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.JTableHeader;
 
 import CustomUI.CustomFont;
 import CustomUI.CustomLabel;
@@ -29,12 +31,12 @@ public class PredicatedSales extends JPanel{
 	JLabel heading, option, salesPrediction;
 	JPanel topBar = new JPanel();
 	JPanel main = new JPanel();
-	CustomJTable table;
+	JTable table;
 	JPanel leftPanel,rightPanel, headingLeft;
 	String productName = "PRODUCTNAME";
 	///chart......
 
-	
+	int x = 25;
 	
 	public PredicatedSales(){
 		this.setLayout(new BorderLayout());
@@ -55,7 +57,17 @@ public class PredicatedSales extends JPanel{
 		add(headingLeft, BorderLayout.NORTH);
 		//leftPanel.add(option);
 		//this.add(topBar,BorderLayout.NORTH);
-		table = new CustomJTable();
+		
+		
+		String [] colNames = {"ProductID","Product Name","Quantity","Yearly Sales"};
+		Object[][] data = new Object[x][5];
+		table = new JTable(data ,colNames);
+		JTableHeader header = table.getTableHeader();
+	      header.setBackground(new Color(0,122,0));
+	      header.setForeground(Color.WHITE);
+		
+	      
+	      
 		CustomScrollPane scrollPane = new CustomScrollPane(table);
 		leftPanel.add(scrollPane);
 		

@@ -1,7 +1,10 @@
 package com.netbuilder.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +20,34 @@ public class RegController {
 
 	
 	CustomerRepositoryMongo CustomerRepositoryMongo = new CustomerRepositoryMongo();
-	OrderHistoryRepositorySQL sss  = new OrderHistoryRepositorySQL();
+
 	
 	
 	 @RequestMapping("Register")
 	 public String   Register(Model model) {
 	        return "Register";
 	  }
+	 
+	 @RequestMapping(value="postLogin" ,method = RequestMethod.POST)
+	 public String doLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session){
+		 String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			List<Customer> customers= CustomerRepositoryMongo.findAll();
+			System.out.println(customers.size());
+			for(int i=0; i<customers.size(); i++){
+				System.out.println(customers.get(i).getCustomerUsername());
+				System.out.println(customers.get(i).getCustomerPassword());
+				if(customers.get(i).getCustomerUsername().equalsIgnoreCase(username) && customers.get(i).getCustomerPassword().equalsIgnoreCase(password)){
+					session.setAttribute("sessionUser", username);
+					System.out.println("yay FTW");
+					return"redirect:/";
+				
+				}
+			}
+			return"redirect:/";
+	 }
+
+	
 	 
 	@RequestMapping(value="postReg" ,method = RequestMethod.POST)
 	public String doPost (HttpServletRequest request, HttpServletResponse response) {
@@ -44,10 +68,8 @@ public class RegController {
 			System.out.println(month);
 			System.out.println(day);
 			System.out.println(year);
-			CustomerRepositoryMongo.insert(new Customer(3, "000000000", 50, name, email, username,  password));
+			CustomerRepositoryMongo.insert(new Customer(CustomerRepositoryMongo.findAll().size()+1, "000000000", 10000, name, email, username,  password));
 			CustomerRepositoryMongo.count();
-			sss.findByCustomerOrderID(5);
-			
 			return "redirect:/";
 	}
 }
