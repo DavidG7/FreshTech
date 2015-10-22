@@ -58,7 +58,7 @@
   <span class= "glyphicon glyphicon-envelope"> Email: </span><br/> service@nbgardens.com
 		</p>
 </div>		
-				    <div id="map">.</div>
+				    <div id="map"></div>
 			<div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div>	    
 </div>
 		

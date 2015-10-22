@@ -85,7 +85,7 @@
 
 <br/>
 <br/>	    
-<a href="OrderConfirmation"><button type="submit" value="Checkout">Checkout</button></a>
+<a href="OrderCheckout"><button type="submit" value="Checkout">Checkout</button></a>
 	<div class = "push"></div>	
 			</div>
 
