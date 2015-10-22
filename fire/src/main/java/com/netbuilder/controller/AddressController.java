@@ -17,7 +17,11 @@ public class AddressController {
 
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
-		 AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(1).getAddressid());
+		// AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(1).getAddressid());
+		 AddressRepositoryMongo.save(new Address(5,"Ricky Road 125", "KMNB", 1));
+		 AddressRepositoryMongo.save(new Address(2,"Serpent Road", "LL09", 1));
+		 AddressRepositoryMongo.save(new Address(4,"Ice Road", "GGG6", 2));
+	
 		 for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
 			 System.out.println("");
 			 System.out.println("Address ID: " + AddressRepositoryMongo.findAll().get(i).getAddressid());
@@ -29,12 +33,15 @@ public class AddressController {
 			 System.out.println("");
 			 System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByAddressID(3).getAddress());
 			 System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(0).getAddress());
-			 System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
+			// System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
 			 
 			 System.out.println("Number of Adresses: " + AddressRepositoryMongo.count());
 			 
 			 
-			 AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(4));
+			// AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(4));
+			 
+			 
+			
 			 
 			 //AddressRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
 			 
@@ -46,4 +53,3 @@ public class AddressController {
 
 	
 }
-

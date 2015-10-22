@@ -28,8 +28,16 @@
 		
 		<div class = "panel-body">
 	    
-	    
-	    
+		<div th:each = "product : ${products}">
+		
+			<p th:text = "${product}"></p>
+			
+			
+		
+		</div>
+
+
+<!--	    
 <p>ITEM 1 - PLACEHOLDER EXAMPLE                 QUANTITY: 1</p> <div class="dropdown">
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
     <span class="caret"></span></button>
@@ -84,6 +92,9 @@
   </div>
 
 <br/>
+
+-->
+
 <br/>	    
 <a href="OrderCheckout"><button type="submit" value="Checkout">Checkout</button></a>
 	<div class = "push"></div>	
