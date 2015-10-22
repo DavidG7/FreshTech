@@ -11,7 +11,10 @@ public class ProductController {
 	
 	 @RequestMapping("Product")
 	 public String   Product(Model modelAndView) {
-	        return "Product";
+		 
+		 	
+		 
+        return "Product";
 	  }
 	 
 	 
