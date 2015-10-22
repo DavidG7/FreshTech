@@ -33,12 +33,14 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
  
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "SELECT COUNT(*) FROM CustomerOrder";
+		long count = Long.parseLong(sql, 10);
+		return count;
 	}
 	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Integer customerOrderID) {
+		
 		
 	}
 	@Override
@@ -116,7 +118,6 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		
 		CustomerOrder customerorder = (CustomerOrder) jdbcTemplate.queryForObject(
 				sql, new Object[] { customerID }, new BeanPropertyRowMapper(CustomerOrder.class));
-		
 		return customerorder;
 	}
 	
