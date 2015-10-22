@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
-import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
+
+/**
+ * 
+ * @author rluu
+ *
+ */
 
 @Controller
 public class RegController {

@@ -23,7 +23,6 @@
 			</div>		
 
 		</div>
-		
 		</div>
 		<div th:fragment="content">
 <div class="col-md-6">	
