@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
+
 //<<<<<<< HEAD
 //=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
@@ -46,7 +47,7 @@ public class AddDiscontinue extends JPanel{
 	
 	String newline = System.getProperty("line.separator");
 
-	int x = 30; //table height
+	int x = 40; //table height
 	public AddDiscontinue(){
 		this.setLayout(new BorderLayout());
 		
@@ -62,19 +63,22 @@ public class AddDiscontinue extends JPanel{
 		CustomTextArea desc = new CustomTextArea("Description");
 		CustomTextArea price = new CustomTextArea("Price");		
 		
-		name.setMaximumSize(new Dimension(300,20));
-		desc.setMaximumSize(new Dimension(300,20));
-		price.setMaximumSize(new Dimension(300,20));
+		name.setMaximumSize(new Dimension(450,20));
+		desc.setMaximumSize(new Dimension(450,20));
+		price.setMaximumSize(new Dimension(450,20));
 		
 		rightPanel.add(name);
+		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
 		rightPanel.add(desc);
-		categoryCombo.setMaximumSize(new Dimension(300,20));
+		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
+		categoryCombo.setMaximumSize(new Dimension(450,20));
 		categoryCombo.addItem("Gnome");
 		categoryCombo.addItem("Garden Accessory");
 		categoryCombo.addItem("Miscellaneous");
 		rightPanel.add(categoryCombo);
-		
+		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));		
 		rightPanel.add(price);
+		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
 		
 		porousware = new CustomLabel("Porousware", false);
 	
@@ -90,8 +94,11 @@ public class AddDiscontinue extends JPanel{
 		porouswareGrouping.add(porouswareButtonN);
 		rightPanel.add(porouswareButtonY);
 		rightPanel.add(porouswareButtonN);
+		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
 		
 		CustomButton addNewStock = new CustomButton("Add new stock item");
+		addNewStock.setMaximumSize(new Dimension(550,20));
+		
 		addNewStock.addActionListener(new ActionListener() {
 
 	            @Override
@@ -103,8 +110,20 @@ public class AddDiscontinue extends JPanel{
 	     });
 		
 		rightPanel.add(addNewStock);
-		
-		
+		rightPanel.add(Box.createRigidArea(new Dimension(0,30)));
+		CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
+		 discontinueStock.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	            	JOptionPane.showMessageDialog(getParent(),
+	            	        "Product is no longer available");
+	                   }
+	                    
+	     });
+		discontinueStock.setMaximumSize(new Dimension(550,20));
+		rightPanel.add(discontinueStock);
+		rightPanel.add(Box.createRigidArea(new Dimension(0,10)));
 		
 		heading = new CustomLabel("Add/Discontinue Stock Item", true);
 		
@@ -116,16 +135,7 @@ public class AddDiscontinue extends JPanel{
 	      header.setBackground(new Color(0,122,0));
 	      header.setForeground(Color.WHITE);
 		
-		 CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
-		 discontinueStock.addActionListener(new ActionListener() {
-
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	            	JOptionPane.showMessageDialog(getParent(),
-	            	        "Product is no longer available");
-	                   }
-	                    
-	     });
+		 
 		
 		
 		Box HeadingandImage = Box.createHorizontalBox();
@@ -140,7 +150,7 @@ public class AddDiscontinue extends JPanel{
 		CustomScrollPane scrollPane = new CustomScrollPane(productTable);
 	
 		leftPanel.add(scrollPane);
-		leftPanel.add(discontinueStock);
+		
 		
       
      
