@@ -8,17 +8,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
 
+import com.netbuilder.entities.Product;
+import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+
 
 @Controller
 public class AddressController {
 	AddressRepositoryMongo AddressRepositoryMongo = new AddressRepositoryMongo();
+	ProductRepositoryMongo ProductRepositoryMongo = new ProductRepositoryMongo();
 	
 	
 
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
-		 AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(1).getAddressid());
-		 for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
+		AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(1).getAddressid());
+
+		System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(0).getAddress());
+		System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
+		 
+		System.out.println("Number of Adresses: " + AddressRepositoryMongo.count());
+		 
+		 
+		for(int i =0;i < AddressRepositoryMongo.findAll().size();i++){
 			 System.out.println("");
 			 System.out.println("Address ID: " + AddressRepositoryMongo.findAll().get(i).getAddressid());
 			 System.out.println("Address: " + AddressRepositoryMongo.findAll().get(i).getAddress());
@@ -36,9 +47,9 @@ public class AddressController {
 			 
 			 AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(4));
 			 
-			 //AddressRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
+			 AddressRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
 			 
-	 
+		 
 	        return "Address";
 	 }
 

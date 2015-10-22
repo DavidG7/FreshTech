@@ -12,21 +12,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  */
 @Document (collection="Product")
-public class Product implements Serializable  {
-	private static final long serialVersionUID = -7337349035516644812L;
-	private boolean discontinued = false;
-	private boolean porusware = false;
-	@Id
-	private int productID = 0;
-	private int stockLevel = 0;
-	private int rating = 0;
-	private float price = 0F;
-	private String category = null;
-	private String productDescription = null;
-	private String image = null;
+public class Product {
 	
-	private String productName = null;
-	private boolean onOffer = false;
+	@Id
+	private int productID;
+	
+	private boolean discontinued;
+	private boolean porusware;
+	
+	private int stockLevel;
+	private int rating;
+	private float price;
+	private String category;
+	private String productDescription;
+	private String image;
+	
+	private String productName;
+	private boolean onOffer;
 	private float offerPrice = price;
 	
 	public boolean isOnOffer() {
