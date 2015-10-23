@@ -1,10 +1,17 @@
 package com.netbuilder.entityrespositoriesimplementations.sql;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+
 
 import com.netbuilder.SQLConfig;
 import com.netbuilder.entities.Employee;
@@ -15,6 +22,7 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 	ApplicationContext ctx = new AnnotationConfigApplicationContext(SQLConfig.class);
 	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
     JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+	private RowMapper<Employee> mapper;
 
 	
 	@Override
@@ -43,9 +51,8 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public Iterable<Employee> findAll() {
-
-			System.out.println("Hello");
-			return null;
+		String sql = "Select * from Employee";
+		return null;
 	}
 
 	@Override
