@@ -24,8 +24,17 @@
 
 		</div>
 
-		<div class = "panel-body">
-	    <form action="action_page.php"></form>
+		<div class = "panel-body"></div>
+			    <form action="action_page.php"></form>
+		<div class="dropdown"></div>
+				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Card Type
+    	<span class="caret"></span></button>
+		<ul class="dropdown-menu">
+		<li><a>Mastercard</a></li>
+		<li><a>Visa</a></li>
+		<li><a>Visa Electron</a></li>
+		<li><a>American Express</a></li>
+		</ul><p></p>
 		Name on Card:<br/>
 		<input type = "text" name = "firstname"/>
 		<br/>
@@ -56,7 +65,5 @@
 
 	<div class="push"></div>
 </div>
-</div>
-		
 </body>
 </html>

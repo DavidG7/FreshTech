@@ -89,6 +89,7 @@
 
 
 <br/>	    
+<<<<<<< HEAD
 <a href="OrderCheckout"><button type="submit" value="Checkout">Checkout</button></a>
 -->
 		<div class="squareasd">
@@ -133,6 +134,9 @@
 		</div>
 		
 		
+=======
+<a href="OrderConfirmation"><button type="submit" value="Checkout">Checkout</button></a>
+>>>>>>> 8997e53aca120c21ba9280cc11e5e2ffa93f0eaa
 	<div class = "push"></div>	
 			</div>
 
