@@ -42,7 +42,7 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	 * @param status
 	 * @return ArrayList<CustomerOrder>
 	 */
-	public ArrayList<CustomerOrder> findBycustomerOrderStatus(String customerOrderStatus);
+	public ArrayList<CustomerOrder> findByCustomerOrderStatus(String customerOrderStatus);
 	/**
 	 * Finds Customers Order by total of order
 	 * @param total

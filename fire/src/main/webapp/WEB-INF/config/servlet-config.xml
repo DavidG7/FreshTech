@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jms="http://www.springframework.org/schema/jms"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<mvc:annotation-driven/>
@@ -61,6 +63,45 @@
 	  <property name="viewNames" value="*.html" />
 	</bean>
 	
+	
+	   <!-- Activemq connection factory -->
+    <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <constructor-arg index="0" value="tcp://foo.example.com:61616"/>
+    </bean>
+
+    <!-- ConnectionFactory Definition -->
+    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <constructor-arg ref="amqConnectionFactory" />
+    </bean>
+
+
+<!--  Default Destination Queue Definition-->
+    <bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="TEST.FOO"/>
+    </bean>
+
+    <!-- JmsTemplate Definition -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="defaultDestination" ref="defaultDestination" />
+    </bean>
+
+    <!-- Message Sender Definition -->
+    <bean id="messageSender" class="com.netbuilder.jmssend.MessageSender">
+        <constructor-arg index="0" ref="jmsTemplate" />
+    </bean>
+    
+
+	<!-- Message Receiver Definition -->
+    <bean id="messageReceiver" class="com.netbuilder.jmsreceive.MessageReceiver">
+    </bean>
+
+    <bean class="org.springframework.jms.listener.SimpleMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory" />
+        <property name="destinationName" value="TEST.FOO" />
+        <property name="messageListener" ref="messageReceiver" />
+    </bean>
+  
 	
 
 </beans>

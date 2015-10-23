@@ -24,7 +24,7 @@ import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositories.AddressRepository;
 
 
-public class AddressRepositoryMongo extends Update implements AddressRepository{
+public class AddressRepositoryMongo implements AddressRepository{
 	
 
 	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);

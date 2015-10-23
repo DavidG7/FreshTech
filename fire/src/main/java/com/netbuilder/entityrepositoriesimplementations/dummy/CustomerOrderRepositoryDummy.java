@@ -194,7 +194,7 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByOrderStatus(String status) 
+	public ArrayList<CustomerOrder> findByCustomerOrderStatus(String status) 
 	{
 		
 		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
