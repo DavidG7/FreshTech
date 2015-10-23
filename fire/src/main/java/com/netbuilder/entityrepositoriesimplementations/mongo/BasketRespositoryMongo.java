@@ -1,5 +1,6 @@
 package com.netbuilder.entityrepositoriesimplementations.mongo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -44,12 +45,14 @@ public class BasketRespositoryMongo implements BasketRepository{
 	@Override
 	public <S extends Basket> S insert(S entity) {
 		// TODO Auto-generated method stub
+		mongoOperation.insert(entity);
 		return null;
 	}
 
 	@Override
 	public <S extends Basket> List<S> insert(Iterable<S> entities) {
 		// TODO Auto-generated method stub
+		mongoOperation.insert(entities);
 		return null;
 	}
 
@@ -117,6 +120,13 @@ public class BasketRespositoryMongo implements BasketRepository{
 	@Override
 	public Basket findByCustomerID(int customerID) {
 		// TODO Auto-generated method stub
+		/*List<Basket> baskets = mongoOperation.findAll(Basket.class);
+		List<Address> temp = new ArrayList<Address>();
+		for(int i = 0; i < baskets.size();i++){
+			if(baskets.get(i).getPostcode().equals(postcode)){
+				temp.add(addresses.get(i));
+			}
+		}*/
 		return null;
 	}
 
