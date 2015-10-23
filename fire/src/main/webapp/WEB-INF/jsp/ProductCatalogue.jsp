@@ -24,18 +24,27 @@
 		</div>
 		
 		<ul class="rig columns-3" >
-			<li th:each="product : ${products}" id="testimages"><a href="Product">
-				<h3>Gnome</h3>
-				<p class ="price">£20 </p> 
-				<img th:src="'ImageFolder/'+${product.image}" id="gnomeimage" th:alt="${product.productName}"/>
+						
+			<li th:each="product : ${products}" id="testimages">
+			
+				<h3 th:text = "${product.productName}"></h3>
+				<p class ="price" th:text = "'&pound;'+${product.price}"> </p> 
+				
+				<form th:action="@{/info}" method="post" id="gnomeimage">			
+				
+				<input id="gnomeimage" th:id="${product.productName}" th:name="${product.productName}" type="image" th:value="${product.productName}" 
+						th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}" />
+				</form>
+			
+
 				<p id="clearrating">
 				<strong>RATING: </strong>
 				<span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>
 				</p>
-				</a>
+				
 			</li>
-	
+				
 	<!-- 
 	<li><a href="Product"><h3>Gnome</h3>
 >>>>>>> ae8e06a1d5d42416d23f21976cf248e9540db346

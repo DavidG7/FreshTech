@@ -4,13 +4,22 @@ import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
+import org.h2.engine.Database;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.sql.*;
 
 import javax.sql.DataSource;
 
@@ -21,26 +30,40 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
+import com.mysql.jdbc.Statement;
 import com.netbuilder.MongoConfig;
 import com.netbuilder.SQLConfig;
+import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 
 public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	ApplicationContext ctx = new AnnotationConfigApplicationContext(SQLConfig.class);
 	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
- 
+	JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+  
+
+
+   
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "SELECT COUNT(*) FROM CustomerOrder";
+		//jdbcTemplate.queryForObject(sql, null);
+		long count = Long.parseLong(sql, 10);
 		
+		return count;
 	}
+	
+	@Override
+	public void delete(Integer customerOrderID) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String sql = "DELETE FROM customerorder WHERE orderid = " + customerOrderID;
+		Object[] params = {customerOrderID};
+        int rows = jdbcTemplate.update(sql, params);
+        System.out.println(rows + " row(s) deleted.");
+	}
+	
 	@Override
 	public void delete(CustomerOrder arg0) {
 		// TODO Auto-generated method stub
@@ -111,15 +134,18 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	
 	@Override
 	public CustomerOrder findByCustomerID(Integer customerID) {
-		String sql = "SELECT orderid, customerorderid, orderdate, ordertotal, customerorderstatus, addressid FROM CustomerOrder WHERE customerid = " + customerID;
+		String sql = "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE customerid = ?";
 		jdbcTemplate = new JdbcTemplate(dataSource);
+		//List<CustomerOrder> customers = jdbcTemplate.queryForList(sql, CustomerOrder.class);
+		//for(int i =0; i<customers.size(); i++){
+		//	System.out.println(customers.get(i).getCustomerID());
 		
 		CustomerOrder customerorder = (CustomerOrder) jdbcTemplate.queryForObject(
 				sql, new Object[] { customerID }, new BeanPropertyRowMapper(CustomerOrder.class));
-		
 		return customerorder;
 	}
-	
+
+
 
 	
 	@Override

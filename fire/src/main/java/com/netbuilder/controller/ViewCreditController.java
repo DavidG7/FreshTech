@@ -8,13 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 
 @Controller
 public class ViewCreditController {
 
 
-	CustomerRepositoryMongo CustomerRepositoryMongo = new CustomerRepositoryMongo();
+	CustomerRepository CustomerRepositoryMongo = new CustomerRepositoryMongo();
 	
 	
 	@RequestMapping(value="ViewCreditDetails")
@@ -22,7 +23,6 @@ public class ViewCreditController {
 		 ModelAndView view = new ModelAndView();
 		 view.setViewName("ViewCreditDetails");
 		 String user =session.getAttribute("sessionUser")+"";
-		 System.out.println(user);
 		 if(user.equalsIgnoreCase("null")){
 			 view.setViewName("Register");
 		 }	

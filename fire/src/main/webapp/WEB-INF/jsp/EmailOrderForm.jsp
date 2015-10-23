@@ -17,6 +17,8 @@
 				<h2> E-Mail Order Form</h2>
 				
 				</div>		
+				
+			</div>
 
 		</div>
 <p>		

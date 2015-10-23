@@ -30,7 +30,7 @@
 				<p class="subtitle"><br/><strong>PISSED OFF GNOME<br/><br/>Description:</strong><br/>This is a basic gnome with anger issues.</p>
 			</div><hr/>
 			<div class="rating">
-				<p><strong>Item price: pound1,000,000.05</strong></p>
+				<p><strong>Item price: &pound;1,000,000.05</strong></p>
 				<strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
 				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<button type="submit"><img class="img-thumbnail" alt="hi" src="ImageFolder/shopCart.png" height="28" width="28"/><strong> Add to cart</strong></button>

@@ -23,7 +23,6 @@
 			</div>		
 
 		</div>
-		
 		</div>
 		<div th:fragment="content">
 <div class="col-md-6">	
@@ -49,6 +48,14 @@
          <label for="lastnamesignup" class="lname" data-icon="u">Last Name:</label>
          <input id="lastnamesignup" name="lastnamesignup" required="required" type="text" placeholder="Last" />
     </p>
+    
+    
+    <p> 
+         <label for="addresssignup" class="uname" data-icon="u">Address:</label>
+         <input id="addresssignup" name="addresssignup" required="required" type="text" placeholder="Address" />
+    </p>
+    
+    
     <p> 
          <label for="usernamesignup" class="uname" data-icon="u">Username:</label>
          <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="Username" />

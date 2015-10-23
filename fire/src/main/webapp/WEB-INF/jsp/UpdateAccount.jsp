@@ -30,17 +30,11 @@
 					<p class="subtitle"><strong>Current Details:</strong></p>
 					
 					<p id="writing"><strong>Contact Details:</strong><br/>
-					Joe Bloggs<br/>
-					Home telephone: (024) 76 555 555<br/>
+					${customer.customerName}<br/>
+					Home telephone:${customer.customerPhone} <br/>
 					Mob telephone: 077 221 379 50<br/>
-					E-mail: joseph.bloggs@gmail.com</p>
-					
-					<p id="writing"><strong>Default Delivery Address:</strong><br/>
-					51 Bloggs' Road<br/>
-					Blogg City<br/>
-					BLG 001<br/>
-					West Midlands</p>
-					
+					E-mail: ${customer.customerEmail}</p>
+					<p id="writing"><strong>Default Delivery Address:</strong><br/>${customerAddress} </p>
 					<p id="writing"><strong>Default Payment Details:</strong><br/>
 					Visa Debit Card<br/>
 					Card Number: 3456-9012-5678-1234<br/>

@@ -16,7 +16,7 @@
 		<div class="jumbotron">
 
 			<h2>
-				<b> Checkout </b>
+				<b>Order Checkout </b>
 			</h2>
 
 		</div>
@@ -135,7 +135,7 @@
 
 
 			<br /> <br />
-			<a href="PaymentConfirmation"><button type="submit"><strong>Pay using default payment method</strong></button></a>
+			<a href="OrderConfirmation"><button type="submit"><strong>Place Order</strong></button></a>
 			<button type="submit"><strong>Remove selected orders</strong></button>
 
 		</div>
