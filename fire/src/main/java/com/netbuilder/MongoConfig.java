@@ -12,10 +12,12 @@ import com.mongodb.MongoClient;
 @Configuration
 @EnableMongoRepositories
 public class MongoConfig {
-	
+		
 	@Bean
 	public MongoDbFactory mongoDbFactory() throws Exception {
-	return new SimpleMongoDbFactory(new MongoClient("10.50.15.54"), "FreshTech");
+
+	return new SimpleMongoDbFactory(new MongoClient("10.50.15.28"), "FreshTech");
+
 	}
 
 	 @Bean
