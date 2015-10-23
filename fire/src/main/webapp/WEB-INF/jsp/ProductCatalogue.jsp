@@ -28,7 +28,7 @@
 			<li th:each="product : ${products}" id="testimages">
 			
 				<h3 th:text = "${product.productName}"></h3>
-				<p class ="price" th:text = "&pound;${product.price}"> </p> 
+				<p class ="price" th:text = "'&pound;'+${product.price}"> </p> 
 				
 				<form th:action="@{/info}" method="post" id="gnomeimage">			
 				
