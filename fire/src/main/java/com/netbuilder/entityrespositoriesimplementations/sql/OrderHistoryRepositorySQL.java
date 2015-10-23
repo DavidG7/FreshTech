@@ -159,7 +159,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		return null;
 	}
 	@Override
-	public ArrayList<CustomerOrder> findByOrderStatus(String orderStatus) {
+	public ArrayList<CustomerOrder> findByCustomerOrderStatus(String orderStatus) {
 		// TODO Auto-generated method stub
 		return null;
 	}
