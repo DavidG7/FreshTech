@@ -2,6 +2,8 @@ package com.netbuilder.entityrespositoriesimplementations.sql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -13,17 +15,19 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+
 import com.netbuilder.SQLConfig;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
+import com.netbuilder.util.SQLTemplate;
 
 public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	ApplicationContext ctx = new AnnotationConfigApplicationContext(SQLConfig.class);
 	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-	private RowMapper<Employee> mapper;
-
+    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+	
 	
 	@Override
 	public <S extends Employee> S save(S entity) {
@@ -51,8 +55,20 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public Iterable<Employee> findAll() {
-		String sql = "Select * from Employee";
-		return null;
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("employeee", "Select * from Employee");
+			ArrayList employee = new ArrayList();
+			while(rs.next()){	
+				employeee.add(new Employee(rs.getInt(1), rs.getString(2),)))
+				 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+
+	
+		return  employee;
 	}
 
 	@Override

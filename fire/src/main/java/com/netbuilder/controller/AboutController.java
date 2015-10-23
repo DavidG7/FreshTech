@@ -11,12 +11,10 @@ public class AboutController {
 		
 
 	EmployeeRepositorySQL test = new EmployeeRepositorySQL();
+	
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
-		 while(test.findAll().iterator().hasNext()){
-			 System.out.println(test.findAll().iterator().next());
-		 }
-		
+		test.findAll();
 	        return "About";
 	  }
 	 
