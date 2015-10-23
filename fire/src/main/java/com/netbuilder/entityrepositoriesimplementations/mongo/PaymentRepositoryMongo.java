@@ -88,7 +88,7 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	public void delete(Integer arg0) 
 	{
 		
-		mongoOperation.getCollection("Payment").deleteMany(new Document(arg0));
+		//mongoOperation.getCollection("Payment")).deleteMany(arg0);
 		
 		List<Payment> payment = findAll();
 		
