@@ -4,7 +4,7 @@
       th:include="Template :: page">
       
     <head th:fragment="header">
-		<link  type="text/css" rel="stylesheet" href="css/Products.css" />
+		<link  type="text/css" rel="stylesheet" href="css/Product.css" />
 	<title>NB Gardens</title>
     </head>
     <body>
@@ -26,53 +26,63 @@
 		<div class = "panel-body">
 	
 			<div>
-				<img id="identify" class="img-thumbnail" alt="Go Away Gnome" src="ImageFolder/badGnome.png" height="180" width="180"/>
-				<p class="subtitle"><br/><strong>PISSED OFF GNOME<br/><br/>Description:</strong><br/>This is a basic gnome with anger issues.</p>
-			</div><hr/>
+				<img id="identify" class="img-thumbnail"
+					th:alt="${product.productName}" th:src="'ImageFolder/'+${product.image}"
+					height="180" width="180" />
+				<p class="subtitle">
+					<br />
+					<strong> <span th:text="${product.productName}"></span> <br />
+					<br />Description:
+					</strong><br /> <span th:text="${product.productDescription}"></span>
+				</p>
+			</div>
+			<hr />
 			<div class="rating">
-				<p><strong>Item price: &pound;1,000,000.05</strong></p>
-				<strong>RATING: </strong><span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
-				</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="submit"><img class="img-thumbnail" alt="hi" src="ImageFolder/shopCart.png" height="28" width="28"/><strong> Add to cart</strong></button>
-				<p/>
-			</div><hr/>
+				<p>
+					<strong>Item price: <span
+						th:text="'&pound;'+${product.price}"></span></strong>
+				</p>
+
+				<strong>RATING: </strong> <span
+					th:each="i : ${#numbers.sequence( 1, product.rating)}">
+					&#9733; </span> <span
+					th:each="i : ${#numbers.sequence( 1, 5-product.rating)}">
+					&#9734; </span>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="submit">
+					<img class="img-thumbnail" alt="hi" src="ImageFolder/shopCart.png"
+						height="28" width="28" /><strong> Add to cart</strong>
+				</button>
+				<p />
+			</div>
+			<hr />
+			
 			<div>
-				<p id="others" ><strong>Other items you may be interested in:</strong></p>
+				<p id="others">
+					<strong>Other items you may be interested in:</strong>
+				</p>
 			</div>
 			
-			<div id="myCarousel" class="carousel slide container" style="width: 600px; margin: auto;" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
-				</ol>
-				
-				
-				<div class="carousel-inner" role="listbox">
+			<div id="carousel-main" class="carousel slide" data-ride="carousel">
+			
+				<div class="carousel-inner">
 					<div class="item active">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newmooney.jpg" alt="newmooney"/></a>
+						<h3>Special Offers</h3>
 					</div>
 				
-					<div class="item">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newsavage.jpg" alt="newsavage"/></a>
-					</div>
-				
-					<div class="item">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newlittleFriend.jpg" alt="newlittleFriend"/></a>
-					</div>
-				
-					<div class="item">
-					<a href="#"><img class="img-responsive center-block" src="ImageFolder/newfancy.jpg" alt="newfancy"/></a>
-					</div>
+					<div class="item" th:each="product : ${offerProducts}">
+		      		<img th:src="'ImageFolder/' + ${product.image}" th:alt="${product.productName}"/>
+		    		</div>
+
 				</div>
 	
 			
-				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				<a class="left carousel-control" href="#carousel-main" role="button" data-slide="prev">
 					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 					<span class="sr-only">Previous</span>
 				</a>
-				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				<a class="right carousel-control" href="#carousel-main" role="button" data-slide="next">
 					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
