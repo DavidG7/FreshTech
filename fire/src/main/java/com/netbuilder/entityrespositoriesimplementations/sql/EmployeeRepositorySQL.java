@@ -15,8 +15,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
-
 import com.netbuilder.SQLConfig;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
@@ -55,11 +53,12 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public Iterable<Employee> findAll() {
+		ArrayList employee = new ArrayList();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("employeee", "Select * from Employee");
-			ArrayList employee = new ArrayList();
+			
 			while(rs.next()){	
-				employeee.add(new Employee(rs.getInt(1), rs.getString(2),)))
+				//employee.add(new Employee(rs.getInt(1), rs.getString(2),)))
 				 
 			}
 		} catch (SQLException e) {
