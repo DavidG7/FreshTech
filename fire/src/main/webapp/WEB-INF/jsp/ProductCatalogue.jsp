@@ -38,9 +38,17 @@
 			
 
 				<p id="clearrating">
+				
 				<strong>RATING: </strong>
-				<span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
+				
+				<span th:each="i : ${#numbers.sequence( 1, product.rating)}">
+  				  &#9733; 
 				</span>
+				
+				<span th:each="i : ${#numbers.sequence( 1, 5-product.rating)}">
+  				  &#9734; 
+				</span>
+				
 				</p>
 				
 			</li>

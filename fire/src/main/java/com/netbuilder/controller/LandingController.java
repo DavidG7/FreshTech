@@ -23,7 +23,7 @@ public class LandingController {
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
 	EmployeeRepositorySQL employeeRepository = new EmployeeRepositorySQL();
 	
-
+	//TODO Using DummyData for carousel
 	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
 	List<Product> offerProducts = productRepository.findByOnOffer(true);
 
