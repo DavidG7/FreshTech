@@ -8,10 +8,13 @@ import org.springframework.data.mongodb.core.MongoOperations;
 
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entityrepositories.AddressRepository;
+import com.netbuilder.entityrepositories.BasketRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 import com.netbuilder.entityrepositoriesimplementations.dummy.AddressRepositoryDummy;
+import com.netbuilder.entityrepositoriesimplementations.dummy.BasketRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.dummy.ProductRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
+import com.netbuilder.entityrepositoriesimplementations.mongo.BasketRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
 import com.netbuilder.util.SQLTemplate;
 
@@ -46,6 +49,7 @@ public class RepositoryConfig {
 		addressRepository.setMongoOperation(mongoOperation);
 		return addressRepository;
 	}
+	
 	/**
 	 * This method implements the AddressRepository interface by injecting DUMMY data.
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
@@ -57,6 +61,32 @@ public class RepositoryConfig {
 		AddressRepositoryDummy addressRepository = new AddressRepositoryDummy();
 		addressRepository.setDummyData(dummyData);
 		return addressRepository;
+	}
+
+	//BASKET REPOSITORY
+	/**
+	 * This method implements the BasketRepository interface by injecting MONGO data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return BasketRepository
+	 */	
+	//@Primary
+	@Bean
+	public BasketRepository basketRepositoryMongo(){
+		BasketRepositoryMongo basketRepository = new BasketRepositoryMongo();
+		basketRepository.setMongoOperation(mongoOperation);
+		return basketRepository;
+	}
+	/**
+	 * This method implements the BasketRepository interface by injecting DUMMY data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return BasketRepository
+	 */	
+	@Primary
+	@Bean
+	public BasketRepository basketRepositoryDummy(){
+		BasketRepositoryDummy basketRepository = new BasketRepositoryDummy();
+		basketRepository.setDummyData(dummyData);
+		return basketRepository;
 	}
 
 	//PRODUCT REPOSITORY
