@@ -25,10 +25,8 @@ import com.netbuilder.entityrepositories.AddressRepository;
 
 
 public class AddressRepositoryMongo implements AddressRepository{
-	
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	MongoOperations mongoOperation;
 	
 	@Override
 	public List<Address> findAll() {
@@ -212,6 +210,16 @@ public class AddressRepositoryMongo implements AddressRepository{
 			}
 		}
 		return temp;
+	}
+
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 
 

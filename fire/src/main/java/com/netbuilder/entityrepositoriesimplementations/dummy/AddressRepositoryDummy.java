@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -24,13 +25,13 @@ import com.netbuilder.data.DummyData;
  * 
  */
 
+@Repository
 public class AddressRepositoryDummy implements AddressRepository{
 	
-	//@Inject 
 	private DummyData dummyData;
 
 	@Override
-	public List<Address> findAll() 
+	public List<Address> findAll()
 	{
 		
 		return dummyData.getEntityList(new Address());
@@ -240,6 +241,14 @@ public class AddressRepositoryDummy implements AddressRepository{
 			}
 		}*/
 		return addressArray;
+	}
+
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
 	}
 	
 }
