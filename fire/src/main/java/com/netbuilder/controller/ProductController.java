@@ -1,4 +1,4 @@
-package com.netbuilder.controller;
+/*package com.netbuilder.controller;
 
 import java.util.List;
 
@@ -94,3 +94,4 @@ public class ProductController {
 	 
 	 
 
+*/

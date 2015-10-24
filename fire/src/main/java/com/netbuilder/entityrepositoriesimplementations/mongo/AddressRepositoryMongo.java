@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositories.AddressRepository;
@@ -27,7 +27,7 @@ import com.netbuilder.entityrepositories.AddressRepository;
 public class AddressRepositoryMongo implements AddressRepository{
 	
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
 	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
 	
 	@Override

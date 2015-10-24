@@ -15,14 +15,15 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 
-import com.netbuilder.SQLConfig;
+
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.util.SQLTemplate;
 
 public class EmployeeRepositorySQL implements EmployeeRepository{
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(SQLConfig.class);
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
 	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
     SQLTemplate sqltemplate = new SQLTemplate(dataSource);
 	

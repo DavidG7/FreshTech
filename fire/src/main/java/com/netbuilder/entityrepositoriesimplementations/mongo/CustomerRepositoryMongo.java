@@ -13,14 +13,14 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositories.CustomerRepository;
 @Repository
 public class CustomerRepositoryMongo implements CustomerRepository {
 	
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
 	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
 	
 	@Override

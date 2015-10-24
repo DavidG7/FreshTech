@@ -11,7 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entityrepositories.BasketRepository;
@@ -19,7 +19,7 @@ import com.netbuilder.entityrepositories.BasketRepository;
 public class BasketRespositoryMongo implements BasketRepository{
 
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
 	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
 
 	@Override

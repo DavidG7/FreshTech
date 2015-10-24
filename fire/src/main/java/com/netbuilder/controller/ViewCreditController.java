@@ -1,4 +1,4 @@
-package com.netbuilder.controller;
+/*package com.netbuilder.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -33,3 +33,4 @@ public class ViewCreditController {
 	}	
 	
 }
+*/

@@ -1,4 +1,4 @@
-package com.netbuilder.controller;
+/*package com.netbuilder.controller;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 
-/**
+*//**
  * 
  * @author rluu
  *
- */
+ *//*
 
 @Controller
 public class RegController {
@@ -77,3 +77,4 @@ public class RegController {
 			return "redirect:/";
 	}
 }
+*/

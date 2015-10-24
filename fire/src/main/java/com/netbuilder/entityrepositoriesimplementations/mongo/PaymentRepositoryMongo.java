@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Payment;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.PaymentRepository;
@@ -30,7 +30,7 @@ import com.netbuilder.entityrepositories.PaymentRepository;
 
 public class PaymentRepositoryMongo implements PaymentRepository{
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
+	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
 	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
 	
 	public PaymentRepositoryMongo() {

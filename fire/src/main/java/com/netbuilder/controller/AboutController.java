@@ -11,7 +11,7 @@ public class AboutController {
 		
 
 
-	ProductRepositoryMongo test = new ProductRepositoryMongo();
+	//ProductRepositoryMongo test = new ProductRepositoryMongo();
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
 		 	/*test.insert(new Product(1,15,5000,"Gmone","redGnome",false,true, 5, " Red Gmone which is highly explosive","resources/static/ImageFolder/redgnome.png"));

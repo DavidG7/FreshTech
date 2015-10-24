@@ -1,4 +1,4 @@
-package com.netbuilder.controller;
+/*package com.netbuilder.controller;
 
 import java.util.List;
 
@@ -18,14 +18,14 @@ import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryM
 @Controller
 public class ProductCatalogueController {
 
-	/*DummyData
+	DummyData
 	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 	
 	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
 
 	List<Product> products = productRepository.findAll();
 	
-	*/
+	
 	
 	ProductRepository productRepository = new ProductRepositoryMongo();
 	
@@ -40,3 +40,4 @@ public class ProductCatalogueController {
 	        return view;
 	  }
 }
+*/

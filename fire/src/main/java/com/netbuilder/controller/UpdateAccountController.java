@@ -1,4 +1,4 @@
-package com.netbuilder.controller;
+/*package com.netbuilder.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,11 +10,11 @@ import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 
 
- /**
+ *//**
   * 
   * @author rluu
   *
-  */
+  *//*
 @Controller
 public class UpdateAccountController {
 	
@@ -40,3 +40,4 @@ public class UpdateAccountController {
 	 
 	 
 }
+*/
