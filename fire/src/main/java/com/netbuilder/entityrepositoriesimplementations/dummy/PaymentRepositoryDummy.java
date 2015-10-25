@@ -29,7 +29,7 @@ import com.netbuilder.data.DummyData;
 public class PaymentRepositoryDummy implements PaymentRepository {
 	
 	@Autowired
-	private DummyData dummyData = new DummyData();
+	private DummyData dummyData;
 	
 	//DummyData dummyData = new DummyData();
 	
@@ -246,6 +246,14 @@ public class PaymentRepositoryDummy implements PaymentRepository {
 	public Iterable<Payment> findAll(Iterable<Integer> arg0) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
 	}
 
 }

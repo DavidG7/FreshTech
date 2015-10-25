@@ -20,8 +20,7 @@ import com.netbuilder.entityrepositories.CustomerRepository;
 @Repository
 public class CustomerRepositoryMongo implements CustomerRepository {
 	
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	MongoOperations mongoOperation;
 	
 	@Override
 	public long count() {
@@ -224,6 +223,14 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 		}
 		return temp;
 		
+	}
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 
 }

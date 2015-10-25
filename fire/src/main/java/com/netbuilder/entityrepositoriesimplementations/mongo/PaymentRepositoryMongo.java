@@ -30,8 +30,7 @@ import com.netbuilder.entityrepositories.PaymentRepository;
 
 public class PaymentRepositoryMongo implements PaymentRepository{
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	MongoOperations mongoOperation;
 	
 	public PaymentRepositoryMongo() {
 		// TODO Auto-generated constructor stub
@@ -235,5 +234,13 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 		}
 		
 		return payments;
+	}
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 }
