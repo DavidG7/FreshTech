@@ -94,8 +94,6 @@ public class PurchaseOrder extends JPanel
 		
 		JScrollPane scrollPane = new JScrollPane(productTable);		
 		
-		
-		
 		JTableHeader header = productTable.getTableHeader();
 	    header.setBackground(new Color(0,122,0));
 	    header.setForeground(Color.WHITE);

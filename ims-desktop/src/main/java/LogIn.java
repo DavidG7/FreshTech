@@ -33,8 +33,6 @@ public class LogIn extends JPanel implements ActionListener {
     ImageLoader loader;
  
     public LogIn() {
-    	
-    	//topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         setLayout(new FlowLayout(FlowLayout.CENTER,20,80));
     
         JPanel leftHalf = new JPanel() {
@@ -60,14 +58,11 @@ public class LogIn extends JPanel implements ActionListener {
         rightHalf.setBackground(Color.WHITE);
         leftHalf.setBorder(new EmptyBorder(220,0,50,0));
         leftHalf.setBackground(Color.WHITE);
-        //rightHalf.add(new JSeparator(SwingConstants.VERTICAL));
                
         leftHalf.add(createEntryFields());
         leftHalf.add(createButton());
  
         add(leftHalf);
-        //add(new JSeparator(JSeparator.VERTICAL),BorderLayout.LINE_START);
-      //  add(createLogInDisplay());
         add(rightHalf);
 
 
@@ -77,13 +72,10 @@ public class LogIn extends JPanel implements ActionListener {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
         panel.setBackground(Color.WHITE);
  
-        //JButton button = new JButton("Log in");
         CustomButton button = new CustomButton("Log In");
         button.addActionListener(this);
         panel.add(button);
  
-        //Match the SpringLayout's gap, subtracting 5 to make
-        //up for the default gap FlowLayout provides.
         panel.setBorder(BorderFactory.createEmptyBorder(0, 0,
                                                 GAP-5, GAP-5));
         return panel;
@@ -98,9 +90,7 @@ public class LogIn extends JPanel implements ActionListener {
     		String password = new String(passField.getPassword());
     		
     		if (login.establishlogin(userField.getText(), password))
-    		{
-    			//JOptionPane.showMessageDialog(null, "Welcome to NB Gardens: " + userField.getText());
-    			
+    		{    			
     			topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
     	      	  
         		JTabbedPane pane = new JTabbedPane();
@@ -137,7 +127,6 @@ public class LogIn extends JPanel implements ActionListener {
                                                             16.0f);
         italicFont = regularFont.deriveFont(Font.ITALIC);
  
-        //Lay out the panel.
         panel.setBorder(BorderFactory.createEmptyBorder(
                                 GAP/2, //top
                                 0,     //left
@@ -161,10 +150,6 @@ public class LogIn extends JPanel implements ActionListener {
             "Password: "
         };
  
-
-        
- 
-        //Create the text field and set it up.
         userField  = new CustomTextArea("");
         userField.setColumns(10);
         userField.setMaximumSize(new Dimension(300,100));
@@ -179,15 +164,10 @@ public class LogIn extends JPanel implements ActionListener {
         panel.add(new CustomLabel(labelStrings[1],false));
         panel.add(passField);
         
-        
-        
-        
-        
         SpringUtilities.makeCompactGrid(panel,
                                         labelStrings.length, 2,
                                         GAP, GAP, //init x,y
                                         GAP, GAP/2);//xpad, ypad
         return panel;
     }
-
 }
