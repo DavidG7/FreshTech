@@ -18,12 +18,17 @@ import org.springframework.data.repository.CrudRepository;
 public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder , Integer> {
 
 	
+	
+	
+	public CustomerOrder findByOrderID(Integer OrderID);
+	
 	/**
 	 * Finds Orders by Customer Order ID
 	 * 
 	 * @param customerOrderID
 	 * @return CustomerOrder
 	 */
+
 	public CustomerOrder findByCustomerID(Integer customerID);
 	/**
 	 *  Finds CustomerOrder by Address

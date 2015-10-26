@@ -53,25 +53,25 @@ public class ProductRepositoryMongo implements ProductRepository{
 	@Override
 	public <S extends Product> S insert(S arg0) {
 		mongoOperation.insert(arg0);
-		return null;
+		return arg0;
 	}
 
 	@Override
 	public <S extends Product> List<S> insert(Iterable<S> arg0) {
 		mongoOperation.insert(arg0);
-		return null;
+		return (List<S>) arg0;
 	}
 
 	@Override
 	public <S extends Product> List<S> save(Iterable<S> arg0) {
 		mongoOperation.save(arg0);
-		return null;
+		return (List<S>) arg0;
 	}
 
 	@Override
 	public Page<Product> findAll(Pageable arg0) {
 		
-		return null;
+		return (Page<Product>) arg0;
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class ProductRepositoryMongo implements ProductRepository{
 	@Override
 	public void delete(Product arg0) 
 	{
-		//mongoOperation.remove(new Query(Criteria.where("_id").is("3")), Product.class);
+		mongoOperation.remove(new Query(Criteria.where("_id").is(arg0.getProductId())), Product.class);	
 	}
 
 	@Override
