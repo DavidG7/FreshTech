@@ -31,7 +31,8 @@ public class Employee {
 	 * @param employeePassword
 	 * @param accessLevel
 	 */
-	public Employee(String employeeName, String employeeUsername, String employeePassword, int accessLevel) {
+	public Employee(int employeeID, String employeeName, String employeeUsername, String employeePassword, int accessLevel) {
+		this.employeeID = employeeID;
 		this.employeeName = employeeName;
 		this.employeeUsername = employeeUsername;
 		this.employeePassword = employeePassword;
