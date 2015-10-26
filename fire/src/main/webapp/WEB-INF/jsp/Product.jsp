@@ -40,14 +40,25 @@
 			<div class="rating">
 				<p>
 					<strong>Item price: <span
-						th:text="'&pound;'+${product.price}"></span></strong>
+						th:text="'&pound;'+${product.price}+'0'"></span></strong>
 				</p>
 
-				<strong>RATING: </strong> <span
-					th:each="i : ${#numbers.sequence( 1, product.rating)}">
-					&#9733; </span> <span
-					th:each="i : ${#numbers.sequence( 1, 5-product.rating)}">
-					&#9734; </span>
+				<strong>RATING: </strong> 
+				
+				<span th:switch="${product.rating}">
+					<span th:case="0">
+						<span th:each="i : ${#numbers.sequence( 1, 5)}"> &#9734; </span>
+					</span>
+					<span th:case="5">
+						<span th:each="i : ${#numbers.sequence( 1, 5)}"> &#9733; </span>
+					</span>
+					<span th:case="*">
+						<span th:each="i : ${#numbers.sequence( 1, product.rating)}">
+						&#9733; </span> 
+						<span th:each="i : ${#numbers.sequence( 1, 5-product.rating)}">
+						&#9734; </span> 
+					</span>
+				</span>
 
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<button type="submit">
@@ -80,7 +91,7 @@
 			
 				<a class="left carousel-control" href="#carousel-main" role="button" data-slide="prev">
 					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
+					<span class="sr-only">Previous</span> 
 				</a>
 				<a class="right carousel-control" href="#carousel-main" role="button" data-slide="next">
 					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
