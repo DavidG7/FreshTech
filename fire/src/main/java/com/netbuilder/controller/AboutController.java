@@ -16,14 +16,26 @@ import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryM
 public class AboutController {
 		
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
-	ProductRepository productRepository = mongoContext.getBean(ProductRepository.class);	
+	ProductRepository test = mongoContext.getBean(ProductRepository.class);	
 
-	ProductRepositoryMongo test = new ProductRepositoryMongo();
+	//ProductRepositoryMongo test = new ProductRepositoryMongo();
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
-		 	test.insert(new Product(1,15,5000,"Gm	one","redGnome",false,true, 5, "Red Gmone which is highly explosive","resources/static/ImageFolder/redgnome.png"));
+		 	/*test.insert(new Product(1,15,5000,"Gm	one","redGnome",false,true, 5, "Red Gmone which is highly explosive","resources/static/ImageFolder/redgnome.png"));
 		 	 test.insert(new Product(2,15,5000,"Gmone","BlueGnome",false,true, 5, "Blue Gmone which is highly explosive","resources/static/ImageFolder/DinoGnome.png"));
 		 	 test.insert(new Product(3,15,5000,"Gmone","BlueGnome",false,true, 5, "Blue Gmone which is highly explosive","resources/static/ImageFolder/newgame.jpg"));
+		 	 */
+		 	 
+		 	 
+		 	 /*for(int i = 0; i < test.findAll().size(); i++)
+			 {
+				 System.out.println("");
+				 System.out.println("Product ID: " + test.findAll().get(i).getProductId());
+				 System.out.println("Product Name: " + test.findAll().get(i).getProductName());
+				 System.out.println("Price: " + test.findAll().get(i).getPrice());
+				 System.out.println("Product Description: " + test.findAll().get(i).getProductDescription());
+
+			 }*/
 		 	 
 		 	 return "About";
 

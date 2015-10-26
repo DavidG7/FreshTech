@@ -23,7 +23,7 @@ public class PaymentAgreementController {
 	 public String  PaymentAgreement(ModelAndView modelAndView) 
 	 {
 		 
-		 test.insert(new Payment(1, 10001, "1001"));
+		 paymentRepository.insert(new Payment(1, 10001, "1001"));
 		 
 		 
 		 for(int i = 0; i < paymentRepository.findAll().size(); i++)

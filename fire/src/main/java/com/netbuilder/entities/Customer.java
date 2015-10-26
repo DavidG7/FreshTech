@@ -163,6 +163,30 @@ public class Customer implements Serializable {
 		return addressArray.get(i);
 	}
 	
+	public ArrayList<Basket> getCustomerBasketArray() {
+		return basketArray;
+	}
+	
+	public Basket getCustomerBasketAt(int i){
+		return basketArray.get(i);
+	}
+	
+	public ArrayList<Payment> getCustomerPaymentArray() {
+		return paymentArray;
+	}
+	
+	public Payment getCustomerPaymentAt(int i){
+		return paymentArray.get(i);
+	}
+	
+	public ArrayList<Product> getCustomerWishListArray() {
+		return wishList;
+	}
+	
+	public Product getCustomerWishListAt(int i){
+		return wishList.get(i);
+	}
+	
 	
 	/**
 	 * Method that allows the customer to log in to the website.
