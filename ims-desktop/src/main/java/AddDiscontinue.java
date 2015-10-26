@@ -135,9 +135,6 @@ public class AddDiscontinue extends JPanel{
 	      header.setBackground(new Color(0,122,0));
 	      header.setForeground(Color.WHITE);
 		
-		 
-		
-		
 		Box HeadingandImage = Box.createHorizontalBox();
 
 		HeadingandImage.add(new CustomImage());
@@ -150,14 +147,8 @@ public class AddDiscontinue extends JPanel{
 		CustomScrollPane scrollPane = new CustomScrollPane(productTable);
 	
 		leftPanel.add(scrollPane);
-		
-		
-      
-     
 		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
 		rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
-		
-		
 		
 		this.setBackground(new Color(255,255,255));
 		

@@ -17,7 +17,5 @@ public class CustomJTable extends JTable{
 	      header.setForeground(Color.WHITE);
 	      this.setPreferredSize(new Dimension(500,300));
 	     this.setPreferredScrollableViewportSize(this.getPreferredSize());
-	     
-	  
 	}
 }

@@ -16,7 +16,6 @@ public class MongoDatabaseController
 	{
 		mongoClient = new MongoClient(mongohost, port);
 		db = mongoClient.getDB("FreshTech");
-		
 	}
 	
 	public DB getMongoDB()
@@ -31,8 +30,7 @@ public class MongoDatabaseController
 		if(db.collectionExists(collectionName))
 		{
 			coll = db.getCollection(collectionName);
-		}
-					
+		}		
 		return coll;
 	}
 	
