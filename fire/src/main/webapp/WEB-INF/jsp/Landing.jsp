@@ -24,7 +24,10 @@
 	</div>	
 
 
-		
+		<span>
+			<img src="ImageFolder/banner.jpg" style = "width:100%; margin-bottom:25px; margin-top:-25px"/>
+		</span>
+		<!-- 
 		<div id="carousel-main" class="carousel slide" data-ride="carousel">
 		
 		  <div class="carousel-inner">
@@ -53,7 +56,7 @@
 		    <span class="sr-only">Next</span>
 		  </a>
 		</div>
-		
+		-->
 	<div id = "left-panel">
 		
 		

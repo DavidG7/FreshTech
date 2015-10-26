@@ -9,6 +9,7 @@ import java.awt.Dimension;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import CustomUI.*;
 
@@ -26,6 +27,15 @@ import javax.swing.JTable;
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.JTableHeader;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.Product;
+import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
 
 import CustomUI.CustomButton;
 import CustomUI.CustomLabel;
@@ -130,6 +140,18 @@ public class AddDiscontinue extends JPanel{
 		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
 		String [] colNames = {"ProductID","Product Name"};
 		Object[][] data = new Object [x][5];
+		
+		@SuppressWarnings("resource")
+		ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+    	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
+        
+    	List<Product> a = productRepository.findAll();
+
+    	for(int i = 0; i <= a.size()-1; i++){
+    		data[i][0] = "Product ID: "+ a.get(i).getProductId();
+    		data[i][1] = a.get(i).getProductName();
+    	}
+		
 		productTable = new JTable(data, colNames);
 		JTableHeader header = productTable.getTableHeader();
 	      header.setBackground(new Color(0,122,0));
