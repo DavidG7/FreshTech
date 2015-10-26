@@ -10,14 +10,11 @@ import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Payment;
 import com.netbuilder.entityrepositories.PaymentRepository;
-import com.netbuilder.entityrepositoriesimplementations.mongo.PaymentRepositoryMongo;
 
 @Controller
 public class PaymentAgreementController {
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	PaymentRepository paymentRepository = mongoContext.getBean(PaymentRepository.class);	
-		
-	PaymentRepositoryMongo test = new PaymentRepositoryMongo();
 	
 	 @RequestMapping("PaymentAgreement")
 	 public String  PaymentAgreement(ModelAndView modelAndView) 
@@ -36,8 +33,10 @@ public class PaymentAgreementController {
 
 		 }
 		 
+		 //This is how you delete a single record from the mongo collection of Payment Agreement
+		 paymentRepository.delete(paymentRepository.findByPaymentID(1).getPaymentID());
 		 
-		 /*
+		 
 		 for(int i = 0; i < paymentRepository.findAll().size(); i++)
 		 {
 			 System.out.println("");
@@ -46,7 +45,7 @@ public class PaymentAgreementController {
 			 System.out.println("Card Number: " + paymentRepository.findAll().get(i).getCardNumber());
 			 System.out.println("Sort Code: " + paymentRepository.findAll().get(i).getSortCode());
 
-		 }*/
+		 }
 		 
 		 return "PaymentAgreement";
 	 }
