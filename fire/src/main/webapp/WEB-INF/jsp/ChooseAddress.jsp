@@ -33,12 +33,14 @@
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Choose Address to Edit
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#">This</a></li>
+      <li th:each="address:${addresses}"><a th:text="${address.address}"></a></li>
+      <!-- 
       <li><a href="#">is</a></li>
       <li><a href="#">where</a></li>
       <li><a href="#">addresses</a></li>
       <li><a href="#">will</a></li>
       <li><a href="#">go</a></li>
+      -->
       </ul>
   </div>
   
