@@ -48,7 +48,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return AddressRepository
 	 */	
-	//@Primary
+	@Primary
 	@Bean
 	public AddressRepository addressRepositoryMongo(){
 		AddressRepositoryMongo addressRepository = new AddressRepositoryMongo();
@@ -61,7 +61,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return AddressRepository
 	 */	
-	@Primary
+	//@Primary
 	@Bean
 	public AddressRepository addressRepositoryDummy(){
 		AddressRepositoryDummy addressRepository = new AddressRepositoryDummy();
@@ -75,7 +75,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return BasketRepository
 	 */	
-	//@Primary
+	@Primary
 	@Bean
 	public BasketRepository basketRepositoryMongo(){
 		BasketRepositoryMongo basketRepository = new BasketRepositoryMongo();
@@ -87,7 +87,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return BasketRepository
 	 */	
-	@Primary
+	//@Primary
 	@Bean
 	public BasketRepository basketRepositoryDummy(){
 		BasketRepositoryDummy basketRepository = new BasketRepositoryDummy();
@@ -96,56 +96,56 @@ public class RepositoryConfig {
 	}
 	
 	//CUSTOMER REPOSITORY
-		/**
-		 * This method implements the CustomerRepository interface by injecting MONGO data.
-		 * Comment/Uncomment the @Primary annotation to choose implementation.
-		 * @return CustomerRepository
-		 */	
-		//@Primary
-		@Bean
-		public CustomerRepository customerRepositoryMongo(){
-			CustomerRepositoryMongo customerRepository = new CustomerRepositoryMongo();
-			customerRepository.setMongoOperation(mongoOperation);
-			return customerRepository;
-		}
-		/**
-		 * This method implements the BasketRepository interface by injecting DUMMY data.
-		 * Comment/Uncomment the @Primary annotation to choose implementation.
-		 * @return BasketRepository
-		 */	
-		@Primary
-		@Bean
-		public CustomerRepository customerRepositoryDummy(){
-			CustomerRepositoryDummy customerRepository = new CustomerRepositoryDummy();
-			customerRepository.setDummyData(dummyData);
-			return customerRepository;
-		}
+	/**
+	 * This method implements the CustomerRepository interface by injecting MONGO data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return CustomerRepository
+	 */	
+	@Primary
+	@Bean
+	public CustomerRepository customerRepositoryMongo(){
+		CustomerRepositoryMongo customerRepository = new CustomerRepositoryMongo();
+		customerRepository.setMongoOperation(mongoOperation);
+		return customerRepository;
+	}
+	/**
+	 * This method implements the BasketRepository interface by injecting DUMMY data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return BasketRepository
+	 */	
+	//@Primary
+	@Bean
+	public CustomerRepository customerRepositoryDummy(){
+		CustomerRepositoryDummy customerRepository = new CustomerRepositoryDummy();
+		customerRepository.setDummyData(dummyData);
+		return customerRepository;
+	}
 		
-		//PAYMENT REPOSITORY
-		/**
-		 * This method implements the PaymentRepository interface by injecting MONGO data.
-		 * Comment/Uncomment the @Primary annotation to choose implementation.
-		 * @return PaymentRepository
-		 */	
-		//@Primary
-		@Bean
-		public PaymentRepository paymentRepositoryMongo(){
-			PaymentRepositoryMongo paymentRepository = new PaymentRepositoryMongo();
-			paymentRepository.setMongoOperation(mongoOperation);
-			return paymentRepository;
-		}
-		/**
-		 * This method implements the PaymentRepository interface by injecting DUMMY data.
-		 * Comment/Uncomment the @Primary annotation to choose implementation.
-		 * @return PaymentRepository
-		 */	
-		@Primary
-		@Bean
-		public PaymentRepository paymentRepositoryDummy(){
-			PaymentRepositoryDummy paymentRepository = new PaymentRepositoryDummy();
-			paymentRepository.setDummyData(dummyData);
-			return paymentRepository;
-		}
+	//PAYMENT REPOSITORY
+	/**
+	 * This method implements the PaymentRepository interface by injecting MONGO data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return PaymentRepository
+	 */	
+	@Primary
+	@Bean
+	public PaymentRepository paymentRepositoryMongo(){
+		PaymentRepositoryMongo paymentRepository = new PaymentRepositoryMongo();
+		paymentRepository.setMongoOperation(mongoOperation);
+		return paymentRepository;
+	}
+	/**
+	 * This method implements the PaymentRepository interface by injecting DUMMY data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return PaymentRepository
+	 */	
+	//@Primary
+	@Bean
+	public PaymentRepository paymentRepositoryDummy(){
+		PaymentRepositoryDummy paymentRepository = new PaymentRepositoryDummy();
+		paymentRepository.setDummyData(dummyData);
+		return paymentRepository;
+	}
 
 	//PRODUCT REPOSITORY
 	/**
@@ -153,7 +153,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return ProductRepository
 	 */	
-	//@Primary
+	@Primary
 	@Bean
 	public ProductRepository productRepositoryMongo(){
 		ProductRepositoryMongo productRepository = new ProductRepositoryMongo();
@@ -165,7 +165,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return ProductRepository
 	 */	
-	@Primary
+	//@Primary
 	@Bean
 	public ProductRepository productRepositoryDummy(){
 		ProductRepositoryDummy productRepository = new ProductRepositoryDummy();
