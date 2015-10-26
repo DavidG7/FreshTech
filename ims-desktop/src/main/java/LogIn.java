@@ -15,7 +15,6 @@ import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.SpringLayout;
 import javax.swing.SwingUtilities;
-import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 
 import CustomUI.CustomButton;

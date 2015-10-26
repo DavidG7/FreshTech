@@ -10,7 +10,6 @@ public class GUIMain
 	public static JFrame frame;
 
 		
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args)
 	{
 		
@@ -26,7 +25,8 @@ public class GUIMain
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
 	   // ImageIcon img = new ImageIcon("NBGardensLogo.png");
-	    BufferedImage icon = null;
+	    @SuppressWarnings("unused")
+		BufferedImage icon = null;
 		try {
 			icon = ImageIO.read(GUIMain.class.getResource("/images/NBGardensLogo.png"));
 			//icon = ImageIO.read(new File("images/NBGardensLogo.png"));
