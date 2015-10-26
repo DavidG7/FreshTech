@@ -8,9 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
-import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.PaymentRepository;
-import com.netbuilder.entityrepositoriesimplementations.mongo.PaymentRepositoryMongo;
 
 @Controller
 public class PaymentAgreementController {
@@ -30,8 +28,8 @@ public class PaymentAgreementController {
 
 		 }
 		 
-		 paymentRepository.delete(2);
 		 
+		 /*
 		 for(int i = 0; i < paymentRepository.findAll().size(); i++)
 		 {
 			 System.out.println("");
@@ -40,7 +38,7 @@ public class PaymentAgreementController {
 			 System.out.println("Card Number: " + paymentRepository.findAll().get(i).getCardNumber());
 			 System.out.println("Sort Code: " + paymentRepository.findAll().get(i).getSortCode());
 
-		 }
+		 }*/
 		 
 		 return "PaymentAgreement";
 	 }
