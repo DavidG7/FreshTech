@@ -55,8 +55,8 @@ public class DummyData {
 		products.add(new Product(3,3,(float)33.33, "gnome", "other", true, false, 3, "description3", "placeholder.jpg"));
 		products.add(new Product(4,4,(float)44.44, "gnome", "savage", true, true, 4, "description4", "placeholder.jpg"));
 		
-		purchaseOrders.add(new PurchaseOrder(1,"status1"));
-		purchaseOrders.add(new PurchaseOrder(2,"status2"));
+		purchaseOrders.add(new PurchaseOrder(1,1,1,"date1","status1"));
+		purchaseOrders.add(new PurchaseOrder(2,2,2,"date2","status2"));
 		
 		suppliers.add(new Supplier(1,"name1"));
 		suppliers.add(new Supplier(2,"name2"));
