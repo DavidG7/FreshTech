@@ -81,14 +81,14 @@ public class ProductRepositoryMongo implements ProductRepository{
 
 	@Override
 	public void delete(Integer id) {
-		mongoOperation.remove(new Query(Criteria.where("_id").is(id)), "Product");
+		mongoOperation.remove(new Query(Criteria.where("_id").is(id)), Product.class);
 		
 	}
 
 	@Override
-	public void delete(Product arg0) {
-		mongoOperation.remove(arg0);
-		
+	public void delete(Product arg0) 
+	{
+		//mongoOperation.remove(new Query(Criteria.where("_id").is("3")), Product.class);
 	}
 
 	@Override
@@ -276,5 +276,4 @@ public class ProductRepositoryMongo implements ProductRepository{
 	public void setMongoOperation(MongoOperations mongoOperation) {
 		this.mongoOperation = mongoOperation;
 	}
-
 }
