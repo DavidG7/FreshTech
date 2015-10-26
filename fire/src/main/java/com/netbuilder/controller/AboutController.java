@@ -24,8 +24,5 @@ public class AboutController {
 		 	test.insert(new Product(3,17,5020,"Gnome","Fish",false,true, 2, "Fish Gnome, not so fresh","resources/static/ImageFolder/newgame.jpg"));
 		 	test.insert(new Product(4,17,5200,"Gnome","TNT",false,true, 5, "Much minecraft","resources/static/ImageFolder/newgame.jpg"));*/
 			return "About";
-		 	 
-
-
 	 }
 }
