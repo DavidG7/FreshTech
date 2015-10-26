@@ -37,7 +37,7 @@ public class Customer implements Serializable {
 	
 	private ArrayList<Product> wishList;
 	private ArrayList<Payment> paymentArray;
-	private ArrayList<Address> addressArray;
+	private ArrayList<Address> addressArray = new ArrayList<Address>() ;
 	private ArrayList<Basket> basketArray;
 		
 	/**
@@ -74,7 +74,12 @@ public class Customer implements Serializable {
 		setCustomerContactMethod(preferedContactMethod);	
 	}
 	
+	
 	public Customer() { }
+	
+	public void addAddress(Address address){
+		addressArray.add(new Address());
+	}
 	
 	public int getCustomerID() {
 		return customerID;
