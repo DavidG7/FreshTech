@@ -37,6 +37,7 @@
       <li><a href="#">Maestro</a></li>
       </ul>
   </div>
+  <br/>
 		Name on Card:<br/>
 		<input type = "text" name = "firstname"/>
 		<br/>
