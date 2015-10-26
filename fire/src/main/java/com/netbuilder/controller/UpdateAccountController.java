@@ -30,15 +30,18 @@ public class UpdateAccountController {
 	 public ModelAndView UpdateAccount (ModelAndView modelAndView, HttpSession session) {
 		 	ModelAndView view = new ModelAndView();
 		 	view.setViewName("UpdateAccount");
-		 	 String user =session.getAttribute("sessionUser")+"";
+		 	
+		 	String user =session.getAttribute("sessionUser")+"";
 			 if(user.equalsIgnoreCase("null")){
 				 view.setViewName("Register");
 			 }	
+			 
 			 else{
 				 Customer customer = customerRepository.findByCustomerUsername(user);
-				 view.addObject("customerAddress", customer.getCustomerAddressAt(0));	
+				 //view.addObject("customerAddress", customer.getCustomerAddressAt(0));	
 				 view.addObject("customer", customer);		
 			 } 
+			 
 	        return view;
 	  }
 	
