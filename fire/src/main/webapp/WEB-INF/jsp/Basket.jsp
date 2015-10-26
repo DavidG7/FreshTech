@@ -36,7 +36,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Original Gnome</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
@@ -52,7 +52,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Smashy Gnome</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
@@ -68,7 +68,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Game of Gnomes</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>	
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
@@ -84,7 +84,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Tasty Gnomes</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
@@ -101,7 +101,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Original Gnome</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
@@ -117,7 +117,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Smashy Gnome</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>	
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
@@ -133,7 +133,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Game of Gnomes</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
@@ -149,7 +149,7 @@
  		            	<img class="img-thumbnail" id="identify" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="40%"/>
  		            	<span id="sortgaps">
 		                	<p id="underlined"><a href="Product"><strong>Tasty Gnome</strong></a></p>
-		                	<p>£10.00</p>
+		                	<p>&pound;10.00</p>
 		                	<p>Quantity: 3</p>
 		                </span>
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
