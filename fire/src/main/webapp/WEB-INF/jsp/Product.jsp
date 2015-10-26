@@ -40,7 +40,7 @@
 			<div class="rating">
 				<p>
 					<strong>Item price: <span
-						th:text="'&pound;'+${product.price}"></span></strong>
+						th:text="'&pound;'+${product.price}+'0'"></span></strong>
 				</p>
 
 				<strong>RATING: </strong> <span

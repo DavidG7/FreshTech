@@ -11,10 +11,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.netbuilder.DataConfig;
-import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.util.SQLTemplate;
+
+/**
+ * 
+ * @author Thomas Dudley
+ *
+ */
 
 public class PurchaseOrderSQL implements PurchaseOrderRepository
 {
@@ -48,14 +53,36 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	}
 
 	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Integer purchaseOrderID) 
+	{
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "DELETE FROM purchaseorder WHERE purchaseorderid =" + purchaseOrderID);
+			
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void delete(PurchaseOrder arg0) {
-		// TODO Auto-generated method stub
+
+		int purchaseOrderID = arg0.getPurchaseOrderID();
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "DELETE * FROM purchaseorder WHERE purchaseorderid =" + purchaseOrderID);
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 
@@ -66,8 +93,16 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	}
 
 	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
+	public void deleteAll() 
+	{
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "DELETE FROM purchaseorder");
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -127,14 +162,53 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	}
 
 	@Override
-	public PurchaseOrder findOne(Integer arg0) {
-		// TODO Auto-generated method stub
+	public PurchaseOrder findOne(Integer purchaseOrderID) 
+	{
+		PurchaseOrder purchaseOrder;
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT * FROM purchaseorder WHERE purchaseorderid =" + purchaseOrderID);
+			
+			while(rs.next())
+			{
+				return purchaseOrder = new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+			}
+			
+			
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
 	@Override
-	public <S extends PurchaseOrder> S save(S arg0) {
-		// TODO Auto-generated method stub
+	public <S extends PurchaseOrder> S save(S arg0) 
+	{
+		/*PurchaseOrder purchaseOrder;
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "UPDATE purchaseOrder"
+					+ "SET purchaseorderid = arg0.getPurchaseOrderID() AND supplierid = arg0.getSupplierID() AND "
+					+ "employeeid = arg0.getEmployeeID(), "
+					+ " WHERE purchaseorderid =" + arg0.getPurchaseOrderID());
+			
+			while(rs.next())
+			{
+				return purchaseOrder = new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+			}
+			
+			
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}*/
+		
 		return null;
 	}
 
@@ -145,16 +219,53 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	}
 
 	@Override
-	public PurchaseOrder findByPurchaseOrderID(int PurchaseOrderID) {
-		// TODO Auto-generated method stub
+	public PurchaseOrder findByPurchaseOrderID(int purchaseOrderID) 
+	{
+		PurchaseOrder purchaseOrder;
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT * FROM purchaseorder WHERE purchaseorderid =" + purchaseOrderID);
+			
+			while(rs.next())
+			{
+				return purchaseOrder = new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+			}
+			
+			
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
 	@Override
 	public List<PurchaseOrder> findByPurchaseOrderStatus(
-			String PurchaseOrderStatus) {
-		// TODO Auto-generated method stub
-		return null;
+			String PurchaseOrderStatus) 		
+	{
+		ArrayList<PurchaseOrder> purchaseOrder = new ArrayList<PurchaseOrder>();
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT purchaseorderid, supplierid, employeeid, purchaseorderdate, status FROM purchaseorder");
+			
+			int i = 0;
+			
+			while(rs.next()){	
+				
+				purchaseOrder.add(new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5)));
+				System.out.println(purchaseOrder.get(i).getPurchaseOrderID()+", "+ purchaseOrder.get(i).getSupplierID()+ ", " + purchaseOrder.get(i).getEmployeeID()
+						+", "+purchaseOrder.get(i).getPurchaseDateOrder()+", "+purchaseOrder.get(i).getPurchaseOrderStatus());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  purchaseOrder;
+		
 	}
 
 }
