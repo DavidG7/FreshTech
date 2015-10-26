@@ -18,5 +18,6 @@ public class CustomLabel extends JLabel {
 		}
 		this.setForeground(new Color(0,122,0));
 	}
+	
 
 }
