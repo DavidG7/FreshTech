@@ -1,21 +1,25 @@
-package com.netbuilder.entityrespositoriesimplementations.sql;
+/*package com.netbuilder.entityrespositoriesimplementations.sql;
 
 import java.sql.ResultSet;
 
 import javax.sql.DataSource;
 
+import org.h2.engine.Database;
 import org.springframework.jdbc.core.JdbcTemplate;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.sql.*;
 
 import javax.sql.DataSource;
 
@@ -26,6 +30,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
+import com.mysql.jdbc.Statement;
 import com.netbuilder.MongoConfig;
 import com.netbuilder.SQLConfig;
 import com.netbuilder.entities.Customer;
@@ -35,8 +40,11 @@ import com.netbuilder.entityrepositories.CustomerOrderRepository;
 public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	ApplicationContext ctx = new AnnotationConfigApplicationContext(SQLConfig.class);
 	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
- 
+	JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+  
+
+
+   
 	@Override
 	public long count() {
 		jdbcTemplate = new JdbcTemplate(dataSource);
@@ -137,41 +145,6 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		return customerorder;
 	}
 
-	public CustomerOrder findById(int id) {
-		String sql = "SELECT * FROM customerid WHERE orderid = ?";
-		Connection conn = null;
-
-		 try {
-	        	conn = dataSource.getConnection();
-	        	PreparedStatement ps = conn.prepareStatement(sql);
-	        	ps.setInt(1, id);
-	        	CustomerOrder customerorder = null;
-	        	ResultSet rs = ps.executeQuery();
-	        	if (rs.next()) {
-	        		customerorder = new CustomerOrder(
-	        				rs.getInt("orderid"),
-	        				rs.getInt("customerid"),
-	        				rs.getString("orderdate"),
-	        				rs.getInt("ordertotal"),
-	        				rs.getString("customerorderstatus"),
-	        				rs.getString("addressid"));
-	        	}
-	        	rs.close();
-	        	ps.close();
-	        	return customerorder;
-		 	}
-		 catch (SQLException e) {
-			 throw new RuntimeException(e);
-		 }
-		 finally {
-			 if (conn != null) {
-				 try {
-					 conn.close();
-				 } catch (SQLException e) {}
-			 }
-		 } 
-	}
-	
 
 
 	
@@ -186,7 +159,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		return null;
 	}
 	@Override
-	public ArrayList<CustomerOrder> findByOrderStatus(String orderStatus) {
+	public ArrayList<CustomerOrder> findByCustomerOrderStatus(String orderStatus) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -198,3 +171,4 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 
 
 }
+*/

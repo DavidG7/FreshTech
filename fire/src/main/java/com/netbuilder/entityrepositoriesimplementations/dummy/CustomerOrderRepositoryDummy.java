@@ -1,13 +1,13 @@
-package com.netbuilder.entityrepositoriesimplementations.dummy;
+/*package com.netbuilder.entityrepositoriesimplementations.dummy;
 
-/**
+*//**
  * 
  * @author ???, Thomas Dudley
  * 
  * This class it to implement the functionality of the Customer Order Repository
  * 
  * 
- */
+ *//*
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -131,7 +131,7 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 		return null;
 	}
 
-/*	@Override
+	@Override
 	public CustomerOrder findByCustomerOrderID(Integer customerOrderID) 
 	{
 		
@@ -152,9 +152,9 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 
 	}
 
-*/
 
-	/*@Override
+
+	@Override
 	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) 
 	{
 		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
@@ -173,7 +173,7 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 		return foundCustomerOrder;
 		
 	}
-*/
+
 	@Override
 	public ArrayList<CustomerOrder> findByDateOfOrder(Date dateOfOrder) 
 	{
@@ -194,7 +194,7 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByOrderStatus(String status) 
+	public ArrayList<CustomerOrder> findByCustomerOrderStatus(String status) 
 	{
 		
 		ArrayList<CustomerOrder> customer = dummyData.getEntityList(new CustomerOrder());
@@ -245,3 +245,4 @@ public class CustomerOrderRepositoryDummy implements CustomerOrderRepository{
 	}
 
 }
+*/

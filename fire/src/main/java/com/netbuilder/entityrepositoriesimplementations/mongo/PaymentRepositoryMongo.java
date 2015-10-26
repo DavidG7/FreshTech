@@ -2,6 +2,7 @@ package com.netbuilder.entityrepositoriesimplementations.mongo;
 
 import java.util.List;
 
+import org.bson.Document;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.domain.Page;
@@ -53,8 +54,8 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 
 	@Override
 	public <S extends Payment> S insert(S arg0) 
-	{
-		mongoOperation.insert(arg0);
+	{	
+		mongoOperation.save(arg0);
 		return null;
 	}
 
@@ -86,6 +87,8 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	@Override
 	public void delete(Integer arg0) 
 	{
+		
+		//mongoOperation.getCollection("Payment")).deleteMany(arg0);
 		
 		List<Payment> payment = findAll();
 		
@@ -233,5 +236,4 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 		
 		return payments;
 	}
-
 }
