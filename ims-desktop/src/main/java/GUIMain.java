@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 public class GUIMain 
 {
 	public static JFrame frame;
-
+	static MongoDatabaseController mdb;
+	
 	public static void main(String[] args)
 	{
 		frame = new JFrame("Inventory Management System");
@@ -17,6 +18,11 @@ public class GUIMain
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
 
+	    
+
+		mdb = new MongoDatabaseController();
+	    
+	    
 	    @SuppressWarnings("unused")
 		BufferedImage icon = null;
 		try {

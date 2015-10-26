@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Address;
-import com.netbuilder.entityrepositories.AddressRepository;
+import com.netbuilder.entities.Customer;
+
+import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
-import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
+
 
 
 
@@ -25,41 +27,41 @@ import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryM
 public class AddressController {
 	
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
-	AddressRepository addressRepository = mongoContext.getBean(AddressRepository.class);	
+	CustomerRepository customerRepository = mongoContext.getBean(CustomerRepository.class);	
 	
 	//ApplicationContext appContext = new ClassPathXmlApplicationContext("beans.xml");
 	//MessageSender sender = (MessageSender)appContext.getBean("messageSender"); 
 
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
-		addressRepository.delete(addressRepository.findByAddressID(1).getAddressid());
-		addressRepository.save(new Address(5,"Ricky Road 125", "KMNB", 1));
-		addressRepository.save(new Address(2,"Serpent Road", "LL09", 1));
-		addressRepository.save(new Address(4,"Ice Road", "GGG6", 2));
+		customerRepository.delete(customerRepository.findByCustomerID(2));
+		customerRepository.save(new Customer(1,"0872456678",9790,"Jenny Smith the second", "jennysmith@gmail.com", "JenkinJennySmith", "ILoveGnomes" ));
+		customerRepository.save(new Customer(2,"0865546739",9960,"Ben Locamotive the second", "benlococoko@gmail.com", "HotLikeATrain", "ILoveGnomesToo" ));
+		
 	
-		 for(int i =0;i < addressRepository.findAll().size();i++){
+		 for(int i =0;i < customerRepository.findAll().size();i++){
 			 System.out.println("");
-			 System.out.println("Address ID: " + addressRepository.findAll().get(i).getAddressid());
-			 System.out.println("Address: " + addressRepository.findAll().get(i).getAddress());
-			 System.out.println("PostCode: " + addressRepository.findAll().get(i).getPostcode());
-			 System.out.println("Customer ID: " + addressRepository.findAll().get(i).getCustomerId());
+			 System.out.println("Customer ID: " + customerRepository.findAll().get(i).getCustomerID());
+			 System.out.println("Customer Phone: " + customerRepository.findAll().get(i).getCustomerPhone());
+			 System.out.println("Available Credit:" + customerRepository.findAll().get(i).getAvailableCredit());
+			 System.out.println("Customer Name: " + customerRepository.findAll().get(i).getCustomerName());
 		 }
 		 
 			 System.out.println("");
 
-			 System.out.println("Specific Postcode: " + addressRepository.findByAddressID(3).getAddress());
-			 System.out.println("Specific Postcode: " + addressRepository.findByCustomerId(2).get(0).getAddress());
-			// System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
+			 System.out.println("Customer Name: (1)" + customerRepository.findByCustomerID(1).getCustomerName());
+			 System.out.println("Customer Name (2): " + customerRepository.findByCustomerID(2).getCustomerName());
+			// System.out.println("Specific Postcode: " + customerRepositoryMongo.findByCustomerId(2).get(1).getAddress());
 			 
-			 System.out.println("Number of Adresses: " + addressRepository.count());
+			 System.out.println("Number of Customers: " + customerRepository.count());
 			 
-			// AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(4));
+			// customerRepositoryMongo.delete(customerRepositoryMongo.findByAddressID(4));
 			
 			
 			 
 			
 			 
-			 //AddressRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
+			 //customerRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
 			 
 	 
 	        return "Address";
