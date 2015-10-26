@@ -32,7 +32,7 @@
 				
 				<form th:action="@{/info}" method="post">			
 				
-				<input class="gnomeimage" th:id="${product.productName}" th:name="${product.productName}" type="image" th:value="${product.productName}" 
+				<input class="gnomeimage" th:name="${product.productId}" type="image" th:value="${product.productId}" 
 						th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}"/>
 				</form>
 			
@@ -41,12 +41,19 @@
 				
 				<strong>RATING: </strong>
 				
-				<span th:each="i : ${#numbers.sequence( 1, product.rating)}">
-  				  &#9733; 
-				</span>
-				
-				<span th:each="i : ${#numbers.sequence( 1, 5-product.rating)}">
-  				  &#9734; 
+				<span th:switch="${product.rating}">
+					<span th:case="0">
+						<span th:each="i : ${#numbers.sequence( 1, 5)}"> &#9734; </span>
+					</span>
+					<span th:case="5">
+						<span th:each="i : ${#numbers.sequence( 1, 5)}"> &#9733; </span>
+					</span>
+					<span th:case="*">
+						<span th:each="i : ${#numbers.sequence( 1, product.rating)}">
+						&#9733; </span> 
+						<span th:each="i : ${#numbers.sequence( 1, 5-product.rating)}">
+						&#9734; </span> 
+					</span>
 				</span>
 				
 				</p>

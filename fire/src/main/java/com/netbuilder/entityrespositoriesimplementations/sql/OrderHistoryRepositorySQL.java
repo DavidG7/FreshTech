@@ -52,12 +52,13 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
     
 	@Override
 	public void delete(Integer OrderID) {
-		// TODO Auto-generated method stub
-		
+		sqltemplate.update("DELETE FROM customerorder WHERE orderid = "  + OrderID);
 	}
+	
 	@Override
 	public void delete(CustomerOrder arg0) {
-		// TODO Auto-generated method stub
+		int OrderID = arg0.getCustomerOrderID();
+		sqltemplate.update("DELETE FROM customerorder WHERE orderid = "  + OrderID);
 		
 	}
 	@Override
@@ -66,10 +67,12 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		
 	}
 	@Override
+	
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		sqltemplate.update("DELETE FROM customerorder");
 		
 	}
+	
 	@Override
 	public boolean exists(Integer arg0) {
 		// TODO Auto-generated method stub
@@ -82,9 +85,9 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder");
-			
+			int i=0;
 			while(rs.next()){	
-				int i=0;
+				
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
 				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
@@ -100,6 +103,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public CustomerOrder findOne(Integer arg0) {
 		// TODO Auto-generated method stub
@@ -153,25 +157,72 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 
 	@Override
-	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CustomerOrder> findByDeliveryAddress(Integer deliveryAddress) {
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE addressid = " + deliveryAddress);
+			
+			while(rs.next()){	
+				int i=0;
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  customerorder;
 	}
+	
 	@Override
-	public ArrayList<CustomerOrder> findByDateOfOrder(Date dateOfOrder) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate) {
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderdate = '" + orderDate +"'");
+			int i=0;
+			while(rs.next()){	
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  customerorder;
 	}
+	
 	@Override
-	public ArrayList<CustomerOrder> findByCustomerOrderStatus(
-			String customerOrderStatus) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<CustomerOrder> findByCustomerOrderStatus(String customerOrderStatus) {
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE customerorderstatus = '" + customerOrderStatus +"'");
+			int i=0;
+			while(rs.next()){	
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  customerorder;
 	}
 	@Override
 	public ArrayList<CustomerOrder> findByOrderTotal(float orderTotal) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE ordertotal = " + orderTotal);
+			
+			while(rs.next()){	
+				int i=0;
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  customerorder;
 	}
 	
 
