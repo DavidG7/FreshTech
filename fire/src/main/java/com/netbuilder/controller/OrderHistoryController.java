@@ -15,12 +15,13 @@ import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryReposit
 public class OrderHistoryController {
 	
 	 CustomerOrderRepository orderHistoryRepository = new OrderHistoryRepositorySQL();
-	/* @RequestMapping("OrderHistory")
+	
+	 /*@RequestMapping("OrderHistory")
 	public String OrderHistory (){
 		orderHistoryRepository.findAll();
 		return "OrderHistory";
 		
-	}
+	}/*
 	 @RequestMapping("OrderHistory")
 	 public String OrderHistory (){
 			orderHistoryRepository.count();
@@ -34,11 +35,42 @@ public class OrderHistoryController {
 			return "OrderHistory";
 			
 		}
-		*/
+		
 	 @RequestMapping("OrderHistory")
 	 public String OrderHistory (){
 			orderHistoryRepository.findByCustomerID(5);
 			return "OrderHistory";
 			
 		}
+		
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByDeliveryAddress(5);
+			return "OrderHistory";
+	 }
+	 
+	
+
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByCustomerOrderStatus("Processing");
+			return "OrderHistory";
+	 }
+	 
+	 	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByDateOfOrder("2015-10-10");
+			return "OrderHistory";
+	}
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByOrderTotal(0);
+			return "OrderHistory";
+	 }
+*/
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.delete(25);
+			return "OrderHistory";
+	 }
 }
