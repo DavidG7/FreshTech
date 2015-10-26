@@ -1,4 +1,4 @@
-package com.netbuilder.entityrespositoriesimplementations.sql;
+/*package com.netbuilder.entityrespositoriesimplementations.sql;
 
 import java.sql.ResultSet;
 
@@ -171,3 +171,4 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 
 
 }
+*/

@@ -24,3 +24,20 @@
    content: "\2605";
    position: absolute;
 }
+
+#carousel-main img {
+height:100%;
+margin : 0 auto;
+}
+
+#carousel-main .item active {
+height:100%;
+}
+
+.carousel .item {
+  height: 300px;
+}
+#others{
+	margin-top : 120px;
+	margin-bottom : 20px;
+}

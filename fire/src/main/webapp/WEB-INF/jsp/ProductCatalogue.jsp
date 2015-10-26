@@ -5,7 +5,7 @@
       
     <head th:fragment="header">
 		<link  type="text/css" rel="stylesheet" href="css/ProductCatalogue.css" />
-	<title>NB Gardens</title>
+	<title>Product Catalogue</title>
     </head>
     <body>
     
@@ -30,17 +30,25 @@
 				<h3 th:text = "${product.productName}"></h3>
 				<p class ="price" th:text = "'&pound;'+${product.price}"> </p> 
 				
-				<form th:action="@{/info}" method="post" id="gnomeimage">			
+				<form th:action="@{/info}" method="post">			
 				
-				<input id="gnomeimage" th:id="${product.productName}" th:name="${product.productName}" type="image" th:value="${product.productName}" 
-						th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}" />
+				<input class="gnomeimage" th:id="${product.productName}" th:name="${product.productName}" type="image" th:value="${product.productName}" 
+						th:src="'ImageFolder/'+${product.image}" th:alt="${product.productName}"/>
 				</form>
 			
 
 				<p id="clearrating">
+				
 				<strong>RATING: </strong>
-				<span> &#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734; </span><span>&#9734;
+				
+				<span th:each="i : ${#numbers.sequence( 1, product.rating)}">
+  				  &#9733; 
 				</span>
+				
+				<span th:each="i : ${#numbers.sequence( 1, 5-product.rating)}">
+  				  &#9734; 
+				</span>
+				
 				</p>
 				
 			</li>
