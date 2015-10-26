@@ -26,15 +26,18 @@
 
 		<div class = "panel-body"></div>
 			    <form action="action_page.php"></form>
-		<div class="dropdown"></div>
-				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Card Type
-    	<span class="caret"></span></button>
-		<ul class="dropdown-menu">
-		<li><a>Mastercard</a></li>
-		<li><a>Visa</a></li>
-		<li><a>Visa Electron</a></li>
-		<li><a>American Express</a></li>
-		</ul><p></p>
+		<div class="dropdown">
+   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Card Type
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Mastercard</a></li>
+      <li><a href="#">Visa</a></li>
+      <li><a href="#">Visa Electron</a></li>
+      <li><a href="#">American Express</a></li>
+      <li><a href="#">Maestro</a></li>
+      </ul>
+  </div>
+  <br/>
 		Name on Card:<br/>
 		<input type = "text" name = "firstname"/>
 		<br/>
@@ -45,7 +48,7 @@
 		<br/>
 		Card Expiry Date: 
 	   <div class="dropdown">
-   		 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Please choose year
+   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Please choose year
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
       <li><a href="#">2015</a></li>

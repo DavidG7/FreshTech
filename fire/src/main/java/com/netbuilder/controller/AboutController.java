@@ -11,6 +11,7 @@ import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+
 @Controller
 public class AboutController {
 		
@@ -20,6 +21,10 @@ public class AboutController {
 	ProductRepositoryMongo test = new ProductRepositoryMongo();
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
+
+		 	 test.insert(new Product(11,15,5000,"Gmone","Explosive1",false,true, 1, "Blue Gmone which is highly explosive","resources/static/ImageFolder/newgame.jpg"));
+		 	 test.insert(new Product(11,15,5000,"Gmone","Explosive2",false,true, 0, "Blue Gmone which is highly explosive","resources/static/ImageFolder/newgame.jpg"));
+
 		 	 return "About";
 
 

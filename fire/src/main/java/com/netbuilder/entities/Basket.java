@@ -1,5 +1,7 @@
 package com.netbuilder.entities;
 
+import javax.persistence.Entity;
+
 /**
  * @author Thomas Dudley, James Thompson
  * Small class within the customer for the basket
@@ -10,7 +12,7 @@ package com.netbuilder.entities;
  * Moved into separate class
  *
  */
-
+@Entity
 public class Basket {
 	private Product product;
 	private int quantity;

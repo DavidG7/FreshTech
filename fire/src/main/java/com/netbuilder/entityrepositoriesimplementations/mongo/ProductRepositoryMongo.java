@@ -3,18 +3,13 @@ package com.netbuilder.entityrepositoriesimplementations.mongo;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Repository;
 
-import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 
@@ -58,25 +53,25 @@ public class ProductRepositoryMongo implements ProductRepository{
 	@Override
 	public <S extends Product> S insert(S arg0) {
 		mongoOperation.insert(arg0);
-		return null;
+		return arg0;
 	}
 
 	@Override
 	public <S extends Product> List<S> insert(Iterable<S> arg0) {
 		mongoOperation.insert(arg0);
-		return null;
+		return (List<S>) arg0;
 	}
 
 	@Override
 	public <S extends Product> List<S> save(Iterable<S> arg0) {
 		mongoOperation.save(arg0);
-		return null;
+		return (List<S>) arg0;
 	}
 
 	@Override
 	public Page<Product> findAll(Pageable arg0) {
 		
-		return null;
+		return (Page<Product>) arg0;
 	}
 
 	@Override
@@ -86,14 +81,14 @@ public class ProductRepositoryMongo implements ProductRepository{
 
 	@Override
 	public void delete(Integer id) {
-		mongoOperation.remove(new Query(Criteria.where("_id").is(id)), "Product");
+		mongoOperation.remove(new Query(Criteria.where("_id").is(id)), Product.class);
 		
 	}
 
 	@Override
-	public void delete(Product arg0) {
-		mongoOperation.remove(arg0);
-		
+	public void delete(Product arg0) 
+	{
+		mongoOperation.remove(new Query(Criteria.where("_id").is(arg0.getProductId())), Product.class);	
 	}
 
 	@Override
@@ -281,5 +276,4 @@ public class ProductRepositoryMongo implements ProductRepository{
 	public void setMongoOperation(MongoOperations mongoOperation) {
 		this.mongoOperation = mongoOperation;
 	}
-
 }

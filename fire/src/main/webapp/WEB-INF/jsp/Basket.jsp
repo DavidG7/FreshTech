@@ -29,74 +29,18 @@
 		
 		<div class = "panel-body">
 
-
-<!-- 	    
-<p>ITEM 1 - PLACEHOLDER EXAMPLE                 QUANTITY: 1</p> <div class="dropdown">
-   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">8</a></li>
-      <li><a href="#">9</a></li>
-      </ul>
-  </div>
-  
-
-  
-  <br/>
-  <p>ITEM 2 - PLACEHOLDER EXAMPLE                 QUANTITY: 5</p> <div class="dropdown">
-   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">8</a></li>
-      <li><a href="#">9</a></li>
-      </ul>
-  </div>
-    <br/>
-  
-
-  <p>ITEM 3 - PLACEHOLDER EXAMPLE                 QUANTITY: 2</p> <div class="dropdown">
-   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">8</a></li>
-      <li><a href="#">9</a></li>
-      </ul>
-  </div>
-
-<br/>
-
-
-
-<br/>
-<a href="OrderCheckout"><button type="submit" value="Checkout">Checkout</button></a>
--->
 		<div class="squareasd">
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="50%"/>
-		                stuff
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Original Gnome</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
@@ -105,8 +49,14 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="50%"/>
-		                and
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Smashy Gnome</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
@@ -115,8 +65,14 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="50%"/>
-		                things
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Game of Gnomes</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>	
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
@@ -125,8 +81,14 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="50%"/>
-		                stuff
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Tasty Gnomes</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
@@ -136,8 +98,14 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="50%"/>
-		                stuff
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Original Gnome</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
@@ -146,8 +114,14 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="50%"/>
-		                and
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Smashy Gnome</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>	
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
@@ -156,8 +130,14 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="50%"/>
-		                things
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Game of Gnomes</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
@@ -166,17 +146,24 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="50%"/>
-		                stuff
+ 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="40%"/>
+ 		            	<span id="sortgaps">
+		                	<p id="underlined"><a href="Product"><strong>Tasty Gnome</strong></a></p>
+		                	<p>&pound;10.00</p>
+		                	<p>Quantity: 3</p>
+		                </span>
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
+		                <button type="submit"><strong>Remove</strong></button>
 		            </div>
 		        </div>
 		    </div>
 		</div>
-		
+	<div id="buttonmargin">
+		<a href="PaymentAgreement"><button type="submit"><strong>Proceed to Checkout</strong></button></a>
+	</div>
+	
+	<div class="push"></div>
 
-
-
-<!-- Finished doing my stuff at the point -->
 </div>
 </div>
 </body>

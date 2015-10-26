@@ -31,7 +31,9 @@ public class DummyData {
 	 * This constructor instantiates dummy data for all entities.
 	 */
 	public DummyData() {
-		employees.add(new Employee(1,"Ben Back", "BennyBack7","spikelife7",1));
+
+		employees.add(new Employee(1,"Ben Back", "BennyBack7","spikelife7", 1));
+
 		employees.add(new Employee(2,"Ray Smithy", "ArrogantManNum1", "sellsomeshit", 1));
 		
 		payments.add(new Payment(1,12341234,"10-00-01"));
