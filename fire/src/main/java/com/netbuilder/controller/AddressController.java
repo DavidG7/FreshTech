@@ -18,7 +18,7 @@ import com.netbuilder.entities.Address;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
-import com.netbuilder.jmssend.MessageSender;
+
 
 
 @Controller
@@ -46,18 +46,16 @@ public class AddressController {
 		 }
 		 
 			 System.out.println("");
+
 			 System.out.println("Specific Postcode: " + addressRepository.findByAddressID(3).getAddress());
 			 System.out.println("Specific Postcode: " + addressRepository.findByCustomerId(2).get(0).getAddress());
 			// System.out.println("Specific Postcode: " + AddressRepositoryMongo.findByCustomerId(2).get(1).getAddress());
 			 
 			 System.out.println("Number of Adresses: " + addressRepository.count());
 			 
-			 
 			// AddressRepositoryMongo.delete(AddressRepositoryMongo.findByAddressID(4));
 			
-			 Map map = new HashMap();
-			 map.put("Name", "David");
-			// sender.send(map);
+			
 			 
 			
 			 
