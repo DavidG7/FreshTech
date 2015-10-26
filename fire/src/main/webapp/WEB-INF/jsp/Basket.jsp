@@ -158,7 +158,11 @@
 		        </div>
 		    </div>
 		</div>
-		
+	<div id="buttonmargin">
+		<a href="PaymentAgreement"><button type="submit"><strong>Proceed to Checkout</strong></button></a>
+	</div>
+	
+	<div class="push"></div>
 
 </div>
 </div>

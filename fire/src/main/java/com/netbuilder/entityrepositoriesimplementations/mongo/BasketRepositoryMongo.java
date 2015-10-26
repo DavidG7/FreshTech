@@ -10,12 +10,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entityrepositories.BasketRepository;
 
+@Repository
 public class BasketRepositoryMongo implements BasketRepository{
 
 	MongoOperations mongoOperation;

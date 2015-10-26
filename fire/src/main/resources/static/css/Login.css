@@ -14,7 +14,7 @@
     position:absolute;
     height:80%; /* = 100% - 2*10% padding */
     width:90%; /* = 100% - 2*5% padding */
-    padding: 10% 5%;
+    padding: 5% 5%;
 	color: #006600;
 	border-style: solid;
 }
@@ -45,4 +45,7 @@
 }
 #sortgaps{
 	line-height:90%;
+}
+#buttonmargin{
+	margin-left:40px;
 }
