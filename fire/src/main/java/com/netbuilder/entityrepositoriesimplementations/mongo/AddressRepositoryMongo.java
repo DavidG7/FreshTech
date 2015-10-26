@@ -18,17 +18,15 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositories.AddressRepository;
 
 
 public class AddressRepositoryMongo implements AddressRepository{
-	
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
-	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	MongoOperations mongoOperation;
 	
 	@Override
 	public List<Address> findAll() {
@@ -212,6 +210,16 @@ public class AddressRepositoryMongo implements AddressRepository{
 			}
 		}
 		return temp;
+	}
+
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 
 

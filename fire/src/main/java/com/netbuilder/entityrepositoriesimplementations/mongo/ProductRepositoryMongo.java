@@ -9,10 +9,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 
@@ -29,10 +31,13 @@ import com.netbuilder.entityrepositories.ProductRepository;
 
 public class ProductRepositoryMongo implements ProductRepository{
 
+	/*In case of fire: revert to me
 	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
 	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	*/
 	
-	
+	MongoOperations mongoOperation;
+		
 	public ProductRepositoryMongo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -267,6 +272,14 @@ public class ProductRepositoryMongo implements ProductRepository{
 		}
 		
 		return finalProducts;
+	}
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 
 }

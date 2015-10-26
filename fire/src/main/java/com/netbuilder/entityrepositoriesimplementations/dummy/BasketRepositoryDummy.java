@@ -165,4 +165,12 @@ public class BasketRepositoryDummy implements BasketRepository
 		return null;
 	}
 
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
+	}
+
 }

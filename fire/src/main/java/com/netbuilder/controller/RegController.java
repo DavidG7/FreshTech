@@ -6,12 +6,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Customer;
+import com.netbuilder.entityrepositories.CustomerRepository;
+import com.netbuilder.entityrepositories.ProductRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 
 /**
@@ -23,10 +29,8 @@ import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepository
 @Controller
 public class RegController {
 
-	
-	CustomerRepositoryMongo CustomerRepositoryMongo = new CustomerRepositoryMongo();
-
-	
+	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	CustomerRepository customerRepository = mongoContext.getBean(CustomerRepository.class);	
 	
 	 @RequestMapping("Register")
 	 public String   Register(Model model) {
@@ -37,7 +41,7 @@ public class RegController {
 	 public String doLogin(HttpServletRequest request, HttpServletResponse response, HttpSession session){
 		 String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			List<Customer> customers= CustomerRepositoryMongo.findAll();
+			List<Customer> customers= customerRepository.findAll();
 			System.out.println(customers.size());
 			for(int i=0; i<customers.size(); i++){
 				System.out.println(customers.get(i).getCustomerUsername());
@@ -73,7 +77,7 @@ public class RegController {
 			System.out.println(month);
 			System.out.println(day);
 			System.out.println(year);
-			CustomerRepositoryMongo.insert(new Customer(CustomerRepositoryMongo.findAll().size()+1, "0000000d00", 10000, name, email, username,  password));
+			customerRepository.insert(new Customer(customerRepository.findAll().size()+1, "0000000d00", 10000, name, email, username,  password));
 			return "redirect:/";
 	}
 }

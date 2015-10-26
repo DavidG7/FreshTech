@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Payment;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.PaymentRepository;
@@ -30,8 +30,7 @@ import com.netbuilder.entityrepositories.PaymentRepository;
 
 public class PaymentRepositoryMongo implements PaymentRepository{
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
-	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	MongoOperations mongoOperation;
 	
 	public PaymentRepositoryMongo() {
 		// TODO Auto-generated constructor stub
@@ -235,5 +234,13 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 		}
 		
 		return payments;
+	}
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 }

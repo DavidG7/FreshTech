@@ -1,13 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 //import java.util.Vector;
-
-
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
@@ -188,11 +184,6 @@ public class PurchaseOrder extends JPanel
 	    header.setForeground(Color.WHITE);
 	    purchaseOrderTable.setPreferredSize(new Dimension(450, 300));
 	    purchaseOrderTable.setPreferredScrollableViewportSize(purchaseOrderTable.getPreferredSize());
-	    
-	    //purchaseOrderPanel.setPreferredSize(new Dimension(480,600));
-	    
-		
-		scrollPane.getViewport().setBackground(Color.WHITE);
 
 	    purchaseOrderPanel.setBorder(new EmptyBorder(50, 0, 25, 38));
 		purchaseOrderPanel.add(scrollPane);

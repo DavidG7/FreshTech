@@ -13,15 +13,14 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
 import com.netbuilder.entityrepositories.CustomerRepository;
 @Repository
 public class CustomerRepositoryMongo implements CustomerRepository {
 	
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
-	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	MongoOperations mongoOperation;
 	
 	@Override
 	public long count() {
@@ -224,6 +223,14 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 		}
 		return temp;
 		
+	}
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 
 }
