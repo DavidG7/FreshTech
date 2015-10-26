@@ -48,7 +48,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return AddressRepository
 	 */	
-	@Primary
+	//@Primary
 	@Bean
 	public AddressRepository addressRepositoryMongo(){
 		AddressRepositoryMongo addressRepository = new AddressRepositoryMongo();
@@ -61,7 +61,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return AddressRepository
 	 */	
-	//@Primary
+	@Primary
 	@Bean
 	public AddressRepository addressRepositoryDummy(){
 		AddressRepositoryDummy addressRepository = new AddressRepositoryDummy();

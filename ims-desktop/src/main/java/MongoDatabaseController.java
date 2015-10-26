@@ -4,19 +4,17 @@ import com.mongodb.MongoClient;
 
 
 public class MongoDatabaseController 
-{	
-	//MongoDB Variables
-	static String mongohost = "10.50.15.51";
+{
+	static String mongohost = "10.50.15.12";
 	static int port = 27017;
 	static MongoClient mongoClient;
-	static DB db;	
+	DB db;	
 	
 	@SuppressWarnings("deprecation")
 	public MongoDatabaseController()
 	{
 		mongoClient = new MongoClient(mongohost, port);
 		db = mongoClient.getDB("FreshTech");
-		
 	}
 	
 	public DB getMongoDB()
@@ -31,23 +29,7 @@ public class MongoDatabaseController
 		if(db.collectionExists(collectionName))
 		{
 			coll = db.getCollection(collectionName);
-		}
-					
+		}		
 		return coll;
 	}
-	
-	/*try{
-		
-		
-		 DBCursor cursor = coll.find();
-        int i=1;
-        while (cursor.hasNext()) { 
-           System.out.println("Inserted Document: "+i); 
-           System.out.println(cursor.next()); 
-           i++;
-        }
-     }catch(Exception e){
-	     System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-	}*/
-	
 }

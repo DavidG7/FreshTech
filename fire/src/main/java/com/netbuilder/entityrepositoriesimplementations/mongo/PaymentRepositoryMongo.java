@@ -55,7 +55,7 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	public <S extends Payment> S insert(S arg0) 
 	{	
 		mongoOperation.save(arg0);
-		return null;
+		return arg0;
 	}
 
 	@Override
@@ -86,25 +86,8 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	@Override
 	public void delete(Integer arg0) 
 	{
-		
-		//mongoOperation.getCollection("Payment")).deleteMany(arg0);
-		
-		List<Payment> payment = findAll();
-		
-		//deleteAll();
-		
-		for(int i = 0; i < payment.size(); i++)
-		{
-			if(payment.get(i).getPaymentID() == arg0)
-			{
-				payment.remove(i);
-			}
-		}
-		
-		//mongoOperation.remove(new Query(Criteria.where("_id").is(arg0)), Payment.class);
-	
-		mongoOperation.save(payment, "Payment");
-	
+		mongoOperation.remove(new Query(Criteria.where("_id").is(arg0)), Payment.class);
+
 	}
 
 	@Override
