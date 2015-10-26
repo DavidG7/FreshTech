@@ -16,6 +16,9 @@ public class PurchaseOrder {
 		@Id
 		@GeneratedValue (strategy = GenerationType.IDENTITY)
 		private int purchaseOrderID;
+		private int supplierID;
+		private int employeeID;
+		private String purchaseDateOrder;
 		private String purchaseOrderStatus;
 		
 		public PurchaseOrder()
@@ -28,11 +31,40 @@ public class PurchaseOrder {
 		 * @param purchaseOrderID
 		 * @param purchaseOrderStatus
 		 */
-		public PurchaseOrder (int purchaseOrderID, String purchaseOrderStatus) {
+		public PurchaseOrder (int purchaseOrderID, int supplierID, int employeeID,
+				String purchaseDateOrder, String purchaseOrderStatus) 
+		{
 			this.purchaseOrderID = purchaseOrderID;
+			this.supplierID = supplierID;
+			this.employeeID = employeeID;
+			this.purchaseDateOrder = purchaseDateOrder;
 			this.purchaseOrderStatus = purchaseOrderStatus;
 		}
 		
+		public int getSupplierID() {
+			return supplierID;
+		}
+
+		public void setSupplierID(int supplierID) {
+			this.supplierID = supplierID;
+		}
+
+		public int getEmployeeID() {
+			return employeeID;
+		}
+
+		public void setEmployeeID(int employeeID) {
+			this.employeeID = employeeID;
+		}
+
+		public String getPurchaseDateOrder() {
+			return purchaseDateOrder;
+		}
+
+		public void setPurchaseDateOrder(String purchaseDateOrder) {
+			this.purchaseDateOrder = purchaseDateOrder;
+		}
+
 		public int getPurchaseOrderID() {
 		return purchaseOrderID;
 		}

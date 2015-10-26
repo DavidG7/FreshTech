@@ -20,13 +20,7 @@ public class AboutController {
 
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
-		 	/*test.insert(new Product(1,15,5000,"Gm	one","redGnome",false,true, 5, "Red Gmone which is highly explosive","resources/static/ImageFolder/redgnome.png"));
-		 	 test.insert(new Product(2,15,5000,"Gmone","BlueGnome",false,true, 5, "Blue Gmone which is highly explosive","resources/static/ImageFolder/DinoGnome.png"));
-		 	 test.insert(new Product(3,15,5000,"Gmone","BlueGnome",false,true, 5, "Blue Gmone which is highly explosive","resources/static/ImageFolder/newgame.jpg"));*/
-		 	 
+		 	
 		 	 return "About";
-		 
-
-
 	 }
 }

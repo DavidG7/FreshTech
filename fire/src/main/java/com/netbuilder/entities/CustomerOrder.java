@@ -15,13 +15,13 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int orderid;
+	private int orderID;
 	//@ManyToOne
 	@PrimaryKeyJoinColumn(name = "orderid")
 	private int  customerid;
 	private String orderdate;
 	private String customerOrderStatus;
-	private float ordertotal;
+	private int orderTotal;
 	private int addressid;
 	//private DummyData data = new DummyData();
 
@@ -30,19 +30,20 @@ public class CustomerOrder {
 	/**
 	 * Create a new CustomerOrder
 	 * 
-	 * @param customerOrderID
+	 * @param OrderID
 	 * @param customerID
 	 * @param dataOfOrder
 	 * @param customerOrderStatus
 	 * @param deliveryAddress
 	 */
-	public CustomerOrder(int OrderID, int customerID, String orderDate,
+	public CustomerOrder(int OrderID, int customerID, String orderDate, int orderTotal,
 			String customerOrderStatus, int deliveryAddress) {
-		this.orderid = OrderID;
+		this.orderID = OrderID;
 		this.customerid = customerID;
 		this.orderdate = orderDate;
 		this.customerOrderStatus = customerOrderStatus;
 		this.addressid = deliveryAddress;
+		this.orderTotal = orderTotal;
 	}
 
 	/**
@@ -56,19 +57,19 @@ public class CustomerOrder {
 	 * Displays Orders
 	 */
 	public String  viewCustomerOrder() {
-		return  "OrderID:" +orderid + "\nCustomerID:"+customerid+"\nCustomer Order Status:"+customerOrderStatus+ "\nDelivery Address:"+addressid;
+		return  "OrderID:" +orderID + "\nCustomerID:"+customerid+"\nCustomer Order Status:"+customerOrderStatus+ "\nDelivery Address:"+addressid;
 	}
 	
 	public String getDateOfOrder() {return orderdate;}
 	public void setDateOfOrder(String string) {this.orderdate = string;}
-	public int getCustomerOrderID() {return orderid;}
-	public void setCustomerOrderID(int customerOrderID) {this.orderid = customerOrderID;}
+	public int getCustomerOrderID() {return orderID;}
+	public void setCustomerOrderID(int customerOrderID) {this.orderID = customerOrderID;}
 	public String getCustomerOrderStatus() {return customerOrderStatus;}
 	public void setCustomerOrderStatus(String customerOrderStatus) {this.customerOrderStatus = customerOrderStatus;}
 	public int getDeliveryAddress() {return addressid;}
 	public void setDeliveryAddress(int deliveryAddress) {this.addressid = deliveryAddress;}
 	public int getCustomerID () {return customerid;}
 	public void setCustomerID(int customerID) {this.customerid = customerID;}
-	public float getOrderTotal() {return ordertotal;}
-	public void setOrderTotal(int orderTotal) {this.ordertotal = orderTotal;}
+	public float getOrderTotal() {return orderTotal;}
+	public void setOrderTotal(int orderTotal) {this.orderTotal = orderTotal;}
 }

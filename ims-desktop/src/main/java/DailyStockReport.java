@@ -13,10 +13,6 @@ import javax.swing.table.JTableHeader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
@@ -56,16 +52,17 @@ public class DailyStockReport extends JPanel{
 		
 	      
 	      
-        DBCollection coll = GUIMain.mdb.db.getCollection("Product");
+      //  DBCollection coll = GUIMain.mdb.db.getCollection("Product");
 			
-    	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+    	@SuppressWarnings("resource")
+		ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
     	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
         
     	List<Product> a = productRepository.findAll();
     	
         //ProductRepositoryMongo x = new ProductRepositoryMongo();
     	//System.out.print(productRepository.findAll().get(0).getProductId());
-    	for(int i = 0; i < a.size()-1; i++){
+    	for(int i = 0; i <= a.size()-1; i++){
     		data[i][0] = "Product ID: "+ a.get(i).getProductId();
     		data[i][1] = a.get(i).getProductName();
     		data[i][2] = a.get(i).getStockLevel();
