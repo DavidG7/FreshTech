@@ -88,8 +88,7 @@
 
 
 
-<br/>	    
-<<<<<<< HEAD
+<br/>
 <a href="OrderCheckout"><button type="submit" value="Checkout">Checkout</button></a>
 -->
 		<div class="squareasd">
@@ -106,7 +105,7 @@
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" src="ImageFolder/Dwarf Gnome.png" alt="newlittleFriend" width="50%"/>
+ 		            	<img class="img-thumbnail" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="50%"/>
 		                and
 		            </div>
 		        </div>
@@ -133,18 +132,52 @@
 		    </div>
 		</div>
 		
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="50%"/>
+		                stuff
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="50%"/>
+		                and
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="50%"/>
+		                things
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div class="squareasd">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
+ 		            	<img class="img-thumbnail" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="50%"/>
+		                stuff
+		            </div>
+		        </div>
+		    </div>
+		</div>
 		
-=======
-<a href="OrderConfirmation"><button type="submit" value="Checkout">Checkout</button></a>
->>>>>>> 8997e53aca120c21ba9280cc11e5e2ffa93f0eaa
-	<div class = "push"></div>	
-			</div>
-
 
 
 
 <!-- Finished doing my stuff at the point -->
 </div>
-
+</div>
 </body>
 </html>
