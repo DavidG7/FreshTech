@@ -1,6 +1,5 @@
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 
 
@@ -12,6 +11,7 @@ public class MongoDatabaseController
 	static MongoClient mongoClient;
 	static DB db;	
 	
+	@SuppressWarnings("deprecation")
 	public MongoDatabaseController()
 	{
 		mongoClient = new MongoClient(mongohost, port);

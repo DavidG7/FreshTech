@@ -48,10 +48,10 @@ public class DummyData {
 		customerOrders.add(new CustomerOrder(1,1, "22/1", "status1", 1));
 		customerOrders.add(new CustomerOrder(2,1, "11/5", "status2", 2));
 		
-		products.add(new Product(1,1,(float)33.33, "gnome", "badGnome", false, false, 3, "description3", "badGnome.png",true,(float)22.22));
-		products.add(new Product(2,2,(float)44.44, "gnome", "littleFriend", true, true, 4, "description4", "trek.jpg",true, (float)11.11));
-		products.add(new Product(3,3,(float)33.33, "gnome", "other", true, false, 3, "description3", "other.jpg"));
-		products.add(new Product(4,4,(float)44.44, "gnome", "savage", true, true, 4, "description4", "savage.jpg"));
+		products.add(new Product(1,1,(float)33.33, "gnome", "badGnome", false, false, 3, "description3", "placeholder.png",true,(float)22.22));
+		products.add(new Product(2,2,(float)44.44, "gnome", "littleFriend", true, true, 4, "description4", "placeholder.png",true, (float)11.11));
+		products.add(new Product(3,3,(float)33.33, "gnome", "other", true, false, 3, "description3", "placeholder.jpg"));
+		products.add(new Product(4,4,(float)44.44, "gnome", "savage", true, true, 4, "description4", "placeholder.jpg"));
 		
 		purchaseOrders.add(new PurchaseOrder(1,"status1"));
 		purchaseOrders.add(new PurchaseOrder(2,"status2"));

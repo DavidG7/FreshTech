@@ -2,39 +2,39 @@ package com.netbuilder.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
-import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
 
+/**
+ * This class acts as a controller for the Landing page.
+ * @author pnewman
+ */
 @Controller
 public class LandingController {
-
 	
-	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	ProductRepository productRepository = mongoContext.getBean(ProductRepository.class);	
 	
-	ProductRepository productRepository = (ProductRepository)context.getBean("ProductRepositoryDummy");
-	EmployeeRepositorySQL employeeRepository = new EmployeeRepositorySQL();
-	
-	//TODO Using DummyData for carousel
 	List<Product> discontinuedProducts = productRepository.findByDiscontinued(true);
 	List<Product> offerProducts = productRepository.findByOnOffer(true);
 
-	 
+	 /**
+	  * This method adds attributes to the Landing page view, then returns the name of the .jsp file as a String.
+	  * @param model
+	  * @return String
+	  */
 	 @RequestMapping("/")
-	 String index(Model model, HttpSession session) {
-		    //session.setAttribute("mySessionAttribute", "someValue");
-		    
+	 String index(Model model) {
 		 	model.addAttribute("discontinuedProducts", discontinuedProducts);
 		 	model.addAttribute("offerProducts", offerProducts);
-
 	        return "Landing";
 	  }
 }

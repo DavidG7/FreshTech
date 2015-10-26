@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
@@ -21,16 +24,10 @@ import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositoryS
 @Controller
 public class ProductController {
 	
-	 ProductRepository productRepository = new ProductRepositoryMongo();
-
-	 
-	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-	
-	EmployeeRepositorySQL employeeRepository = new EmployeeRepositorySQL();
-	
-	ProductRepository productRepositoryDummy = (ProductRepository)context.getBean("ProductRepositoryDummy");
-
-	List<Product> offerProducts = productRepositoryDummy.findByOnOffer(true);
+	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	ProductRepository productRepository = mongoContext.getBean(ProductRepository.class);	
+		
+	List<Product> offerProducts = productRepository.findByOnOffer(true);
 	 
 	 @RequestMapping("Product")
 	 public String   Product(Model model) {

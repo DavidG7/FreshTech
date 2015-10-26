@@ -11,16 +11,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 
-import com.netbuilder.MongoConfig;
+import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entityrepositories.BasketRepository;
 
-public class BasketRespositoryMongo implements BasketRepository{
+public class BasketRepositoryMongo implements BasketRepository{
 
-
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoConfig.class);
-	MongoOperations mongoOperation = (MongoOperations)ctx.getBean("mongoTemplate");
+	MongoOperations mongoOperation;
 
 	@Override
 	public <S extends Basket> List<S> save(Iterable<S> entites) {
@@ -128,6 +126,14 @@ public class BasketRespositoryMongo implements BasketRepository{
 			}
 		}*/
 		return null;
+	}
+
+	public MongoOperations getMongoOperation() {
+		return mongoOperation;
+	}
+
+	public void setMongoOperation(MongoOperations mongoOperation) {
+		this.mongoOperation = mongoOperation;
 	}
 
 
