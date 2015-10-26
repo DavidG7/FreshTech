@@ -42,7 +42,7 @@
       </ul>
   </div>
   
-  <h4> Please edit the address as appropraite. </h4>
+  <h4> Please edit the address as appropriate. </h4>
   
         First Name :<br/>
 		<input type = "text" name = "firstname"/>
