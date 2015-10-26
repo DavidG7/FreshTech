@@ -10,7 +10,6 @@ public class LoginSQL {
 	String[] usernameArray;
  	String[] passwordArray;
  	
-	
 	public LoginSQL(){
 		username = null;
 		password = null;

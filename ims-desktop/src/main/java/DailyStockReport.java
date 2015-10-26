@@ -58,9 +58,7 @@ public class DailyStockReport extends JPanel{
 		bottomBar.add(rturn);
 		panel.add(bottomBar,BorderLayout.SOUTH);
 		add(panel);
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400,250);
-		//pack();
 		setVisible(true);
 		
 	}
