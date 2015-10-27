@@ -197,34 +197,6 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	}
 	
 	@Override
-<<<<<<< HEAD
-	public CustomerOrder findByOrderID(Integer OrderID) 
-	{
-		CustomerOrder customerOrder;
-		
-		try 
-		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("customerorder", "SELECT * FROM customerorder WHERE orderid =" + OrderID);
-			
-			while(rs.next())
-			{
-				return customerOrder = new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6));
-			}
-			
-		} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}
-		
-=======
-	public List<CustomerOrder> findByOrderID(Integer OrderID) {
-		// TODO Auto-generated method stub
->>>>>>> 2eeba4802bbeb642b994d91a295172c324eed948
-		return null;
-	}
-	
-	@Override
 	public CustomerOrder findByCustomerID(Integer customerID) 
 	{
 
