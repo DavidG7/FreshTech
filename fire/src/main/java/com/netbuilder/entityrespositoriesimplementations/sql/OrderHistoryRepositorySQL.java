@@ -121,7 +121,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	@Override
 	public <S extends CustomerOrder> S save(S entity) {
 		entity = (S) new CustomerOrder();
-		sqltemplate.update("INSERT INTO customerorder VALUES("+ entity.getCustomerOrderID() +",'" + entity.getCustomerID()+"','" + entity.getDateOfOrder()+"','" +entity.getOrderTotal() +"','" + entity.getCustomerOrderStatus()+"'"+ entity.getDeliveryAddress()+"'");
+		sqltemplate.update("INSERT INTO customerorder VALUES("+ entity.getOrderID() +",'" + entity.getCustomerID()+"','" + entity.getOrderDate() + "','" +entity.getOrderTotal() +"','" + entity.getCustomerOrderStatus()+"'"+ entity.getDeliveryAddress()+"'");
 return entity;
 	}
 	

@@ -17,7 +17,7 @@ public class PaymentTest {
 	@BeforeClass
 	public static void testPayment() {	
 			
-		testing = new Payment(1,2,"test");
+		//testing = new Payment(1,2,"test");
 		
 	}
 	

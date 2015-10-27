@@ -31,10 +31,11 @@ public class Payment implements Serializable {
 	 * @param cardNumber
 	 * @param sortCode
 	 */
-	public Payment(int paymentID, int cardNumber, String sortCode) {
+	public Payment(int paymentID, int cardNumber, String sortCode, int customerID) {
 		this.paymentID = paymentID;
 		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
+		this.customerID=customerID;
 	}
 	
 	/*

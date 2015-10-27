@@ -19,6 +19,9 @@ import java.util.List;
 
 
 
+
+
+
 //import java.util.Vector;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -31,7 +34,9 @@ import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
@@ -65,16 +70,18 @@ public class PurchaseOrder extends JPanel
 	 */
 	private static final long serialVersionUID = 1L;
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
     
 	List<Product> products = productRepository.findAll();
 	
 	JTable purchaseOrderTable;
 	
-	int activeProductID = 0;
+	int activeProductID = 0, activeOrderProductID = 0;
 	
 	JComboBox<String> listOfSuppliers;
 	JSpinner quantityRequired;
+	JTable productTable;
 
 	public PurchaseOrder()
 	{		
@@ -123,13 +130,42 @@ public class PurchaseOrder extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				DefaultTableModel test = (DefaultTableModel) productTable.getModel();
 				DefaultTableModel model = (DefaultTableModel) purchaseOrderTable.getModel();
-				model.addRow(new Object[]{products.get(activeProductID).getProductId(),products.get(activeProductID).getProductName(), listOfSuppliers.getSelectedItem(),quantityRequired.getValue()});
+				boolean present = false;
+				for (int i = 0 ; i < model.getRowCount() ; i++){
+				           if(model.getValueAt(i,0)==test.getValueAt(activeProductID, 0)){
+				        	   if(model.getValueAt(i, 3).equals(listOfSuppliers.getSelectedItem())){
+				        		   model.setValueAt((Integer)model.getValueAt(i,2) + (Integer)quantityRequired.getValue(), i, 2);
+				        		   present = true;
+				        	   }
+				        	   
+				           
+				        	 
+				           }
+				  }
+				
+				if(present == false){
+					model.addRow(new Object[]{products.get(activeProductID).getProductId(),products.get(activeProductID).getProductName(),quantityRequired.getValue(), listOfSuppliers.getSelectedItem()});
+				}
+				
+
 			  
 			}
 			
 		});;
 		
+		remove.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				DefaultTableModel model = (DefaultTableModel) purchaseOrderTable.getModel();
+				model.removeRow(activeOrderProductID);
+			  
+			}
+			
+		});;
 		
 		
 		
@@ -167,7 +203,31 @@ public class PurchaseOrder extends JPanel
 				data[i][2] = products.get(i).getStockLevel();
 		
 		}
-		JTable productTable = new JTable(data, colNames);
+		
+		DefaultTableModel model = new DefaultTableModel(data,colNames) {
+            @Override
+            public Class getColumnClass(int column) {
+                switch (column) {
+                    case 0:
+                        return Integer.class;
+                    case 1:
+                        return String.class;
+                    case 2:
+                        return Integer.class;
+                    default:
+                        return String.class;
+                }
+            }
+        };
+		
+		DefaultTableCellRenderer leftRenderer = new DefaultTableCellRenderer();
+        leftRenderer.setHorizontalAlignment(SwingConstants.LEFT);
+
+        
+        productTable = new JTable(model);
+        productTable.getColumnModel().getColumn(0).setCellRenderer(leftRenderer);
+        productTable.getColumnModel().getColumn(2).setCellRenderer(leftRenderer);
+		productTable.setAutoCreateRowSorter(true);
 		
 		productTable.addMouseListener(new MouseListener() {
 			
@@ -199,7 +259,15 @@ public class PurchaseOrder extends JPanel
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				JTable target = (JTable)e.getSource();
-			    activeProductID = target.getSelectedRow();
+			   // activeProductID = target.getSelectedRow();
+			    DefaultTableModel model = (DefaultTableModel)target.getModel();
+			    //activeProductID = (int) model.getValueAt(target.getSelectedRow(), 0);
+			   // System.out.println("Active Product ID:" + activeProductID );
+			    int viewRow = target.getSelectedRow();
+			    int modelRow = target.convertRowIndexToModel(viewRow);
+			
+
+			    activeProductID = (int)model.getValueAt( modelRow, 0 )-1;
 			    System.out.println("Active Product ID:" + activeProductID );
 			}
 		});
@@ -301,7 +369,45 @@ public class PurchaseOrder extends JPanel
 		JPanel purchaseOrderPanel = new JPanel();
 		
 
-		purchaseOrderTable = new JTable(new DefaultTableModel(new Object[0][3],new String[]{"ProductID","Product Name","Quantity", "Supplier"}));
+		//purchaseOrderTable = new JTable(new DefaultTableModel(new Object[0][3],new String[]{"ProductID","Product Name","Quantity", "Supplier"}));
+		DefaultTableModel model = new DefaultTableModel(new Object[0][3],new String[]{"ProductID","Product Name","Quantity", "Supplier"});
+		purchaseOrderTable = new JTable(model);
+
+		purchaseOrderTable.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				JTable target = (JTable)e.getSource();
+				activeOrderProductID = target.getSelectedRow();
+				System.out.println("Active Product ID:" + activeOrderProductID );
+			
+			}
+		});
 		//DefaultTableModel model = (DefaultTableModel) purchaseOrderTable.getModel();
 		//model.addRow(new Object[]{products.get(activeProductID).getProductId(),products.get(activeProductID).getProductName(), products.get(activeProductID).getStockLevel()});
 		CustomScrollPane scrollPane = new CustomScrollPane(purchaseOrderTable);

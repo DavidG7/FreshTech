@@ -36,8 +36,8 @@ public class DummyData {
 
 		employees.add(new Employee(2,"Ray Smithy", "ArrogantManNum1", "sellsomeshit", 1));
 		
-		payments.add(new Payment(1,12341234,"10-00-01"));
-		payments.add(new Payment(2,43214321,"20-00-02"));
+		//payments.add(new Payment(1,12341234,"10-00-01"));
+		//payments.add(new Payment(2,43214321,"20-00-02"));
 		
 		addresses.add(new Address(1, "Address", "A10",1));
 		addresses.add(new Address(2, "Address2", "B10",1));
