@@ -33,7 +33,7 @@
 			<a href="PaymentAgreement"><button type="submit"><strong>Pay for all</strong></button></a>
 		</div>
 
-		<div th:fragment="content" th:each="customerOrder : ${customerOrders}">
+		<div th:fragment="content" th:each="customerOrders : ${customerOrders}">
 			<hr />
 			<img id="identify" class="img-thumbnail" alt="fancy gnome"
 				src="ImageFolder/squarefancy.jpg" />
@@ -45,7 +45,7 @@
 				<br />
 				<strong><span th:text="${product.productName}"></span><br />
 				<br />Order Details
-				</strong><br />Quantity: 3<br />Price: &pound;11.50 <br />Date of delivery:
+				</strong><br />Quantity: 3<br />Price: <span th:text = "'&pound;'+${product.price}+'0'"></span><br/>Date of delivery:
 				dd/mm/yyyy<br />
 				<strong>Total Price: (price x quantity)</strong>
 			</p>

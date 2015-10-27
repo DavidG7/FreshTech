@@ -30,35 +30,33 @@
 			
 				<div align="center">
 					<p class="subtitle"><strong>Current Details:</strong></p>
-					<p id="writing"><strong>Contact Details:</strong></p>
-					<br th:text="${customer.customerName}"></br>
-					Home telephone:<br th:text="${customer.customerPhone}"></br>
+					<div id="writing">
+					<p><strong>Contact Details:</strong></p>
+					<span th:text="${customer.customerName}"></span><br/>
+					Home telephone:<span th:text="' ' + ${customer.customerPhone}"></span><br/>
 					Mob telephone: 077 221 379 50<br/>
-					E-mail:<p th:text="${customer.customerEmail}" ></p>
-					<p id="writing"><strong>Default Delivery Address:</strong><br th:text="${customerAddress}" ></br></p>
-					<p id="writing"><strong>Default Payment Details:</strong><br/>
-					Visa Debit Card<br/>
-					Card Number: 3456-9012-5678-1234<br/>
-					Sort Code: 012345678<br/>
-					Cardholder Name: MR G NOME</p>
-					
+					E-mail:<p th:text="${customer.customerEmail}"></p>
+					</div>
+					<div id="writing">
+					<p><strong>Default Delivery Address:</strong><br th:text="${address}"></br></p>
+					</div>
+					<div id="writing">
+					<p><strong>Default Payment Details:</strong><br/></p>
+					Visa Debit Card
+					Card Number:<p th:text="${cardnumber}"></p>
+					Sort Code: <p th:text="${sortcode}"></p>
+					<p>Cardholder Name: MR G NOME</p>
+					</div>
 				</div>
 			
 				<div id="fixit"><hr/></div>
-				
-				
-				
 				
 				<div id="dropmenus">
 		 			<div class="dropdown">
    		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 1" data-toggle="dropdown">Select Default Delivery Address
     					<span class="caret"></span></button>
 						<ul class="dropdown-menu">
-						<li><a href="#">Various</a></li>
-						<li><a href="#">saved</a></li>
-						<li><a href="#">addresses</a></li>
-						<li><a href="#">belong</a></li>
-						<li><a href="#">here</a></li>
+						<li th:each="Address : ${addresses}" th:text="${Address.address}" ><a href="#"></a></li>
 						</ul><p></p>
 					</div>
 					<div><a href="ChooseAddress"><button type="submit"><strong>Edit Address Details</strong></button></a></div>
@@ -68,13 +66,8 @@
 					<div class="dropdown">
    		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Default Payment Details
     					<span class="caret"></span></button>
-						<ul class="dropdown-menu">
-						<li><a href="#">Various</a></li>
-						<li><a href="#">saved</a></li>
-						<li><a href="#">payment</a></li>
-						<li><a href="#">methods</a></li>
-						<li><a href="#">belong</a></li>
-						<li><a href="#">here</a></li>
+    					<ul class="dropdown-menu">
+						<li th:each="Payment : ${payment}" th:text="${Payment.cardNumber}" ><a href="#"></a></li>
 						</ul><p></p>
 					</div>
 					<div><a href="AddPaymentDetails"><button type="submit"><strong>Edit Payment Details</strong></button></a></div>
