@@ -76,7 +76,7 @@ public class SupplierSQL implements SupplierRepository
     {
     	try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT * FROM Supplier WHERE Supplierid =" + SupplierID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT * FROM Supplier WHERE Supplierid =" + arg0);
 			
 			while(rs.next())
 			{
