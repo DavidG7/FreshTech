@@ -12,7 +12,7 @@ import com.netbuilder.entities.Payment;
  * This class provides a template for persisting Payment information.
  * Has both live and @Alternative offline implementation. 
  */
-public interface PaymentRepository extends MongoRepository<Payment,Integer>{
+public interface PaymentRepository extends MongoRepository<Payment, Integer>{
 
 	/**
 	 * This method returns a single payment method given by the specified payment ID.

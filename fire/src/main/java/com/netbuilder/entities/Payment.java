@@ -40,7 +40,7 @@ public class Payment implements Serializable {
 	/*
 	 * TODO Do we need all getters/setters.
 	 */
-	public int getPaymentID() {
+	public Integer getPaymentID() {
 		return paymentID;
 	}
 
@@ -48,8 +48,8 @@ public class Payment implements Serializable {
 		return cardNumber;
 	}
 
-	public void setCardNumber(int cardNumber) {
-		this.cardNumber = cardNumber;
+	public void setCardNumber(int cardNumber2) {
+		this.cardNumber = cardNumber2;
 	}
 
 	public String getSortCode() {

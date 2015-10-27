@@ -8,6 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.Address;
+import com.netbuilder.entities.Payment;
+import com.netbuilder.entityrepositories.AddressRepository;
+import com.netbuilder.entityrepositories.PaymentRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 
 @Controller
@@ -15,10 +19,14 @@ public class AboutController {
 		
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ProductRepository productRepository = mongoContext.getBean(ProductRepository.class);	
+	AddressRepository addressRepository = mongoContext.getBean(AddressRepository.class);	
+	PaymentRepository paymentRepository = mongoContext.getBean(PaymentRepository.class);
 
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
-
+		 	 
+		
+		 
 		 	/*test.insert(new Product(1,15,32.00F,"Gnome","Godzilla",false,true, 1, "Godzilla Gnome, large with small arms","godzilla.jpg", true, 5.50F));
 		 	test.insert(new Product(2,3,60.00F,"Gnome","Fisherman",false,true, 3, "Fishing Gnome, has a small rod","fisherman.jpg"));
 		 	test.insert(new Product(3,8,50.20F,"Gnome","Gnomeo",false,true, 2, "The first of the Shakes-pair","gnomeojuliett.jpg"));
@@ -39,6 +47,8 @@ public class AboutController {
 		 	test.insert(new Product(18,14,84.00F,"Gnome","Gnome in the North",false,true, 5, "Beard grows when winter is coming","north.jpg"));
 		 	test.insert(new Product(19,17,40.80F,"Miscellaneous","Garden Gloves",false,true, 2, "Protecting delicate hands from rough gardens","gloves.jpg"));
 		 	test.insert(new Product(20,21,51.00F,"Miscellaneous","Tent",false,true, 3, "For the less adventurous looking to go camping","tent.jpg"));*/
+		 	//addressRepository.insert(new Address(1,"666 hells corelane ", "E66 6ST", 1)) ;
+		 	paymentRepository.insert(new Payment (2, 3, "20-56-46"));
 			return "About";
 	 }
 }
