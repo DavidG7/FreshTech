@@ -196,6 +196,26 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 		return null;
 	}
 	
+
+	@Override
+	public List<CustomerOrder> findByOrderID(Integer OrderID) {
+		
+		
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderid = " + OrderID );
+			
+			while(rs.next()){	
+				
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  customerorder;
+	}
+	
 	@Override
 	public CustomerOrder findByCustomerID(Integer customerID) 
 	{
@@ -316,4 +336,5 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 		
 		return customerorder;
 	}
+
 }
