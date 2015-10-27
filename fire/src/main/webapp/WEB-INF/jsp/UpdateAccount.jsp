@@ -28,13 +28,12 @@
 			
 				<div align="center">
 					<p class="subtitle"><strong>Current Details:</strong></p>
-					
-					<p id="writing"><strong>Contact Details:</strong><br/>
-					${customer.customerName}<br/>
-					Home telephone:${customer.customerPhone} <br/>
+					<p id="writing"><strong>Contact Details:</strong></p>
+					<br th:text="${customer.customerName}"></br>
+					Home telephone:<br th:text="${customer.customerPhone}"></br>
 					Mob telephone: 077 221 379 50<br/>
-					E-mail: ${customer.customerEmail}</p>
-					<p id="writing"><strong>Default Delivery Address:</strong><br/>${customerAddress} </p>
+					E-mail:<p th:text="${customer.customerEmail}" ></p>
+					<p id="writing"><strong>Default Delivery Address:</strong><br th:text="${customerAddress}" ></br></p>
 					<p id="writing"><strong>Default Payment Details:</strong><br/>
 					Visa Debit Card<br/>
 					Card Number: 3456-9012-5678-1234<br/>

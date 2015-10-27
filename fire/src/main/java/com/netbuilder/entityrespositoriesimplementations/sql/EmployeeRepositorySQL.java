@@ -42,8 +42,19 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public Employee findOne(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Employee employee=null;
+		try {
+			ResultSet rs = sqltemplate.getResultSetForQuery("Employee", "Select  * from Employee Where employeeid="+id);
+			while(rs.next()){
+					 employee = new Employee(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getInt(5));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return employee;
 	}
 
 	@Override
@@ -57,11 +68,8 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 		ArrayList employee = new ArrayList();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("employeee", "Select * from Employee");
-			
 			while(rs.next()){	
-
 				employee.add(new Employee(rs.getInt(1) ,rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
-		 
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,7 +92,7 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		sqltemplate.delete("Delete from emplyee where emplyoeeid="+id);
 		
 	}
 
@@ -108,14 +116,30 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public Iterable<Employee> findByEmployeeName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList employee = new ArrayList();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("employeee", "Select * from Employee where emplyoeename="+name);
+			while(rs.next()){	
+				employee.add(new Employee(rs.getInt(1) ,rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  employee;
 	}
 
 	@Override
 	public Iterable<Employee> findByAccessLevel(int accessLevel) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList employee = new ArrayList();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("employeee", "Select * from Employee where emplyoeeaccesslevel="+accessLevel);
+			while(rs.next()){	
+				employee.add(new Employee(rs.getInt(1) ,rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  employee;
 	}
 	
 	

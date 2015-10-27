@@ -18,25 +18,30 @@ import org.springframework.data.repository.CrudRepository;
 public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder , Integer> {
 
 	
+	
+	
+	public CustomerOrder findByOrderID(Integer OrderID);
+	
 	/**
 	 * Finds Orders by Customer Order ID
 	 * 
 	 * @param customerOrderID
 	 * @return CustomerOrder
 	 */
+
 	public CustomerOrder findByCustomerID(Integer customerID);
 	/**
 	 *  Finds CustomerOrder by Address
 	 * @param address
 	 * @return CustomerOrder
 	 */
-	public ArrayList<CustomerOrder> findByDeliveryAddress(String deliveryAddress);
+	public ArrayList<CustomerOrder> findByDeliveryAddress(Integer deliveryAddress);
 	/**
 	 * Finds CustomerOrder by Date
 	 * @param dateofOrder
 	 * @return ArrayList<CustomerOrder>
 	 */
-	public ArrayList<CustomerOrder> findByDateOfOrder(Date dateOfOrder);
+	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate);
 	/**
 	 * Find Customer Orders by Order Status
 	 * @param status

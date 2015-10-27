@@ -1,11 +1,10 @@
-/*package com.netbuilder.controller;
+package com.netbuilder.controller;
 
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
@@ -16,16 +15,62 @@ import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryReposit
 public class OrderHistoryController {
 	
 	 CustomerOrderRepository orderHistoryRepository = new OrderHistoryRepositorySQL();
-	 
-
-
-	@RequestMapping("OrderHistory")
-	 public String  OrderHistory(ModelAndView modelAndView) {
-		 CustomerOrder test = orderHistoryRepository.findByCustomerID(5);
-		 System.out.println("");
-
-	        return "OrderHistory";
-	  }
 	
-}
+	 /*@RequestMapping("OrderHistory")
+	public String OrderHistory (){
+		orderHistoryRepository.findAll();
+		return "OrderHistory";
+		
+	}/*
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.count();
+			return "OrderHistory";
+			
+		} 
+	 
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByOrderID(5);
+			return "OrderHistory";
+			
+		}
+		
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByCustomerID(5);
+			return "OrderHistory";
+			
+		}
+		
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByDeliveryAddress(5);
+			return "OrderHistory";
+	 }
+	 
+	
+
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByCustomerOrderStatus("Processing");
+			return "OrderHistory";
+	 }
+	 
+	 	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByDateOfOrder("2015-10-10");
+			return "OrderHistory";
+	}
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.findByOrderTotal(0);
+			return "OrderHistory";
+	 }
 */
+	 @RequestMapping("OrderHistory")
+	 public String OrderHistory (){
+			orderHistoryRepository.delete(25);
+			return "OrderHistory";
+	 }
+}

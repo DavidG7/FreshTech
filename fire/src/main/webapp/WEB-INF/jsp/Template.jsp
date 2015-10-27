@@ -69,7 +69,8 @@
 						<span class="glyphicon glyphicon-user"></span> My Account <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" id="account-dropdown">
-						<li><a href="Register">Log in/Register </a></li>
+						<li th:if="${session.sessionUser}"> <a th:text="'Hello ' + ${session.sessionUser}"></a></li>
+						<li th:unless="${session.sessionUser}"><a href="Register">Log in/Register </a></li>
 						<li><a href="ChooseAddress">View Addresses</a></li>
 						<li><a href="OrderTracking">Track an Order</a></li>
 						<li><a href="OutstandingOrders">Outstanding Orders</a></li>

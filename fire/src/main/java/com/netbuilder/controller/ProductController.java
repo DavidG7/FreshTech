@@ -58,9 +58,9 @@ public class ProductController {
 		 
 		 //Actual
 		 
-	 	@RequestMapping(value="info", method=RequestMethod.POST)
+		@RequestMapping(value="info", method=RequestMethod.POST)
 		public ModelAndView doPost (HttpServletRequest request, HttpServletResponse response) {
-	 		
+	 		/*
 			System.out.println("");
 		 		
 			String name = null;
@@ -82,7 +82,33 @@ public class ProductController {
 			view.setViewName("Product");
 			view.addObject("product", product);
 			view.addObject("offerProducts", offerProducts);
-			 
+			 */
+			
+		int id = 0;
+			int idFromPage = 0;
+			String idString = null;
+			
+			for (int i=0; i<productRepository.findAll().size(); i++){
+				id = productRepository.findAll().get(i).getProductId();
+				
+				idString = id+"";
+				
+				if(request.getParameter(idString) != null){
+					idFromPage = id;
+				}
+				
+				System.out.println("Product inside (ID): "+idFromPage);
+				
+			}
+						
+			System.out.println("Product outside (ID): "+idFromPage);
+
+		 	Product product = productRepository.findByProductID(idFromPage);			
+		 	ModelAndView view = new ModelAndView();
+			view.setViewName("Product");
+			view.addObject("product", product);
+			view.addObject("offerProducts", offerProducts);
+			
 			return view;
 					
 		 	}
