@@ -7,8 +7,16 @@ import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 
-public class PurchaseOrderRespositoryDummy implements PurchaseOrderRepository
+public class PurchaseOrderRepositoryDummy implements PurchaseOrderRepository
 {
+
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
+	}
 
 	DummyData dummyData = new DummyData();
 	

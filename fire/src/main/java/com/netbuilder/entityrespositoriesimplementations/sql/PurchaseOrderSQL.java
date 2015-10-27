@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.util.SQLTemplate;
@@ -23,11 +24,16 @@ import com.netbuilder.util.SQLTemplate;
 
 public class PurchaseOrderSQL implements PurchaseOrderRepository
 {
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+	private SQLTemplate sqltemplate;
 	
-	
+	public SQLTemplate getSqltemplate() {
+		return sqltemplate;
+	}
+
+	public void setSqltemplate(SQLTemplate sqltemplate) {
+		this.sqltemplate = sqltemplate;
+	}
+
 	@Override
 	public long count() 
 	{
@@ -86,6 +92,8 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 		
 	}
 
+	
+	
 	@Override
 	public void delete(Iterable<? extends PurchaseOrder> arg0) {
 		// TODO Auto-generated method stub
