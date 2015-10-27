@@ -46,11 +46,7 @@ public class UpdateAccountController {
 				 Customer customer = customerRepository.findByCustomerUsername(user);
 				 System.out.println(customer.getCustomerID());
 				 List<Address>  address = addressRepository.findByCustomerId(customer.getCustomerID());
-				 List<Payment> payment = paymentRepository.findByCustomerID(customer.getCustomerID());
-				 for(int i=0; i<payment.size(); i++){
-					 System.out.println(payment.get(i).getCardNumber());
-				 }
-				 
+				 List<Payment> payment = paymentRepository.findByCustomerID(customer.getCustomerID()); 
 				 view.addObject("customer", customer);
 				 view.addObject("address",address.get(0).getAddress());
 				 view.addObject("addresses",address);

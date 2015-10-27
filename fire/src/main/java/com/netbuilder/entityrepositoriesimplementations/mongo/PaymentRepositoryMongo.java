@@ -175,11 +175,11 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 		{
 			if(payments.get(i).getCustomerID() == customerID)
 			{
-				payments.add(payments.get(i));
+				return payments;
 			}
 		}
 		
-		return payments;
+		return null;
 	}
 
 	@Override
