@@ -56,7 +56,7 @@
    		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 1" data-toggle="dropdown">Select Default Delivery Address
     					<span class="caret"></span></button>
 						<ul class="dropdown-menu">
-						<li th:each="Address : ${addresses}" th:text="${Address.address}" ><a href="#"></a></li>
+						<li th:each="Address : ${addresses}"><a href="#"><span th:text="${Address.address}" ></span></a></li>
 						</ul><p></p>
 					</div>
 					<div><a href="ChooseAddress"><button type="submit"><strong>Edit Address Details</strong></button></a></div>
@@ -66,8 +66,8 @@
 					<div class="dropdown">
    		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Default Payment Details
     					<span class="caret"></span></button>
-    					<ul class="dropdown-menu">
-						<li th:each="Payment : ${payment}" th:text="${Payment.cardNumber}" ><a href="#"></a></li>
+    					<ul class="dropdown-menu" id="colouring">
+						<li th:each="Payment : ${payment}"><a href="#"><span th:text="${Payment.cardNumber}"></span></a></li>
 						</ul><p></p>
 					</div>
 					<div><a href="AddPaymentDetails"><button type="submit"><strong>Edit Payment Details</strong></button></a></div>
