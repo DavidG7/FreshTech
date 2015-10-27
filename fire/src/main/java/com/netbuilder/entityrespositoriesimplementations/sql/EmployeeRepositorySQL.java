@@ -1,5 +1,8 @@
 package com.netbuilder.entityrespositoriesimplementations.sql;
-
+/**
+ * 
+ *  * @author jham
+ */
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,30 +19,41 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 
+
+
+
 import com.netbuilder.DataConfig;
+import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.util.SQLTemplate;
 
 public class EmployeeRepositorySQL implements EmployeeRepository{
+	
+		private SQLTemplate sqltemplate;
+		
+		public SQLTemplate getSqltemplate() {
+			return sqltemplate;
+		}
 
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+		public void setSqltemplate(SQLTemplate sqltemplate) {
+			this.sqltemplate = sqltemplate;
+		}
 	
 	
 	@Override
 	public <S extends Employee> S save(S entity) {
-		// TODO Auto-generated method stub
-		return null;
+		entity = (S) new Employee();
+				sqltemplate.update("INSERT INTO employee VALUES("+ entity.getEmployeeID() +",'" + entity.getEmployeeName()+"','" + entity.getEmployeeUsername()+"','" +entity.getEmployeePassword() +"','" + entity.getAccessLevel()+"'");
+		return entity;
 	}
 
 	@Override
 	public <S extends Employee> Iterable<S> save(Iterable<S> entities) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 	@Override
 	public Employee findOne(Integer id) {
 		Employee employee=null;
@@ -49,7 +63,6 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 					 employee = new Employee(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getInt(5));
 			}
 			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,13 +70,30 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 		return employee;
 	}
 
+	
 	@Override
 	public boolean exists(Integer id) {
-		// TODO Auto-generated method stub
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("Employee", "Select  employeeid from Employee WHERE employeeid = " + id);
+			
+			while(rs.next())
+			{
+				return true;
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
+	
+	
 
-	@Override
+     
+     @Override
 	public Iterable<Employee> findAll() {
 		ArrayList employee = new ArrayList();
 		try {
@@ -79,27 +109,47 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public Iterable<Employee> findAll(Iterable<Integer> ids) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Employee> employee = new ArrayList<Employee>();
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("employee", "SELECT * from employee where employee id = " + ids);
+			int i=0;
+			while(rs.next()){	
+				
+				employee.add(new Employee( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));	
+				System.out.println(employee.get(i).getEmployeeID()+","+employee.get(i).getEmployeeName()+","+employee.get(i).getEmployeeUsername()+","+employee.get(i).getEmployeePassword()+","+employee.get(i).getAccessLevel());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  employee;
 	}
 
 	@Override
 	public long count() {
-		//return jdbcTemplate.queryForLong("SELECT COUNT(*) FROM Employee;");
-		return 0;
-	
-	}
+		long count = 0;
+		try {
+			ResultSet rs= sqltemplate.getResultSetForQuery("employee", "SELECT COUNT(*) FROM employee");
+			while(rs.next()){
+				count = rs.getLong(1);
+			}
+			System.out.println(count);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return count;
+		}
 
 	@Override
 	public void delete(Integer id) {
 		sqltemplate.delete("Delete from emplyee where emplyoeeid="+id);
-		
 	}
 
 	@Override
 	public void delete(Employee entity) {
-		// TODO Auto-generated method stub
-		
+		int OrderID = entity.getEmployeeID();
+		sqltemplate.update("DELETE FROM customerorder WHERE orderid = "  + OrderID);
 	}
 
 	@Override
@@ -110,7 +160,7 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 
 	@Override
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		sqltemplate.update("DELETE FROM Employee");
 		
 	}
 

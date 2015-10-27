@@ -1,3 +1,5 @@
+<!-- Author: Sam Raspin -->
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
@@ -32,7 +34,7 @@
 		   			 <p><strong>Username :</strong><br/>
 						<input type = "text" name = "username"/></p>
 							<p><strong>Password :</strong><br/>
-								<input type = "text" name = "password"/></p>
+								<input type = "password" name = "password"/></p>
 									<button type="submit"><strong>Log In</strong></button></div></form></div>
 									
 <form th:action="@{/postReg}" method="post">

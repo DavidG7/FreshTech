@@ -27,11 +27,21 @@ import com.netbuilder.entities.Employee;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.util.SQLTemplate;
-
+/**
+ * 
+ * @author jham
+ *
+ */
 public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+	private SQLTemplate sqltemplate;
+	
+	public SQLTemplate getSqltemplate() {
+		return sqltemplate;
+	}
+
+	public void setSqltemplate(SQLTemplate sqltemplate) {
+		this.sqltemplate = sqltemplate;
+	}
 	
     @Override
 	public long count() {
@@ -59,7 +69,6 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	public void delete(CustomerOrder arg0) {
 		int OrderID = arg0.getCustomerOrderID();
 		sqltemplate.update("DELETE FROM customerorder WHERE orderid = "  + OrderID);
-		
 	}
 	@Override
 	public void delete(Iterable<? extends CustomerOrder> arg0) {
@@ -207,6 +216,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		}
 		return  customerorder;
 	}
+	
 	@Override
 	public ArrayList<CustomerOrder> findByOrderTotal(float orderTotal) {
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();

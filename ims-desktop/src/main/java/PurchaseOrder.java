@@ -1,18 +1,49 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
+
+
+
+
+
+
+
+
+
+
+
+
+
 //import java.util.Vector;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.Product;
+import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
 
 import CustomUI.*;
 
@@ -33,6 +64,17 @@ public class PurchaseOrder extends JPanel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
+    
+	List<Product> products = productRepository.findAll();
+	
+	JTable purchaseOrderTable;
+	
+	int activeProductID = 0;
+	
+	JComboBox<String> listOfSuppliers;
+	JSpinner quantityRequired;
 
 	public PurchaseOrder()
 	{		
@@ -63,6 +105,35 @@ public class PurchaseOrder extends JPanel
 		remove.setPreferredSize(new Dimension(150,30));
 		CustomButton clear = new CustomButton("Clear");
 		clear.setPreferredSize(new Dimension(150,30));
+	
+		clear.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+		
+			       DefaultTableModel model = new DefaultTableModel(new Object[0][0], new String[]{"ProductID","Product Name","Quantity", "Supplier"});
+			       purchaseOrderTable.setModel(model);
+			}
+			
+		});;
+		
+		add.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				DefaultTableModel model = (DefaultTableModel) purchaseOrderTable.getModel();
+				model.addRow(new Object[]{products.get(activeProductID).getProductId(),products.get(activeProductID).getProductName(), listOfSuppliers.getSelectedItem(),quantityRequired.getValue()});
+			  
+			}
+			
+		});;
+		
+		
+		
+		
+		
 		CustomButton placeOrder = new CustomButton("Place Order");
 		placeOrder.setPreferredSize(new Dimension(150,30));
 		
@@ -88,8 +159,54 @@ public class PurchaseOrder extends JPanel
 		CustomLabel instructionSet = new CustomLabel ("(1) Select a Product", false);
 		
 		String [] colNames = {"ProductID","Product Name","Quantity"};
-		Object[][] data = new Object [35][5];
+		System.out.println(products.size());
+		Object[][] data = new Object [products.size()][3];
+		for(int i = 0; i<products.size();i++){
+				data[i][0] = products.get(i).getProductId();
+				data[i][1] = products.get(i).getProductName();
+				data[i][2] = products.get(i).getStockLevel();
+		
+		}
 		JTable productTable = new JTable(data, colNames);
+		
+		productTable.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				JTable target = (JTable)e.getSource();
+			    activeProductID = target.getSelectedRow();
+			    System.out.println("Active Product ID:" + activeProductID );
+			}
+		});
+			
+			
+	
+		
 		productTable.setPreferredSize(new Dimension(400,700));
 		
 		JScrollPane scrollPane = new JScrollPane(productTable);		
@@ -143,8 +260,19 @@ public class PurchaseOrder extends JPanel
 		CustomLabel instruction = new CustomLabel("(2) Select Supplier", false);
 		CustomLabel instructionTwo = new CustomLabel("(3) Select Quantity", false);
 				
-		JComboBox<String> listOfSuppliers = new JComboBox<String>(tempNames);
-		JComboBox<String> quantityRequired = new JComboBox<String>(quantity);
+		listOfSuppliers = new JComboBox<String>(tempNames);
+		quantityRequired = new JSpinner();
+		
+		SpinnerModel model =
+		        new SpinnerNumberModel(1, //initial value
+		                               1, //min
+		                               1000, //max
+		                               1);                //step
+		
+		quantityRequired.setModel(model);
+		
+		JFormattedTextField tf = ((JSpinner.DefaultEditor)quantityRequired.getEditor()).getTextField();
+	    tf.setHorizontalAlignment(JFormattedTextField.LEFT);
 
 		orderInfoPanel.setLayout(grid);
 		orderInfoPanel.setBackground(Color.WHITE);		
@@ -172,9 +300,10 @@ public class PurchaseOrder extends JPanel
 	{
 		JPanel purchaseOrderPanel = new JPanel();
 		
-		String [] colNames = {"Product ID", "Product Name", "Quantity"};
-		Object[][] data = new Object[19][4];
-		JTable purchaseOrderTable = new JTable(data, colNames);
+
+		purchaseOrderTable = new JTable(new DefaultTableModel(new Object[0][3],new String[]{"ProductID","Product Name","Quantity", "Supplier"}));
+		//DefaultTableModel model = (DefaultTableModel) purchaseOrderTable.getModel();
+		//model.addRow(new Object[]{products.get(activeProductID).getProductId(),products.get(activeProductID).getProductName(), products.get(activeProductID).getStockLevel()});
 		CustomScrollPane scrollPane = new CustomScrollPane(purchaseOrderTable);
 		
 		JTableHeader header = purchaseOrderTable.getTableHeader();
