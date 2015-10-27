@@ -1,6 +1,7 @@
 package com.netbuilder.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,9 +15,16 @@ import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
+
+/**
+ * 
+ * @author pnewman
+ *
+ */
 @Controller
 public class ChooseAddressController {
 
@@ -29,26 +37,28 @@ public class ChooseAddressController {
 	int customerID;
 	
 	@RequestMapping("ChooseAddress")
-	public String ChooseAddress (ModelAndView modelAndView, HttpSession session) {
+	public ModelAndView ChooseAddress (ModelAndView view, HttpSession session) {
 		
-		 ModelAndView view = new ModelAndView();
-		 view.setViewName("ViewCreditDetails");
+		 view.setViewName("ChooseAddress");
 		 String user = session.getAttribute("sessionUser")+"";
-		 
 		 if(user.equalsIgnoreCase("null")){
 			view.setViewName("Register");
+			System.out.println("Not logged in");
 		 }
 		 
 		 else{
-			
+			System.out.println("Logged in");
+
 			customer = customerRepository.findByCustomerUsername(user);
 			customerID = customer.getCustomerID();
 			addresses = (ArrayList<Address>) addressRepository.findByCustomerId(customerID);
-			view.addObject("addresses", addresses);
 			
+			for(Address address : addresses){
+				System.out.println(address.getAddress());
+			}
+			view.addObject("addresses", addresses);
 		 }
 			 
-		return "ChooseAddress";
+		return view;
 	}
-	
 }

@@ -27,13 +27,17 @@
 
 		
 		<div class = "panel-body">
-	    
+	      
+		<div class="item" th:each="product : ${discontinuedProducts}">
+			<img th:src="'ImageFolder/' + ${product.image}" th:alt="${product.productName}"/>
+		</div>
+  
 		 
 	   <div class="dropdown">
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Choose Address to Edit
     <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li th:each="address:${addresses}"><a th:text="${address.address}"></a></li>
+    <ul class="dropdown-menu" >
+      <li  th:each="address : ${addresses}"><a th:text="apple"></a></li>
       <!-- 
       <li><a href="#">is</a></li>
       <li><a href="#">where</a></li>
@@ -43,7 +47,7 @@
       -->
       </ul>
   </div>
-  
+
   <h4> Please edit the address as appropriate. </h4>
   
         First Name :<br/>
