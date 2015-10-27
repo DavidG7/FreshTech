@@ -46,6 +46,7 @@ import CustomUI.CustomLabel;
  *
  */
 
+
 public class AddDiscontinue extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
@@ -56,6 +57,10 @@ public class AddDiscontinue extends JPanel{
 	JTable productTable;
 	
 	String newline = System.getProperty("line.separator");
+	
+	@SuppressWarnings("resource")
+	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
 
 	int x = 40; //table height
 	public AddDiscontinue(){
@@ -69,9 +74,9 @@ public class AddDiscontinue extends JPanel{
 	
 		rightPanel.add(optionTwo);
 		
-		CustomTextArea name = new CustomTextArea("Name");
+		final CustomTextArea name = new CustomTextArea("Name");
 		CustomTextArea desc = new CustomTextArea("Description");
-		CustomTextArea price = new CustomTextArea("Price");		
+		final CustomTextArea price = new CustomTextArea("Price");		
 		
 		name.setMaximumSize(new Dimension(450,20));
 		desc.setMaximumSize(new Dimension(450,20));
@@ -115,7 +120,12 @@ public class AddDiscontinue extends JPanel{
 	            public void actionPerformed(ActionEvent e) {
 	            	JOptionPane.showMessageDialog(getParent(),
 	            	        "New product is added to inventory" );
+	            			int newId = productRepository.findAll().size()+1;
+	            			System.out.println("NEW ID:" + newId);
+	            			//productRepository.insert(new Product(newId, 0, Float.parseFloat(price.getText().substring(1)), String.valueOf(categoryCombo.getSelectedItem()).toUpperCase(), name.getText()));
 	                    }
+	            
+	       
 	                    
 	     });
 		
@@ -123,12 +133,17 @@ public class AddDiscontinue extends JPanel{
 		rightPanel.add(Box.createRigidArea(new Dimension(0,30)));
 		CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
 		 discontinueStock.addActionListener(new ActionListener() {
+			 
 
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	            	JOptionPane.showMessageDialog(getParent(),
 	            	        "Product is no longer available");
+	            	
+	        
 	                   }
+	            
+	        	 
 	                    
 	     });
 		discontinueStock.setMaximumSize(new Dimension(550,20));
@@ -141,14 +156,12 @@ public class AddDiscontinue extends JPanel{
 		String [] colNames = {"ProductID","Product Name"};
 		Object[][] data = new Object [x][5];
 		
-		@SuppressWarnings("resource")
-		ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
-    	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
+		
         
     	List<Product> a = productRepository.findAll();
 
     	for(int i = 0; i <= a.size()-1; i++){
-    		data[i][0] = "Product ID: "+ a.get(i).getProductId();
+    		data[i][0] = a.get(i).getProductId();
     		data[i][1] = a.get(i).getProductName();
     	}
 		
