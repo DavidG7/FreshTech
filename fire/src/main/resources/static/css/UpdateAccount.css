@@ -5,7 +5,7 @@
 }
 #writing{
 	float: left;
-	margin: 20px;
+	margin: 40px;
 }
 #fixit{
 	clear:left;
@@ -22,4 +22,7 @@
 #dropmenus{
 	float:left;
 	margin:70px;
+}
+#colouring{
+	color:white;
 }

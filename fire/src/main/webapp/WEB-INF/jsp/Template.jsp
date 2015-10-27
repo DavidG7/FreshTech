@@ -78,7 +78,7 @@
 						<li><a href="ViewCreditDetails">View Credit</a></li>
 						<li class="divider"></li>
 
-						<li><a href="/">Logout</a></li>
+						<li><a href="Logout">Logout</a></li>
 					</ul>
 				</li>
 				<li>

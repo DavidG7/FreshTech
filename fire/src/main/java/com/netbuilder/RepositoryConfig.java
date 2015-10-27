@@ -9,19 +9,33 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.BasketRepository;
+import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
+import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.entityrepositories.PaymentRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderRepository;
+import com.netbuilder.entityrepositories.SupplierRepository;
 import com.netbuilder.entityrepositoriesimplementations.dummy.AddressRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.dummy.BasketRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.dummy.CustomerRepositoryDummy;
+import com.netbuilder.entityrepositoriesimplementations.dummy.EmployeeRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.dummy.ProductRepositoryDummy;
+import com.netbuilder.entityrepositoriesimplementations.dummy.PurchaseOrderRepositoryDummy;
+import com.netbuilder.entityrepositoriesimplementations.dummy.SupplierRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.BasketRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.PaymentRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.CustomerOrderSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.SupplierSQL;
 import com.netbuilder.util.SQLTemplate;
 
 /**
@@ -48,7 +62,7 @@ public class RepositoryConfig {
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return AddressRepository
 	 */	
-	//@Primary
+	@Primary
 	@Bean
 	public AddressRepository addressRepositoryMongo(){
 		AddressRepositoryMongo addressRepository = new AddressRepositoryMongo();
@@ -56,12 +70,14 @@ public class RepositoryConfig {
 		return addressRepository;
 	}
 	
+
+	
 	/**
 	 * This method implements the AddressRepository interface by injecting DUMMY data.
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
 	 * @return AddressRepository
 	 */	
-	@Primary
+	//@Primary
 	@Bean
 	public AddressRepository addressRepositoryDummy(){
 		AddressRepositoryDummy addressRepository = new AddressRepositoryDummy();
@@ -109,9 +125,9 @@ public class RepositoryConfig {
 		return customerRepository;
 	}
 	/**
-	 * This method implements the BasketRepository interface by injecting DUMMY data.
+	 * This method implements the CustomerRepository interface by injecting DUMMY data.
 	 * Comment/Uncomment the @Primary annotation to choose implementation.
-	 * @return BasketRepository
+	 * @return CustomerRepository
 	 */	
 	//@Primary
 	@Bean
@@ -120,7 +136,58 @@ public class RepositoryConfig {
 		customerRepository.setDummyData(dummyData);
 		return customerRepository;
 	}
-		
+	
+	//CUSTOMER ORDER REPOSITORY
+	/**
+	 * This method implements the CustomerOrderRepository interface by injecting SQL data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return CustomerOrderRepository
+	 */	
+	@Primary
+	@Bean
+	public CustomerOrderRepository customerOrderRepositorySQL(){
+		CustomerOrderSQL customerOrderRepository = new CustomerOrderSQL();
+		customerOrderRepository.setSqltemplate(sqlTemplate);
+		return customerOrderRepository;
+	}
+
+
+	//@Primary
+	/*TODO Not implemented.
+	@Bean
+	public CustomerOrderRepository customerOrderRepositoryDummy(){
+		CustomerOrderRepositoryDummy customerOrderRepository = new CustomerOrderRepositoryDummy();
+		customerOrderRepository.setDummyData(dummyData);
+		return customerOrderRepository;
+	}
+	*/
+	
+	//EMPLOYEE REPOSITORY
+		/**
+		 * This method implements the EmployeeRepository interface by injecting SQL data.
+		 * Comment/Uncomment the @Primary annotation to choose implementation.
+		 * @return EmployeeRepository
+		 */	
+		@Primary
+		@Bean
+		public EmployeeRepository employeeRepositoryMongo(){
+			EmployeeRepositorySQL employeeRepository = new EmployeeRepositorySQL();
+			employeeRepository.setSqltemplate(sqlTemplate);
+			return employeeRepository;
+		}
+		/**
+		 * This method implements the EmployeeRepository interface by injecting DUMMY data.
+		 * Comment/Uncomment the @Primary annotation to choose implementation.
+		 * @return EmployeeRepository
+		 */	
+		//@Primary
+		@Bean
+		public EmployeeRepository employeeRepositoryDummy(){
+			EmployeeRepositoryDummy employeeRepository = new EmployeeRepositoryDummy();
+			employeeRepository.setDummyData(dummyData);
+			return employeeRepository;
+		}
+
 	//PAYMENT REPOSITORY
 	/**
 	 * This method implements the PaymentRepository interface by injecting MONGO data.
@@ -171,5 +238,85 @@ public class RepositoryConfig {
 		ProductRepositoryDummy productRepository = new ProductRepositoryDummy();
 		productRepository.setDummyData(dummyData);
 		return productRepository;
+	}
+	
+	//PURCHASE ORDER LINE REPOSITORY
+	/**
+	 * This method implements the PurchaseOrderLineRepository interface by injecting SQL data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return PurchaseOrderLineRepository
+	 */	
+	@Primary
+	@Bean
+	public PurchaseOrderLineRepository purchaseOrderLineSQL(){
+		PurchaseOrderLineSQL purchaseOrderLineRepository = new PurchaseOrderLineSQL();
+		purchaseOrderLineRepository.setSqltemplate(sqlTemplate);
+		return purchaseOrderLineRepository;
+	}
+	/**
+	 * This method implements the PurchaseOrderLineRepository interface by injecting DUMMY data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return PurchaseOrderLineRepository
+	 */	
+	//@Primary
+	/*TODO Not implemented.
+	@Bean
+	public PurchaseOrderLineRepository purchaseOrderLineRepositoryDummy(){
+		PurchaseOrderLineRepositoryDummy purchaseOrderLineRepository = new PurchaseOrderLineRepositoryDummy();
+		purchaseOrderLineRepository.setDummyData(dummyData);
+		return purchaseOrderLineRepository;
+	}
+	*/
+	
+	//PURCHASE ORDER REPOSITORY
+	/**
+	 * This method implements the PurchaseOrderRepository interface by injecting SQL data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return PurchaseOrderRepository
+	 */	
+	@Primary
+	@Bean
+	public PurchaseOrderRepository purchaseOrderSQL(){
+		PurchaseOrderSQL purchaseOrderRepository = new PurchaseOrderSQL();
+		purchaseOrderRepository.setSqltemplate(sqlTemplate);
+		return purchaseOrderRepository;
+	}
+	/**
+	 * This method implements the PurchaseOrderRepository interface by injecting DUMMY data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return PurchaseOrderRepository
+	 */	
+	//@Primary
+	@Bean
+	public PurchaseOrderRepository purchaseOrderRepositoryDummy(){
+		PurchaseOrderRepositoryDummy purchaseOrderRepository = new PurchaseOrderRepositoryDummy();
+		purchaseOrderRepository.setDummyData(dummyData);
+		return purchaseOrderRepository;
+	}
+	
+	//SUPPLIER REPOSITORY
+	/**
+	 * This method implements the SupplierRepository interface by injecting SQL data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return SupplierRepository
+	 */	
+	@Primary
+	@Bean
+	public SupplierRepository supplierSQL(){
+		SupplierSQL supplierRepository = new SupplierSQL();
+		supplierRepository.setSqltemplate(sqlTemplate);
+		return supplierRepository;
+	}
+	/**
+	 * This method implements the SupplierRepository interface by injecting DUMMY data.
+	 * Comment/Uncomment the @Primary annotation to choose implementation.
+	 * @return SupplierRepository
+	 */	
+	//@Primary
+	@Bean
+	public SupplierRepository purchaseOrderLineRepositoryDummy(){
+		SupplierRepositoryDummy supplierRepository = new SupplierRepositoryDummy();
+		supplierRepository.setDummyData(dummyData);
+		return supplierRepository;
 	}
 }

@@ -18,9 +18,15 @@ import com.netbuilder.util.SQLTemplate;
 
 public class SupplierSQL implements SupplierRepository
 {
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+	private SQLTemplate sqltemplate;
+	
+	public SQLTemplate getSqltemplate() {
+		return sqltemplate;
+	}
+
+	public void setSqltemplate(SQLTemplate sqltemplate) {
+		this.sqltemplate = sqltemplate;
+	}
 	
     @Override
 	public long count() 
@@ -48,14 +54,32 @@ public class SupplierSQL implements SupplierRepository
     @Override
 	public void delete(Integer arg0) 
     {
-		// TODO Auto-generated method stub
-		
+		try 
+		{
+			sqltemplate.getResultSetForQuery("supplier", "DELETE FROM supplier WHERE supplierid =" + arg0);
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+					
 	}
 	
     @Override
 	public void delete(Supplier arg0) 
     {
-		// TODO Auto-generated method stub
+		int supplierID = arg0.getId();
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE * FROM supplier WHERE supplierid =" + supplierID);
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -66,8 +90,16 @@ public class SupplierSQL implements SupplierRepository
 	}
 	
     @Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
+	public void deleteAll() 
+    {
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE FROM supplier");
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -76,7 +108,7 @@ public class SupplierSQL implements SupplierRepository
     {
     	try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT * FROM Supplier WHERE Supplierid =" + SupplierID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT * FROM Supplier WHERE Supplierid =" + arg0);
 			
 			while(rs.next())
 			{
@@ -160,9 +192,14 @@ public class SupplierSQL implements SupplierRepository
 	}
 	
     @Override
-	public <S extends Supplier> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public <S extends Supplier> S save(S arg0) 
+    {
+		arg0 = (S) new Supplier();
+		
+		sqltemplate.update("INSERT INTO supplier VALUES(" + arg0.getId() + "','" + arg0.getEmail() + "','" + arg0.getPhone()
+				+ "','" + arg0.getPreferredContactMethod());
+		
+		return arg0;
 	}
 	
     @Override

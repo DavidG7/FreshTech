@@ -22,10 +22,15 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 
 	
 	@Inject
-	private DummyData initialData;
-	
+	private DummyData dummyData;
 
+	public DummyData getDummyData() {
+		return dummyData;
+	}
 
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
+	}
 
 	@Override
 	public long count() {
@@ -40,7 +45,7 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 	@Override
 	public void delete(Integer arg0) 
 	{
-		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+		ArrayList<Employee> es = dummyData.getEntityList(new Employee());
 				
 		for(int i = 0; i < es.size(); i++)
 		{
@@ -50,14 +55,14 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 			}
 		}
 		
-		initialData.setEntityList(es);
+		dummyData.setEntityList(es);
 		
 	}
 
 	@Override
 	public void delete(Employee arg0) {
 		// TODO Auto-generated method stub
-		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+		ArrayList<Employee> es = dummyData.getEntityList(new Employee());
 		for(Employee e : es) 
 		{
 			if(e.equals(arg0))
@@ -66,7 +71,7 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 			}	
 		}
 		
-		initialData.setEntityList(es);
+		dummyData.setEntityList(es);
 	}
 
 	@Override
@@ -78,13 +83,13 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 	@Override
 	public void deleteAll() {
 		// TODO Auto-generated method stub
-		initialData.getEntityList(new Employee()).clear();
+		dummyData.getEntityList(new Employee()).clear();
 	}
 
 	@Override
 	public boolean exists(Integer arg0) {
 		// TODO Auto-generated method stub
-		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+		ArrayList<Employee> es = dummyData.getEntityList(new Employee());
 		for(Employee e : es) {
 			if(e.getEmployeeID() == arg0)
 				return true;
@@ -95,7 +100,7 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 	@Override
 	public Iterable<Employee> findAll() {
 		// TODO Auto-generated method stub
-		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+		ArrayList<Employee> es = dummyData.getEntityList(new Employee());
 		return es;
 	}
 
@@ -121,7 +126,7 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 	@Override
 	public Employee findOne(Integer employeeID) {
 		// TODO Auto-generated method stub
-		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+		ArrayList<Employee> es = dummyData.getEntityList(new Employee());
 		for(Employee e : es) {
 			if(e.getEmployeeID() == employeeID)
 				return e;
@@ -132,7 +137,7 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 	@Override
 	public Iterable<Employee> findByEmployeeName(String name) {
 		// TODO Auto-generated method stub
-		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+		ArrayList<Employee> es = dummyData.getEntityList(new Employee());
 		for(int i = 0; i < es.size(); i--) {
 			if(!es.get(i).getEmployeeName().equals(name)) {
 				es.remove(i);
@@ -145,7 +150,7 @@ public class EmployeeRepositoryDummy implements EmployeeRepository{
 	@Override
 	public Iterable<Employee> findByAccessLevel(int accessLevel) {
 		// TODO Auto-generated method stub
-		ArrayList<Employee> es = initialData.getEntityList(new Employee());
+		ArrayList<Employee> es = dummyData.getEntityList(new Employee());
 		for(int i = 0; i < es.size(); i--) {
 			if(es.get(i).getAccessLevel() != accessLevel) {
 				es.remove(i);

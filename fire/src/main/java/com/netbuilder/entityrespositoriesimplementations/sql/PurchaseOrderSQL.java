@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.util.SQLTemplate;
@@ -23,11 +24,16 @@ import com.netbuilder.util.SQLTemplate;
 
 public class PurchaseOrderSQL implements PurchaseOrderRepository
 {
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+	private SQLTemplate sqltemplate;
 	
-	
+	public SQLTemplate getSqltemplate() {
+		return sqltemplate;
+	}
+
+	public void setSqltemplate(SQLTemplate sqltemplate) {
+		this.sqltemplate = sqltemplate;
+	}
+
 	@Override
 	public long count() 
 	{
@@ -82,10 +88,10 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+				
 	}
 
+	
 	@Override
 	public void delete(Iterable<? extends PurchaseOrder> arg0) {
 		// TODO Auto-generated method stub
@@ -188,28 +194,12 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	@Override
 	public <S extends PurchaseOrder> S save(S arg0) 
 	{
-		/*PurchaseOrder purchaseOrder;
-		
-		try 
-		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "UPDATE purchaseOrder"
-					+ "SET purchaseorderid = arg0.getPurchaseOrderID() AND supplierid = arg0.getSupplierID() AND "
-					+ "employeeid = arg0.getEmployeeID(), "
-					+ " WHERE purchaseorderid =" + arg0.getPurchaseOrderID());
-			
-			while(rs.next())
-			{
-				return purchaseOrder = new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
-			}
-			
-			
-		} 
-		catch (SQLException e) 
-		{
-			e.printStackTrace();
-		}*/
-		
-		return null;
+		arg0 = (S) new PurchaseOrder();
+
+		sqltemplate.update("INSERT INTO purchaseorder VALUES(" + arg0.getPurchaseOrderID() + "','" + arg0.getSupplierID() + "','" + arg0.getEmployeeID()
+				+ "','" + arg0.getPurchaseDateOrder() + "','" + arg0.getPurchaseOrderStatus());
+	
+		return arg0;
 	}
 
 	@Override

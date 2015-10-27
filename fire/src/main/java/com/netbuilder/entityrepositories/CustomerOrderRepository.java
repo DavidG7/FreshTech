@@ -1,6 +1,7 @@
 package com.netbuilder.entityrepositories;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.netbuilder.entities.*;
 
@@ -20,7 +21,8 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	
 	
 	
-	public CustomerOrder findByOrderID(Integer OrderID);
+
+	public List<CustomerOrder> findByOrderID(Integer OrderID);
 	
 	/**
 	 * Finds Orders by Customer Order ID
@@ -41,7 +43,7 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	 * @param dateofOrder
 	 * @return ArrayList<CustomerOrder>
 	 */
-	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate);
+	public ArrayList<CustomerOrder> findByOrderDate(String orderDate);
 	/**
 	 * Find Customer Orders by Order Status
 	 * @param status

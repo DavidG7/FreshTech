@@ -28,8 +28,7 @@ public class ProductCatalogueController {
 	
 	 
 	 @RequestMapping("ProductCatalogue")
-	public  ModelAndView ModelAndView (Model model, HttpSession session) {
-		    ModelAndView view = new ModelAndView ();
+	public  ModelAndView modelAndView(ModelAndView view, HttpSession session) {
 		 	view.setViewName("ProductCatalogue");
 		 	view.addObject("products", products);
 	        return view;
