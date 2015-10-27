@@ -3,6 +3,7 @@ package com.netbuilder.entityrespositoriesimplementations.sql;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
@@ -196,6 +197,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	}
 	
 	@Override
+<<<<<<< HEAD
 	public CustomerOrder findByOrderID(Integer OrderID) 
 	{
 		CustomerOrder customerOrder;
@@ -215,6 +217,10 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			e.printStackTrace();
 		}
 		
+=======
+	public List<CustomerOrder> findByOrderID(Integer OrderID) {
+		// TODO Auto-generated method stub
+>>>>>>> 2eeba4802bbeb642b994d91a295172c324eed948
 		return null;
 	}
 	
