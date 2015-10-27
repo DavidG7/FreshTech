@@ -67,11 +67,11 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	public void delete(CustomerOrder arg0) 
 	{
 
-		int customerOrderID = arg0.getCustomerOrderID();
+		int orderID = arg0.getOrderID();
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("customereorder", "DELETE * FROM customerorder WHERE customerorderid =" + customerOrderID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("customereorder", "DELETE * FROM customerorder WHERE customerorderid =" + orderID);
 		} 
 		catch (SQLException e) 
 		{
@@ -137,7 +137,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 		return null;
 	}
 	@Override
-	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate) {
+	public ArrayList<CustomerOrder> findByOrderDate(String orderDate) {
 		// TODO Auto-generated method stub
 		return null;
 	}

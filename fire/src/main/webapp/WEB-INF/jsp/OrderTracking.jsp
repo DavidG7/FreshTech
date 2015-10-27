@@ -30,7 +30,7 @@
 	Delivered  <span class="glyphicon glyphicon-home"></span>
    </p>
   
-<p> Order ID: <span></span></p>
+<p> Order ID: <span th:text="${customerOrder.orderID}"></span></p>
 <p> Order Date: </p>
 <p> Order Total: </p>
 <p> Expected Delivery: </p>

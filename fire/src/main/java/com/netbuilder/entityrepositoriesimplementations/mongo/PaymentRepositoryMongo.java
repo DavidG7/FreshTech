@@ -2,7 +2,6 @@ package com.netbuilder.entityrepositoriesimplementations.mongo;
 
 import java.util.List;
 
-import org.bson.Document;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.domain.Page;

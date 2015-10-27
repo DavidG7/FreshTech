@@ -17,16 +17,15 @@ public class OrderTrackingController {
 	ApplicationContext context = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
     CustomerOrderRepository customerOrderRepository = context.getBean(CustomerOrderRepository.class);
 	
-	CustomerOrder customerOrder = customerOrderRepository.findByCustomerID(1);
+	//CustomerOrder customerOrder = customerOrderRepository.findByCustomerID(1);
+	
+	CustomerOrder customerOrder = new CustomerOrder(8, 57, "today", 5, "delivered", 9);
 		
 	 @RequestMapping(value="OrderTracking")
 	 public ModelAndView  OrderTracking(ModelAndView modelAndView) {
-	        		
-		 System.out.println(customerOrder.getCustomerID());
-		 
+	        				 
 		 modelAndView.addObject("customerOrder", customerOrder);
 		 
 		 return modelAndView;
-	  }
-	
+	  }	
 }

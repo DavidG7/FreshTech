@@ -20,7 +20,7 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	
 	
 	
-	public CustomerOrder findByOrderID(Integer OrderID);
+	public CustomerOrder findByOrderID(Integer orderID);
 	
 	/**
 	 * Finds Orders by Customer Order ID
@@ -41,7 +41,7 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	 * @param dateofOrder
 	 * @return ArrayList<CustomerOrder>
 	 */
-	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate);
+	public ArrayList<CustomerOrder> findByOrderDate(String orderDate);
 	/**
 	 * Find Customer Orders by Order Status
 	 * @param status
