@@ -3,6 +3,7 @@ package com.netbuilder.entityrespositoriesimplementations.sql;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -121,7 +122,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 		return null;
 	}
 	@Override
-	public CustomerOrder findByOrderID(Integer OrderID) {
+	public List<CustomerOrder> findByOrderID(Integer OrderID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
