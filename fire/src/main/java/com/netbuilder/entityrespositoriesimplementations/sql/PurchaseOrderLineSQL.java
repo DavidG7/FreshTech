@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.netbuilder.DataConfig;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.PurchaseOrderLine;
 import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
@@ -91,7 +92,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 	{	
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE purchaseorderlineid =" + arg0);
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE PurchaseOrder_purchaseorderlineid =" + arg0);
 			
 			while(rs.next())
 			{
@@ -116,7 +117,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT purchaseorderlineid, productid, quantity FROM purchaseorderline");
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT PurchaseOrder_purchaseorderlineid, productid, quantity FROM purchaseorderline");
 			
 			int i = 0;
 			
@@ -145,7 +146,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE purchaseorderlineid =" + arg0);
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE PurchaseOrder_purchaseorderlineid =" + arg0);
 			
 			while(rs.next())
 			{
@@ -164,8 +165,13 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 
 	@Override
 	public <S extends PurchaseOrderLine> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		arg0 = (S) new PurchaseOrderLine();
+		
+		sqltemplate.update("INSERT INTO purchaseorderline VALUES(" + arg0.getPurchaseOrderLineID() + "','" + arg0.getProductID() + "','" + arg0.getQuantity());
+
+		return arg0;
+		
 	}
 
 	@Override
@@ -181,7 +187,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE purchaseorderlineid =" + purchaseOrderLineID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE PurchaseOrder_purchaseorderlineid =" + purchaseOrderLineID);
 			
 			while(rs.next())
 			{
