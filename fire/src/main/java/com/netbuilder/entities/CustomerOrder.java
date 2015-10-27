@@ -18,11 +18,11 @@ public class CustomerOrder {
 	private int orderID;
 	//@ManyToOne
 	@PrimaryKeyJoinColumn(name = "orderid")
-	private int  customerid;
-	private String orderdate;
+	private int  customerID;
+	private String orderDate;
 	private String customerOrderStatus;
 	private int orderTotal;
-	private int addressid;
+	private int deliveryAddress;
 	//private DummyData data = new DummyData();
 
 	public CustomerOrder() { }
@@ -39,10 +39,10 @@ public class CustomerOrder {
 	public CustomerOrder(int OrderID, int customerID, String orderDate, int orderTotal,
 			String customerOrderStatus, int deliveryAddress) {
 		this.orderID = OrderID;
-		this.customerid = customerID;
-		this.orderdate = orderDate;
+		this.customerID = customerID;
+		this.orderDate = orderDate;
 		this.customerOrderStatus = customerOrderStatus;
-		this.addressid = deliveryAddress;
+		this.deliveryAddress = deliveryAddress;
 		this.orderTotal = orderTotal;
 	}
 
@@ -57,19 +57,55 @@ public class CustomerOrder {
 	 * Displays Orders
 	 */
 	public String  viewCustomerOrder() {
-		return  "OrderID:" +orderID + "\nCustomerID:"+customerid+"\nCustomer Order Status:"+customerOrderStatus+ "\nDelivery Address:"+addressid;
+		return  "OrderID:" +orderID + "\nCustomerID:"+customerID+"\nCustomer Order Status:"+customerOrderStatus+ "\nDelivery Address:"+deliveryAddress;
 	}
-	
-	public String getDateOfOrder() {return orderdate;}
-	public void setDateOfOrder(String string) {this.orderdate = string;}
-	public int getCustomerOrderID() {return orderID;}
-	public void setCustomerOrderID(int customerOrderID) {this.orderID = customerOrderID;}
-	public String getCustomerOrderStatus() {return customerOrderStatus;}
-	public void setCustomerOrderStatus(String customerOrderStatus) {this.customerOrderStatus = customerOrderStatus;}
-	public int getDeliveryAddress() {return addressid;}
-	public void setDeliveryAddress(int deliveryAddress) {this.addressid = deliveryAddress;}
-	public int getCustomerID () {return customerid;}
-	public void setCustomerID(int customerID) {this.customerid = customerID;}
-	public float getOrderTotal() {return orderTotal;}
-	public void setOrderTotal(int orderTotal) {this.orderTotal = orderTotal;}
+
+	public int getOrderID() {
+		return orderID;
+	}
+
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
+
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public String getCustomerOrderStatus() {
+		return customerOrderStatus;
+	}
+
+	public void setCustomerOrderStatus(String customerOrderStatus) {
+		this.customerOrderStatus = customerOrderStatus;
+	}
+
+	public int getOrderTotal() {
+		return orderTotal;
+	}
+
+	public void setOrderTotal(int orderTotal) {
+		this.orderTotal = orderTotal;
+	}
+
+	public int getDeliveryAddress() {
+		return deliveryAddress;
+	}
+
+	public void setDeliveryAddress(int deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
+
 }
