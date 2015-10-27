@@ -70,11 +70,12 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	public void delete(CustomerOrder arg0) 
 	{
 
-		int customerOrderID = arg0.getCustomerOrderID();
+		int orderID = arg0.getOrderID();
 		
 		try 
 		{
-			sqltemplate.getResultSetForQuery("customereorder", "DELETE * FROM customerorder WHERE customerorderid =" + customerOrderID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("customereorder", "DELETE * FROM customerorder WHERE customerorderid =" + orderID);
+
 		} 
 		catch (SQLException e) 
 		{
@@ -140,7 +141,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			while(rs.next()){	
 				
 				customerOrder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
-				System.out.println(customerOrder.get(i).getCustomerOrderID()+", "+ customerOrder.get(i).getCustomerID()+ ", " + customerOrder.get(i).getDateOfOrder()
+				System.out.println(customerOrder.get(i).getOrderID()+", "+ customerOrder.get(i).getCustomerID()+ ", " + customerOrder.get(i).getOrderDate()
 						+", "+customerOrder.get(i).getCustomerOrderStatus()+", "+customerOrder.get(i).getDeliveryAddress());
 				i++;
 			}
@@ -184,7 +185,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	{
 		arg0 = (S) new CustomerOrder(); 
 		
-		sqltemplate.update("INSERT INTO customerorder VALUES(" + arg0.getCustomerOrderID() + "','" + arg0.getCustomerID() + "','" + arg0.getDateOfOrder() 
+		sqltemplate.update("INSERT INTO customerorder VALUES(" + arg0.getOrderID() + "','" + arg0.getCustomerID() + "','" + arg0.getOrderDate() 
 				+ "','" + arg0.getOrderTotal() + "','" + arg0.getCustomerOrderStatus() + "','" + arg0.getDeliveryAddress());
 		
 		return arg0;
@@ -267,7 +268,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	}
 	
 	@Override
-	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate) 
+	public ArrayList<CustomerOrder> findByOrderDate(String orderDate) 
 	{
 		ArrayList<CustomerOrder> customerOrder = new ArrayList<CustomerOrder>();
 			
