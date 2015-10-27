@@ -76,13 +76,12 @@ public class AboutController {
 		 
 		 //Basket Lines
 		 
-		 Basket bask = new Basket(productRepository.findByProductID(0), 13, 1);
-		 
-		 basketRepository.insert(bask);
-		 basketRepository.insert(new Basket(productRepository.get[3]), 6, 1);
-		 basketRepository.insert(new Basket(productRepository.get[2]), 1, 2);
-		 basketRepository.insert(new Basket(productRepository.get[1]), 3, 3);
-		 basketRepository.insert(new Basket(productRepository.get[0]), 13, 1);
+		 /*
+		 basketRepository.insert(new Basket(productRepository.findByProductID(2), 13, 1));
+		 basketRepository.insert(new Basket(productRepository.findByProductID(9), 2, 1));
+		 basketRepository.insert(new Basket(productRepository.findByProductID(3), 27, 1));
+		 basketRepository.insert(new Basket(productRepository.findByProductID(13), 6, 2));
+		 basketRepository.insert(new Basket(productRepository.findByProductID(18), 10, 3));*/
 			return "About";
 	 }
 }
