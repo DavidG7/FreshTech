@@ -13,7 +13,7 @@ public class DatabaseController {
 
 	//SQL Variables	
 	
-	String ipaddress = "10.50.15.7";
+	String ipaddress = "10.50.15.33";
 	
 	MysqlDataSource ds = new MysqlDataSource();
 	Connection conn = null;
