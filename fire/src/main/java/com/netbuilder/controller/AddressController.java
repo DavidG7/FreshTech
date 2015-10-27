@@ -16,8 +16,7 @@ import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Customer;
-
-import com.netbuilder.entityrepositories.CustomerRepository;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.ProductRepository;
 
 
@@ -27,41 +26,50 @@ import com.netbuilder.entityrepositories.ProductRepository;
 public class AddressController {
 	
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
-	CustomerRepository customerRepository = mongoContext.getBean(CustomerRepository.class);	
+	ProductRepository productRepository = mongoContext.getBean(ProductRepository.class);	
 	
 	//ApplicationContext appContext = new ClassPathXmlApplicationContext("beans.xml");
 	//MessageSender sender = (MessageSender)appContext.getBean("messageSender"); 
 
 	 @RequestMapping("Address")
 	 public String PrintAddresses(Model model) {
-		customerRepository.delete(customerRepository.findByCustomerID(2));
-		customerRepository.save(new Customer(1,"0872456678",9790,"Jenny Smith the second", "jennysmith@gmail.com", "JenkinJennySmith", "ILoveGnomes" ));
-		customerRepository.save(new Customer(2,"0865546739",9960,"Ben Locamotive the second", "benlococoko@gmail.com", "HotLikeATrain", "ILoveGnomesToo" ));
+		//productRepository.delete(productRepository.findByCustomerID(2));
+		
+		productRepository.save(new Product(3, 22399, 17, "GNOME", "Green Gnome"));
+		productRepository.save(new Product(4, 27009, 22, "GNOME", "Zombie Gnome"));
+		productRepository.save(new Product(5, 15667, 22, "GNOME", "Wizard Gnome"));
+		productRepository.save(new Product(6, 11338, 25, "GNOME", "Drunk Gnome"));
+		productRepository.save(new Product(7, 9980, 25, "GNOME", "Rude Gnome"));
+		productRepository.save(new Product(8, 12342, 16, "GNOME", "Football Gnome"));
+		productRepository.save(new Product(9, 6700, 16, "GNOME", "Hungry Gnome"));
+		productRepository.save(new Product(10, 23764, 16, "GNOME", "Basketball Gnome"));
+
+		
 		
 	
-		 for(int i =0;i < customerRepository.findAll().size();i++){
+		 for(int i =0;i < productRepository.findAll().size();i++){
 			 System.out.println("");
-			 System.out.println("Customer ID: " + customerRepository.findAll().get(i).getCustomerID());
-			 System.out.println("Customer Phone: " + customerRepository.findAll().get(i).getCustomerPhone());
-			 System.out.println("Available Credit:" + customerRepository.findAll().get(i).getAvailableCredit());
-			 System.out.println("Customer Name: " + customerRepository.findAll().get(i).getCustomerName());
+			 System.out.println("Product ID: " + productRepository.findAll().get(i).getProductId());
+			 System.out.println("Product Name: " + productRepository.findAll().get(i).getProductName());
+			 System.out.println("Product Description:" + productRepository.findAll().get(i).getProductDescription());
+			 System.out.println("Product Stock Level: " + productRepository.findAll().get(i).getStockLevel());
 		 }
 		 
 			 System.out.println("");
 
-			 System.out.println("Customer Name: (1)" + customerRepository.findByCustomerID(1).getCustomerName());
-			 System.out.println("Customer Name (2): " + customerRepository.findByCustomerID(2).getCustomerName());
-			// System.out.println("Specific Postcode: " + customerRepositoryMongo.findByCustomerId(2).get(1).getAddress());
+			 //System.out.println("Customer Name: (1)" + productRepository.findByCustomerID(1).getCustomerName());
+			 //System.out.println("Customer Name (2): " + productRepository.findByCustomerID(2).getCustomerName());
+			// System.out.println("Specific Postcode: " + productRepositoryMongo.findByCustomerId(2).get(1).getAddress());
 			 
-			 System.out.println("Number of Customers: " + customerRepository.count());
+			 System.out.println("Number of Products: " + productRepository.count());
 			 
-			// customerRepositoryMongo.delete(customerRepositoryMongo.findByAddressID(4));
+			// productRepositoryMongo.delete(productRepositoryMongo.findByAddressID(4));
 			
 			
 			 
 			
 			 
-			 //customerRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
+			 //productRepositoryMongo.insert(new Address(5, "Big Street, Big Town, Birmingham, United Kingdom", "BA445", 1));
 			 
 	 
 	        return "Address";
