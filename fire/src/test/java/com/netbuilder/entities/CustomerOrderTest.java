@@ -37,7 +37,7 @@ public class CustomerOrderTest {
 
 	@Test
 	public void testGetDataOfOrder() {
-		assertEquals(test.getDateOfOrder(),d);
+		assertEquals(test.getOrderDate(),d);
 		
 	}
 
@@ -49,7 +49,7 @@ public class CustomerOrderTest {
 		myCal.set(Calendar.DAY_OF_MONTH, 10);
 		Date theDate = myCal.getTime();
 		//test.setDateOfOrder(theDate);
-		assertEquals(test.getDateOfOrder(),theDate);
+		assertEquals(test.getOrderDate(),theDate);
 	}
 
 	@Test
@@ -59,8 +59,8 @@ public class CustomerOrderTest {
 
 	@Test
 	public void testSetCustomerOrderID() {
-		test.setCustomerOrderID(10001);
-		assertEquals(test.getCustomerOrderID(), 10001);
+		test.setOrderID(10001);
+		assertEquals(test.getOrderID(), 10001);
 	}
 
 	@Test

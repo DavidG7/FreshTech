@@ -67,7 +67,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	
 	@Override
 	public void delete(CustomerOrder arg0) {
-		int OrderID = arg0.getCustomerOrderID();
+		int OrderID = arg0.getOrderID();
 		sqltemplate.update("DELETE FROM customerorder WHERE orderid = "  + OrderID);
 	}
 	@Override
@@ -98,7 +98,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 			while(rs.next()){	
 				
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
 			}
 		} catch (SQLException e) {
@@ -130,16 +130,23 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 	
 	@Override
-	public CustomerOrder findByOrderID(Integer OrderID) {
-		CustomerOrder customerorder = null;
+	public List<CustomerOrder> findByOrderID(Integer OrderID) {
+		
+		
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderid = " + OrderID );
 			
 			while(rs.next()){	
 				
+<<<<<<< HEAD
 				customerorder = (new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.getCustomerOrderID()+","+customerorder.getCustomerID()+","+customerorder.getDateOfOrder()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
+				System.out.println(customerorder.getOrderID()+","+customerorder.getCustomerID()+","+customerorder.getOrderDate()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
 
+=======
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				
+>>>>>>> 22524c91d69de67fc012bcddc09751aefafe63c0
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -156,7 +163,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 			while(rs.next()){	
 				
 				customerorder = (new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.getCustomerOrderID()+","+customerorder.getCustomerID()+","+customerorder.getDateOfOrder()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
+				System.out.println(customerorder.getOrderID()+","+customerorder.getCustomerID()+","+customerorder.getOrderDate()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
 
 			}
 		} catch (SQLException e) {
@@ -174,7 +181,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 			while(rs.next()){	
 				int i=0;
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
 			}
 		} catch (SQLException e) {
@@ -184,14 +191,14 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 	
 	@Override
-	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate) {
+	public ArrayList<CustomerOrder> findByOrderDate(String orderDate) {
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderdate = '" + orderDate +"'");
 			int i=0;
 			while(rs.next()){	
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
 			}
 		} catch (SQLException e) {
@@ -208,7 +215,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 			int i=0;
 			while(rs.next()){	
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
 			}
 		} catch (SQLException e) {
@@ -226,7 +233,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 			while(rs.next()){	
 				int i=0;
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.get(i).getCustomerOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getDateOfOrder()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
 			}
 		} catch (SQLException e) {

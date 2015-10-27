@@ -21,7 +21,6 @@ public class Address implements Serializable {
 	private String address;
 	private String postcode;
 	private int customerId;
-
 	
    /**
     * class constructors
@@ -85,16 +84,11 @@ public class Address implements Serializable {
 	/**
 	 * @return the address
 	 */
-	public String getAddress() {
-		return address;
-	}
-	
+
 	/**
 	 * @param address the address to set
 	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
+
 	
 	/**
 	 * @return the customerid
@@ -103,6 +97,26 @@ public class Address implements Serializable {
 		return customerId;
 	}
 	
+	public int getAddressID() {
+		return addressID;
+	}
+
+	public void setAddressID(int addressID) {
+		this.addressID = addressID;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
 	/**
 	 * @param customerid the customerid to set
 	 */
