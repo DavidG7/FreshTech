@@ -141,7 +141,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			while(rs.next()){	
 				
 				customerOrder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
-				System.out.println(customerOrder.get(i).getCustomerOrderID()+", "+ customerOrder.get(i).getCustomerID()+ ", " + customerOrder.get(i).getDateOfOrder()
+				System.out.println(customerOrder.get(i).getOrderID()+", "+ customerOrder.get(i).getCustomerID()+ ", " + customerOrder.get(i).getOrderDate()
 						+", "+customerOrder.get(i).getCustomerOrderStatus()+", "+customerOrder.get(i).getDeliveryAddress());
 				i++;
 			}
@@ -185,7 +185,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	{
 		arg0 = (S) new CustomerOrder(); 
 		
-		sqltemplate.update("INSERT INTO customerorder VALUES(" + arg0.getCustomerOrderID() + "','" + arg0.getCustomerID() + "','" + arg0.getDateOfOrder() 
+		sqltemplate.update("INSERT INTO customerorder VALUES(" + arg0.getOrderID() + "','" + arg0.getCustomerID() + "','" + arg0.getOrderDate() 
 				+ "','" + arg0.getOrderTotal() + "','" + arg0.getCustomerOrderStatus() + "','" + arg0.getDeliveryAddress());
 		
 		return arg0;
@@ -268,12 +268,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	}
 	
 	@Override
-<<<<<<< HEAD
-	public ArrayList<CustomerOrder> findByOrderDate(String orderDate) {
-		// TODO Auto-generated method stub
-		return null;
-=======
-	public ArrayList<CustomerOrder> findByDateOfOrder(String orderDate) 
+	public ArrayList<CustomerOrder> findByOrderDate(String orderDate) 
 	{
 		ArrayList<CustomerOrder> customerOrder = new ArrayList<CustomerOrder>();
 			
@@ -294,7 +289,6 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			
 		return customerOrder;
 		
->>>>>>> 22524c91d69de67fc012bcddc09751aefafe63c0
 	}
 	
 	@Override
