@@ -70,18 +70,18 @@ public class AboutController {
 		 addressRepository.insert(new Address(6,"36 Green Fields", "BH1 3FR", 4)) ;
 		 addressRepository.insert(new Address(7,"88 Windmill Drive", "EX7 7TU", 5)) ;
 		 //Payment Methods
-		 paymentRepository.insert(new Payment (1, 978923, "76-26-46"));
-		 paymentRepository.insert(new Payment (2, 345325, "09-72-23"));
-		 paymentRepository.insert(new Payment (3, 234532, "10-24-83"));*/
+		 paymentRepository.insert(new Payment (1, 978923, "76-26-46",1));
+		 paymentRepository.insert(new Payment (2, 345325, "09-72-23",1));
+		 paymentRepository.insert(new Payment (3, 234532, "10-24-83",2));*/
 		 
 		 //Basket Lines
 		 
-		 /*
+		 
 		 basketRepository.insert(new Basket(productRepository.findByProductID(2), 13, 1));
 		 basketRepository.insert(new Basket(productRepository.findByProductID(9), 2, 1));
 		 basketRepository.insert(new Basket(productRepository.findByProductID(3), 27, 1));
 		 basketRepository.insert(new Basket(productRepository.findByProductID(13), 6, 2));
-		 basketRepository.insert(new Basket(productRepository.findByProductID(18), 10, 3));*/
+		 basketRepository.insert(new Basket(productRepository.findByProductID(18), 10, 3));
 			return "About";
 	 }
 }
