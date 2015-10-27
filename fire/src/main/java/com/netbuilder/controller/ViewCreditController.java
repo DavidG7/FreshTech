@@ -23,8 +23,7 @@ public class ViewCreditController {
 	
 	
 	@RequestMapping(value="ViewCreditDetails")
-	public  ModelAndView getCredit(Model model,HttpServletRequest request, HttpSession session){
-		 ModelAndView view = new ModelAndView();
+	public  ModelAndView getCredit(ModelAndView view,HttpServletRequest request, HttpSession session){
 		 view.setViewName("ViewCreditDetails");
 		 String user =session.getAttribute("sessionUser")+"";
 		 if(user.equalsIgnoreCase("null")){
