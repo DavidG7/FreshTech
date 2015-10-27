@@ -14,6 +14,11 @@ public class PurchaseOrderLine
 	private int productID;
 	private int quantity;
 	
+	public PurchaseOrderLine()
+	{
+		
+	}
+	
 	public PurchaseOrderLine(int purchaseOrderLineID, int productID, int quantity)
 	{
 		this.purchaseOrderLineID = purchaseOrderLineID;

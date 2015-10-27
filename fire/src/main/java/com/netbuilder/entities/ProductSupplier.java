@@ -14,6 +14,9 @@ public class ProductSupplier {
 		this.supplierID = supplierID;
 		this.price = price;
 	}
+	public ProductSupplier (){
+		
+	}
 	/**
 	 * @return the productID
 	 */
