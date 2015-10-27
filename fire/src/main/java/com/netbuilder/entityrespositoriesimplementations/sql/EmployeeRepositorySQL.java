@@ -44,18 +44,12 @@ public class EmployeeRepositorySQL implements EmployeeRepository{
 	@Override
 	public <S extends Employee> S save(S entity) {
 		entity = (S) new Employee();
-				try {
-			sqltemplate.update("INSERT INTO employee VALUES("+ entity.getEmployeeID() +"','" +);
-			}
-		return null;
+				sqltemplate.update("INSERT INTO employee VALUES("+ entity.getEmployeeID() +",'" + entity.getEmployeeName()+"','" + entity.getEmployeeUsername()+"','" +entity.getEmployeePassword() +"','" + entity.getAccessLevel()+"'");
+		return entity;
 	}
 
 	@Override
 	public <S extends Employee> Iterable<S> save(Iterable<S> entities) {
-		ArrayList<Employee> Employee = new ArrayList<Employee>();
-		try {
-		sqltemplate.update("INSERT INTO employee VALUES("+ employee.g);
-		}
 		return null;
 	}
 
