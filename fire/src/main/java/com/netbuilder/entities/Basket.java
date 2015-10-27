@@ -12,7 +12,7 @@ import javax.persistence.Entity;
  * Moved into separate class
  *
  */
-@Entity
+
 public class Basket {
 	private Product product;
 	private int quantity;
