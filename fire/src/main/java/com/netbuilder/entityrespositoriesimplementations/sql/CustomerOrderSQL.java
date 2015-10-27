@@ -16,9 +16,15 @@ import com.netbuilder.util.SQLTemplate;
 
 public class CustomerOrderSQL implements CustomerOrderRepository 
 {
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+	private SQLTemplate sqltemplate;
+	
+	public SQLTemplate getSqltemplate() {
+		return sqltemplate;
+	}
+
+	public void setSqltemplate(SQLTemplate sqltemplate) {
+		this.sqltemplate = sqltemplate;
+	}
 	
     @Override
 	public long count() 

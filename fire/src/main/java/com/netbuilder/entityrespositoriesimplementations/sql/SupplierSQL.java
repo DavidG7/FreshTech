@@ -18,9 +18,15 @@ import com.netbuilder.util.SQLTemplate;
 
 public class SupplierSQL implements SupplierRepository
 {
-	ApplicationContext ctx = new AnnotationConfigApplicationContext(DataConfig.class);
-	DataSource dataSource = (DataSource)ctx.getBean("dataSource");
-    SQLTemplate sqltemplate = new SQLTemplate(dataSource);
+	private SQLTemplate sqltemplate;
+	
+	public SQLTemplate getSqltemplate() {
+		return sqltemplate;
+	}
+
+	public void setSqltemplate(SQLTemplate sqltemplate) {
+		this.sqltemplate = sqltemplate;
+	}
 	
     @Override
 	public long count() 
@@ -48,14 +54,33 @@ public class SupplierSQL implements SupplierRepository
     @Override
 	public void delete(Integer arg0) 
     {
-		// TODO Auto-generated method stub
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE FROM supplier WHERE supplierid =" + arg0);
+			
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
     @Override
 	public void delete(Supplier arg0) 
     {
-		// TODO Auto-generated method stub
+		int supplierID = arg0.getId();
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE * FROM supplier WHERE supplierid =" + supplierID);
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -66,8 +91,16 @@ public class SupplierSQL implements SupplierRepository
 	}
 	
     @Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
+	public void deleteAll() 
+    {
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE FROM supplier");
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
 		
 	}
 	
