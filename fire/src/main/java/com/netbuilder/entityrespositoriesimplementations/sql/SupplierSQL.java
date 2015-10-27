@@ -56,15 +56,14 @@ public class SupplierSQL implements SupplierRepository
     {
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE FROM supplier WHERE supplierid =" + arg0);
-			
+			sqltemplate.getResultSetForQuery("supplier", "DELETE FROM supplier WHERE supplierid =" + arg0);
 		} 
 		catch (SQLException e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+					
 	}
 	
     @Override
@@ -193,9 +192,14 @@ public class SupplierSQL implements SupplierRepository
 	}
 	
     @Override
-	public <S extends Supplier> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public <S extends Supplier> S save(S arg0) 
+    {
+		arg0 = (S) new Supplier();
+		
+		sqltemplate.update("INSERT INTO supplier VALUES(" + arg0.getId() + "','" + arg0.getEmail() + "','" + arg0.getPhone()
+				+ "','" + arg0.getPreferredContactMethod());
+		
+		return arg0;
 	}
 	
     @Override
