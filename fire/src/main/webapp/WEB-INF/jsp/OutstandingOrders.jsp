@@ -1,3 +1,5 @@
+<!-- Author: Sam Raspin -->
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
@@ -31,7 +33,7 @@
 			<a href="PaymentAgreement"><button type="submit"><strong>Pay for all</strong></button></a>
 		</div>
 
-		<div>
+		<div th:fragment="content" th:each="customerOrders : ${customerOrders}">
 			<hr />
 			<img id="identify" class="img-thumbnail" alt="fancy gnome"
 				src="ImageFolder/squarefancy.jpg" />
@@ -41,16 +43,16 @@
 			</p>
 			<p class="subtitle">
 				<br />
-				<strong>FANCY GNOME<br />
+				<strong><span th:text="${product.productName}"></span><br />
 				<br />Order Details
-				</strong><br />Quantity: 3<br />Price: &pound;11.50 <br />Date of delivery:
+				</strong><br />Quantity: 3<br />Price: <span th:text = "'&pound;'+${product.price}+'0'"></span><br/>Date of delivery:
 				dd/mm/yyyy<br />
 				<strong>Total Price: (price x quantity)</strong>
 			</p>
 			<br /> <label><input type="checkbox" value="" />Select this
 				order</label>
 		</div>
-
+<!-- 
 		<div>
 			<hr />
 			<img id="identify" class="img-thumbnail" alt="savage gnome"
@@ -72,7 +74,7 @@
 		</div>
 
 		<div>
-			<hr />
+			<hr/>
 			<img id="identify" class="img-thumbnail" alt="little friend gnome"
 				src="ImageFolder/squarelittleFriend.jpg" />
 			<p class="subtitle" id="totheright">
@@ -90,6 +92,7 @@
 			<br /> <label><input type="checkbox" value="" />Select this
 				order</label>
 		</div>
+-->
 		<hr/>
 		<div class="push"></div>
 	</div>

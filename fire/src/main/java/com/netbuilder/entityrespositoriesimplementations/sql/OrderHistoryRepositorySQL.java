@@ -130,16 +130,23 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 	
 	@Override
-	public CustomerOrder findByOrderID(Integer OrderID) {
-		CustomerOrder customerorder = null;
+	public List<CustomerOrder> findByOrderID(Integer OrderID) {
+		
+		
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderid = " + OrderID );
 			
 			while(rs.next()){	
 				
+<<<<<<< HEAD
 				customerorder = (new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
 				System.out.println(customerorder.getOrderID()+","+customerorder.getCustomerID()+","+customerorder.getOrderDate()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
 
+=======
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				
+>>>>>>> 22524c91d69de67fc012bcddc09751aefafe63c0
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,6 +1,7 @@
 package com.netbuilder.entityrepositories;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.netbuilder.entities.*;
 
@@ -20,7 +21,8 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	
 	
 	
-	public CustomerOrder findByOrderID(Integer orderID);
+
+	public List<CustomerOrder> findByOrderID(Integer OrderID);
 	
 	/**
 	 * Finds Orders by Customer Order ID
