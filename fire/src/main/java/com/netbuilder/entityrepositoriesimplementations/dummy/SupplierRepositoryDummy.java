@@ -18,8 +18,16 @@ import com.netbuilder.entityrepositories.SupplierRepository;
 public class SupplierRepositoryDummy implements SupplierRepository
 {
 
-	private DummyData dummyData = new DummyData();
+	private DummyData dummyData;
 	
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
+	}
+
 	@Override
 	public long count() {
 

@@ -44,6 +44,7 @@ public class RegController {
 			List<Customer> customers= customerRepository.findAll();
 			System.out.println(customers.size());
 			for(int i=0; i<customers.size(); i++){
+				System.out.println(customers.get(i).getCustomerID());
 				System.out.println(customers.get(i).getCustomerUsername());
 				System.out.println(customers.get(i).getCustomerPassword());
 				if(customers.get(i).getCustomerUsername().equalsIgnoreCase(username) && customers.get(i).getCustomerPassword().equalsIgnoreCase(password)){
