@@ -108,7 +108,7 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 	
 	@Override
-	public Iterable<CustomerOrder> findAll(Iterable<Integer> arg0) {
+	public Iterable<CustomerOrder> findAll(Iterable<Integer> id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -119,10 +119,12 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 		return null;
 	}
 	@Override
-	public <S extends CustomerOrder> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public <S extends CustomerOrder> S save(S entity) {
+		entity = (S) new CustomerOrder();
+		sqltemplate.update("INSERT INTO customerorder VALUES("+ entity.getCustomerOrderID() +",'" + entity.getCustomerID()+"','" + entity.getDateOfOrder()+"','" +entity.getOrderTotal() +"','" + entity.getCustomerOrderStatus()+"'"+ entity.getDeliveryAddress()+"'");
+return entity;
 	}
+	
 	@Override
 	public <S extends CustomerOrder> Iterable<S> save(Iterable<S> arg0) {
 		// TODO Auto-generated method stub
