@@ -1,5 +1,6 @@
 package com.netbuilder.entityrepositoriesimplementations.mongo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -170,16 +171,19 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	public List<Payment> findByCustomerID(int customerID) 
 	{	
 		List<Payment> payments = mongoOperation.findAll(Payment.class);
+		ArrayList<Payment> customerPayment = new ArrayList<Payment>();
+		Payment payment;
 		
 		for(int i = 0; i < payments.size(); i++)
 		{
 			if(payments.get(i).getCustomerID() == customerID)
 			{
-				return payments;
+				payment = payments.get(i);
+				customerPayment.add(payment);
 			}
 		}
 		
-		return null;
+		return customerPayment;
 	}
 
 	@Override
