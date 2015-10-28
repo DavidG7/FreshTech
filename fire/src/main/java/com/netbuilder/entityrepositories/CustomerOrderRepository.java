@@ -31,7 +31,7 @@ public interface  CustomerOrderRepository extends  CrudRepository<CustomerOrder 
 	 * @return CustomerOrder
 	 */
 
-	public CustomerOrder findByCustomerID(Integer customerID);
+	public List<CustomerOrder> findByCustomerID(Integer customerID);
 	/**
 	 *  Finds CustomerOrder by Address
 	 * @param address

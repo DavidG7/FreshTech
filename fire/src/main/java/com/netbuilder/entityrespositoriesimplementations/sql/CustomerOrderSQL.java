@@ -218,10 +218,10 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	}
 	
 	@Override
-	public CustomerOrder findByCustomerID(Integer customerID) 
+	public List<CustomerOrder> findByCustomerID(Integer customerID) 
 	{
 
-		CustomerOrder customerOrder;
+		ArrayList<CustomerOrder> customerOrder = new ArrayList<CustomerOrder>();
 		
 		try 
 		{
@@ -229,7 +229,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			
 			while(rs.next())
 			{
-				return customerOrder = new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6));
+				customerOrder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
 			}
 			
 		} 
@@ -238,7 +238,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			e.printStackTrace();
 		}
 		
-		return null;
+		return customerOrder;
 		
 		
 	}
