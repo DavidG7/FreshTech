@@ -105,11 +105,12 @@ public class PredicatedSales extends JPanel
 		setVisible(true);
 		
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
+		
 		ListSelectionModel selectionModel = table.getSelectionModel();
 
 		selectionModel.addListSelectionListener(new ListSelectionListener() {
 		    public void valueChanged(ListSelectionEvent e) {
+		    	calculateYearlySales();
 		        pie.refreshChart();
 		        productName = (String)table.getModel().getValueAt(table.getSelectedRow(),1);
 		        salesPrediction.setText(("Expected " + productName + " sales this quarter are 14,000"));
@@ -120,6 +121,11 @@ public class PredicatedSales extends JPanel
 	
 	public int calculateYearlySales()
 	{
+		PredicatedSalesSQL test = new PredicatedSalesSQL();
+		
+		Product product = new Product();
+		
+		test.quarterlySalesForProduct(product);
 		return 0; 
 	}
 }
