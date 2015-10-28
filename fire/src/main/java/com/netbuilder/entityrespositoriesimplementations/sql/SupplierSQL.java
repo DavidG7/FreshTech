@@ -250,7 +250,10 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
+
+
 			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE suppliername = '" + name + "'");
+
 			
 			while(rs.next())
 			{

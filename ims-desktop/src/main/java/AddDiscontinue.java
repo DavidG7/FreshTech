@@ -58,7 +58,7 @@ public class AddDiscontinue extends JPanel{
 	
 	String newline = System.getProperty("line.separator");
 	
-	@SuppressWarnings("resource")
+
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
 
@@ -134,16 +134,11 @@ public class AddDiscontinue extends JPanel{
 		CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
 		 discontinueStock.addActionListener(new ActionListener() {
 			 
-
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	            	JOptionPane.showMessageDialog(getParent(),
 	            	        "Product is no longer available");
-	            	
-	        
 	                   }
-	            
-	        	 
 	                    
 	     });
 		discontinueStock.setMaximumSize(new Dimension(550,20));
