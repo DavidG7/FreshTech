@@ -5,8 +5,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ *@author rluu
+ */
+
 @Controller
-public class LogoutControll {
+public class LogoutController {
 
 	@RequestMapping("Logout")
 	public String Logout (HttpSession session){
