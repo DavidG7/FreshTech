@@ -66,7 +66,7 @@ public class DataConfig {
         dataSource.setDatabaseName("mydb");
         dataSource.setUser("root");
         dataSource.setPassword("password");
-        dataSource.setServerName("10.50.15.33");
+        dataSource.setServerName("10.50.15.39");
         return dataSource;
     }
 	
