@@ -45,12 +45,29 @@ public class TestController {
 		System.out.println(ProductSupplierRepository.findOne(5));
 		System.out.println(ProductSupplierRepository.findBySupplierID(2));
 		ProductSupplierRepository.delete(15);
-	**/
+	
 		ApplicationContext context2 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
-		CustomerOrderRepository OrderHistoryRepository = context2.getBean(CustomerOrderRepository.class);	
+		CustomerOrderRepository OrderRepository = context2.getBean(CustomerOrderRepository.class);	
 	
+		System.out.println(OrderRepository.count());
+		System.out.println(OrderRepository.exists(2));
+		System.out.println(OrderRepository.findAll());
+		System.out.println(OrderRepository.findByOrderID(10));
+		System.out.println(OrderRepository.findByCustomerID(3));
+		System.out.println(OrderRepository.findByDeliveryAddress(2));
+		
+		**/
+		ApplicationContext context3 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+		OrderHistoryRepositorySQL OrderHistoryRepository = context3.getBean(OrderHistoryRepositorySQL.class);
+		
 		System.out.println(OrderHistoryRepository.count());
-		System.out.println(OrderHistoryRepository.exists(2));
-	
+		System.out.println(OrderHistoryRepository.exists(1));
+		System.out.println(OrderHistoryRepository.findAll());
+		System.out.println(OrderHistoryRepository.findByOrderID(10));
+		System.out.println(OrderHistoryRepository.findByCustomerID(3));
+		System.out.println(OrderHistoryRepository.findByDeliveryAddress(4).iterator().next());
+
+		
+
 	}
 }
