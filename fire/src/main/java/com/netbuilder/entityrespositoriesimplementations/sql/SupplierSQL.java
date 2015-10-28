@@ -12,7 +12,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.netbuilder.DataConfig;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.Supplier;
-import com.netbuilder.entities.Supplier;
 import com.netbuilder.entityrepositories.SupplierRepository;
 import com.netbuilder.util.SQLTemplate;
 
@@ -73,7 +72,7 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE * FROM supplier WHERE supplierid =" + supplierID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "DELETE FROM supplier WHERE supplierid =" + supplierID);
 		} 
 		catch (SQLException e) 
 		{
@@ -108,7 +107,7 @@ public class SupplierSQL implements SupplierRepository
     {
     	try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT * FROM Supplier WHERE Supplierid =" + arg0);
+			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM Supplier WHERE Supplierid =" + arg0);
 			
 			while(rs.next())
 			{
@@ -132,11 +131,11 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT supplierid, supplierid, employeeid, Supplierdate, status FROM Supplier");
+			ResultSet rs = sqltemplate.getResultSetForQuery("Supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM Supplier");
 						
 			while(rs.next()){	
 				
-				supplier.add(new Supplier( rs.getInt(1), rs.getString(2)));
+				supplier.add(new Supplier( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -154,11 +153,11 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, supplieremail, supplierphone, preferredcontactmethod FROM supplier");
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier");
 						
 			while(rs.next()){	
 											
-				supplier.add(new Supplier( rs.getInt(1), rs.getString(2)));
+				supplier.add(new Supplier( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
 				
 			}
 		} catch (SQLException e) {
@@ -176,11 +175,11 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT * FROM supplier WHERE supplierid =" + arg0);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE supplierid =" + arg0);
 			
 			while(rs.next())
 			{
-				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
 						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
 				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
@@ -222,11 +221,11 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT * FROM supplier WHERE supplierid =" + supplierId);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE supplierid =" + supplierId);
 			
 			while(rs.next())
 			{
-				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
 						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
 				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
@@ -252,11 +251,11 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT * FROM supplier WHERE suppliername =" + name);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE suppliername =" + name);
 			
 			while(rs.next())
 			{
-				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
 						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
 				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
@@ -283,11 +282,11 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT * FROM supplier WHERE supplieremail =" + email);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE email = " + email);
 			
 			while(rs.next())
 			{
-				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
 						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
 				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
@@ -314,11 +313,11 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT * FROM supplier WHERE supplierphone =" + phone);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE supplierphone =" + phone);
 			
 			while(rs.next())
 			{
-				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
 						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
 				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
