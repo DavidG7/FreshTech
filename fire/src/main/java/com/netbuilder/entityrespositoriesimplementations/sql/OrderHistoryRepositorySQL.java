@@ -151,15 +151,16 @@ return entity;
 	}
 	
 	@Override
-	public CustomerOrder findByCustomerID(Integer customerID) {
-		CustomerOrder customerorder = null;
+	public ArrayList<CustomerOrder> findByCustomerID(Integer customerID) 
+	{
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE customerid = " + customerID );
 			
 			while(rs.next()){	
 				
-				customerorder = (new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.getOrderID()+","+customerorder.getCustomerID()+","+customerorder.getOrderDate()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				//System.out.println(customerorder.getOrderID()+","+customerorder.getCustomerID()+","+customerorder.getOrderDate()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
 
 			}
 		} catch (SQLException e) {
