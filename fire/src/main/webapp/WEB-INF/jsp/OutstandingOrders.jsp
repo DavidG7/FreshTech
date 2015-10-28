@@ -35,8 +35,7 @@
 
 		<div th:each="customerOrders : ${customerOrders}">
 			<hr />
-			<img id="identify" class="img-thumbnail" alt="fancy gnome"
-				src="ImageFolder/squarefancy.jpg" />
+			<img id="identify" class="img-thumbnail" alt="fancy gnome" th:src="'ImageFolder/'+${products.image}" width="140"/>
 			<p class="subtitle" id="totheright">
 				<strong>Delivery Address:</strong><br /><span th:text = "${address.address}"></span><br/><span th:text = "${address.postcode}"></span>
 			</p>
