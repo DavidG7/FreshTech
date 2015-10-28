@@ -1,5 +1,7 @@
 package com.netbuilder.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +20,11 @@ import com.netbuilder.entityrepositories.BasketRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 
+/**
+ * 
+ * @author pnewman
+ *
+ */
 @Controller
 public class BasketController {
 
@@ -36,8 +43,11 @@ public class BasketController {
 			view.setViewName("Register");
 		}	
 		else{
-			int userID = customerRepository.findByCustomerUsername(user).getCustomerID();			
-			view.addObject("basket", basketRepository.findByCustomerID(userID));
+			int userID = customerRepository.findByCustomerUsername(user).getCustomerID();	
+			System.out.println(userID);
+			List<Basket> baskets = basketRepository.findByCustomerID(userID);
+			System.out.println(baskets);
+			view.addObject("basket", baskets);
 			view.setViewName("Basket");
 		}
 		
@@ -46,12 +56,12 @@ public class BasketController {
 
 	@RequestMapping(value="postUpdate", method = RequestMethod.POST)
 	public String basket(HttpServletRequest request){
-		String productID = request.getParameter("basket");
-		System.out.println(productID);
+		String basketID = request.getParameter("basket");
+		System.out.println(basketID);
+
+		Basket basket = basketRepository.findByBasketID(Integer.parseInt(basketID));
 		
-		Product product = productRepository.findByProductID(Integer.parseInt(productID));
-		
-		Basket basket = basketRepository.findByProduct(product);
+		System.out.println(basket);
 
 		basketRepository.delete(basket);
 		

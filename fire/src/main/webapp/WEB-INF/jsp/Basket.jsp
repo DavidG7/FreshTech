@@ -53,7 +53,7 @@
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
 		                
 		                		            <form th:action="@{postUpdate}" method="post">
-		                <button type="submit" id="basket" name="basket" th:value="${basket.product.productId}"><strong>Remove</strong></button>
+		                <button type="submit" id="basket" name="basket" th:value="${basket.basketID}"><strong>Remove</strong></button>
 		            </form>
 		            </div>
 		        </div>

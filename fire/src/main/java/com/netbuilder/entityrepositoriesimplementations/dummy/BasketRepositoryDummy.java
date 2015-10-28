@@ -175,7 +175,7 @@ public class BasketRepositoryDummy implements BasketRepository
 	}
 
 	@Override
-	public Basket findByProduct(Product product) {
+	public Basket findByBasketID(int basketID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

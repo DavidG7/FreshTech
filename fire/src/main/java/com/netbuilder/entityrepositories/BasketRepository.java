@@ -16,5 +16,5 @@ public interface BasketRepository extends MongoRepository<Basket, Integer>
 	 */
 	public List<Basket> findByCustomerID(int customerID);
 	
-	public Basket findByProduct(Product product);
+	public Basket findByBasketID(int basketID);
 }

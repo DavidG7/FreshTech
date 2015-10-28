@@ -135,10 +135,11 @@ public class BasketRepositoryMongo implements BasketRepository{
 			if(baskets.get(i).getCustomerID() == customerID)
 			{
 				finalBaskets.add(baskets.get(i));
+				System.out.println("Basket added");
 			}
 		}
 	
-		return baskets;
+		return finalBaskets;
 	}
 
 	public MongoOperations getMongoOperation() {
@@ -150,20 +151,21 @@ public class BasketRepositoryMongo implements BasketRepository{
 	}
 
 	@Override
-	public Basket findByProduct(Product product) {
-
+	public Basket findByBasketID(int basketID) {
 		List<Basket> baskets = mongoOperation.findAll(Basket.class);
-
+		
 		for(int i = 0; i < baskets.size(); i++)
 		{
-			if(baskets.get(i).getProduct() == product)
+			if(baskets.get(i).getBasketID() == basketID)
 			{
+				System.out.println("Added: "+baskets.get(i));
 				return baskets.get(i);
 			}
 		}
 		
+		System.out.println("Didn't work");
+		
 		return null;
 	}
-
 
 }
