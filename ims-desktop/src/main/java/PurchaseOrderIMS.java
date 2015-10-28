@@ -5,8 +5,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+
+
+
+
+
+
 
 
 
@@ -55,10 +64,22 @@ import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
 import com.netbuilder.entities.Supplier;
+import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.entityrepositories.SupplierRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.SupplierSQL;
+import com.netbuilder.entities.PurchaseOrder;
+
+
+
+
+
+
 
 import CustomUI.*;
 
@@ -73,7 +94,7 @@ import CustomUI.*;
  *
  */
 
-public class PurchaseOrder extends JPanel
+public class PurchaseOrderIMS extends JPanel
 {
 	/**
 	 * 
@@ -83,6 +104,8 @@ public class PurchaseOrder extends JPanel
 	ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
 	SupplierSQL supplierRepository = (SupplierSQL) sqlContext.getBean(SupplierRepository.class);
+	PurchaseOrderSQL poRepository = (PurchaseOrderSQL) sqlContext.getBean(PurchaseOrderRepository.class);
+	EmployeeRepositorySQL employeeRepository = (EmployeeRepositorySQL) sqlContext.getBean(EmployeeRepository.class);
     
 	List<Product> products = productRepository.findAll();
 	
@@ -94,7 +117,7 @@ public class PurchaseOrder extends JPanel
 	JSpinner quantityRequired;
 	JTable productTable;
 
-	public PurchaseOrder()
+	public PurchaseOrderIMS()
 	{		
 		this.setLayout(new BorderLayout());
 		
@@ -189,8 +212,9 @@ public class PurchaseOrder extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				DefaultTableModel model = (DefaultTableModel) purchaseOrderTable.getModel();
-				model.removeRow(activeOrderProductID);
+					poRepository.save(new PurchaseOrder((int)poRepository.count()+1, supplierRepository.findBySupplierName("Garden Stuff").getId(), 
+							1, new SimpleDateFormat("dd-MM-yyyy").format(new Date()), "Confirmed"));
+				
 			  
 			}
 			
