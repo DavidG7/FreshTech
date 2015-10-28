@@ -9,6 +9,8 @@ import com.netbuilder.entities.Supplier;
 import com.netbuilder.entities.ProductSupplier;
 import com.netbuilder.entityrepositories.ProductSupplierRepository;
 import com.netbuilder.entityrepositories.SupplierRepository;
+import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
+import com.netbuilder.entityrepositories.CustomerOrderRepository;
 
 public class TestController {
 
@@ -33,7 +35,7 @@ public class TestController {
 		SupplierRepository.save(test);
 		
 		System.out.println(SupplierRepository.findBySupplierPhone("77665539987"));
-		**/
+		
 		ApplicationContext context1 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 		ProductSupplierRepository ProductSupplierRepository = context1.getBean(ProductSupplierRepository.class);	
 		
@@ -42,5 +44,13 @@ public class TestController {
 		System.out.println(ProductSupplierRepository.exists(10));
 		System.out.println(ProductSupplierRepository.findOne(5));
 		System.out.println(ProductSupplierRepository.findBySupplierID(2));
+		ProductSupplierRepository.delete(15);
+	**/
+		ApplicationContext context2 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+		CustomerOrderRepository OrderHistoryRepository = context2.getBean(CustomerOrderRepository.class);	
+	
+		System.out.println(OrderHistoryRepository.count());
+		System.out.println(OrderHistoryRepository.exists(2));
+	
 	}
 }

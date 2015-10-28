@@ -21,9 +21,11 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 
+
 import com.netbuilder.DataConfig;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Employee;
+import com.netbuilder.entities.ProductSupplier;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.util.SQLTemplate;
@@ -83,10 +85,25 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 	
 	@Override
-	public boolean exists(Integer arg0) {
-		// TODO Auto-generated method stub
+	public boolean exists(Integer id) {
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder where orderid = " + id);
+			
+			while(rs.next())
+			{
+				return true;
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
+	
 	
 	
 	@Override
@@ -133,8 +150,6 @@ return entity;
 	
 	@Override
 	public List<CustomerOrder> findByOrderID(Integer OrderID) {
-		
-		
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderid = " + OrderID );
