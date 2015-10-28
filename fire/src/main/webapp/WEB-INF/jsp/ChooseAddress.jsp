@@ -32,12 +32,14 @@
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Choose Address to Edit
     <span class="caret"></span></button>
     <ul class="dropdown-menu" >
-      <li  th:each="address : ${addresses}"><a th:text="${address.address}"></a></li>
+    	<li> <a>Add new address</a></li>
+    	<li class="divider"></li>
+		<li  th:each="address : ${addresses}"><a th:text="${address.address}"></a></li>
       </ul>
   </div>
 
   <h4> Please edit the address as appropriate. </h4>
-  
+  <form>
         First Name :<br/>
 		<input type = "text" name = "firstname"/>
 		<br/>
@@ -71,6 +73,8 @@
 		<br/>
 		<br/>
         <a href = "/"><button type="submit"><strong>Submit</strong></button></a>
+  
+  </form>
         <button type="submit"><strong>Delete</strong></button>
   
   <div class="push"></div>

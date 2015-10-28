@@ -157,8 +157,9 @@ public class SupplierSQL implements SupplierRepository
 			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, supplieremail, supplierphone, preferredcontactmethod FROM supplier");
 						
 			while(rs.next()){	
-				
+											
 				supplier.add(new Supplier( rs.getInt(1), rs.getString(2)));
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -179,7 +180,13 @@ public class SupplierSQL implements SupplierRepository
 			
 			while(rs.next())
 			{
-				return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
+						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				return supplier;
+				
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
 			}
 						
 		} 
@@ -219,7 +226,13 @@ public class SupplierSQL implements SupplierRepository
 			
 			while(rs.next())
 			{
-				return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
+						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				return supplier;
+				
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
 			}
 			
 			
@@ -243,7 +256,13 @@ public class SupplierSQL implements SupplierRepository
 			
 			while(rs.next())
 			{
-				return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
+						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				return supplier;
+				
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
 			}
 			
 			
@@ -268,7 +287,13 @@ public class SupplierSQL implements SupplierRepository
 			
 			while(rs.next())
 			{
-				return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
+						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				return supplier;
+				
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
 			}
 			
 			
@@ -293,7 +318,11 @@ public class SupplierSQL implements SupplierRepository
 			
 			while(rs.next())
 			{
-				return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				System.out.println(supplier.getId()+", "+ supplier.getName()+ ", " + supplier.getEmail()
+						+", "+supplier.getPhone()+", "+ supplier.getPreferredContactMethod());
+				//return supplier = new Supplier( rs.getInt(1), rs.getString(2));
+				return supplier;
 			}
 			
 			
