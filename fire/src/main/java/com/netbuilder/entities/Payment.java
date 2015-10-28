@@ -17,8 +17,8 @@ public class Payment implements Serializable {
 	@Id 
 	private int paymentID;
 	private int customerID;
-	private int cardNumber;
-	private String sortCode;
+	private int cardNumber=0;
+	private String sortCode="\nNo payment selected";
 	
 	/*
 	 * TODO Are both constructors needed?
