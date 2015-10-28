@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.BasketRepository;
 
 @Repository
@@ -134,10 +135,11 @@ public class BasketRepositoryMongo implements BasketRepository{
 			if(baskets.get(i).getCustomerID() == customerID)
 			{
 				finalBaskets.add(baskets.get(i));
+				System.out.println("Basket added");
 			}
 		}
 	
-		return baskets;
+		return finalBaskets;
 	}
 
 	public MongoOperations getMongoOperation() {
@@ -148,5 +150,22 @@ public class BasketRepositoryMongo implements BasketRepository{
 		this.mongoOperation = mongoOperation;
 	}
 
+	@Override
+	public Basket findByBasketID(int basketID) {
+		List<Basket> baskets = mongoOperation.findAll(Basket.class);
+		
+		for(int i = 0; i < baskets.size(); i++)
+		{
+			if(baskets.get(i).getBasketID() == basketID)
+			{
+				System.out.println("Added: "+baskets.get(i));
+				return baskets.get(i);
+			}
+		}
+		
+		System.out.println("Didn't work");
+		
+		return null;
+	}
 
 }

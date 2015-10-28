@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.Product;
 
 public interface BasketRepository extends MongoRepository<Basket, Integer> 
 {
@@ -14,4 +15,6 @@ public interface BasketRepository extends MongoRepository<Basket, Integer>
 	 * @return Customer
 	 */
 	public List<Basket> findByCustomerID(int customerID);
+	
+	public Basket findByBasketID(int basketID);
 }

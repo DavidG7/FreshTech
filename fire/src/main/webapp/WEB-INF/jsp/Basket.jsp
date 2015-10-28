@@ -29,24 +29,39 @@
 
 	
 		
-		<div class = "panel-body">
+		<div class = "panel-body" >
 
-		<div class="squareasd">
+		<div class="squareasd" th:each="basket : ${basket}">
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="40%"/>
+
+ 		            
+ 		            	<img class="img-thumbnail" id="identify" th:src="'ImageFolder/'+${basket.product.image}" th:alt="${basket.product.productName}" width="40%"/>
  		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Original Gnome</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
+		                	
+		                	<form th:action="@{/info}" method="post">			
+				
+								<input th:name="${basket.product.productId}" type="image" th:value="${basket.product.productName}"/>
+										
+							</form>
+		                	
+		                	
+		                	<p>&pound;<span th:text="${basket.product.price}"></span></p>
+		                	<p>Quantity: <span th:text="${basket.quantity}"></span></p>
 		                </span>
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
+		                
+		                		            <form th:action="@{postUpdate}" method="post">
+		                <button type="submit" id="basket" name="basket" th:value="${basket.basketID}"><strong>Remove</strong></button>
+		            </form>
 		            </div>
 		        </div>
 		    </div>
-		</div>
+		  </div>
+		 </div>
+		
+		<!-- 
 		<div class="squareasd">
  		    <div class="contentasd">
  		        <div class="tableasd">
@@ -163,10 +178,9 @@
 	<div id="buttonmargin">
 		<a href="PaymentAgreement"><button type="submit"><strong>Proceed to Checkout</strong></button></a>
 	</div>
-	
+	-->
 	<div class="push"></div>
 
-</div>
 </div>
 </body>
 </html>
