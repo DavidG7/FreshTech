@@ -1,5 +1,14 @@
 import java.sql.*;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.Employee;
+import com.netbuilder.entityrepositories.EmployeeRepository;
+import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
+
 
 public class LoginSQL {
 	//employee variables- attributes
@@ -9,6 +18,9 @@ public class LoginSQL {
 	public boolean loggedIn;
 	String[] usernameArray;
  	String[] passwordArray;
+
+ 	
+ 	static int count = 0;
  	
 	public LoginSQL(){
 		username = null;
@@ -90,6 +102,7 @@ public class LoginSQL {
 			{
 				if (username.equalsIgnoreCase(usernameArray[i])){
 					if(password.equals(passwordArray[i])){
+						count = i;
 						db.close();
 						return true;
 					} 
@@ -97,4 +110,7 @@ public class LoginSQL {
 			} return false;
 		
 		}
+		
+		
+	
 }
