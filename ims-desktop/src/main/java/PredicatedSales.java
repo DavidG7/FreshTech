@@ -32,7 +32,8 @@ import CustomUI.CustomScrollPane;
  * @author Ricky Luu
  *
  */
-public class PredicatedSales extends JPanel{
+public class PredicatedSales extends JPanel
+{
 
 	private static final long serialVersionUID = 1L;
 	JLabel heading, option, salesPrediction;
@@ -50,7 +51,8 @@ public class PredicatedSales extends JPanel{
 	
 	List<Product> products = productRepository.findAll();
 	
-	public PredicatedSales(){
+	public PredicatedSales()
+	{
 		this.setLayout(new BorderLayout());
 		leftPanel = new JPanel();
 		rightPanel = new JPanel();
@@ -113,5 +115,11 @@ public class PredicatedSales extends JPanel{
 		        salesPrediction.setText(("Expected " + productName + " sales this quarter are 14,000"));
 		    }
 		});
+
 	}	
+	
+	public int calculateYearlySales()
+	{
+		return 0; 
+	}
 }
