@@ -81,10 +81,11 @@
 		<input type = "text" name = "postcode"/>
 		<br/>
 		<br/>
+
         <a href = "/"><button type="submit"><strong>Submit</strong></button></a>
- 
+  </form>
         <button type="submit"><strong>Delete</strong></button>
-        </form>
+       
   
   <div class="push"></div>
 		</div>
