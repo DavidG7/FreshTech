@@ -43,9 +43,9 @@
 					<div id="writing">
 					<p><strong>Default Payment Details:</strong><br/></p>
 					Visa Debit Card
-					Card Number:<p th:text="${cardnumber}"></p>
-					Sort Code: <p th:text="${sortcode}"></p>
-					<p>Cardholder Name: MR G NOME</p>
+					Card Number:<p><span th:text="${cardnumber}"></span></p>
+					Sort Code: <p><span th:text="${sortcode}"></span></p>
+					<p>Cardholder Name: <span th:text="${customer.customerName}"></span></p>
 					</div>
 				</div>
 			
