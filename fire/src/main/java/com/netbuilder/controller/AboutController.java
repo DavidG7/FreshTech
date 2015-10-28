@@ -72,15 +72,15 @@ public class AboutController {
 		 //Payment Methods
 		 paymentRepository.insert(new Payment (1, 978923, "76-26-46",1));
 		 paymentRepository.insert(new Payment (2, 345325, "09-72-23",1));
-		 paymentRepository.insert(new Payment (3, 234532, "10-24-83",2));*/
+		 paymentRepository.insert(new Payment (3, 234532, "10-24-83",2));
 		 
 		 //Basket Lines
-		/*
-		 basketRepository.insert(new Basket(productRepository.findByProductID(2), 13, 1));
-		 basketRepository.insert(new Basket(productRepository.findByProductID(9), 2, 1));
-		 basketRepository.insert(new Basket(productRepository.findByProductID(3), 27, 1));
-		 basketRepository.insert(new Basket(productRepository.findByProductID(13), 6, 2));
-		 basketRepository.insert(new Basket(productRepository.findByProductID(18), 10, 3));*/
+		
+		 basketRepository.insert(new Basket(1,productRepository.findByProductID(2), 13, 1));
+		 basketRepository.insert(new Basket(2,productRepository.findByProductID(9), 2, 1));
+		 basketRepository.insert(new Basket(3,productRepository.findByProductID(3), 27, 1));
+		 basketRepository.insert(new Basket(4,productRepository.findByProductID(13), 6, 2));
+		 basketRepository.insert(new Basket(5,productRepository.findByProductID(18), 10, 3));*/
 			return "About";
 	 }
 }

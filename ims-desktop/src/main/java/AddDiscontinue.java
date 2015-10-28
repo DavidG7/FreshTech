@@ -122,7 +122,7 @@ public class AddDiscontinue extends JPanel{
 	            	        "New product is added to inventory" );
 	            			int newId = productRepository.findAll().size()+1;
 	            			System.out.println("NEW ID:" + newId);
-	            			//productRepository.insert(new Product(newId, 0, Float.parseFloat(price.getText().substring(1)), String.valueOf(categoryCombo.getSelectedItem()).toUpperCase(), name.getText()));
+	            			//productRepository.insert(new Product(newId,6,Float.parseFloat(price.getText().substring(1)),String.valueOf(categoryCombo.getSelectedItem()),name.getText(),false,true, 0, String.valueOf(desc.getText()),"placeholder.png"));
 	                    }
 	            
 	       
