@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       th:include="Template :: page">
-      
+
     <head th:fragment="header">
-	<title>NB Gardens</title>
+    <link  type="text/css" rel="stylesheet" href="css/OrderTracking.css" />
+	<title>Order Tracking</title>
     </head>
     <body>
     
@@ -14,30 +15,100 @@
 		
 			<div class = "jumbotron">
 			
-
-				
-			
 			</div>		
 
 		</div>
 			
 		<div class = "panel-body" id="centre">
 		 <h1>Order Tracking</h1>
-	<p><br/>
-	Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span>  --- 
-	Processing  <span class="glyphicon glyphicon-hourglass"></span>  ---
-	Dispatched  <span class="glyphicon glyphicon-plane"></span> ---
-	Delivered  <span class="glyphicon glyphicon-home"></span>
-   </p>
-  
+	<div th:switch= "${customerOrder.customerOrderStatus}" >
+		<div th:case="'Order Confirmed'">
+			<span  th:id="statusActive">
+			Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span>
+			</span>
+			
+			---
+			
+			<span>
+			Processing  <span class="glyphicon glyphicon-hourglass"></span>
+			</span>
+			
+			---
+			
+			<span>
+			Dispatched  <span class="glyphicon glyphicon-plane"></span>
+			</span>
+			
+			---
+			
+			<span>
+			Delivered  <span class="glyphicon glyphicon-home"></span>
+			</span>
+		</div>
+		
+		<div th:case="'Dispatched'">
+			<span>
+			Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span> 
+			</span>
+			
+			---
+			
+			<span th:id="statusActive">
+			Processing  <span class="glyphicon glyphicon-hourglass"></span> 
+			</span>
+			
+			---
+			
+			<span>
+			Dispatched  <span class="glyphicon glyphicon-plane"></span> 
+			</span>
+			
+			---
+			
+			<span>
+			Delivered  <span class="glyphicon glyphicon-home"></span>
+			</span>
+		</div>
+		
+		<div th:case="'Delivered'">
+			<span>
+			Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span>
+			</span>
+			
+			---
+			
+			<span>
+			Processing  <span class="glyphicon glyphicon-hourglass"></span>
+			</span>
+			
+			---
+			
+			<span th:id="statusActive">
+			Dispatched  <span class="glyphicon glyphicon-plane"></span>
+			</span>
+			
+			---
+			
+			<span>
+			Delivered  <span class="glyphicon glyphicon-home"></span>
+			</span>
+		</div>
+		
+				
+		
+	<br/>	
+	<br/>
+		
+	    
 <p> Order ID: <span th:text="${customerOrder.orderID}"></span></p>
-<p> Order Date: </p>
-<p> Order Total: </p>
-<p> Expected Delivery: </p>
-<p> Delivery Address: </p>
+<p> Order Date: <span th:text= "${customerOrder.orderDate}"></span></p>
+<p> Order Total: <span th:text= "${customerOrder.orderTotal}"></span></p>
+<p> Expected Delivery: <span th:text= "${customerOrder.customerOrderStatus}"></span></p>
+<p> Delivery Address: <span th:text= "${customerOrder.deliveryAddress}"></span></p>
 		
 		<div class="push"></div>
 		</div>	
+		</div>
 		</div>
 	</body>
 	
