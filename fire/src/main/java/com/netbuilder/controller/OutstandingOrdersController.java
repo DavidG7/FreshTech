@@ -28,7 +28,7 @@ public class OutstandingOrdersController {
 	CustomerOrderRepository customerOrderRepository = context.getBean(CustomerOrderRepository.class);
 	CustomerRepository customerRepository = context.getBean(CustomerRepository.class);
 
-	CustomerOrder customerOrders;
+	List<CustomerOrder> customerOrders;
 	Address address;
 	Product products;
 	List<Product> offerProducts;
