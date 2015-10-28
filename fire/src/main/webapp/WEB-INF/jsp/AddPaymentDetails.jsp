@@ -26,12 +26,12 @@
 	
 		  <div class = "panel-body">
 			  <form action="postCard" method="post">
-			 		 <div id="container" >
+			 		 <div id="container" class="centerer">
 			 		 		<div id="dropmenus">
 								<div class="dropdown">
 			  				<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Card Type
 			   				<span class="caret"></span></button>
-			   				<ul class="dropdown-menu" id="test">
+			   				<ul class="dropdown-menu">
 					     		<li><a href="#">Mastercard</a></li>
 					      		<li><a href="#">Visa</a></li>
 					      		<li><a href="#">Visa Electron</a></li>
