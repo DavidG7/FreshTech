@@ -10,6 +10,15 @@ margin-left:auto;
 margin-right:auto;
 }
 
+#googleMap{
+position:relative;
+margin-left:auto;
+margin-right:auto;	
+}
+
+	
+
+
 .telephone{
 	float: left;
 	display: inline-block;
@@ -43,7 +52,6 @@ div.image{
 position:absolute;
  bottom:0;
 }
-
 
 #footer{
 	  position:fixed;

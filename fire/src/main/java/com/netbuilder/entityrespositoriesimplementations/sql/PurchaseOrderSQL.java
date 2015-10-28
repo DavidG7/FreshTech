@@ -196,8 +196,8 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	{
 		//arg0 = (S) new PurchaseOrder();
 
-		sqltemplate.update("INSERT INTO purchaseorder VALUES(" + arg0.getPurchaseOrderID() + "','" + arg0.getSupplierID() + "','" + arg0.getEmployeeID()
-				+ "','" + arg0.getPurchaseDateOrder() + "','" + arg0.getPurchaseOrderStatus());
+		sqltemplate.update("INSERT INTO purchaseorder VALUES(" + "'" + arg0.getPurchaseOrderID() + "','" + arg0.getSupplierID() + "','" + arg0.getEmployeeID()
+				+ "','" + arg0.getPurchaseDateOrder() + "','" + arg0.getPurchaseOrderStatus()+ "')");
 	
 		return arg0;
 	}

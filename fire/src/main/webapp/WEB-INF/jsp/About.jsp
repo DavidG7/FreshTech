@@ -7,18 +7,19 @@
 		<link  type="text/css" rel="stylesheet" href="css/About.css" />
 	<title>NB Gardens</title>
 	
-	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
     <script>
       function initialize() {
-        var mapCanvas = document.getElementById('map');
-        var mapOptions = {
-          center: new google.maps.LatLng(53.4792, -2.3),
-          zoom: 9,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
+        var mapProp = {
+        	center:new google.maps.LatLng(0.196671, -176.477006),
+        	zoom:10,
+        	mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
+      
+      google.maps.event.addDomListener(window, 'load', initialize);        
+       	
     </script>
     </head>
     
@@ -57,11 +58,23 @@
 
   <span class= "glyphicon glyphicon-envelope"> Email: </span><br/> service@nbgardens.com
 		</p>
-</div>		
-				    <div id="map"></div>
-			<div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div><div class="push"></div>	    
-</div>
+</div>	
+<br/>
+<br/>
+<br/>	
+<br/>
+<br/>
+<br/>				    
+<div id="googleMap" style="width:500px;height:380px;"></div>	    
+<br/>
+<br/>
+<br/>	
+<br/>
+<br/>
+<br/>	
 		
+</div>
+
 	</body>
 	
 </html>

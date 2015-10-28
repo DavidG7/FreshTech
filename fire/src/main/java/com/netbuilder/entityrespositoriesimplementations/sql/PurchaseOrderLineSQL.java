@@ -166,9 +166,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 	@Override
 	public <S extends PurchaseOrderLine> S save(S arg0) {
 		
-		arg0 = (S) new PurchaseOrderLine();
-		
-		sqltemplate.update("INSERT INTO purchaseorderline VALUES(" + arg0.getPurchaseOrderLineID() + "','" + arg0.getProductID() + "','" + arg0.getQuantity());
+		sqltemplate.update("INSERT INTO purchaseorderline VALUES('" + arg0.getPurchaseOrderLineID() + "','" + arg0.getProductID() + "','" + arg0.getQuantity()+"')");
 
 		return arg0;
 		
@@ -187,7 +185,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE PurchaseOrder_purchaseorderlineid =" + purchaseOrderLineID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT * FROM purchaseorderline WHERE PurchaseOrder_purchaseorderlineid = " + purchaseOrderLineID);
 			
 			while(rs.next())
 			{
