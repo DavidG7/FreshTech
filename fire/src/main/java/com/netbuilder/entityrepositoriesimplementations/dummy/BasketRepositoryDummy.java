@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.BasketRepository;
 
 public class BasketRepositoryDummy implements BasketRepository
@@ -171,6 +172,12 @@ public class BasketRepositoryDummy implements BasketRepository
 
 	public void setDummyData(DummyData dummyData) {
 		this.dummyData = dummyData;
+	}
+
+	@Override
+	public Basket findByProduct(Product product) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

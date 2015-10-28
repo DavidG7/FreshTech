@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.BasketRepository;
 
 @Repository
@@ -146,6 +147,22 @@ public class BasketRepositoryMongo implements BasketRepository{
 
 	public void setMongoOperation(MongoOperations mongoOperation) {
 		this.mongoOperation = mongoOperation;
+	}
+
+	@Override
+	public Basket findByProduct(Product product) {
+
+		List<Basket> baskets = mongoOperation.findAll(Basket.class);
+
+		for(int i = 0; i < baskets.size(); i++)
+		{
+			if(baskets.get(i).getProduct() == product)
+			{
+				return baskets.get(i);
+			}
+		}
+		
+		return null;
 	}
 
 
