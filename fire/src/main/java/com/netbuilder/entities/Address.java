@@ -16,7 +16,7 @@ public class Address implements Serializable {
 	/**
 	 * attributes used in the address class
 	 */
-	@Id
+	
 	private int addressID;
 	private String address;
 	private String postcode;

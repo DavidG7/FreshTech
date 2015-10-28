@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -95,17 +96,15 @@ public class BasketRepositoryMongo implements BasketRepository{
 		return mongoOperation.count(null, Basket.class);
 	}
 
-	@Deprecated
-	@Override
-	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	
 
 	@Override
-	public void delete(Basket entity) 
+	public void delete(Integer id) 
 	{
-		mongoOperation.remove(entity);
+		Query query = new Query();
+		query.addCriteria(Criteria.where("basketID").is(id));
+		mongoOperation.remove(query, "basket");
 		
 	}
 
@@ -158,7 +157,7 @@ public class BasketRepositoryMongo implements BasketRepository{
 		{
 			if(baskets.get(i).getBasketID() == basketID)
 			{
-				System.out.println("Added: "+baskets.get(i));
+				System.out.println("Added: "+baskets.get(i).getBasketID());
 				return baskets.get(i);
 			}
 		}
@@ -166,6 +165,12 @@ public class BasketRepositoryMongo implements BasketRepository{
 		System.out.println("Didn't work");
 		
 		return null;
+	}
+
+	@Override
+	public void delete(Basket entity) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -57,13 +57,10 @@ public class BasketController {
 	@RequestMapping(value="postUpdate", method = RequestMethod.POST)
 	public String basket(HttpServletRequest request){
 		String basketID = request.getParameter("basket");
-		System.out.println(basketID);
-
 		Basket basket = basketRepository.findByBasketID(Integer.parseInt(basketID));
+		basketRepository.delete(basket.getBasketID());
 		
-		System.out.println(basket);
-
-		basketRepository.delete(basket);
+		 
 		
 		return "redirect:/Basket";
 	}
