@@ -24,7 +24,7 @@ public class BasketRepositoryMongo implements BasketRepository{
 
 	@Override
 	public <S extends Basket> List<S> save(Iterable<S> entites) {
-		// TODO Auto-generated method stub
+		mongoOperation.save(entites);
 		return null;
 	}
 
@@ -56,6 +56,7 @@ public class BasketRepositoryMongo implements BasketRepository{
 		return null;
 	}
 
+	@Deprecated
 	@Override
 	public Page<Basket> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
@@ -64,23 +65,25 @@ public class BasketRepositoryMongo implements BasketRepository{
 
 	@Override
 	public <S extends Basket> S save(S entity) {
-		// TODO Auto-generated method stub
-		return null;
+		mongoOperation.save(entity);
+		
+		return entity;
 	}
 
+	@Deprecated
 	@Override
 	public Basket findOne(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	@Deprecated
 	public boolean exists(Integer id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	@Deprecated
 	public Iterable<Basket> findAll(Iterable<Integer> ids) {
 		// TODO Auto-generated method stub
 		return null;
@@ -88,10 +91,10 @@ public class BasketRepositoryMongo implements BasketRepository{
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mongoOperation.count(null, Basket.class);
 	}
 
+	@Deprecated
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
@@ -99,35 +102,42 @@ public class BasketRepositoryMongo implements BasketRepository{
 	}
 
 	@Override
-	public void delete(Basket entity) {
-		// TODO Auto-generated method stub
+	public void delete(Basket entity) 
+	{
+		mongoOperation.remove(entity);
 		
 	}
 
-	@Override
+	@Deprecated
 	public void delete(Iterable<? extends Basket> entities) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
+	public void deleteAll() 
+	{
+		mongoOperation.remove(Basket.class);
 		
 	}
 	
 	
 	@Override
-	public Basket findByCustomerID(int customerID) {
-		// TODO Auto-generated method stub
-		/*List<Basket> baskets = mongoOperation.findAll(Basket.class);
-		List<Address> temp = new ArrayList<Address>();
-		for(int i = 0; i < baskets.size();i++){
-			if(baskets.get(i).getPostcode().equals(postcode)){
-				temp.add(addresses.get(i));
+	public List<Basket> findByCustomerID(int customerID) {
+		
+		List<Basket> baskets = mongoOperation.findAll(Basket.class);
+		List<Basket> finalBaskets = new ArrayList<Basket>();
+		
+		
+		for(int i = 0; i < baskets.size(); i++)
+		{
+			if(baskets.get(i).getCustomerID() == customerID)
+			{
+				finalBaskets.add(baskets.get(i));
 			}
-		}*/
-		return null;
+		}
+	
+		return baskets;
 	}
 
 	public MongoOperations getMongoOperation() {
