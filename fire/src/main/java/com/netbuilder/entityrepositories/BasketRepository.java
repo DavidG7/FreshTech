@@ -1,5 +1,7 @@
 package com.netbuilder.entityrepositories;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.netbuilder.entities.Basket;
@@ -11,5 +13,5 @@ public interface BasketRepository extends MongoRepository<Basket, Integer>
 	 * @param customerID
 	 * @return Customer
 	 */
-	public Basket findByCustomerID(int customerID);
+	public List<Basket> findByCustomerID(int customerID);
 }

@@ -31,21 +31,21 @@
 				<div align="center">
 					<p class="subtitle"><strong>Current Details:</strong></p>
 					<div id="writing">
-					<p><strong>Contact Details:</strong></p>
-					<span th:text="${customer.customerName}"></span><br/>
-					Home telephone:<span th:text="' ' + ${customer.customerPhone}"></span><br/>
-					Mob telephone: 077 221 379 50<br/>
-					E-mail:<p th:text="${customer.customerEmail}"></p>
+						<p><strong>Contact Details:</strong></p>
+						<span th:text="${customer.customerName}"></span><br/>
+						Home telephone:<span th:text="' ' + ${customer.customerPhone}"></span><br/>
+						Mob telephone: 077 221 379 50<br/>
+						E-mail:<p th:text="${customer.customerEmail}"></p>
 					</div>
 					<div id="writing">
-					<p><strong>Default Delivery Address:</strong><br th:text="${address}"></br></p>
+						<p><strong>Default Delivery Address:</strong><br th:text="${address}"></br></p>
 					</div>
 					<div id="writing">
-					<p><strong>Default Payment Details:</strong><br/></p>
-					Visa Debit Card
-					Card Number:<p><span th:text="${cardnumber}"></span></p>
-					Sort Code: <p><span th:text="${sortcode}"></span></p>
-					<p>Cardholder Name: <span th:text="${customer.customerName}"></span></p>
+						<p><strong>Default Payment Details:</strong><br/></p>
+						Visa Debit Card
+						Card Number:<p><span th:text="${cardnumber}"></span></p>
+						Sort Code: <p><span th:text="${sortcode}"></span></p>
+						<p>Cardholder Name: <span th:text="${customer.customerName}"></span></p>
 					</div>
 				</div>
 			
