@@ -14,6 +14,7 @@ import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.entityrepositories.PaymentRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositories.ProductSupplierRepository;
 import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
 import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.entityrepositories.SupplierRepository;
@@ -33,6 +34,7 @@ import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryM
 import com.netbuilder.entityrespositoriesimplementations.sql.CustomerOrderSQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.ProductSupplierRepositorySQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.SupplierSQL;
@@ -313,10 +315,20 @@ public class RepositoryConfig {
 	 * @return SupplierRepository
 	 */	
 	//@Primary
-	@Bean
+	/**@Bean
 	public SupplierRepository purchaseOrderLineRepositoryDummy(){
 		SupplierRepositoryDummy supplierRepository = new SupplierRepositoryDummy();
 		supplierRepository.setDummyData(dummyData);
 		return supplierRepository;
 	}
+	**/
+	@Primary
+	@Bean
+	public ProductSupplierRepository productsupplierSQL(){
+		ProductSupplierRepositorySQL supplierRepository = new ProductSupplierRepositorySQL();
+		supplierRepository.setSqltemplate(sqlTemplate);
+		return supplierRepository;
+	}
+	
+	
 }

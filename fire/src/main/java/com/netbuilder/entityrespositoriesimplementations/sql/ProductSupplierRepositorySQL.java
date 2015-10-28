@@ -55,9 +55,10 @@ return entity;
 	public ProductSupplier findOne(Integer id) {
 		ProductSupplier productsupplier = null;
 		try {
-			ResultSet rs = sqltemplate.getResultSetForQuery("productsupplier", "SELECT * FROM productsupplier where product id =" + id);
+			ResultSet rs = sqltemplate.getResultSetForQuery("productsupplier", "SELECT * FROM productsupplier where productid = " + id);
 			while(rs.next()){
 				productsupplier = new ProductSupplier( rs.getInt(1), rs.getInt(2), rs.getInt(3));	
+				System.out.println(productsupplier.getProductID()+", "+productsupplier.getSupplierID()+", "+ productsupplier.getPrice());
 				}
 			
 		} catch (SQLException e) {
@@ -72,7 +73,7 @@ return entity;
 		ArrayList<ProductSupplier> productsupplier = new ArrayList<ProductSupplier>();
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("productsupplier", "SELECT * FROM productsupplier where product id =" + id);
+			ResultSet rs = sqltemplate.getResultSetForQuery("productsupplier", "SELECT * FROM productsupplier where productid = " + id);
 			
 			while(rs.next())
 			{
@@ -128,8 +129,9 @@ return entity;
 	public long count() {
 		long count = 0;
 		try {
-			ResultSet rs= sqltemplate.getResultSetForQuery("productsupllier", "SELECT COUNT(*) FROM productsupplier");
-			while(rs.next()){
+			ResultSet rs= sqltemplate.getResultSetForQuery("productsupplier", "SELECT COUNT(*) FROM productsupplier");
+			while(rs.next())
+			{
 				count =rs.getLong(1);
 			}
 		

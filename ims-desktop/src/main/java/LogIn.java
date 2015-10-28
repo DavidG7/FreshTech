@@ -99,7 +99,7 @@ public class LogIn extends JPanel implements ActionListener {
       	      	pane.setBackground(Color.WHITE);
       	      
       	      	pane.addTab("Daily Stock Report", new DailyStockReport());
-      	      	pane.addTab("Purchase Order", new PurchaseOrder());
+      	      	pane.addTab("Purchase Order", new PurchaseOrderIMS());
       	      	pane.addTab("Predicted Sales", new PredicatedSales());
       	      	pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
       	      	
