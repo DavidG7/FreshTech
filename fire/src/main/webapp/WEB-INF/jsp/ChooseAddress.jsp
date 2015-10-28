@@ -50,7 +50,7 @@
   </script>
 	
   <h4> Please edit the address as appropriate. </h4>
-  <form method="POST" name="addressform">
+  <form method="POST" action="doEdit" name="addressform">
         First Name :<br/>
 		<input type = "text" name = "firstname"/>
 		<br/>
