@@ -194,7 +194,7 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	@Override
 	public <S extends PurchaseOrder> S save(S arg0) 
 	{
-		arg0 = (S) new PurchaseOrder();
+		//arg0 = (S) new PurchaseOrder();
 
 		sqltemplate.update("INSERT INTO purchaseorder VALUES(" + arg0.getPurchaseOrderID() + "','" + arg0.getSupplierID() + "','" + arg0.getEmployeeID()
 				+ "','" + arg0.getPurchaseDateOrder() + "','" + arg0.getPurchaseOrderStatus());
@@ -219,7 +219,11 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 			
 			while(rs.next())
 			{
-				return purchaseOrder = new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+				purchaseOrder = new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+				System.out.println(purchaseOrder.getPurchaseOrderID()+", "+ purchaseOrder.getSupplierID()+ ", " + purchaseOrder.getEmployeeID()
+						+", "+purchaseOrder.getPurchaseDateOrder()+", "+ purchaseOrder.getPurchaseOrderStatus());
+				//return purchaseOrder = new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+				return purchaseOrder;
 			}
 			
 			

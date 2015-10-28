@@ -4,7 +4,7 @@
       th:fragment="page">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="jQuery.js"></script>
 		<script src="bootstrap\js\bootstrap.js"></script>
 		<link type="text/css" rel="stylesheet" href="bootstrap\css\bootstrap_cosmo.css" />
 		<link type="text/css" rel="stylesheet" href="css/Template.css" />
