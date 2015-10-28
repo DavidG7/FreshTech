@@ -20,8 +20,9 @@ public class TestController {
 		System.out.println(SupplierRepository.count());
 		System.out.println(SupplierRepository.exists(1));
 		System.out.println(SupplierRepository.findBySupplierId(2));
-		//System.out.println(SupplierRepository.findBySupplierEmail("gnomebros@hotmail.com"));
-		
+		System.out.println(SupplierRepository.findBySupplierEmail("gnomebros@hotmail.com"));
+		System.out.println(SupplierRepository.findBySupplierName("Garden Stuff"));
+		System.out.println(SupplierRepository.findBySupplierPhone("77665539987"));
 		
 	}
 

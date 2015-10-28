@@ -202,8 +202,8 @@ public class SupplierSQL implements SupplierRepository
     {
 		arg0 = (S) new Supplier();
 		
-		sqltemplate.update("INSERT INTO supplier VALUES(" + arg0.getId() + "','" + arg0.getEmail() + "','" + arg0.getPhone()
-				+ "','" + arg0.getPreferredContactMethod());
+		sqltemplate.update("INSERT INTO supplier VALUES(" + arg0.getId() + "','" + arg0.getName() + "','" + arg0.getEmail() + "','" + arg0.getPhone()
+				+ "','" + arg0.getPreferredContactMethod()+ "'");
 		
 		return arg0;
 	}
@@ -251,7 +251,7 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE suppliername =" + name);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE suppliername = '" + name + "'");
 			
 			while(rs.next())
 			{
@@ -282,7 +282,7 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE email = " + email);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE email = '" + email + "'");
 			
 			while(rs.next())
 			{
@@ -313,7 +313,7 @@ public class SupplierSQL implements SupplierRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE supplierphone =" + phone);
+			ResultSet rs = sqltemplate.getResultSetForQuery("supplier", "SELECT supplierid, suppliername, email, phone, preferedcontactmethod FROM supplier WHERE phone = " + phone);
 			
 			while(rs.next())
 			{
