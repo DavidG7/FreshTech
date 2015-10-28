@@ -6,6 +6,7 @@
       
     <head th:fragment="header">
 		<link  type="text/css" rel="stylesheet" href="css/ChooseAddress.css" />
+			<link  type="text/css" rel="stylesheet" href="css/PayDetails.css" />
 	<title>NB Gardens</title>
     </head>
     <body>
@@ -27,7 +28,7 @@
 
 		
 		<div class = "panel-body">  
-		 
+		 <div  class="centerer">
 	   <div class="dropdown">
    		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Choose Address to Edit
     <span class="caret"></span></button>
@@ -81,18 +82,15 @@
 		<input type = "text" name = "postcode"/>
 		<br/>
 		<br/>
-<<<<<<< HEAD
-        <a href = "/"><button type="submit"><strong>Submit</strong></button></a>
-  
-=======
 
         <a href = "/"><button type="submit"><strong>Submit</strong></button></a>
->>>>>>> a6674c5a0f8ac4ea232276a4eadacc15efec6748
+
   </form>
         <button type="submit"><strong>Delete</strong></button>
        
   
   <div class="push"></div>
+		</div>
 		</div>
 </div>
 
