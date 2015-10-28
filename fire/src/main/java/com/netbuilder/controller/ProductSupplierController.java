@@ -24,11 +24,13 @@ import com.netbuilder.entityrespositoriesimplementations.sql.ProductSupplierRepo
 @Controller
 public class ProductSupplierController {
 	
-/*	ApplicationContext context = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
-	ProductSupplierRepository productSupplierRepository = context.getBean(ProductSupplierRepository.class);*/	
+	ApplicationContext context = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	ProductSupplierRepository productSupplierRepository = context.getBean(ProductSupplierRepository.class);	
 	
-	ProductSupplierRepository productSupplierRepository = new ProductSupplierRepositorySQL();
 
+	//ProductSupplierRepository productSupplierRepository = new ProductSupplierRepositorySQL();
+
+	
 }
 
 
