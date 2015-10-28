@@ -1,5 +1,7 @@
 package com.netbuilder.controller;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -19,7 +21,8 @@ public class BasketController {
 	BasketRepository basketRepository = mongoContext.getBean(BasketRepository.class);	
 	
 	//TODO Need to pull customer from site - needs session login
-	Basket basket = basketRepository.findByCustomerID(0);
+	//Basket basket = basketRepository.findByCustomerID(0);
+	List<Basket> baskets = basketRepository.findByCustomerID(0);
 	
 	@RequestMapping("Basket")
 	 public String basket(Model model) {
