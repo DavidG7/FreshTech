@@ -32,7 +32,7 @@ public class DataConfig {
 	 */
 	@Bean
 	public MongoDbFactory mongoDbFactory() throws Exception {
-		return new SimpleMongoDbFactory(new MongoClient("10.50.15.28"), "FreshTech");
+		return new SimpleMongoDbFactory(new MongoClient("10.50.15.9"), "FreshTech");
 	}
 
 	/**
