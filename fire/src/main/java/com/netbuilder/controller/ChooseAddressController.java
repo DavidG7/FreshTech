@@ -26,6 +26,7 @@ import com.netbuilder.entityrepositories.ProductRepository;
 /**
  * 
  * @author pnewman
+ * @author ricky luu
  *
  */
 @Controller
