@@ -110,7 +110,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	{
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("customerorder", "SELECT * FROM customerorderr WHERE customerorderid =" + arg0);
+			ResultSet rs = sqltemplate.getResultSetForQuery("customerorder", "SELECT * FROM customerorder WHERE orderid =" + arg0);
 			
 			while(rs.next())
 			{
@@ -246,7 +246,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	@Override
 	public ArrayList<CustomerOrder> findByDeliveryAddress( Integer deliveryAddress) 
 	{
-		ArrayList<CustomerOrder> customerOrder = new ArrayList<CustomerOrder>();
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		
 		try 
 		{
@@ -254,7 +254,10 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			
 			while(rs.next())
 			{
-				customerOrder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
+				int i =0;
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
 			}
 			
 		} 
@@ -263,14 +266,14 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			e.printStackTrace();
 		}
 		
-		return customerOrder;
+		return customerorder;
 	
 	}
 	
 	@Override
 	public ArrayList<CustomerOrder> findByOrderDate(String orderDate) 
 	{
-		ArrayList<CustomerOrder> customerOrder = new ArrayList<CustomerOrder>();
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 			
 		try 
 		{
@@ -278,7 +281,10 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 				
 			while(rs.next())
 			{
-				customerOrder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
+				int i =0;
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
 			}
 			
 		} 
@@ -287,14 +293,14 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			e.printStackTrace();
 		}
 			
-		return customerOrder;
+		return customerorder;
 		
 	}
 	
 	@Override
 	public ArrayList<CustomerOrder> findByCustomerOrderStatus(String customerOrderStatus) 
 	{
-		ArrayList<CustomerOrder> customerOrder = new ArrayList<CustomerOrder>();
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		
 		try 
 		{
@@ -302,7 +308,10 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 				
 			while(rs.next())
 			{
-				customerOrder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
+				int i=0;
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
 			}
 			
 		} 
@@ -311,7 +320,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			e.printStackTrace();
 		}
 			
-		return customerOrder;
+		return customerorder;
 
 	}
 	
@@ -326,8 +335,10 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 			
 			while(rs.next())
 			{	
+				int i=0;
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
 			}
 		} 
 		catch (SQLException e) 
