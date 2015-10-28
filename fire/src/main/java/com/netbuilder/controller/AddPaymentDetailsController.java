@@ -25,7 +25,6 @@ import com.netbuilder.entityrepositories.PaymentRepository;
  *
  */
 
-
 @Controller
 public class AddPaymentDetailsController {
 	
@@ -40,7 +39,7 @@ public class AddPaymentDetailsController {
 	 }
 	 
 	 @RequestMapping(value="postCard" ,method = RequestMethod.POST)
-	 public void doPost(HttpServletRequest request, HttpServletResponse response, HttpSession session){
+	 public ModelAndView doPost(HttpServletRequest request, HttpServletResponse response, HttpSession session){
 		 ModelAndView view = new ModelAndView();
 		 	view.setViewName("UpdateAccount");
 		 	String user =session.getAttribute("sessionUser")+"";
@@ -51,9 +50,13 @@ public class AddPaymentDetailsController {
 				 String cardName = request.getParameter("firstname");
 				 int cardNubmer =Integer.parseInt(request.getParameter("cardnumber"));
 				 Customer customer =customerRepository.findByCustomerUsername(user);
-				 List<Payment>payments=paymentRepository.findByCustomerID(customer.getCustomerID());
-				 paymentRepository.insert(new Payment(payments.size()+1,cardNubmer,"45-50,80",customer.getCustomerID()));
+				 System.out.println(customer.getCustomerID()+","+customer.getCustomerUsername());
+				 List<Payment>payments=paymentRepository.findAll();
+				 int size =payments.size();
+				 paymentRepository.insert(new Payment(size+1,cardNubmer,"45-50-80",customer.getCustomerID()));
+				 view.setViewName("AddPaymentDetails");
 			 }
+			return view;
 	 }
 	
 }
