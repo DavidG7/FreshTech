@@ -5,7 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.List;
+
+
+
+
+
 
 
 
@@ -44,11 +50,15 @@ import javax.swing.table.TableModel;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.mysql.fabric.xmlrpc.base.Array;
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entities.Supplier;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositories.SupplierRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.SupplierSQL;
 
 import CustomUI.*;
 
@@ -72,6 +82,7 @@ public class PurchaseOrder extends JPanel
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
+	SupplierSQL supplierRepository = (SupplierSQL) sqlContext.getBean(SupplierRepository.class);
     
 	List<Product> products = productRepository.findAll();
 	
@@ -172,6 +183,19 @@ public class PurchaseOrder extends JPanel
 		
 		CustomButton placeOrder = new CustomButton("Place Order");
 		placeOrder.setPreferredSize(new Dimension(150,30));
+		
+		placeOrder.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				DefaultTableModel model = (DefaultTableModel) purchaseOrderTable.getModel();
+				model.removeRow(activeOrderProductID);
+			  
+			}
+			
+		});;
+		
 		
 		buttons.add(add);
 		buttons.add(remove);
@@ -310,13 +334,16 @@ public class PurchaseOrder extends JPanel
 		JPanel orderInfoPanel = new JPanel();
 		BoxLayout grid = new BoxLayout(orderInfoPanel, BoxLayout.Y_AXIS);
 		
-		String[] tempNames = new String[5];
+
+	String[] tempNames = new String[(int)supplierRepository.count()];
+	
+	int numberOfSuppliers = (int)supplierRepository.count();
 		
-		tempNames[0] = new String("Supplier One");
-		tempNames[1] = new String("Supplier Two");
-		tempNames[2] = new String("Supplier Three");
-		tempNames[3] = new String("Supplier Four");
-		tempNames[4] = new String("Supplier Five");
+	Supplier supplier=  supplierRepository.findBySupplierId(1);
+		
+		for(int i = 1;i <= numberOfSuppliers; i++){
+			tempNames[i-1] = supplierRepository.findBySupplierId(i).getName();
+		}
 				
 		String[] quantity = new String[10];
 		

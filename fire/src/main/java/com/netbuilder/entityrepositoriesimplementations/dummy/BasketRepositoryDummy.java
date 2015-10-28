@@ -71,9 +71,9 @@ public class BasketRepositoryDummy implements BasketRepository
 	}
 
 	@Override
-	public Basket findByCustomerID(int customerID) 
+	public List<Basket> findByCustomerID(int customerID) 
 	{
-		ArrayList<Basket> basket = dummyData.getEntityList(new Basket());
+		/*ArrayList<Basket> basket = dummyData.getEntityList(new Basket());
 		
 		Basket foundBasket = new Basket();
 		
@@ -85,7 +85,7 @@ public class BasketRepositoryDummy implements BasketRepository
 				
 				return foundBasket;
 			}
-		}
+		}*/
 		return null;
 	}
 
