@@ -141,6 +141,32 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 		
 		try 
 		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT purchaseorderid, Supplier_supplierid, Employee_employeeid, purchaseorderdate, status FROM purchaseorder");
+			
+			int i = 0;
+			
+			while(rs.next()){	
+				
+				purchaseOrder.add(new PurchaseOrder( rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5)));
+				System.out.println(purchaseOrder.get(i).getPurchaseOrderID()+", "+ purchaseOrder.get(i).getSupplierID()+ ", " + purchaseOrder.get(i).getEmployeeID()
+						+", "+purchaseOrder.get(i).getPurchaseDateOrder()+", "+purchaseOrder.get(i).getPurchaseOrderStatus());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  purchaseOrder;
+		
+		
+		
+	}
+	
+	public List<PurchaseOrder> listAll() 
+	{
+		ArrayList<PurchaseOrder> purchaseOrder = new ArrayList<PurchaseOrder>();
+		
+		try 
+		{
 			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT purchaseorderid, supplierid, employeeid, purchaseorderdate, status FROM purchaseorder");
 			
 			int i = 0;
