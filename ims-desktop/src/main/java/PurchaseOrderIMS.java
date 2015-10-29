@@ -8,7 +8,13 @@ import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
+
+
+
 
 
 
@@ -78,6 +84,9 @@ import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQ
 import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.SupplierSQL;
 import com.netbuilder.entities.PurchaseOrder;
+
+
+
 
 
 
@@ -219,16 +228,37 @@ public class PurchaseOrderIMS extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-					poRepository.save(new PurchaseOrder((int)poRepository.count()+1, supplierRepository.findBySupplierName(listOfSuppliers.getSelectedItem().toString()).getId(), 
-							1, new SimpleDateFormat("dd-MM-yyyy").format(new Date()), "confirmed"));
+
+				HashSet uniqueSuppliers = new LinkedHashSet();
+			
+				for (int i = 0; i < purchaseOrderTable.getModel().getRowCount(); i++){
 					
-					for (int i = 0; i < productTable.getModel().getRowCount(); i++){
-						  polRepository.save(new PurchaseOrderLine((int)poRepository.count()+1, Integer.parseInt(productTable.getModel().getValueAt(i, 0).toString()),
-								  Integer.parseInt(productTable.getModel().getValueAt(i, 2).toString())));
+						uniqueSuppliers.add(supplierRepository.findBySupplierName(purchaseOrderTable.getModel().getValueAt(i, 3).toString()).getId());
+						 
+					    
+					
+				}
+				
+				
+				  for (Iterator it = uniqueSuppliers.iterator(); it.hasNext(); ) {
+					  int temp = (int) it.next();
+					  poRepository.save(new PurchaseOrder((int)poRepository.count()+1, temp, 
+								1, new SimpleDateFormat("dd-MM-yyyy").format(new Date()), "confirmed"));
+					  
+					  for (int i = 0; i < purchaseOrderTable.getModel().getRowCount(); i++){
+						  if(supplierRepository.findBySupplierName(purchaseOrderTable.getModel().getValueAt(i, 3).toString()).getId() == temp){
+						  polRepository.save(new PurchaseOrderLine((int)poRepository.count(), Integer.parseInt(purchaseOrderTable.getModel().getValueAt(i, 0).toString()),
+								  Integer.parseInt(purchaseOrderTable.getModel().getValueAt(i, 2).toString())));
+						  }
 						}
-					
-					DefaultTableModel model = new DefaultTableModel(new Object[0][0], new String[]{"ProductID","Product Name","Quantity", "Supplier"});
-				       purchaseOrderTable.setModel(model);
+					//  System.out.println(it.next());
+				
+				    }
+				  
+				
+			
+				
+		
 			}
 				
 			  

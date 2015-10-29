@@ -16,6 +16,7 @@ import CustomUI.*;
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -50,7 +51,7 @@ import CustomUI.CustomLabel;
 public class AddDiscontinue extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
-	Box leftPanel,rightPanel;
+	Box leftPanel;
 	JLabel heading,optionOne,optionTwo,porousware;
 	JComboBox<String> categoryCombo;
 	JRadioButton porouswareButtonY,porouswareButtonN;
@@ -66,12 +67,64 @@ public class AddDiscontinue extends JPanel{
 	public AddDiscontinue(){
 		this.setLayout(new BorderLayout());
 		
-		rightPanel = Box.createVerticalBox();
 		leftPanel =  Box.createVerticalBox();
 		categoryCombo = new JComboBox<String>();
 
-		optionTwo = new CustomLabel("(2) Add a new product", false);
+		
+		
+		
+		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
+		String [] colNames = {"ProductID","Product Name"};
+		Object[][] data = new Object [x][5];
+		
+		
+        
+    	List<Product> a = productRepository.findAll();
+
+    	for(int i = 0; i <= a.size()-1; i++){
+    		data[i][0] = a.get(i).getProductId();
+    		data[i][1] = a.get(i).getProductName();
+    	}
+		
+		productTable = new JTable(data, colNames);
+		JTableHeader header = productTable.getTableHeader();
+	      header.setBackground(new Color(0,122,0));
+	      header.setForeground(Color.WHITE);
+		
+	    heading = new CustomLabel("Add/Discontinue Stock Item", true);
+	      
+		Box HeadingandImage = Box.createHorizontalBox();
+
+		HeadingandImage.add(new CustomImage());
+		HeadingandImage.add(heading);
+
+		leftPanel.add(HeadingandImage);
+
+		leftPanel.add(optionOne);
 	
+		CustomScrollPane scrollPane = new CustomScrollPane(productTable);
+	
+		leftPanel.add(scrollPane);
+		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
+		
+		
+		this.setBackground(new Color(255,255,255));
+		
+		 Box top = Box.createHorizontalBox();
+		    top.add(leftPanel);
+		    top.add(createRightPanel());
+		
+		this.add(top);
+		
+		
+	}
+	
+	public JComponent createRightPanel()
+	{
+		Box rightPanel = Box.createVerticalBox();
+		
+		optionTwo = new CustomLabel("(2) Add a new product", false);
+		
 		rightPanel.add(optionTwo);
 		
 		final CustomTextArea name = new CustomTextArea("Name");
@@ -145,49 +198,17 @@ public class AddDiscontinue extends JPanel{
 		rightPanel.add(discontinueStock);
 		rightPanel.add(Box.createRigidArea(new Dimension(0,10)));
 		
-		heading = new CustomLabel("Add/Discontinue Stock Item", true);
-		
-		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
-		String [] colNames = {"ProductID","Product Name"};
-		Object[][] data = new Object [x][5];
 		
 		
-        
-    	List<Product> a = productRepository.findAll();
-
-    	for(int i = 0; i <= a.size()-1; i++){
-    		data[i][0] = a.get(i).getProductId();
-    		data[i][1] = a.get(i).getProductName();
-    	}
-		
-		productTable = new JTable(data, colNames);
-		JTableHeader header = productTable.getTableHeader();
-	      header.setBackground(new Color(0,122,0));
-	      header.setForeground(Color.WHITE);
-		
-		Box HeadingandImage = Box.createHorizontalBox();
-
-		HeadingandImage.add(new CustomImage());
-		HeadingandImage.add(heading);
-
-		leftPanel.add(HeadingandImage);
-
-		leftPanel.add(optionOne);
-	
-		CustomScrollPane scrollPane = new CustomScrollPane(productTable);
-	
-		leftPanel.add(scrollPane);
-		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
 		rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
 		
-		this.setBackground(new Color(255,255,255));
-		
-		 Box top = Box.createHorizontalBox();
-		    top.add(leftPanel);
-		    top.add(rightPanel);
-		
-		this.add(top);
-		
+		return rightPanel;
 		
 	}
+	
+	/*public JComponent addLeftPanel()
+	{
+		
+	}*/
+	
 }
