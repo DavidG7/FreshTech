@@ -169,6 +169,18 @@ public class RepositoryConfig {
 		customerOrderRepository.setSqltemplate(sqlTemplate);
 		return customerOrderRepository;
 	}
+	
+	@Primary
+	@Bean
+	public CustomerOrderLineRepository customerOrderLineRepositorySQL(){
+		CustomerOrderLineSQL customerOrderLineRepository = new CustomerOrderLineSQL();
+		customerOrderLineRepository.setSqltemplate(sqlTemplate);
+		return customerOrderLineRepository;
+	}
+	
+
+	
+	
 
 
 	//@Primary
