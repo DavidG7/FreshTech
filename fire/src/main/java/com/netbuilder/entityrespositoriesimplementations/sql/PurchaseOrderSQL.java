@@ -12,6 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.util.SQLTemplate;
@@ -115,6 +116,8 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 	@Override
 	public boolean exists(Integer purchaseOrderID) 
 	{
+		ArrayList<PurchaseOrder> customerorder = new ArrayList<PurchaseOrder>();
+
 		try 
 		{
 			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT * FROM purchaseorder WHERE purchaseorderid =" + purchaseOrderID);
@@ -244,7 +247,7 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT purchaseorderid, supplierid, employeeid, purchaseorderdate, status FROM purchaseorder");
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT purchaseorderid, Supplier_supplierid, Employee_employeeid, purchaseorderdate, status FROM purchaseorder where status = '" + PurchaseOrderStatus+"');" );
 			
 			int i = 0;
 			
