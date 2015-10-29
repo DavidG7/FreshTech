@@ -137,8 +137,8 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 	@Override
 	public <S extends CustomerOrder> S save(S entity) {
-		entity = (S) new CustomerOrder();
-		sqltemplate.update("INSERT INTO customerorder VALUES("+ entity.getOrderID() +",'" + entity.getCustomerID()+"','" + entity.getOrderDate() + "','" +entity.getOrderTotal() +"','" + entity.getCustomerOrderStatus()+"'"+ entity.getDeliveryAddress()+"'");
+	
+		sqltemplate.update("INSERT INTO customerorder VALUES('"+ entity.getOrderID() +"','" + entity.getCustomerID()+"','" + entity.getOrderDate() + "','" +entity.getOrderTotal() +"','" + entity.getCustomerOrderStatus()+"','"+ entity.getDeliveryAddress()+"');");
 return entity;
 	}
 	
@@ -154,8 +154,9 @@ return entity;
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderid = " + OrderID );
 			
+			int i=0;
 			while(rs.next()){	
-				int i=0;
+
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
 				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
@@ -171,10 +172,9 @@ return entity;
 	{
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
-			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE customerid = " + customerID );
-			
+			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE customerid = " + customerID );			
+			int i=0;
 			while(rs.next()){	
-				int i=0;
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
 				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
@@ -190,9 +190,8 @@ return entity;
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE addressid = " + deliveryAddress);
-			
+			int i=0;
 			while(rs.next()){	
-				int i=0;
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
 				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;
@@ -242,9 +241,8 @@ return entity;
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE ordertotal = " + orderTotal);
-			
+			int i=0;
 			while(rs.next()){	
-				int i=0;
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
 				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
 				i++;

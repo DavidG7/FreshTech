@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Supplier;
 import com.netbuilder.entities.ProductSupplier;
 import com.netbuilder.entityrepositories.ProductSupplierRepository;
@@ -60,13 +61,18 @@ public class TestController {
 		ApplicationContext context3 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 		OrderHistoryRepositorySQL OrderHistoryRepository = context3.getBean(OrderHistoryRepositorySQL.class);
 		
-		System.out.println(OrderHistoryRepository.count());
-		System.out.println(OrderHistoryRepository.exists(1));
-		System.out.println(OrderHistoryRepository.findAll());
-		System.out.println(OrderHistoryRepository.findByOrderID(10));
-		System.out.println(OrderHistoryRepository.findByCustomerID(3));
-		System.out.println(OrderHistoryRepository.findByDeliveryAddress(4).iterator().next());
-
+		System.out.println("Count: "+OrderHistoryRepository.count());
+		System.out.println("Exists 1: "+OrderHistoryRepository.exists(1));
+		System.out.println("Find all: "+OrderHistoryRepository.findAll());
+		System.out.println("Find by order 10: "+OrderHistoryRepository.findByOrderID(10));
+		System.out.println("Find by customer 3: "+OrderHistoryRepository.findByCustomerID(3));
+		System.out.println("Find by delivery 4: "+OrderHistoryRepository.findByDeliveryAddress(4).iterator().next());
+		System.out.println("Find by Order Status: "+OrderHistoryRepository.findByCustomerOrderStatus("Dispatched"));
+		System.out.println("Find by Order Date: "+ OrderHistoryRepository.findByOrderDate("2015-10-10"));
+		 
+		CustomerOrder test = new CustomerOrder(25,9, "2015-10-10", 0, "Ordered",1);
+		System.out.println(test);
+		OrderHistoryRepository.save(test);
 		
 
 	}
