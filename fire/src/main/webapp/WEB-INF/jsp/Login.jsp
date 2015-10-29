@@ -13,36 +13,48 @@
 <div th:fragment="content">
 
 
-		<div class="panel panel-default">
+	<div class="panel panel-default">
 		
-			<div class = "jumbotron">
+		<div class = "jumbotron">
 			
-				<h2> <b> Login </b> </h2>
+			<h2> <b> E-mail Order Form </b> </h2>
 				
-				<h4> Please enter Log in details </h4>
+			<h4> Please complete this form with your order and email it to "service@nbgardens.com" </h4>
 						
 			
-			</div>		
+		</div>		
 
-		</div>
+	</div>
 
-		<div class = "panel-body">
+	<div class = "panel-body">
 	    
-	   <div id="centre">
-		    <p>Username :<br/>
-			<input type = "text" name = "username"/>
+	    <div id="titlemargin"><strong>E-mail Order Form</strong><br/><br/></div>
+	    
+		<div>
+			<p id="formfont">
+				<span id="identify">Date:__/__/____</span><br/><br/>
+		    	<span id="firstcolumn">First Name:<span id="nameline"></span></span><span id="secondcolumn">Phone:<span id="nameline"></span></span><br/>
+		    	<span id="firstcolumn">Surname:<span id="surnameline"></span></span><span id="secondcolumn">E-mail:<span id="nameline"></span></span><br/><br/>
+		    	<span id="firstcolumn">Address:<span id="addressline"></span></span><br/><span id="xaddressline"></span><br/>
+		    	<span id="firstcolumn">City:<span id="cityline"></span></span>County:<span id="cityline"></span>Postcode:<span id="postcodeline"></span><br/><br/>
+		    	<span id="firstcolumn">Product Name:<span id="productgap"></span>Quantity:</span><br/><input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
+		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
 			</p>
-			
-			<p>Password :<br/>
-			<input type = "text" name = "password"/>
-			</p>
-			
-				<a href = "/"><button type="submit"><strong>Log In</strong></button></a>
+		
 		</div>
 	   
-	<div class="push"></div>
-</div>
+		<div class="push"></div>
+	
+	</div>
 
-		</div>
+</div>
 </body>
 </html>
