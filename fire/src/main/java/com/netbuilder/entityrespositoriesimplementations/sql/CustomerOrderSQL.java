@@ -185,8 +185,8 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	{
 		arg0 = (S) new CustomerOrder(); 
 		
-		sqltemplate.update("INSERT INTO customerorder VALUES(" + arg0.getOrderID() + "','" + arg0.getCustomerID() + "','" + arg0.getOrderDate() 
-				+ "','" + arg0.getOrderTotal() + "','" + arg0.getCustomerOrderStatus() + "','" + arg0.getDeliveryAddress());
+		sqltemplate.update("INSERT INTO customerorder VALUES('" + arg0.getOrderID() + "','" + arg0.getCustomerID() + "','" + arg0.getOrderDate() 
+				+ "','" + arg0.getOrderTotal() + "','" + arg0.getCustomerOrderStatus() + "','" + arg0.getDeliveryAddress()+"');");
 		
 		return arg0;
 	}
