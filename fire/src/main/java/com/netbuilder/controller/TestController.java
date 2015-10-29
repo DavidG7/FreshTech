@@ -11,6 +11,7 @@ import com.netbuilder.entities.ProductSupplier;
 import com.netbuilder.entityrepositories.ProductSupplierRepository;
 import com.netbuilder.entityrepositories.SupplierRepository;
 import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 
 public class TestController {
@@ -57,7 +58,7 @@ public class TestController {
 		System.out.println(OrderRepository.findByCustomerID(3));
 		System.out.println(OrderRepository.findByDeliveryAddress(2));
 		
-		**/
+		
 		ApplicationContext context3 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 		OrderHistoryRepositorySQL OrderHistoryRepository = context3.getBean(OrderHistoryRepositorySQL.class);
 		
@@ -73,7 +74,11 @@ public class TestController {
 		CustomerOrder test = new CustomerOrder(25,9, "2015-10-10", 0, "Ordered",1);
 		System.out.println(test);
 		OrderHistoryRepository.save(test);
+		**/
+		ApplicationContext context4 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+		PurchaseOrderSQL purchaseorder = context4.getBean(PurchaseOrderSQL.class);
 		
-
+		System.out.println(purchaseorder.findAll());
+		
 	}
 }
