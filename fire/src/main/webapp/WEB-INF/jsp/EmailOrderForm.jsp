@@ -49,6 +49,14 @@
 		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
 			</p>
 		
+		<button id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)">This is what I want to copy</button>
+
+     <script>
+      function copyToClipboard(text) {
+       window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+      }
+</script>
+		
 		</div>
 	   
 		<div class="push"></div>
