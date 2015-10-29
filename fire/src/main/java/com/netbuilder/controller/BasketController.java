@@ -1,5 +1,6 @@
 package com.netbuilder.controller;
 
+import java.security.Provider.Service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Basket;
-import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.BasketRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
-
+import com.netbuilder.service.BasketService;
 /**
  * 
  * @author pnewman
@@ -34,34 +34,32 @@ public class BasketController {
 	ProductRepository productRepository = context.getBean(ProductRepository.class);
 	
 	Basket basket; 
+	BasketService service;
 	
 	@RequestMapping("Basket")
-	public ModelAndView basket(ModelAndView view, HttpSession session) {
+	public ModelAndView basket(ModelAndView modelAndView, HttpSession session) {
+
+		service = new BasketService(session, "sessionUser");
 		
-		String user =session.getAttribute("sessionUser")+"";
-		if(user.equalsIgnoreCase("null")){
-			view.setViewName("Register");
-		}	
-		else{
-			int userID = customerRepository.findByCustomerUsername(user).getCustomerID();	
-			System.out.println(userID);
-			List<Basket> baskets = basketRepository.findByCustomerID(userID);
-			System.out.println(baskets);
-			view.addObject("basket", baskets);
-			view.setViewName("Basket");
+		if(!service.sessionExists(modelAndView)){
+			modelAndView.setViewName("Register");
 		}
 		
-		return view;
+		else{
+			service.modelBaskets(modelAndView,(String) service.getUserSession(),basketRepository,customerRepository);
+		}
+		
+		return modelAndView;
 	}
 
 	@RequestMapping(value="postUpdate", method = RequestMethod.POST)
+	/*public String basket(HttpServletRequest request){ 
+		return service.removeBaskets(request,basketRepository);
+	}*/
 	public String basket(HttpServletRequest request){
 		String basketID = request.getParameter("basket");
 		Basket basket = basketRepository.findByBasketID(Integer.parseInt(basketID));
 		basketRepository.delete(basket.getBasketID());
-		
-		 
-		
 		return "redirect:/Basket";
 	}
 	
