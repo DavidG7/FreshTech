@@ -30,6 +30,12 @@
 	
 		
 		<div class = "panel-body" >
+		
+					<label for="chooseAddress">Select Delivery Address</label> <br/>
+					<select>
+						<option id="chooseAddress" th:each="Address : ${addresses}" th:text="${Address.address}"/>
+					</select><br/>
+
 
 		<div class="squareasd" th:each="basket : ${basket}">
  		    <div class="contentasd">
@@ -47,9 +53,9 @@
 	                	
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
 		                
-		                		            <form th:action="@{postUpdate}" method="post">
-		                <button type="submit" id="basket" name="basket" th:value="${basket.basketID}"><strong>Remove</strong></button>
-		            </form>
+		               	<form th:action="@{removeBasket}" method="post">
+		                	<button type="submit" id="basket" name="basket" th:value="${basket.basketID}"><strong>Remove</strong></button>
+		            	</form>
 		            </div>
 		        </div>
 		    </div>
@@ -57,8 +63,8 @@
 		 </div>
 		 
 	<div>
-		<form>
-	 		<input id="checkout" type="button" th:value="'Place order'"/>  
+		<form th:action="@{submitOrder}" method="post">
+	 		<button id="checkout" type="submit" th:value="'Place order'"><strong>Submit Order</strong></button>
 	 	</form>
 	 </div>	 
 		 

@@ -1,5 +1,6 @@
 package com.netbuilder.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -23,6 +24,7 @@ public class CustomerOrder {
 	private String customerOrderStatus;
 	private int orderTotal;
 	private int deliveryAddress;
+	private ArrayList<Basket> baskets;
 	//private DummyData data = new DummyData();
 
 	public CustomerOrder() { }
@@ -37,13 +39,14 @@ public class CustomerOrder {
 	 * @param deliveryAddress
 	 */
 	public CustomerOrder(int OrderID, int customerID, String orderDate, int orderTotal,
-			String customerOrderStatus, int deliveryAddress) {
+			String customerOrderStatus, int deliveryAddress, ArrayList<Basket> baskets) {
 		this.orderID = OrderID;
 		this.customerID = customerID;
 		this.orderDate = orderDate;
 		this.customerOrderStatus = customerOrderStatus;
 		this.deliveryAddress = deliveryAddress;
 		this.orderTotal = orderTotal;
+		this.baskets = baskets;
 	}
 
 	/**
@@ -108,4 +111,11 @@ public class CustomerOrder {
 		this.deliveryAddress = deliveryAddress;
 	}
 
+	public ArrayList<Basket> getBaskets() {
+		return baskets;
+	}
+
+	public void setBaskets(ArrayList<Basket> baskets) {
+		this.baskets = baskets;
+	}
 }

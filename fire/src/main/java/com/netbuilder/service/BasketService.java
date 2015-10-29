@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.BasketRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 
@@ -17,12 +19,12 @@ public class BasketService extends GenericService{
 		super(session, sessionName);
 	}
 
-	public void modelBaskets(ModelAndView modelAndView, String sessionName, BasketRepository basketRepository, CustomerRepository customerRepository){
-		System.out.println(sessionName);
+	public void modelBaskets(ModelAndView modelAndView, String sessionName, AddressRepository addressRepository, BasketRepository basketRepository, CustomerRepository customerRepository){
 		int userID = customerRepository.findByCustomerUsername(sessionName).getCustomerID();	
-		System.out.println("ID: "+userID);
 		List<Basket> baskets = basketRepository.findByCustomerID(userID);
-		System.out.println(baskets);
+		List<Address> addresses = addressRepository.findByCustomerId(userID);
+		System.out.println(addresses);
+		modelAndView.addObject("addresses", addresses);
 		modelAndView.addObject("basket", baskets);
 		modelAndView.setViewName("Basket");
 	}
@@ -34,4 +36,6 @@ public class BasketService extends GenericService{
 		basketRepository.delete(basket.getBasketID());
 		return "redirect:/Basket";
 	}
+
+	
 }

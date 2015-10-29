@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.BasketRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
@@ -29,6 +30,7 @@ import com.netbuilder.service.BasketService;
 public class BasketController {
 
 	ApplicationContext context = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	AddressRepository addressRepository = context.getBean(AddressRepository.class);
 	BasketRepository basketRepository = context.getBean(BasketRepository.class);	
 	CustomerRepository customerRepository = context.getBean(CustomerRepository.class);
 	ProductRepository productRepository = context.getBean(ProductRepository.class);
@@ -44,23 +46,19 @@ public class BasketController {
 		if(!service.sessionExists(modelAndView)){
 			modelAndView.setViewName("Register");
 		}
-		
 		else{
-			service.modelBaskets(modelAndView,(String) service.getUserSession(),basketRepository,customerRepository);
+			service.modelBaskets(modelAndView,(String) service.getUserSession(),addressRepository, basketRepository,customerRepository);
 		}
-		
 		return modelAndView;
 	}
 
-	@RequestMapping(value="postUpdate", method = RequestMethod.POST)
-	/*public String basket(HttpServletRequest request){ 
+	@RequestMapping(value="removeBasket", method=RequestMethod.POST)
+	public String basket(HttpServletRequest request){ 
 		return service.removeBaskets(request,basketRepository);
-	}*/
-	public String basket(HttpServletRequest request){
-		String basketID = request.getParameter("basket");
-		Basket basket = basketRepository.findByBasketID(Integer.parseInt(basketID));
-		basketRepository.delete(basket.getBasketID());
-		return "redirect:/Basket";
 	}
 	
+	@RequestMapping(value="submitOrder", method=RequestMethod.POST)
+	public String submit(HttpServletRequest request){
+		return "redirect:/OrderConfirmation";
+	}
 }

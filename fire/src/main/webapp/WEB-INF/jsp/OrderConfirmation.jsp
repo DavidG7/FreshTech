@@ -23,8 +23,13 @@
 
 		</div>
 		
-			<h3>You will receive an e-mail shortly containing your order information including your delivery date. Happy Gardening!</h3>
+			<h3>Your order has been confirmed. Happy Gardening!</h3>
 		<div class="push"></div>
+		
+		<form action="/">
+		    <input type="submit" value="Return to Home Page"/>
+		</form>
+		
 </div>
 
 		

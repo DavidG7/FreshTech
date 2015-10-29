@@ -104,7 +104,7 @@ public class BasketRepositoryMongo implements BasketRepository{
 	{
 		Query query = new Query();
 		query.addCriteria(Criteria.where("basketID").is(id));
-		mongoOperation.remove(query, "basket");
+		mongoOperation.remove(query, "Basket");
 		
 	}
 
