@@ -68,9 +68,10 @@ public class CustomerRepositoryMongo implements CustomerRepository {
 	}
 
 	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
-		mongoOperation.remove(new Query(Criteria.where("_id").is(arg0)),"Address");  
+	public void delete(Integer id) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("customerID").is(id));
+		mongoOperation.remove(query, "Customer");
 	}
 
 	@Override

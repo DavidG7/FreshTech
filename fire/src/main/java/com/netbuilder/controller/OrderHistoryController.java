@@ -1,22 +1,36 @@
 package com.netbuilder.controller;
 /**
- *  * @author jham
+ *  @author jham
+ *  @author rluu
  */
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.Customer;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrepositories.CustomerOrderLineRepository;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
+import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
 
 @Controller
 public class OrderHistoryController {
 	
-	 CustomerOrderRepository orderHistoryRepository = new OrderHistoryRepositorySQL();
+	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	CustomerRepository customerRepository = mongoContext.getBean(CustomerRepository.class);	
+	CustomerOrderRepository customerOrderRepository = mongoContext.getBean(CustomerOrderRepository.class);	
+	CustomerOrderLineRepository customerOrderLineRepository = mongoContext.getBean(CustomerOrderLineRepository.class);	
 	
 	 /*@RequestMapping("OrderHistory")
 	public String OrderHistory (){
@@ -71,8 +85,21 @@ public class OrderHistoryController {
 	 }
 */
 	 @RequestMapping("OrderHistory")
-	 public String OrderHistory (){
-			orderHistoryRepository.delete(25);
-			return "OrderHistory";
+	 public ModelAndView OrderHistory (ModelAndView view, HttpSession session){
+		 String user =  session.getAttribute("sessionUser")+"";
+				if(user.equalsIgnoreCase("null")){
+					view.setViewName("Register");
+				}
+				else{
+				 	Customer customer = customerRepository.findByCustomerUsername(user);
+				 	
+				 	List<CustomerOrder> orders = customerOrderRepository.findByCustomerID(customer.getCustomerID());
+				 	
+				 	view.setViewName("OrderHistory");
+				 	view.addObject("customerOrders", orders);
+				 	return view;
+				}
+		return view;
+			 
 	 }
 }

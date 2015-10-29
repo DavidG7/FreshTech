@@ -19,7 +19,7 @@
 			
 			<h2> <b> E-mail Order Form </b> </h2>
 				
-			<h4> Please complete this form with your order and email it to "service@nbgardens.com" </h4>
+			<h4> Please copy and complete this form with your order and email it to "service@nbgardens.com" </h4>
 						
 			
 		</div>		

@@ -94,9 +94,9 @@ public class AddressRepositoryMongo implements AddressRepository{
 	
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-	//	mongoOperation.remove(id, "Address");
-		mongoOperation.remove(new Query(Criteria.where("_id").is(id)),"Address");  
+		Query query = new Query();
+		query.addCriteria(Criteria.where("addressID").is(id));
+		mongoOperation.remove(query, "Address");
 	}
 	
 	
