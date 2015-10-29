@@ -13,6 +13,7 @@ import javax.persistence.Entity;
  *
  */
 
+	
 public class Basket {
 	private Product product;
 	private int quantity;
