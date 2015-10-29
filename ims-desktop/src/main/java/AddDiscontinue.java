@@ -58,7 +58,6 @@ public class AddDiscontinue extends JPanel{
 	
 	String newline = System.getProperty("line.separator");
 	
-
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
 
@@ -164,6 +163,11 @@ public class AddDiscontinue extends JPanel{
 		return panel;
 	}
 	
+	public void updateProductAvailablity(Product product)
+	{
+		product.setDiscontinued(!product.getDiscontinued());
+	}
+	
 	public JComponent createRightPanel()
 	{
 		Box rightPanel = Box.createVerticalBox();
@@ -182,6 +186,8 @@ public class AddDiscontinue extends JPanel{
 			 
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
+	            	//updateProductAvailability()
+	            	
 	            	JOptionPane.showMessageDialog(getParent(),
 	            	        "Product is no longer available");
 	                   }
@@ -190,22 +196,17 @@ public class AddDiscontinue extends JPanel{
 		discontinueStock.setMaximumSize(new Dimension(550,20));
 		rightPanel.add(discontinueStock);
 		rightPanel.add(Box.createRigidArea(new Dimension(0,10)));
-		
-		
-		
+				
 		rightPanel.setBorder(new EmptyBorder(95, 30, 30, 100));
 		
 		return rightPanel;
 		
 	}
 	
-	public JComponent createLeftPanel()
+	public JComponent createListOfProductsPanel()
 	{
-		Box leftPanel;
+		Box panel = Box.createVerticalBox();
 		
-		leftPanel =  Box.createVerticalBox();
-		
-		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
 		String [] colNames = {"ProductID","Product Name"};
 		Object[][] data = new Object [x][5];
 		        
@@ -218,8 +219,23 @@ public class AddDiscontinue extends JPanel{
 		
 		productTable = new JTable(data, colNames);
 		JTableHeader header = productTable.getTableHeader();
-	      header.setBackground(new Color(0,122,0));
-	      header.setForeground(Color.WHITE);
+	    header.setBackground(new Color(0,122,0));
+	    header.setForeground(Color.WHITE);
+		
+	    panel.add(header);
+	   	    
+	    CustomScrollPane scrollPane = new CustomScrollPane(productTable);
+	   
+	    panel.add(scrollPane);
+	    
+	    return panel;
+	}
+	
+	public JComponent createLeftPanel()
+	{
+		Box leftPanel = Box.createVerticalBox();
+		
+		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
 		
 	    heading = new CustomLabel("Add/Discontinue Stock Item", true);
 	      
@@ -232,9 +248,9 @@ public class AddDiscontinue extends JPanel{
 
 		leftPanel.add(optionOne);
 	
-		CustomScrollPane scrollPane = new CustomScrollPane(productTable);
+		
 	
-		leftPanel.add(scrollPane);
+		leftPanel.add(createListOfProductsPanel());
 		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
 		
 		return leftPanel;
