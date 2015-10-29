@@ -67,7 +67,9 @@ public class BasketRepositoryMongo implements BasketRepository{
 
 	@Override
 	public <S extends Basket> S save(S entity) {
-		mongoOperation.save(entity);
+		Query query = new Query();
+		query.addCriteria(Criteria.where("basketID").is(entity.getBasketID()));
+		mongoOperation.save(query, "Basket");
 		
 		return entity;
 	}
@@ -95,16 +97,18 @@ public class BasketRepositoryMongo implements BasketRepository{
 	public long count() {
 		return mongoOperation.count(null, Basket.class);
 	}
+	
+	
 
 
 	
-
+	
 	@Override
 	public void delete(Integer id) 
 	{
 		Query query = new Query();
 		query.addCriteria(Criteria.where("basketID").is(id));
-		mongoOperation.remove(query, "basket");
+		mongoOperation.remove(query, "Basket");
 		
 	}
 

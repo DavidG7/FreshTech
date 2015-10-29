@@ -14,6 +14,7 @@ import com.netbuilder.DataConfig;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.PurchaseOrderLine;
+import com.netbuilder.entities.Supplier;
 import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
 import com.netbuilder.util.SQLTemplate;
 
@@ -133,6 +134,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		return  purchaseOrderLine;
 	}
 	
+
 	public List<PurchaseOrderLine> listAll() 
 	{
 		ArrayList<PurchaseOrderLine> purchaseOrderLine = new ArrayList<PurchaseOrderLine>();
@@ -155,6 +157,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		return  purchaseOrderLine;
 	}
 
+>>>>>>> cdea4fe47026a71bd63a561d78017be3e55df094
 
 	@Override
 	public Iterable<PurchaseOrderLine> findAll(Iterable<Integer> arg0) {
