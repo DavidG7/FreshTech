@@ -81,6 +81,13 @@
 						<li><a href="Logout">Logout</a></li>
 					</ul>
 				</li>
+				
+				<li>
+					<a href="EmailOrderForm" id="home-button-top"> <span
+						class="glyphicon glyphicon-envelope"></span> E-mail Order
+					</a>
+				</li>
+				
 				<li>
 					<a href="About" id="about-button-top">
 						<span class="glyphicon glyphicon-question-sign"></span> About NB Gardens

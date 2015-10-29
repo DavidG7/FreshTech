@@ -75,14 +75,12 @@ public class DailyStockReport extends JPanel{
     		data[i][0] = "Product ID: "+ temp;
     		data[i][1] = a.get(i).getProductName();
     		data[i][2] = a.get(i).getStockLevel();
-    		//= purchaseOrderLineRepository.findByProductID(temp);
     		System.out.println("ALERT");
-    		System.out.println("POL ID: " + x.get(i).getPurchaseOrderLineID() + " ,Product ID: " + x.get(i).getProductID());
     		for(int j =0; j <= x.size()-1; j++){
 	    		if(x.get(j).getProductID() == temp){
-	    			for(int k = 0; k<=y.size(); k++){
-	    				if(y.get(k).getPurchaseOrderID() == x.get(j).getPurchaseOrderLineID()){
-	    					data[i][3] = "Order in Progress";
+	    			for(int k = 0; k<=y.size()-1; k++){
+	    				if(y.get(k).getPurchaseOrderID() == x.get(j).getPurchaseOrderLineID() && !y.get(k).getPurchaseOrderStatus().equals("received")){
+	    					data[i][3] = y.get(k).getPurchaseOrderStatus();
 	    				}
 	    			}
 	    		}

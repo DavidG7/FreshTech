@@ -8,6 +8,7 @@ package com.netbuilder.entities;
 
 public class CustomerOrderLine 
 {
+	//this is = orderID in custoemrOrder
 	private int customerOrderLineID;
 	private int productID; 
 	private int quantity;

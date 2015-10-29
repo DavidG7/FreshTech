@@ -81,7 +81,9 @@ public class ProductRepositoryMongo implements ProductRepository{
 
 	@Override
 	public void delete(Integer id) {
-		mongoOperation.remove(new Query(Criteria.where("_id").is(id)), Product.class);
+		Query query = new Query();
+		query.addCriteria(Criteria.where("productID").is(id));
+		mongoOperation.remove(query, "Product");
 		
 	}
 
