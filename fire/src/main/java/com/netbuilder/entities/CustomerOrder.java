@@ -24,7 +24,6 @@ public class CustomerOrder {
 	private String customerOrderStatus;
 	private int orderTotal;
 	private int deliveryAddress;
-	private ArrayList<Basket> baskets;
 	//private DummyData data = new DummyData();
 
 	public CustomerOrder() { }
@@ -39,14 +38,13 @@ public class CustomerOrder {
 	 * @param deliveryAddress
 	 */
 	public CustomerOrder(int OrderID, int customerID, String orderDate, int orderTotal,
-			String customerOrderStatus, int deliveryAddress, ArrayList<Basket> baskets) {
+			String customerOrderStatus, int deliveryAddress) {
 		this.orderID = OrderID;
 		this.customerID = customerID;
 		this.orderDate = orderDate;
 		this.customerOrderStatus = customerOrderStatus;
 		this.deliveryAddress = deliveryAddress;
 		this.orderTotal = orderTotal;
-		this.baskets = baskets;
 	}
 
 	/**
@@ -109,13 +107,5 @@ public class CustomerOrder {
 
 	public void setDeliveryAddress(int deliveryAddress) {
 		this.deliveryAddress = deliveryAddress;
-	}
-
-	public ArrayList<Basket> getBaskets() {
-		return baskets;
-	}
-
-	public void setBaskets(ArrayList<Basket> baskets) {
-		this.baskets = baskets;
 	}
 }

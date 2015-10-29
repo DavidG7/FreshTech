@@ -11,31 +11,49 @@ import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.BasketRepository;
+import com.netbuilder.entityrepositories.CustomerOrderLineRepository;
+import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 
 public class BasketService extends GenericService{
 
 	public BasketService(HttpSession session, String sessionName) {
 		super(session, sessionName);
+		// TODO Auto-generated constructor stub
 	}
 
-	public void modelBaskets(ModelAndView modelAndView, String sessionName, AddressRepository addressRepository, BasketRepository basketRepository, CustomerRepository customerRepository){
-		int userID = customerRepository.findByCustomerUsername(sessionName).getCustomerID();	
-		List<Basket> baskets = basketRepository.findByCustomerID(userID);
-		List<Address> addresses = addressRepository.findByCustomerId(userID);
-		System.out.println(addresses);
-		modelAndView.addObject("addresses", addresses);
-		modelAndView.addObject("basket", baskets);
-		modelAndView.setViewName("Basket");
+	public ModelAndView modelBaskets(ModelAndView modelAndView){
+		if(!isSession()){
+			modelAndView.setViewName("Register");
+		}
+		else{
+			List<Basket> baskets = this.getBasketRepository().findByCustomerID(this.getSessionID());
+			List<Address> addresses = this.getAddressRepository().findByCustomerId(this.getSessionID());
+			System.out.println(addresses);
+			modelAndView.addObject("addresses", addresses);
+			modelAndView.addObject("basket", baskets);
+			modelAndView.setViewName("Basket");
+		}
+		return modelAndView;
 	}
 	
-	public String removeBaskets(HttpServletRequest request, BasketRepository basketRepository){
-		String basketID = request.getParameter("basket");
-		Basket basket = basketRepository.findByBasketID(Integer.parseInt(basketID));
+	public String removeBaskets(HttpServletRequest request){
+		String basketID = request.getParameter("remove");
+		Basket basket = this.getBasketRepository().findByBasketID(Integer.parseInt(basketID));
 		System.out.println(basket);
-		basketRepository.delete(basket.getBasketID());
+		this.getBasketRepository().delete(basket.getBasketID());
 		return "redirect:/Basket";
 	}
-
+	
+	public String saveBaskets(HttpServletRequest request){
+		String basketID = request.getParameter("save");
+		Basket basket = this.getBasketRepository().findByBasketID(Integer.parseInt(basketID));
+		System.out.println(basket);
+		System.out.println(basket.getQuantity());
+		basket.setQuantity(99);
+		System.out.println(basket.getQuantity());
+		this.getBasketRepository().save(basket);
+		return "redirect:/Basket";
+	}
 	
 }

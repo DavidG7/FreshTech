@@ -50,11 +50,14 @@
 	                	<p>&pound;<span th:text="${#numbers.formatDecimal(basket.product.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
 	                	
 	                	<p>Quantity: <span ><input th:value="${basket.quantity}" /></span></p>
-	                	
+
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
 		                
+		               	<form th:action="@{saveBasket}" method="post">
+		               		<button type="submit" id="save" name="save" th:value="${basket.basketID}"><strong>Save</strong></button>
+		            	</form>
 		               	<form th:action="@{removeBasket}" method="post">
-		                	<button type="submit" id="basket" name="basket" th:value="${basket.basketID}"><strong>Remove</strong></button>
+		                	<button type="submit" id="remove" name="remove" th:value="${basket.basketID}"><strong>Remove</strong></button>
 		            	</form>
 		            </div>
 		        </div>
