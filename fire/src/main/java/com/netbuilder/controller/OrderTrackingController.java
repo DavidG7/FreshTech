@@ -34,43 +34,32 @@ public class OrderTrackingController {
 	 @RequestMapping(value="OrderTracking")
 	 public ModelAndView  OrderTracking(ModelAndView modelAndView, HttpSession session) {
 	     
-		
-		 
 		 String user = (String) session.getAttribute("sessionUser");
 		 
 		 System.out.println(user);
 		 
-		 Customer customer = customerRepository.findByCustomerUsername(user);
-		 
-		 System.out.println(customer);
-		 
-		 /**
-		  * TODO this needs updating to work with the ArrayList<CustomerOrder>
-		  * TODO instead of searching by CustomerID, search by OrderID so customer will need 
-		  * TODO have the orderID saved or inputted.
-		  */
-		 
-		 if(user.equalsIgnoreCase("null")){
-			 modelAndView.setViewName("OrderTracking");
+		 if(user==null){
+			 modelAndView.setViewName("Register");
 		 }	
 		 else{
+			 Customer customer = customerRepository.findByCustomerUsername(user);
+			 System.out.println(customer);
 			 modelAndView.addObject("OrderTracking", customerRepository.findByCustomerUsername(user));
+			 int customerID = customer.getCustomerID();
+			 
+			 System.out.println(customerID);
+			 
+			 customerOrders = customerOrderRepository.findByCustomerID(customerID);
+			 
+			 System.out.println(customerOrders);
+			 
+			 //customerOrder = customerOrderRepository.findByOrderID(customer.getCustomerID());
+			 
+			 modelAndView.addObject("customerOrders", customerOrders);
+		 
 		 }
 		 
 		 
-		 int customerID = customer.getCustomerID();
-		 
-		 System.out.println(customerID);
-		 
-		 customerOrders = customerOrderRepository.findByCustomerID(customerID);
-		 
-		 System.out.println(customerOrders);
-		 
-		 //customerOrder = customerOrderRepository.findByOrderID(customer.getCustomerID());
-		 
-		
-		 
-		 modelAndView.addObject("customerOrders", customerOrders);
 		return modelAndView;
 	  }	
 }

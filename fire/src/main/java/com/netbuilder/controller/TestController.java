@@ -79,6 +79,10 @@ public class TestController {
 		PurchaseOrderSQL purchaseorder = context4.getBean(PurchaseOrderSQL.class);
 		
 		System.out.println(purchaseorder.findAll());
+		System.out.println(purchaseorder.count());
+		System.out.println(purchaseorder.exists(2));
+		System.out.println(purchaseorder.findByPurchaseOrderID(1));
+		System.out.println(purchaseorder.findByPurchaseOrderStatus("confirmed"));
 		
 	}
 }

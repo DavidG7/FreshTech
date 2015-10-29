@@ -134,13 +134,30 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		return  purchaseOrderLine;
 	}
 	
-	
-	
 
-	
-	
-	
-	
+	public List<PurchaseOrderLine> listAll() 
+	{
+		ArrayList<PurchaseOrderLine> purchaseOrderLine = new ArrayList<PurchaseOrderLine>();
+		
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT PurchaseOrder_purchaseorderid, Product_productid, quantity FROM purchaseorderline");
+			
+			int i = 0;
+			
+			while(rs.next()){	
+				
+				purchaseOrderLine.add(new PurchaseOrderLine( rs.getInt(1), rs.getInt(2), rs.getInt(3)));
+				System.out.println(purchaseOrderLine.get(i).getPurchaseOrderLineID()+", "+ purchaseOrderLine.get(i).getProductID()+ ", " + purchaseOrderLine.get(i).getQuantity());
+				i++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  purchaseOrderLine;
+	}
+
+>>>>>>> cdea4fe47026a71bd63a561d78017be3e55df094
 
 	@Override
 	public Iterable<PurchaseOrderLine> findAll(Iterable<Integer> arg0) {
