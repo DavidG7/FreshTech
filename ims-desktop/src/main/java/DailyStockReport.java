@@ -80,9 +80,9 @@ public class DailyStockReport extends JPanel{
     		System.out.println("POL ID: " + x.get(i).getPurchaseOrderLineID() + " ,Product ID: " + x.get(i).getProductID());
     		for(int j =0; j <= x.size()-1; j++){
 	    		if(x.get(j).getProductID() == temp){
-	    			for(int k = 0; k<=y.size(); k++){
+	    			for(int k = 0; k<=y.size()-1; k++){
 	    				if(y.get(k).getPurchaseOrderID() == x.get(j).getPurchaseOrderLineID()){
-	    					data[i][3] = "Order in Progress";
+	    					data[i][3] = y.get(k).getPurchaseOrderStatus();
 	    				}
 	    			}
 	    		}

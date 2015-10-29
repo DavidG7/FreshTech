@@ -170,7 +170,7 @@ public class PurchaseOrderSQL implements PurchaseOrderRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT purchaseorderid, supplierid, employeeid, purchaseorderdate, status FROM purchaseorder");
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorder", "SELECT purchaseorderid, Supplier_supplierid, Employee_employeeid, purchaseorderdate, status FROM purchaseorder");
 			
 			int i = 0;
 			
