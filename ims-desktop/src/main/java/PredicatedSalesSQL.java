@@ -39,8 +39,6 @@ public class PredicatedSalesSQL
 	{		
     	ArrayList<CustomerOrder> listOfCustomerOrder = (ArrayList<CustomerOrder>) customerOrderRepository.findAll(); 
     	
-    	
-    	
     	String date = "";
     	
     	//TODO get product id.
@@ -51,7 +49,7 @@ public class PredicatedSalesSQL
     	
     	for(int i = 0; i < listOfCustomerOrder.size(); i++)
     	{
-    		date = listOfCustomerOrder.get(i).getOrderDate();
+    		//date = listOfCustomerOrder.get(i)
     	}
     		String delims = "[-]";
     		

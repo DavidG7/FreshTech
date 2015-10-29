@@ -32,8 +32,8 @@ public class AboutController {
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
 		 	 
-		//Products
-		 /*productRepository.insert(new Product(1,15,32.00F,"Gnome","Godzilla",false,true, 1, "Godzilla Gnome, large with small arms","godzilla.jpg", true, 5.50F));
+		/*//Products
+		 productRepository.insert(new Product(1,15,32.00F,"Gnome","Godzilla",false,true, 1, "Godzilla Gnome, large with small arms","godzilla.jpg", true, 5.50F));
 		 productRepository.insert(new Product(2,3,60.00F,"Gnome","Fisherman",false,true, 3, "Fishing Gnome, has a small rod","fisherman.jpg"));
 		 productRepository.insert(new Product(3,8,50.20F,"Gnome","Gnomeo",false,true, 2, "The first of the Shakes-pair","gnomeojuliett.jpg"));
 		 productRepository.insert(new Product(4,27,16.00F,"Gnome","Juliett",false,true, 5, "The second of the Shakes-pair","gnomeojuliett.jpg"));

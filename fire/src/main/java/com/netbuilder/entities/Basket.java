@@ -1,6 +1,5 @@
 package com.netbuilder.entities;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,8 +14,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Moved into separate class
  *
  */
-@Document (collection="basket")
+@Document (collection="Basket")
 public class Basket {
+	
+	
 	@Id
 	private int basketID;
 	
