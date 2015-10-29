@@ -1,5 +1,6 @@
 package com.netbuilder.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -26,16 +27,22 @@ public class OrderTrackingController {
 	
 	//CustomerOrder customerOrder = customerOrderRepository.findByCustomerID(1);
 	
-    CustomerOrder customerOrder = new CustomerOrder(); 
+    List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>(); 
     
 	//CustomerOrder customerOrder = new CustomerOrder(8, 57, "today", 5, "Order Confirmed", 9);
 			
 	 @RequestMapping(value="OrderTracking")
 	 public ModelAndView  OrderTracking(ModelAndView modelAndView, HttpSession session) {
 	     
+		
+		 
 		 String user = (String) session.getAttribute("sessionUser");
 		 
+		 System.out.println(user);
+		 
 		 Customer customer = customerRepository.findByCustomerUsername(user);
+		 
+		 System.out.println(customer);
 		 
 		 /**
 		  * TODO this needs updating to work with the ArrayList<CustomerOrder>
@@ -43,9 +50,27 @@ public class OrderTrackingController {
 		  * TODO have the orderID saved or inputted.
 		  */
 		 
+		 if(user.equalsIgnoreCase("null")){
+			 modelAndView.setViewName("OrderTracking");
+		 }	
+		 else{
+			 modelAndView.addObject("OrderTracking", customerRepository.findByCustomerUsername(user));
+		 }
+		 
+		 
+		 int customerID = customer.getCustomerID();
+		 
+		 System.out.println(customerID);
+		 
+		 customerOrders = customerOrderRepository.findByCustomerID(customerID);
+		 
+		 System.out.println(customerOrders);
+		 
 		 //customerOrder = customerOrderRepository.findByOrderID(customer.getCustomerID());
 		 
-		 modelAndView.addObject("customerOrder", customerOrder);
+		
+		 
+		 modelAndView.addObject("customerOrders", customerOrders);
 		return modelAndView;
 	  }	
 }
