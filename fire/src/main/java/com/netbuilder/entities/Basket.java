@@ -14,7 +14,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Moved into separate class
  *
  */
+
 @Document (collection="Basket")
+
 public class Basket {
 	
 	
