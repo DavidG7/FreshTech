@@ -80,9 +80,11 @@ public class PaymentRepositoryMongo implements PaymentRepository{
 	}
 
 	@Override
-	public void delete(Integer arg0) 
+	public void delete(Integer id) 
 	{
-		mongoOperation.remove(new Query(Criteria.where("_id").is(arg0)), Payment.class);
+		Query query = new Query();
+		query.addCriteria(Criteria.where("paymentID").is(id));
+		mongoOperation.remove(query, "Payment");
 
 	}
 

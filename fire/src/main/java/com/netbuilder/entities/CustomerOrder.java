@@ -9,7 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
- * @author Ricky Luu Holds customers Orders details
+ * @author Ricky Luu 
+ * Holds customers Orders details
  */
 @Entity
 public class CustomerOrder {
