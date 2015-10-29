@@ -35,21 +35,22 @@
     <ul class="dropdown-menu" >
     	<li> <a>Add new address</a></li>
     	<li class="divider"></li>
-		<li  th:each="address : ${addresses}"><a th:onclick="'javascript:fillForm(\'' + ${address.address} + '\');'" th:id="${address.address}" th:text="${address.address}" ></a></li>
-      </ul>
-  </div>
+		<li th:each="address : ${addresses}"><a th:onclick="'javascript:fillForm(\'' + ${address.fullAddress} + '\');'" th:id="${address.fullAddress}" th:text="${address.fullAddress}" ></a></li>
+      </ul>												
+  </div>		
   <script type="text/javascript">
   function	fillForm(id) {
 	  	document.getElementById(id).value=" ";
-  		var address = document.getElementById(id).text
-  		var addresses 
-  		 document.getElementById("address1").value=address;
+  		var address = document.getElementById(id).text;
+  		var split = address.split(",");
+  		 document.getElementById("address1").value=split[0];
+  		 document.getElementById("postcode").value=split[1];
   		
   	}
   </script>
 	
   <h4> Please edit the address as appropriate. </h4>
-  <form name="addressform">
+  <form method="POST" action="doEdit" name="addressform">
         First Name :<br/>
 		<input type = "text" name = "firstname"/>
 		<br/>
@@ -79,11 +80,10 @@
 		<br/>
 		<br/>
 		Postcode :<br/>
-		<input type = "text" name = "postcode"/>
+		<input id="postcode" type = "text" name = "postcode" value=""/>
 		<br/>
 		<br/>
-
-        <a href = "/"><button type="submit"><strong>Submit</strong></button></a>
+        <input type="submit"></input>
 
   </form>
         <button type="submit"><strong>Delete</strong></button>

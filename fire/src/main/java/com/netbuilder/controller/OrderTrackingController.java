@@ -26,7 +26,7 @@ public class OrderTrackingController {
 	
 	//CustomerOrder customerOrder = customerOrderRepository.findByCustomerID(1);
 	
-    CustomerOrder customerOrder; 
+    CustomerOrder customerOrder = new CustomerOrder(); 
     
 	//CustomerOrder customerOrder = new CustomerOrder(8, 57, "today", 5, "Order Confirmed", 9);
 			
@@ -37,7 +37,13 @@ public class OrderTrackingController {
 		 
 		 Customer customer = customerRepository.findByCustomerUsername(user);
 		 
-		 customerOrder = customerOrderRepository.findByCustomerID(customer.getCustomerID());
+		 /**
+		  * TODO this needs updating to work with the ArrayList<CustomerOrder>
+		  * TODO instead of searching by CustomerID, search by OrderID so customer will need 
+		  * TODO have the orderID saved or inputted.
+		  */
+		 
+		 //customerOrder = customerOrderRepository.findByOrderID(customer.getCustomerID());
 		 
 		 modelAndView.addObject("customerOrder", customerOrder);
 		return modelAndView;

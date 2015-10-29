@@ -1,6 +1,8 @@
 package com.netbuilder.entities;
 
-import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author Thomas Dudley, James Thompson
@@ -13,8 +15,14 @@ import javax.persistence.Entity;
  *
  */
 
-	
+@Document (collection="Basket")
+
 public class Basket {
+	
+	
+	@Id
+	private int basketID;
+	
 	private Product product;
 	private int quantity;
 	private int customerID;
@@ -24,12 +32,21 @@ public class Basket {
 		
 	}
 	
-	public Basket(Product prod, int quant, int custID) {
+	public Basket(int basketID, Product prod, int quant, int custID) {
+		this.basketID = basketID;
 		this.product = prod;
 		this.quantity = quant;
 		this.customerID = custID;
 	}
-	
+
+	public int getBasketID() {
+		return basketID;
+	}
+
+	public void setBasketID(int basketID) {
+		this.basketID = basketID;
+	}
+
 	public void setProduct(Product product) {
 		this.product = product;
 	}

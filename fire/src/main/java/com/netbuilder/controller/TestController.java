@@ -9,6 +9,8 @@ import com.netbuilder.entities.Supplier;
 import com.netbuilder.entities.ProductSupplier;
 import com.netbuilder.entityrepositories.ProductSupplierRepository;
 import com.netbuilder.entityrepositories.SupplierRepository;
+import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
+import com.netbuilder.entityrepositories.CustomerOrderRepository;
 
 public class TestController {
 
@@ -33,7 +35,7 @@ public class TestController {
 		SupplierRepository.save(test);
 		
 		System.out.println(SupplierRepository.findBySupplierPhone("77665539987"));
-		**/
+		
 		ApplicationContext context1 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 		ProductSupplierRepository ProductSupplierRepository = context1.getBean(ProductSupplierRepository.class);	
 		
@@ -42,5 +44,30 @@ public class TestController {
 		System.out.println(ProductSupplierRepository.exists(10));
 		System.out.println(ProductSupplierRepository.findOne(5));
 		System.out.println(ProductSupplierRepository.findBySupplierID(2));
+		ProductSupplierRepository.delete(15);
+	
+		ApplicationContext context2 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+		CustomerOrderRepository OrderRepository = context2.getBean(CustomerOrderRepository.class);	
+	
+		System.out.println(OrderRepository.count());
+		System.out.println(OrderRepository.exists(2));
+		System.out.println(OrderRepository.findAll());
+		System.out.println(OrderRepository.findByOrderID(10));
+		System.out.println(OrderRepository.findByCustomerID(3));
+		System.out.println(OrderRepository.findByDeliveryAddress(2));
+		
+		**/
+		ApplicationContext context3 = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+		OrderHistoryRepositorySQL OrderHistoryRepository = context3.getBean(OrderHistoryRepositorySQL.class);
+		
+		System.out.println(OrderHistoryRepository.count());
+		System.out.println(OrderHistoryRepository.exists(1));
+		System.out.println(OrderHistoryRepository.findAll());
+		System.out.println(OrderHistoryRepository.findByOrderID(10));
+		System.out.println(OrderHistoryRepository.findByCustomerID(3));
+		System.out.println(OrderHistoryRepository.findByDeliveryAddress(4).iterator().next());
+
+		
+
 	}
 }

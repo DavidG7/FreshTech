@@ -9,12 +9,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.entities.Address;
 import com.netbuilder.entities.Basket;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.BasketRepository;
 
 @Repository
@@ -94,17 +96,15 @@ public class BasketRepositoryMongo implements BasketRepository{
 		return mongoOperation.count(null, Basket.class);
 	}
 
-	@Deprecated
-	@Override
-	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	
 
 	@Override
-	public void delete(Basket entity) 
+	public void delete(Integer id) 
 	{
-		mongoOperation.remove(entity);
+		Query query = new Query();
+		query.addCriteria(Criteria.where("basketID").is(id));
+		mongoOperation.remove(query, "basket");
 		
 	}
 
@@ -134,10 +134,11 @@ public class BasketRepositoryMongo implements BasketRepository{
 			if(baskets.get(i).getCustomerID() == customerID)
 			{
 				finalBaskets.add(baskets.get(i));
+				System.out.println("Basket added");
 			}
 		}
 	
-		return baskets;
+		return finalBaskets;
 	}
 
 	public MongoOperations getMongoOperation() {
@@ -148,5 +149,28 @@ public class BasketRepositoryMongo implements BasketRepository{
 		this.mongoOperation = mongoOperation;
 	}
 
+	@Override
+	public Basket findByBasketID(int basketID) {
+		List<Basket> baskets = mongoOperation.findAll(Basket.class);
+		
+		for(int i = 0; i < baskets.size(); i++)
+		{
+			if(baskets.get(i).getBasketID() == basketID)
+			{
+				System.out.println("Added: "+baskets.get(i).getBasketID());
+				return baskets.get(i);
+			}
+		}
+		
+		System.out.println("Didn't work");
+		
+		return null;
+	}
+
+	@Override
+	public void delete(Basket entity) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

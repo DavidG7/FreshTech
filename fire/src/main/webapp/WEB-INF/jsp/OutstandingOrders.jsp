@@ -33,19 +33,17 @@
 			<a href="PaymentAgreement"><button type="submit"><strong>Pay for all</strong></button></a>
 		</div>
 
-		<div th:fragment="content" th:each="customerOrders : ${customerOrders}">
+		<div th:each="customerOrders : ${customerOrders}">
 			<hr />
-			<img id="identify" class="img-thumbnail" alt="fancy gnome"
-				src="ImageFolder/squarefancy.jpg" />
+			<img id="identify" class="img-thumbnail" alt="fancy gnome" th:src="'ImageFolder/'+${products.image}" width="140"/>
 			<p class="subtitle" id="totheright">
-				<strong>Delivery Address:</strong><br />1 Far Away Magical Place
-				Road<br />Gnome Underground City<br />GUC 51K
+				<strong>Delivery Address:</strong><br /><span th:text = "${address.address}"></span><br/><span th:text = "${address.postcode}"></span>
 			</p>
 			<p class="subtitle">
 				<br />
-				<strong><span th:text="${product.productName}"></span><br />
-				<br />Order Details
-				</strong><br />Quantity: 3<br />Price: <span th:text = "'&pound;'+${product.price}+'0'"></span><br/>Date of delivery:
+				<span th:text="${products.productName}"></span><br />
+				<br /><strong>Order Details
+				</strong><br />Quantity: 3<br />Price: <span th:text = "'&pound;'+${products.price}+'0'"></span><br/>Date of delivery:
 				dd/mm/yyyy<br />
 				<strong>Total Price: (price x quantity)</strong>
 			</p>

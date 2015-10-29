@@ -16,13 +16,17 @@ public class Address implements Serializable {
 	/**
 	 * attributes used in the address class
 	 */
-	@Id
+	
 	private int addressID;
 	private String address;
 	private String postcode;
 	private int customerId;
+	private String fullAddress;
 	
-   /**
+  
+
+
+/**
     * class constructors
     */
 	public Address (int addressid, String address, String postcode, int customerId){
@@ -31,6 +35,19 @@ public class Address implements Serializable {
 		this.postcode = postcode;
 		this.customerId = customerId;
 	}
+	
+	 public String getFullAddress() {
+			return fullAddress=address+","+postcode;
+		}
+
+
+
+		public void setFullAddress(String fullAddress) {
+			this.fullAddress = fullAddress;
+		}
+
+	
+	
 	
 	/**
 	 * @author Tom

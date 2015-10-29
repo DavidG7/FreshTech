@@ -21,9 +21,11 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 
+
 import com.netbuilder.DataConfig;
 import com.netbuilder.entities.CustomerOrder;
 import com.netbuilder.entities.Employee;
+import com.netbuilder.entities.ProductSupplier;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.EmployeeRepository;
 import com.netbuilder.util.SQLTemplate;
@@ -83,10 +85,25 @@ public class OrderHistoryRepositorySQL implements CustomerOrderRepository {
 	}
 	
 	@Override
-	public boolean exists(Integer arg0) {
-		// TODO Auto-generated method stub
+	public boolean exists(Integer id) {
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
+		try 
+		{
+			ResultSet rs = sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder where orderid = " + id);
+			
+			while(rs.next())
+			{
+				return true;
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
+	
 	
 	
 	@Override
@@ -133,16 +150,15 @@ return entity;
 	
 	@Override
 	public List<CustomerOrder> findByOrderID(Integer OrderID) {
-		
-		
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE orderid = " + OrderID );
 			
 			while(rs.next()){	
-				
+				int i=0;
 				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -151,16 +167,17 @@ return entity;
 	}
 	
 	@Override
-	public CustomerOrder findByCustomerID(Integer customerID) {
-		CustomerOrder customerorder = null;
+	public ArrayList<CustomerOrder> findByCustomerID(Integer customerID) 
+	{
+		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {
 			ResultSet rs= sqltemplate.getResultSetForQuery("customerorder", "SELECT orderid, customerid, orderdate, ordertotal, customerorderstatus, addressid FROM customerorder WHERE customerid = " + customerID );
 			
 			while(rs.next()){	
-				
-				customerorder = (new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
-				System.out.println(customerorder.getOrderID()+","+customerorder.getCustomerID()+","+customerorder.getOrderDate()+","+customerorder.getOrderTotal()+","+customerorder.getCustomerOrderStatus()+","+customerorder.getDeliveryAddress());
-
+				int i=0;
+				customerorder.add(new CustomerOrder( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6)));	
+				System.out.println(customerorder.get(i).getOrderID()+","+customerorder.get(i).getCustomerID()+","+customerorder.get(i).getOrderDate()+","+customerorder.get(i).getOrderTotal()+","+customerorder.get(i).getCustomerOrderStatus()+","+customerorder.get(i).getDeliveryAddress());
+				i++;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
