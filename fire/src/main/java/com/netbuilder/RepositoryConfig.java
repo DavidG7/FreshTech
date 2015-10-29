@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.BasketRepository;
+import com.netbuilder.entityrepositories.CustomerOrderLineRepository;
 import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.EmployeeRepository;
@@ -31,6 +32,7 @@ import com.netbuilder.entityrepositoriesimplementations.mongo.BasketRepositoryMo
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.PaymentRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.CustomerOrderLineSQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.CustomerOrderSQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
 import com.netbuilder.entityrespositoriesimplementations.sql.OrderHistoryRepositorySQL;
@@ -160,6 +162,18 @@ public class RepositoryConfig {
 		customerOrderRepository.setSqltemplate(sqlTemplate);
 		return customerOrderRepository;
 	}
+	
+	@Primary
+	@Bean
+	public CustomerOrderLineRepository customerOrderLineRepositorySQL(){
+		CustomerOrderLineSQL customerOrderLineRepository = new CustomerOrderLineSQL();
+		customerOrderLineRepository.setSqltemplate(sqlTemplate);
+		return customerOrderLineRepository;
+	}
+	
+
+	
+	
 
 
 	//@Primary

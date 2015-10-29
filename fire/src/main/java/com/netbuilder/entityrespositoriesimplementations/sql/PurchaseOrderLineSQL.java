@@ -14,6 +14,7 @@ import com.netbuilder.DataConfig;
 import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.PurchaseOrder;
 import com.netbuilder.entities.PurchaseOrderLine;
+import com.netbuilder.entities.Supplier;
 import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
 import com.netbuilder.util.SQLTemplate;
 
@@ -117,7 +118,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT PurchaseOrder_purchaseorderlineid, productid, quantity FROM purchaseorderline");
+			ResultSet rs = sqltemplate.getResultSetForQuery("purchaseorderline", "SELECT PurchaseOrder_purchaseorderid, Product_productid, quantity FROM purchaseorderline");
 			
 			int i = 0;
 			
@@ -132,6 +133,14 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		}
 		return  purchaseOrderLine;
 	}
+	
+	
+	
+
+	
+	
+	
+	
 
 	@Override
 	public Iterable<PurchaseOrderLine> findAll(Iterable<Integer> arg0) {
