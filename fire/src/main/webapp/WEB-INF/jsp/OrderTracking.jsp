@@ -20,31 +20,33 @@
 		</div>
 			
 		<div class = "panel-body" id="centre">
+		
+		<div id="orderTracking" th:each = "customerOrder:${customerOrders}">
 		 <h1>Order Tracking</h1>
-	<div th:switch= "${customerOrder.customerOrderStatus}" >
-		<div th:case="'Order Confirmed'">
-			<span  th:id="statusActive">
-			Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span>
-			</span>
-			
-			---
-			
-			<span>
-			Processing  <span class="glyphicon glyphicon-hourglass"></span>
-			</span>
-			
-			---
-			
-			<span>
-			Dispatched  <span class="glyphicon glyphicon-plane"></span>
-			</span>
-			
-			---
-			
-			<span>
-			Delivered  <span class="glyphicon glyphicon-home"></span>
-			</span>
-		</div>
+		<div th:switch= "${customerOrder.customerOrderStatus}" >
+			<div th:case="'Order Confirmed'">
+				<span  th:id="statusActive">
+				Order Confirmed  <span class="glyphicon glyphicon-thumbs-up"></span>
+				</span>
+				
+				---
+				
+				<span>
+				Processing  <span class="glyphicon glyphicon-hourglass"></span>
+				</span>
+				
+				---
+				
+				<span>
+				Dispatched  <span class="glyphicon glyphicon-plane"></span>
+				</span>
+				
+				---
+				
+				<span>
+				Delivered  <span class="glyphicon glyphicon-home"></span>
+				</span>
+			</div>
 		
 		<div th:case="'Dispatched'">
 			<span>
@@ -94,7 +96,7 @@
 			</span>
 		</div>
 		
-				
+		</div>		
 		
 	<br/>	
 	<br/>

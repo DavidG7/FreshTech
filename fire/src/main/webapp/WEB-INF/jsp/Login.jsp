@@ -29,8 +29,7 @@
 		<div class = "panel-body">
 	    
 	   <div id="centre">
-		    <p>Username :<br/>
-			<input type = "text" name = "username"/>
+		    <p>First Name:____________________
 			</p>
 			
 			<p>Password :<br/>
