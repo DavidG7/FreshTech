@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 //<<<<<<< HEAD
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 //=======
 //>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
@@ -52,9 +53,7 @@ public class AddDiscontinue extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
 	
-	JLabel heading,optionOne,optionTwo,porousware;
-	JComboBox<String> categoryCombo;
-	JRadioButton porouswareButtonY,porouswareButtonN;
+	JLabel heading,optionOne;
 	JTable productTable;
 	
 	String newline = System.getProperty("line.separator");
@@ -65,9 +64,8 @@ public class AddDiscontinue extends JPanel{
 
 	int x = 40; //table height
 	public AddDiscontinue(){
+		
 		this.setLayout(new BorderLayout());
-		
-		
 		this.setBackground(new Color(255,255,255));
 		
 		 Box top = Box.createHorizontalBox();
@@ -79,51 +77,8 @@ public class AddDiscontinue extends JPanel{
 		
 	}
 	
-	public JComponent createRightPanel()
+	public JComponent createAddNewStock()
 	{
-		Box rightPanel = Box.createVerticalBox();
-		
-		optionTwo = new CustomLabel("(2) Add a new product", false);
-		
-		rightPanel.add(optionTwo);
-		
-		final CustomTextArea name = new CustomTextArea("Name");
-		CustomTextArea desc = new CustomTextArea("Description");
-		final CustomTextArea price = new CustomTextArea("Price");		
-		
-		name.setMaximumSize(new Dimension(450,20));
-		desc.setMaximumSize(new Dimension(450,20));
-		price.setMaximumSize(new Dimension(450,20));
-		
-		rightPanel.add(name);
-		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
-		rightPanel.add(desc);
-		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
-		categoryCombo.setMaximumSize(new Dimension(450,20));
-		categoryCombo.addItem("Gnome");
-		categoryCombo.addItem("Garden Accessory");
-		categoryCombo.addItem("Miscellaneous");
-		rightPanel.add(categoryCombo);
-		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));		
-		rightPanel.add(price);
-		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
-		
-		porousware = new CustomLabel("Porousware", false);
-	
-		rightPanel.add(porousware);
-		
-		porouswareButtonY = new JRadioButton("Y");
-		porouswareButtonY.setBackground(Color.WHITE);
-		porouswareButtonN = new JRadioButton("N");
-		porouswareButtonN.setBackground(Color.WHITE);
-		
-		ButtonGroup porouswareGrouping = new ButtonGroup();
-		porouswareGrouping.add(porouswareButtonY);
-		porouswareGrouping.add(porouswareButtonN);
-		rightPanel.add(porouswareButtonY);
-		rightPanel.add(porouswareButtonN);
-		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
-		
 		CustomButton addNewStock = new CustomButton("Add new stock item");
 		addNewStock.setMaximumSize(new Dimension(550,20));
 		
@@ -136,13 +91,91 @@ public class AddDiscontinue extends JPanel{
 	            			int newId = productRepository.findAll().size()+1;
 	            			System.out.println("NEW ID:" + newId);
 	            			//productRepository.insert(new Product(newId,6,Float.parseFloat(price.getText().substring(1)),String.valueOf(categoryCombo.getSelectedItem()),name.getText(),false,true, 0, String.valueOf(desc.getText()),"placeholder.png"));
-	                    }
-	            
-	       
-	                    
+	                    }   
 	     });
 		
-		rightPanel.add(addNewStock);
+		return addNewStock;
+		
+	}
+	
+	public JComponent createPorousWareArea()
+	{
+		Box panel = Box.createVerticalBox();
+		
+		JRadioButton porouswareButtonY = new JRadioButton("Y");
+		JRadioButton porouswareButtonN = new JRadioButton("N");
+		
+		porouswareButtonY.setBackground(Color.WHITE);
+		porouswareButtonN.setBackground(Color.WHITE);
+		
+		panel.add(porouswareButtonY);
+		panel.add(porouswareButtonN);
+		
+		return panel;
+	}
+	
+	public JComponent createInfoArea()
+	{
+		Box panel = Box.createVerticalBox();
+		
+		JLabel optionTwo = new CustomLabel("(2) Add a new product", false);
+		
+		panel.add(optionTwo);
+		
+		final CustomTextArea name = new CustomTextArea("Name");
+		name.setMaximumSize(new Dimension(450,20));	
+		
+		CustomTextArea desc = new CustomTextArea("Description");
+		desc.setMaximumSize(new Dimension(450,20));
+		
+		
+		panel.add(name);
+		panel.add(Box.createRigidArea(new Dimension(0,35)));
+		
+		panel.add(desc);
+		panel.add(Box.createRigidArea(new Dimension(0,35)));
+		
+		return panel;
+	}
+	
+	public JComponent createProductInformationPanel()
+	{
+		Box panel = Box.createVerticalBox();
+		
+		final CustomTextArea price = new CustomTextArea("Price");
+		price.setMaximumSize(new Dimension(450,20));
+		
+		JComboBox<String> categoryCombo = new JComboBox<String>();
+		
+		categoryCombo.setMaximumSize(new Dimension(450,20));
+		categoryCombo.addItem("Gnome");
+		categoryCombo.addItem("Garden Accessory");
+		categoryCombo.addItem("Miscellaneous");
+		
+		panel.add(categoryCombo);
+		panel.add(Box.createRigidArea(new Dimension(0,35)));		
+		panel.add(price);
+		panel.add(Box.createRigidArea(new Dimension(0,35)));
+		
+		JLabel porousware = new CustomLabel("Porousware", false);
+		
+		panel.add(porousware);
+		
+		return panel;
+	}
+	
+	public JComponent createRightPanel()
+	{
+		Box rightPanel = Box.createVerticalBox();
+		
+		rightPanel.add(createInfoArea());
+		
+		rightPanel.add(createProductInformationPanel());
+		rightPanel.add(createPorousWareArea());
+		rightPanel.add(Box.createRigidArea(new Dimension(0,35)));
+		
+		
+		rightPanel.add(createAddNewStock());
 		rightPanel.add(Box.createRigidArea(new Dimension(0,30)));
 		CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
 		 discontinueStock.addActionListener(new ActionListener() {
@@ -171,17 +204,11 @@ public class AddDiscontinue extends JPanel{
 		Box leftPanel;
 		
 		leftPanel =  Box.createVerticalBox();
-		categoryCombo = new JComboBox<String>();
-
-		
-		
 		
 		optionOne = new CustomLabel("(1) Select an existing product to discontinue", false);
 		String [] colNames = {"ProductID","Product Name"};
 		Object[][] data = new Object [x][5];
-		
-		
-        
+		        
     	List<Product> a = productRepository.findAll();
 
     	for(int i = 0; i <= a.size()-1; i++){
