@@ -30,6 +30,7 @@ public class PredicatedSalesSQL
 	ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	CustomerOrderSQL customerOrderRepository = (CustomerOrderSQL) sqlContext.getBean(CustomerOrderRepository.class);
 	
+	
 	public PredicatedSalesSQL()
 	{
 		

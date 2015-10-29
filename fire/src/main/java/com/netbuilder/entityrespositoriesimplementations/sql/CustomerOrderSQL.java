@@ -183,7 +183,6 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	@Override
 	public <S extends CustomerOrder> S save(S arg0) 
 	{
-		arg0 = (S) new CustomerOrder(); 
 		
 		sqltemplate.update("INSERT INTO customerorder VALUES('" + arg0.getOrderID() + "','" + arg0.getCustomerID() + "','" + arg0.getOrderDate() 
 				+ "','" + arg0.getOrderTotal() + "','" + arg0.getCustomerOrderStatus() + "','" + arg0.getDeliveryAddress()+"');");
@@ -199,8 +198,7 @@ public class CustomerOrderSQL implements CustomerOrderRepository
 	
 
 	@Override
-	public List<CustomerOrder> findByOrderID(Integer OrderID) {
-		
+	public List<CustomerOrder> findByOrderID(Integer OrderID) {	
 		
 		ArrayList<CustomerOrder> customerorder = new ArrayList<CustomerOrder>();
 		try {

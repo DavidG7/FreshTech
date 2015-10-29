@@ -16,8 +16,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entities.PurchaseOrder;
+import com.netbuilder.entities.PurchaseOrderLine;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
 
 import CustomUI.CustomScrollPane;
 import CustomUI.CustomTextArea;
@@ -48,54 +54,45 @@ public class DailyStockReport extends JPanel{
 		
 		setBackground(Color.WHITE);
 		String [] colNames = {"ProductID","Product Name","Quantity","Status"};
-		Object[][] data = new Object [x][5];// <--- Here is where X is used
+		Object[][] data = new Object [x][4];// <--- Here is where X is used
 		
 	      
 	      
       //  DBCollection coll = GUIMain.mdb.db.getCollection("Product");
 			
     	@SuppressWarnings("resource")
-		ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
-    	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
-        
-    	List<Product> a = productRepository.findAll();
+		ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+    	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) sqlContext.getBean(ProductRepository.class);	
+    	PurchaseOrderLineSQL purchaseOrderLineRepository = (PurchaseOrderLineSQL) sqlContext.getBean(PurchaseOrderLineRepository.class);
+    	PurchaseOrderSQL purchaseOrderRepository = (PurchaseOrderSQL) sqlContext.getBean(PurchaseOrderRepository.class);
     	
-        //ProductRepositoryMongo x = new ProductRepositoryMongo();
-    	//System.out.print(productRepository.findAll().get(0).getProductId());
+    	List<Product> a = productRepository.findAll();
+    	List<PurchaseOrderLine> x  = purchaseOrderLineRepository.listAll();
+    	List<PurchaseOrder> y = purchaseOrderRepository.listAll();
+    	
     	for(int i = 0; i <= a.size()-1; i++){
-    		data[i][0] = "Product ID: "+ a.get(i).getProductId();
+    		int temp =  a.get(i).getProductId();
+    		data[i][0] = "Product ID: "+ temp;
     		data[i][1] = a.get(i).getProductName();
     		data[i][2] = a.get(i).getStockLevel();
+    		//= purchaseOrderLineRepository.findByProductID(temp);
+    		System.out.println("ALERT");
+    		System.out.println("POL ID: " + x.get(i).getPurchaseOrderLineID() + " ,Product ID: " + x.get(i).getProductID());
+    		for(int j =0; j <= x.size()-1; j++){
+	    		if(x.get(j).getProductID() == temp){
+	    			for(int k = 0; k<=y.size()-1; k++){
+	    				if(y.get(k).getPurchaseOrderID() == x.get(j).getPurchaseOrderLineID()){
+	    					data[i][3] = y.get(k).getPurchaseOrderStatus();
+	    				}
+	    			}
+	    		}
+    		}
     	}
     	
-    	
-        /*
-		BasicDBObject allQuery = new BasicDBObject();
-		BasicDBObject fields = new BasicDBObject();
-		fields.put("productID", 1);
-				
-		try{
-			 DBCursor cursor = coll.find(allQuery, fields);
-	         int i=0;
-	         while (cursor.hasNext()) { 
-	            System.out.println("Prdouct by ProductID: "+i); 
-	            data[i][0] = cursor.next();
-	            System.out.println(cursor.next()); 
-	            i++;
-	         }
-	      }catch(Exception e){
-		     System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-		}   */
-	      
-	      
 		reportTable = new JTable(data,colNames);
 		JTableHeader header = reportTable.getTableHeader();
 	      header.setBackground(new Color(0,122,0));
 	      header.setForeground(Color.WHITE);
-	      
-	      
-	      
-	      
 	      
 	      
 		panel = new JPanel();
