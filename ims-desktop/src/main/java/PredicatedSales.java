@@ -21,14 +21,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.CustomerOrder;
+import com.netbuilder.entities.CustomerOrderLine;
 import com.netbuilder.entities.Product;
-import com.netbuilder.entities.PurchaseOrderLine;
+import com.netbuilder.entityrepositories.CustomerOrderLineRepository;
+import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
-import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
-import com.netbuilder.entityrepositories.PurchaseOrderRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
-import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQL;
-import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
+
+
+
+import com.netbuilder.entityrespositoriesimplementations.sql.CustomerOrderLineSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.CustomerOrderSQL;
 
 import CustomUI.CustomFont;
 import CustomUI.CustomLabel;
@@ -49,14 +53,15 @@ public class PredicatedSales extends JPanel
 	JTable table;
 	JPanel leftPanel,rightPanel, headingLeft;
 	String productName = "PRODUCTNAME";
+	int salesNum = 000;
 
 	int x = 35;
 	
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
-	PurchaseOrderSQL poRepository = (PurchaseOrderSQL) sqlContext.getBean(PurchaseOrderRepository.class);
-	PurchaseOrderLineSQL polRepository = (PurchaseOrderLineSQL) sqlContext.getBean(PurchaseOrderLineRepository.class);
+	CustomerOrderSQL coRepository = (CustomerOrderSQL) sqlContext.getBean(CustomerOrderRepository.class);
+	CustomerOrderLineSQL colRepository = (CustomerOrderLineSQL) sqlContext.getBean(CustomerOrderLineRepository.class);
 	
 	List<Product> products = productRepository.findAll();
 	
@@ -73,24 +78,48 @@ public class PredicatedSales extends JPanel
 		headingLeft.add(heading);	
 		headingLeft.add(icon);
 		
-	    final Iterable<PurchaseOrderLine> purchaseOrderLines = polRepository.findAll();
-	 
+		
+		
+	    final List<CustomerOrderLine> customerOrderLines = (List<CustomerOrderLine>) colRepository.findAll();
+	    final List<CustomerOrder> customerOrders = (List<CustomerOrder>) coRepository.findAll();
+	    
+	    final String[] datesToCustomerOrderLines = new String[customerOrderLines.size()];
 	    
 	    
-	    
-	    
+	    for(int i = 0; i < customerOrders.size();i++){
+	    	for(int j =0;j<customerOrderLines.size();j++){
+	    		if(customerOrders.get(i).getOrderID() == customerOrderLines.get(j).getCustomerOrderLineID()){
+	    			datesToCustomerOrderLines[j] = customerOrders.get(i).getOrderDate();
+	    			
+	    		}
+	    	}
+	    }
+
+
 		
 		headingLeft.setBorder(new EmptyBorder(30, 200, 30, 200));
 		
 		add(headingLeft, BorderLayout.NORTH);
 		
+		
+		
+		final int[][] quantities = new int[products.size()][4];
+		
+		   for (int i =0; i < customerOrderLines.size(); i++) {
+			     
+		    	 CustomerOrderLine pol = customerOrderLines.get(i);
+		    	 
+		    	 quantities[pol.getProductID()-1][DateSorter.getSeason(datesToCustomerOrderLines[i])] += pol.getQuantity();
+		     }
+		
+		   
 		String [] colNames = {"ProductID","Product Name","Quantity","Sales"};
 		Object[][] data = new Object [products.size()][4];
 		for(int i = 0; i<products.size();i++){
 				data[i][0] = products.get(i).getProductId();
 				data[i][1] = products.get(i).getProductName();
 				data[i][2] = products.get(i).getStockLevel();
-				data[i][3] = 1000;		
+				data[i][3] = quantities[i][0]+quantities[i][1]+quantities[i][2]+quantities[i][3];		
 		}
 		table = new JTable(data ,colNames);
 		
@@ -98,12 +127,9 @@ public class PredicatedSales extends JPanel
 	      header.setBackground(new Color(0,122,0));
 	      header.setForeground(Color.WHITE);	      
 	      
-	     final int[] quantities = new int[data.length];
+	    
 	     
-	     for (Iterator it = purchaseOrderLines.iterator(); it.hasNext(); ) {
-	    	 PurchaseOrderLine pol = (PurchaseOrderLine)it.next();
-	    	 quantities[pol.getProductID()-1] += pol.getQuantity();
-	     }
+	  
 	     
 
 	      
@@ -111,12 +137,12 @@ public class PredicatedSales extends JPanel
 		scrollPane.setPreferredSize(new Dimension(500,500));
 		leftPanel.add(scrollPane);		
 		
-		final CustomPieChart pie = new CustomPieChart("Sales","Sales");
+		final CustomPieChart pie = new CustomPieChart("Sales","Sales",quantities[0]);
 		rightPanel.add(pie);
 		pie.setBackground(Color.WHITE);
 		pie.setBorder(new EmptyBorder(70,0,0,0));
-		salesPrediction = new JLabel("Expecting {" + productName + "} to sell 14,000 this quarter");
-		
+		salesPrediction = new JLabel("Expecting " + productName + " to sell " + salesNum + " this quarter");
+		rightPanel.add(salesPrediction);
 		new CustomFont();
 		salesPrediction.setFont(CustomFont.getFont("BOLD", 12));
 		
@@ -136,22 +162,21 @@ public class PredicatedSales extends JPanel
 
 		selectionModel.addListSelectionListener(new ListSelectionListener() {
 		    public void valueChanged(ListSelectionEvent e) {
-		    	/*calculateYearlySales();
-		        pie.refreshChart();
-		        productName = (String)table.getModel().getValueAt(table.getSelectedRow(),1);
-		        salesPrediction.setText(("Expected " + productName + " sales this quarter are 14,000"));*/
+		    	 pie.refreshChart(quantities[table.getSelectedRow()]);
 		    	
-		    	
-		    	 for (Iterator it = purchaseOrderLines.iterator(); it.hasNext(); ) {
-		    		 System.out.println("PO NUm: " + polRepository.count());
-			    	 PurchaseOrderLine pol = (PurchaseOrderLine)it.next();
-			    	 System.out.println("Quantity: "+ pol.getQuantity());
-			     }
-			     
+		    	 
+			    
+			   for(int i = 0; i <datesToCustomerOrderLines.length;i++){
+			    	System.out.println("Dates of Each COL: " + datesToCustomerOrderLines[i]);
+			    	
+			    }
+			    System.out.println("BLAHBALAHJASHCDB");
 
-		    	for(int i = 0; i < quantities.length;i++){
-			    	 System.out.println("Sales: " + quantities[i]);
-			     }
+				  
+				    	
+		    	
+	
+		    	
 		    }
 			  
 		     

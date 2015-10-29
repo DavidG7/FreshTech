@@ -21,10 +21,10 @@ public class CustomPieChart extends JPanel {
   ChartPanel chartPanel;
   JFreeChart chart;
 
-  public CustomPieChart(String applicationTitle, String chartTitle) {
+  public CustomPieChart(String applicationTitle, String chartTitle, int[] seasonsValue) {
        
         // This will create the dataset 
-        PieDataset dataset = createDataset();
+        PieDataset dataset = createDataset(seasonsValue);
         // based on the dataset we create the chart
         chart = createChart(dataset, chartTitle);
         // we put the chart into a panel
@@ -43,24 +43,24 @@ public class CustomPieChart extends JPanel {
      * Creates a sample dataset 
      */
 
-    private  PieDataset createDataset() {
+    private  PieDataset createDataset(int[] seasonsValue) {
         DefaultPieDataset result = new DefaultPieDataset();
         ArrayList<Integer> list = new ArrayList<Integer>();
         int count = 0;
         String[] seasons = new String[] {"Spr","Sum","Au","Win"};
-        	for(int i = 0; i < 4; i++){
+        	/*for(int i = 0; i < 4; i++){
         		Random rand = new Random();
         		int randNum = rand.nextInt(100 - 1 + 1) + 1;
         		count += randNum;
         		list.add(randNum);
        
         	
-        	}
+        	}*/
         	
         	   for(int i = 0;i<4;i++){
         		   
-        		    double asPercent = list.get(i)*(100/(double)count);
-        			result.setValue(seasons[i], (int)asPercent);
+        		   // double asPercent = list.get(i)*(100/(double)count);
+        			result.setValue(seasons[i], seasonsValue[i]);
                }
        return result;
   }
@@ -88,11 +88,11 @@ public class CustomPieChart extends JPanel {
     
     
 
-    	public void refreshChart() {
+    	public void refreshChart(int[] seasonsValue) {
     	    this.removeAll();
     	    
     	    this.revalidate(); // This removes the old chart 
-    	    PieDataset dataset = createDataset();
+    	    PieDataset dataset = createDataset(seasonsValue);
             // based on the dataset we create the chart
             JFreeChart chart = createChart(dataset, "Sales");
             // we put the chart into a panel

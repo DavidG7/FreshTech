@@ -1,5 +1,6 @@
 package com.netbuilder.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -108,5 +109,4 @@ public class CustomerOrder {
 	public void setDeliveryAddress(int deliveryAddress) {
 		this.deliveryAddress = deliveryAddress;
 	}
-
 }

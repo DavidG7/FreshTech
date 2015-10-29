@@ -140,7 +140,7 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("customerorderline", "SELECT * FROM customerorderline WHERE CustomerOrder_orderid =" + arg0);
+			ResultSet rs = sqltemplate.getResultSetForQuery("customerorderline", "SELECT * FROM customerorderline WHERE CustomerOrderorderid =" + arg0);
 			
 			while(rs.next())
 			{
@@ -162,7 +162,7 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 	{
 		arg0 = (S) new CustomerOrderLine();
 		
-		sqltemplate.update("INSERT INTO customerorderline VALUES(" + arg0.getCustomerOrderLineID() + "','" + arg0.getProductID() + "','" + arg0.getQuantity());
+		sqltemplate.update("INSERT INTO customerorderline VALUES('" + arg0.getCustomerOrderLineID() + "', '" + arg0.getProductID() + "', '" + arg0.getQuantity()+"');");
 
 		return arg0;
 		
@@ -181,7 +181,7 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("customerorderline", "SELECT * FROM customerorderline WHERE Customerpurchaseorderlineid =" + customerOrderLineID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("customerorderline", "SELECT * FROM customerorderline WHERE CustomerOrder_orderid = " + customerOrderLineID);
 			
 			while(rs.next())
 			{
@@ -205,7 +205,7 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 		
 		try 
 		{
-			ResultSet rs = sqltemplate.getResultSetForQuery("customerorderline", "SELECT * FROM customerorderline WHERE prductid =" + productID);
+			ResultSet rs = sqltemplate.getResultSetForQuery("customerorderline", "SELECT * FROM customerorderline WHERE productid = " + productID);
 			
 			while(rs.next())
 			{

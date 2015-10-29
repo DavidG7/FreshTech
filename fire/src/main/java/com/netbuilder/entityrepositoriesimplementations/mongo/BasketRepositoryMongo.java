@@ -67,7 +67,9 @@ public class BasketRepositoryMongo implements BasketRepository{
 
 	@Override
 	public <S extends Basket> S save(S entity) {
-		mongoOperation.save(entity);
+		Query query = new Query();
+		query.addCriteria(Criteria.where("basketID").is(entity.getBasketID()));
+		mongoOperation.save(query, "Basket");
 		
 		return entity;
 	}

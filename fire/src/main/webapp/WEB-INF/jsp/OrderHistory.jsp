@@ -21,7 +21,8 @@
 <ul class="rig columns-2">
 <li th:each="CustomerOrder : ${customerOrders}" >
 	 OrderID:<p th:text="${CustomerOrder.orderID}"></p>
-	<p><img src="${image}"></img></p>
+	 Product<p th:each="Product : ${products}"  th:text="${Product.productName}"></p>
+	<p><img src="${Prodcut.image}"></img></p>
 	<p><a href="remove">Remove</a></p>
 	<p><a href="remove">Rate</a></p>
 </li>
