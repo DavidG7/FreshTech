@@ -19,7 +19,7 @@
 			
 			<h2> <b> E-mail Order Form </b> </h2>
 				
-			<h4> Please copy and complete this form with your order and email it to "service@nbgardens.com" </h4>
+			<h4> Please complete this form with your order and email it to "service@nbgardens.com" </h4>
 						
 			
 		</div>		
@@ -48,14 +48,6 @@
 		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
 		    	<input id="productbox" type="text"/><input id="quantitybox" type="text"/><br/>
 			</p>
-		
-		<button id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)">This is what I want to copy</button>
-
-     <script>
-      function copyToClipboard(text) {
-       window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-      }
-</script>
 		
 		</div>
 	   
