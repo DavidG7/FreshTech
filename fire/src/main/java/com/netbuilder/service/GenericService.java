@@ -9,6 +9,8 @@ import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.entityrepositories.BasketRepository;
+import com.netbuilder.entityrepositories.CustomerOrderLineRepository;
+import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 
@@ -22,6 +24,8 @@ public class GenericService {
 	private AddressRepository addressRepository;
 	private BasketRepository basketRepository;
 	private CustomerRepository customerRepository; 
+	private CustomerOrderRepository customerOrderRepository;
+	private CustomerOrderLineRepository customerOrderLineRepository;
 	private ProductRepository productRepository;
 	
 	public GenericService(HttpSession session, String sessionName){
@@ -31,6 +35,8 @@ public class GenericService {
 		addressRepository = context.getBean(AddressRepository.class);
 		basketRepository = context.getBean(BasketRepository.class);	
 		customerRepository = context.getBean(CustomerRepository.class);
+		customerOrderRepository = context.getBean(CustomerOrderRepository.class);
+		customerOrderLineRepository = context.getBean(CustomerOrderLineRepository.class);
 		productRepository = context.getBean(ProductRepository.class);
 		
 		System.out.println(context);
@@ -119,5 +125,23 @@ public class GenericService {
 
 	public void setContext(ApplicationContext context) {
 		this.context = context;
+	}
+
+	public CustomerOrderRepository getCustomerOrderRepository() {
+		return customerOrderRepository;
+	}
+
+	public void setCustomerOrderRepository(
+			CustomerOrderRepository customerOrderRepository) {
+		this.customerOrderRepository = customerOrderRepository;
+	}
+
+	public CustomerOrderLineRepository getCustomerOrderLineRepository() {
+		return customerOrderLineRepository;
+	}
+
+	public void setCustomerOrderLineRepository(
+			CustomerOrderLineRepository customerOrderLineRepository) {
+		this.customerOrderLineRepository = customerOrderLineRepository;
 	}
 }

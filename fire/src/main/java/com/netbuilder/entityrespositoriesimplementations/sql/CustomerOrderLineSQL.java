@@ -159,9 +159,7 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 
 	@Override
 	public <S extends CustomerOrderLine> S save(S arg0) 
-	{
-		arg0 = (S) new CustomerOrderLine();
-		
+	{		
 		sqltemplate.update("INSERT INTO customerorderline VALUES('" + arg0.getCustomerOrderLineID() + "', '" + arg0.getProductID() + "', '" + arg0.getQuantity()+"');");
 
 		return arg0;

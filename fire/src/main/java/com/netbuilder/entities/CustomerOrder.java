@@ -38,6 +38,16 @@ public class CustomerOrder {
 	 * @param customerOrderStatus
 	 * @param deliveryAddress
 	 */
+	
+	public CustomerOrder(int customerID, String orderDate, int orderTotal,
+			String customerOrderStatus, int deliveryAddress) {
+		this.customerID = customerID;
+		this.orderDate = orderDate;
+		this.customerOrderStatus = customerOrderStatus;
+		this.deliveryAddress = deliveryAddress;
+		this.orderTotal = orderTotal;
+	}
+	
 	public CustomerOrder(int OrderID, int customerID, String orderDate, int orderTotal,
 			String customerOrderStatus, int deliveryAddress) {
 		this.orderID = OrderID;

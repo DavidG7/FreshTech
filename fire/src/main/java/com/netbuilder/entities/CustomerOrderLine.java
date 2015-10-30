@@ -18,6 +18,12 @@ public class CustomerOrderLine
 		
 	}
 	
+	public CustomerOrderLine(int productID, int quantity)
+	{
+		this.productID = productID;
+		this.quantity = quantity;
+	}
+	
 	public CustomerOrderLine(int customerOrderLineID, int productID, int quantity)
 	{
 		this.customerOrderLineID = customerOrderLineID;
