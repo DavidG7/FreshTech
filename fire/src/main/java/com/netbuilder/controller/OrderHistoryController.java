@@ -90,6 +90,10 @@ public class OrderHistoryController {
 			return "OrderHistory";
 	 }
 */
+	
+	
+	
+	
 	 @RequestMapping("OrderHistory")
 	 public ModelAndView OrderHistory (ModelAndView view, HttpSession session){
 		 String user =  session.getAttribute("sessionUser")+"";
@@ -99,18 +103,17 @@ public class OrderHistoryController {
 				else{
 				 	Customer customer = customerRepository.findByCustomerUsername(user);
 				 	List<CustomerOrder> orders = customerOrderRepository.findByCustomerID(customer.getCustomerID());
-				 	ArrayList<CustomerOrderLine>  customerOrderLine = new ArrayList<CustomerOrderLine>();
-				 	ArrayList<Product>  products = new ArrayList<Product>();
+				 	List<CustomerOrderLine>  customerOrderLine = (List<CustomerOrderLine>) customerOrderLineRepository.findAll();
+				 	List<Product>  products = new ArrayList<Product>();
 				 	for(int i=0; i<orders.size(); i++){
-				 		CustomerOrderLine orderlines = customerOrderLineRepository.findByCustomerOrderLineID(orders.get(i).getOrderID());
-				 		System.out.println(orders.get(i).getOrderID());
-				 		customerOrderLine.add(orderlines);
+				 		for(int j=0; j<customerOrderLine.size(); j++){
+				 		if(orders.get(i).getOrderID()==customerOrderLine.get(j).getCustomerOrderLineID()){
+				 			if(productRepository.findByProductID(customerOrderLine.get(j).getProductID()).getProductId()==customerOrderLine.get(j).getProductID()){
+				 				products.add(productRepository.findByProductID(customerOrderLine.get(j).getProductID()));
+				 			}
+				 		}
 				 	}
-				 	for(int i=0; i<customerOrderLine.size(); i++){
-				 		products.add(productRepository.findByProductID(customerOrderLine.get(i).getProductID()));
-				 		System.out.println(products.get(i).getProductName());
 				 	}
-				 
 				 	view.setViewName("OrderHistory");
 				 	view.addObject("customerOrders", orders);
 				 	view.addObject("products", products);
