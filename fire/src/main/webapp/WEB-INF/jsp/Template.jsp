@@ -57,7 +57,6 @@
 					</a>
 					<ul class="dropdown-menu" id="basket-dropdown">
 						<li><a href="Basket">View basket</a></li>
-						<li><a href="PaymentAgreement">Checkout</a></li>
 						<li><a href="AddPaymentDetails">Review Payment Methods</a></li>
 						<li class="divider"></li>
 
@@ -71,7 +70,6 @@
 					<ul class="dropdown-menu" id="account-dropdown">
 						<li th:if="${session.sessionUser}"> <a th:text="'Hello ' + ${session.sessionUser}"></a></li>
 						<li th:unless="${session.sessionUser}"><a href="Register">Log in/Register </a></li>
-						<li><a href="ChooseAddress">View Addresses</a></li>
 						<li><a href="OrderTracking">Track an Order</a></li>
 						<li><a href="OutstandingOrders">Outstanding Orders</a></li>
 						<li><a href="UpdateAccount">Update your Account</a></li>
