@@ -32,8 +32,8 @@ public class AboutController {
 	 @RequestMapping("About")
 	 public String about(ModelAndView modelAndView) {
 		 	 
-		/*//Products
-		 productRepository.insert(new Product(1,15,32.00F,"Gnome","Godzilla",false,true, 1, "Godzilla Gnome, large with small arms","godzilla.jpg", true, 5.50F));
+		//Products
+		 /*productRepository.insert(new Product(1,15,32.00F,"Gnome","Godzilla",false,true, 1, "Godzilla Gnome, large with small arms","godzilla.jpg", true, 5.50F));
 		 productRepository.insert(new Product(2,3,60.00F,"Gnome","Fisherman",false,true, 3, "Fishing Gnome, has a small rod","fisherman.jpg"));
 		 productRepository.insert(new Product(3,8,50.20F,"Gnome","Gnomeo",false,true, 2, "The first of the Shakes-pair","gnomeojuliett.jpg"));
 		 productRepository.insert(new Product(4,27,16.00F,"Gnome","Juliett",false,true, 5, "The second of the Shakes-pair","gnomeojuliett.jpg"));
@@ -60,6 +60,11 @@ public class AboutController {
 		 customerRepository.insert(new Customer(3, "06525234536", 423.0F, "Davie Goodman", "th3flash@hotmail.com", "flash", "pass", "Phone"));
 		 customerRepository.insert(new Customer(4, "08569454568", 21.0F, "Vinny T. Tommygun", "the0phallus@yahoo.com", "vicky", "pass", "Email"));
 		 customerRepository.insert(new Customer(5, "09534574565", 989.0F, "Sarah Spin", "sra.spin@gmail.com", "spin", "pass", "Email"));
+		 customerRepository.insert(new Customer(6, "01523451246", 561.0F, "Ricky Luu", "rickyluu1212@hotmail.com", "ricky", "pass", "Email"));
+		 customerRepository.insert(new Customer(7, "01223635462", 843.0F, "Jamie Four-star", "usetheforster@gmail.com", "4star", "pass", "Phone"));
+		 customerRepository.insert(new Customer(8, "06525845784", 475.0F, "Tim Dudders", "dudderz@hotmail.com", "dudderz", "pass", "Phone"));
+		 customerRepository.insert(new Customer(9, "08356256234", 251.0F, "George Freshwater", "thefresh@yahoo.com", "fresh", "pass", "Email"));
+		 customerRepository.insert(new Customer(10, "09574638795", 980.0F, "Ben Porter", "goodriddance@gmail.com", "ben", "pass", "Email"));
 
 		 //Addresses
 		 addressRepository.insert(new Address(1,"53 Key Crescent", "E66 6ST", 1)) ;
@@ -68,14 +73,20 @@ public class AboutController {
 		 addressRepository.insert(new Address(4,"52 Haggered Place", "W3 1JX", 2)) ;
 		 addressRepository.insert(new Address(5,"67 Juries Corner", "NW2 4RF", 3)) ;
 		 addressRepository.insert(new Address(6,"36 Green Fields", "BH1 3FR", 4)) ;
-		 addressRepository.insert(new Address(7,"88 Windmill Drive", "EX7 7TU", 5)) ;
+		 addressRepository.insert(new Address(7,"88 Windmill Drive", "G7 7UP", 5)) ;
+		 addressRepository.insert(new Address(8,"25 Ricky Realm", "NC3 3TP", 6)) ;
+		 addressRepository.insert(new Address(9,"44 Four Street", "H15 4JM", 7)) ;
+		 addressRepository.insert(new Address(10,"3 Dudley Drive", "WH2 2FR", 8)) ;
+		 addressRepository.insert(new Address(11,"67 Fresh Water", "C13 8WH", 9)) ;
+		 addressRepository.insert(new Address(12,"28 Who cares", "L35 6ZX", 10)) ;
+		 
 		 //Payment Methods
 		 paymentRepository.insert(new Payment (1, 978923, "76-26-46",1));
 		 paymentRepository.insert(new Payment (2, 345325, "09-72-23",1));
-		 paymentRepository.insert(new Payment (3, 234532, "10-24-83",2));*/
+		 paymentRepository.insert(new Payment (3, 234532, "10-24-83",2));
 		 
 		 //Basket Lines
-	/*
+	
 		 basketRepository.insert(new Basket(1,productRepository.findByProductID(2), 13, 1));
 		 basketRepository.insert(new Basket(2,productRepository.findByProductID(9), 2, 1));
 		 basketRepository.insert(new Basket(3,productRepository.findByProductID(3), 27, 1));
