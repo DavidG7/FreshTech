@@ -68,9 +68,9 @@ public class BasketService extends GenericService{
 		//String address = request.getParameter("address");
 		//int addressID = this.getAddressRepository().findByAddress(address).get(0).getAddressid();
 		Date date = Calendar.getInstance().getTime();
-		CustomerOrder customerOrder = new CustomerOrder(99,this.getSessionID(), date+"", 55, "Processing", 1);	
+		CustomerOrder customerOrder = new CustomerOrder(this.getSessionID(), date+"", 55, "Processing", 1);
 		for(Basket basket:baskets){
-			CustomerOrderLine customerOrderLine = new CustomerOrderLine(99,basket.getProduct().getProductId(), basket.getQuantity());
+			CustomerOrderLine customerOrderLine = new CustomerOrderLine(basket.getProduct().getProductId(), basket.getQuantity());
 			System.out.println(customerOrderLine.getCustomerOrderLineID()+customerOrderLine.getProductID()+customerOrderLine.getQuantity());
 		}
 	}
