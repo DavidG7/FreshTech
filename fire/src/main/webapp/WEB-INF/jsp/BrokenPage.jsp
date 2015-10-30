@@ -18,7 +18,8 @@
 <h4> It appears there has been an error, please return to previous page. </h4>
 
 
-<p> <img src= "ImageFolder/gnomegif.gif"/> </p>
+<img src= "ImageFolder/gnomegif.gif"/>
+
 
 </div>
 </div>
