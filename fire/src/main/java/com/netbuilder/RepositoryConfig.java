@@ -172,7 +172,7 @@ public class RepositoryConfig {
 	
 	@Primary
 	@Bean
-	public CustomerOrderLineRepository customerOrderLineRepositorySQL(){
+	public CustomerOrderLineRepository customerOrderLineRepositorySQL1(){
 		CustomerOrderLineSQL customerOrderLineRepository = new CustomerOrderLineSQL();
 		customerOrderLineRepository.setSqltemplate(sqlTemplate);
 		return customerOrderLineRepository;
