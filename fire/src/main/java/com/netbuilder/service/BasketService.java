@@ -1,5 +1,7 @@
 package com.netbuilder.service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -78,8 +80,15 @@ public class BasketService extends GenericService{
 				System.out.println("Loop address: "+address);
 		}
 		System.out.println("Over here!: "+address);
+		
 		//int addressID = this.getAddressRepository().findByAddress(address).get(0).getAddressid();
-		Date date = Calendar.getInstance().getTime();
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		Calendar calendar = Calendar.getInstance();
+		String date = dateFormat.format(calendar.getTime());
+		
+		System.out.println(date);
+		
 		int totalCost=0;
 		for(Basket basket:baskets){
 			CustomerOrderLine customerOrderLine = new CustomerOrderLine((int)getCustomerOrderRepository().count(),basket.getProduct().getProductId(), basket.getQuantity());
@@ -99,7 +108,7 @@ public class BasketService extends GenericService{
 		}
 		
 
-		CustomerOrder customerOrder = new CustomerOrder((int)getCustomerOrderRepository().count(),this.getSessionID(), "testDate", totalCost, "Processing", 1);
+		CustomerOrder customerOrder = new CustomerOrder((int)getCustomerOrderRepository().count(),this.getSessionID(), date, totalCost, "Processing", 1);
 		System.out.println(customerOrder);
 		
 		System.out.println(getCustomerOrderRepository().save(customerOrder));
