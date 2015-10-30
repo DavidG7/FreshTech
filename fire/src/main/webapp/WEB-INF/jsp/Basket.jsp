@@ -30,155 +30,47 @@
 	
 		
 		<div class = "panel-body" >
+		
+					<label for="chooseAddress">Select Delivery Address</label> <br/>
+					<select>
+						<option id="chooseAddress" th:each="Address : ${addresses}" th:text="${Address.address}"/>
+					</select><br/>
+
 
 		<div class="squareasd" th:each="basket : ${basket}">
  		    <div class="contentasd">
  		        <div class="tableasd">
  		            <div class="table-cellasd">
 
- 		            
- 		            	<img class="img-thumbnail" id="identify" th:src="'ImageFolder/'+${basket.product.image}" th:alt="${basket.product.productName}" width="40%"/>
- 		            	<span id="sortgaps">
-		                	
-		                	<form th:action="@{/info}" method="post">			
-				
-								<input th:name="${basket.product.productId}" type="image" th:value="${basket.product.productName}"/>
-										
-							</form>
-		                	
-		                	
-		                	<p>&pound;<span th:text="${basket.product.price}"></span></p>
-		                	<p>Quantity: <span th:text="${basket.quantity}"></span></p>
-		                </span>
+ 		            	<form th:action="@{/info}" method = "post">
+ 		            		<input id="identify" class="img-thumbnail" width="40%" th:name="${basket.product.productId}" type="image" th:value="${basket.product.productName}" th:src="'ImageFolder/'+${basket.product.image}"/>
+							<input th:name="${basket.product.productId}" type="image" th:value="${basket.product.productName}"/>
+						</form>		                	
+
+	                	<p>&pound;<span th:text="${#numbers.formatDecimal(basket.product.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
+	                	
+	                	<p>Quantity: <span ><input th:value="${basket.quantity}" /></span></p>
+
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
 		                
-		                		            <form th:action="@{postUpdate}" method="post">
-		                <button type="submit" id="basket" name="basket" th:value="${basket.basketID}"><strong>Remove</strong></button>
-		            </form>
+		               	<form th:action="@{saveBasket}" method="post">
+		               		<button type="submit" id="save" name="save" th:value="${basket.basketID}"><strong>Save</strong></button>
+		            	</form>
+		               	<form th:action="@{removeBasket}" method="post">
+		                	<button type="submit" id="remove" name="remove" th:value="${basket.basketID}"><strong>Remove</strong></button>
+		            	</form>
 		            </div>
 		        </div>
 		    </div>
 		  </div>
 		 </div>
-		
-		<!-- 
-		<div class="squareasd">
- 		    <div class="contentasd">
- 		        <div class="tableasd">
- 		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="40%"/>
- 		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Smashy Gnome</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
-		                </span>
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div class="squareasd">
- 		    <div class="contentasd">
- 		        <div class="tableasd">
- 		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="40%"/>
- 		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Game of Gnomes</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
-		                </span>	
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div class="squareasd">
- 		    <div class="contentasd">
- 		        <div class="tableasd">
- 		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="40%"/>
- 		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Tasty Gnomes</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
-		                </span>
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		
-		<div class="squareasd">
- 		    <div class="contentasd">
- 		        <div class="tableasd">
- 		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/squarelittleFriend.jpg" alt="newlittleFriend" width="40%"/>
- 		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Original Gnome</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
-		                </span>
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div class="squareasd">
- 		    <div class="contentasd">
- 		        <div class="tableasd">
- 		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/redgnomebroken.png" alt="newlittleFriend" width="40%"/>
- 		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Smashy Gnome</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
-		                </span>	
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div class="squareasd">
- 		    <div class="contentasd">
- 		        <div class="tableasd">
- 		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/newgame.jpg" alt="newlittleFriend" width="40%"/>
- 		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Game of Gnomes</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
-		                </span>
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div class="squareasd">
- 		    <div class="contentasd">
- 		        <div class="tableasd">
- 		            <div class="table-cellasd">
- 		            	<img class="img-thumbnail" id="identify" src="ImageFolder/DinoGnome.png" alt="newlittleFriend" width="40%"/>
- 		            	<span id="sortgaps">
-		                	<p id="underlined"><a href="Product"><strong>Tasty Gnome</strong></a></p>
-		                	<p>&pound;10.00</p>
-		                	<p>Quantity: 3</p>
-		                </span>
-		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit">This is a high quality gnome!</p>
-		                <button type="submit"><strong>Remove</strong></button>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-	<div id="buttonmargin">
-		<a href="PaymentAgreement"><button type="submit"><strong>Proceed to Checkout</strong></button></a>
-	</div>
-	-->
+		 
+	<div>
+		<form th:action="@{submitOrder}" method="post">
+	 		<button id="checkout" type="submit" th:value="'Place order'"><strong>Submit Order</strong></button>
+	 	</form>
+	 </div>	 
+		 
 	<div class="push"></div>
 
 </div>

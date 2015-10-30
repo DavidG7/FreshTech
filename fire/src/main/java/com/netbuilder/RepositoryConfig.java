@@ -26,7 +26,6 @@ import com.netbuilder.entityrepositoriesimplementations.dummy.EmployeeRepository
 import com.netbuilder.entityrepositoriesimplementations.dummy.PaymentRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.dummy.ProductRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.dummy.PurchaseOrderRepositoryDummy;
-import com.netbuilder.entityrepositoriesimplementations.dummy.SupplierRepositoryDummy;
 import com.netbuilder.entityrepositoriesimplementations.mongo.AddressRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.BasketRepositoryMongo;
 import com.netbuilder.entityrepositoriesimplementations.mongo.CustomerRepositoryMongo;
