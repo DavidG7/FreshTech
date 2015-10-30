@@ -31,10 +31,12 @@
 		
 		<div class = "panel-body" >
 		
-					<label for="chooseAddress">Select Delivery Address</label> <br/>
-					<select>
-						<option id="chooseAddress" th:each="Address : ${addresses}" th:text="${Address.address}"/>
-					</select><br/>
+		<label for="chooseAddress">Select Delivery Address</label> <br/>
+		<form action="@{submitOrder}" method="post">
+		<select>
+			<option id="chooseAddress" th:each="Address : ${addresses}" th:text="${Address.address}"/>
+		</select>
+		</form><br/>
 
 
 		<div class="squareasd" th:each="basket : ${basket}">
@@ -49,11 +51,12 @@
 
 	                	<p>&pound;<span th:text="${#numbers.formatDecimal(basket.product.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
 	                	
-	                	<p>Quantity: <span ><input th:value="${basket.quantity}" /></span></p>
+	                	<form th:action="@{saveBasket}" method="post">
+	                		<p>Quantity: <span ><input th:name="quantity" th:value="${basket.quantity}" /></span></p>
 
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
 		                
-		               	<form th:action="@{saveBasket}" method="post">
+	
 		               		<button type="submit" id="save" name="save" th:value="${basket.basketID}"><strong>Save</strong></button>
 		            	</form>
 		               	<form th:action="@{removeBasket}" method="post">
