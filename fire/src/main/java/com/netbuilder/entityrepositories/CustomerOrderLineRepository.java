@@ -8,8 +8,10 @@ import com.netbuilder.entities.CustomerOrderLine;
 
 public interface CustomerOrderLineRepository extends CrudRepository<CustomerOrderLine, Integer>
 {
-	public CustomerOrderLine findByCustomerOrderLineID(Integer customerOrderLineID);
+	public List<CustomerOrderLine> findByCustomerOrderLineID(Integer customerOrderLineID);
 	
 	public List<CustomerOrderLine> findByProductID(Integer productID);
+
+
 
 }

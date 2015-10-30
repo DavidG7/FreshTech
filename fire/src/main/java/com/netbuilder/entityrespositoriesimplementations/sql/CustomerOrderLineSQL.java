@@ -175,9 +175,9 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 	}
 
 	@Override
-	public CustomerOrderLine findByCustomerOrderLineID(Integer customerOrderLineID) 
+	public List<CustomerOrderLine> findByCustomerOrderLineID(Integer customerOrderLineID) 
 	{
-		CustomerOrderLine customerOrderLine = new CustomerOrderLine();
+		ArrayList<CustomerOrderLine> customerOrderLines = new ArrayList<CustomerOrderLine>();
 		
 		try 
 		{
@@ -185,7 +185,7 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 			
 			while(rs.next())
 			{
-				return customerOrderLine = new CustomerOrderLine( rs.getInt(1), rs.getInt(2), rs.getInt(3));
+				customerOrderLines.add(new CustomerOrderLine( rs.getInt(1), rs.getInt(2), rs.getInt(3)));
 			}
 			
 			
@@ -195,7 +195,7 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 			e.printStackTrace();
 		}
 		
-		return null;
+		return customerOrderLines;
 	}
 
 	@Override
@@ -220,5 +220,9 @@ public class CustomerOrderLineSQL implements CustomerOrderLineRepository
 		
 		return customerOrderLine;
 	}
+
+
+	
+	
 	
 }
