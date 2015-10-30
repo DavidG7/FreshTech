@@ -12,7 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
 import CustomUI.*;
@@ -35,8 +37,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entities.PurchaseOrder;
+import com.netbuilder.entities.PurchaseOrderLine;
 import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderRepository;
+import com.netbuilder.entityrepositories.SupplierRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.SupplierSQL;
 
 import CustomUI.CustomButton;
 import CustomUI.CustomLabel;
@@ -67,14 +77,21 @@ public class AddDiscontinue extends JPanel{
 	
 	DefaultTableModel productModel;
 	
+	String user = "";
+	
 	String newline = System.getProperty("line.separator");
 	
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
-
+	
+	PurchaseOrderSQL poRepository = (PurchaseOrderSQL) sqlContext.getBean(PurchaseOrderRepository.class);
+	PurchaseOrderLineSQL polRepository = (PurchaseOrderLineSQL) sqlContext.getBean(PurchaseOrderLineRepository.class);
+	SupplierSQL supplierRepository = (SupplierSQL) sqlContext.getBean(SupplierRepository.class);
 	int x = 40; //table height
 	
-	public AddDiscontinue(){
+	public AddDiscontinue(String username){
 		
 		productModel = new DefaultTableModel();
 		
@@ -90,7 +107,8 @@ public class AddDiscontinue extends JPanel{
 		
 		this.add(top);
 		
-	
+		this.user = username;
+		
 		
 	}
 	
@@ -121,13 +139,48 @@ public class AddDiscontinue extends JPanel{
 			@Override
 	        public void actionPerformed(ActionEvent e) 
 			{
-	         	JOptionPane.showMessageDialog(getParent(),
-	            "New product is added to inventory" );
-	         	int newId = productRepository.findAll().size()+1;
-	            			
-	            		
-	            productRepository.insert(new Product(newId,0,Float.parseFloat(price.getText().substring(1)),String.valueOf(categoryCombo.getSelectedItem()),name.getText(),false,true, 0, String.valueOf(desc.getText()),"placeholder.png"));
-	                    
+	         		            			
+	         	try
+	         	{
+	         		Random rand = new Random();
+	         		
+	         		int randomNum = rand.nextInt(((int)10 - 0) + 1) + 0;
+	         		
+	         		JOptionPane.showMessageDialog(getParent(), "New product is added to inventory" );
+	         		
+	         		int newID = productRepository.findAll().size() + 1;
+	         		
+	         		int stockLevel =  randomNum;
+	         		
+	         		productRepository.insert(new Product(newID,0,Float.parseFloat(price.getText().substring(1)),String.valueOf(categoryCombo.getSelectedItem()),name.getText(),false,true, 0, String.valueOf(desc.getText()),"placeholder.png"));
+	         		
+	         		if(stockLevel == 0)
+	         		{
+	         			int poID = (int) (poRepository.count() + 1);
+		         		
+		         		PurchaseOrderLine poLine =  new PurchaseOrderLine(poID, newID, 10);    		
+		         		
+		         		randomNum = rand.nextInt(((int)supplierRepository.count()) + 1);
+		         		
+		         		PurchaseOrder purchaseOrder = new PurchaseOrder(poID, randomNum, 1, "2015-10-30", "confirmed");
+		         		
+		         		polRepository.save(poLine);
+		         		poRepository.save(purchaseOrder);
+	         		}
+	         		
+	         		
+	         	}
+	         	catch(NullPointerException e1)
+	         	{
+	         		JOptionPane.showMessageDialog(getParent(),
+	        	            "All fields must be filled" );
+	         	}
+	         	catch(InputMismatchException e1)
+	         	{
+	         		JOptionPane.showMessageDialog(getParent(),
+	        	            "Field filled with incorrect data" );
+	         	}	          
+	            
 	            resetTable(productModel);
 				
 				populateProductTableData();

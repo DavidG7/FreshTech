@@ -90,23 +90,26 @@ public class LogIn extends JPanel implements ActionListener {
     		String password = new String(passField.getPassword());
     		
     		if (login.establishlogin(userField.getText(), password))
-    		{    			
+    		{    			 			
     			topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
     	      	  
         		JTabbedPane pane = new JTabbedPane();
-        	   
+ 
+    	      	JOptionPane.showMessageDialog(getParent(),"Welcome " + userField.getText());
+      	      	        		
       	      	pane.setForeground(new Color(0,122,0));
       	      	pane.setBackground(Color.WHITE);
       	      
       	      	pane.addTab("Daily Stock Report", new DailyStockReport());
       	      	pane.addTab("Purchase Order", new PurchaseOrderIMS());
       	      	pane.addTab("Predicted Sales", new PredicatedSales());
-      	      	pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
+      	      	pane.addTab("Add/Discontinue Stock", new AddDiscontinue(userField.getText()));
       	      	
       	      	topFrame.remove(this);
       	      	topFrame.add(pane);
       	      	topFrame.revalidate();
           	  	topFrame.repaint();
+          	  	
     		}
     		else
     			JOptionPane.showMessageDialog(getParent(),"Please input a correct Username and Password." );

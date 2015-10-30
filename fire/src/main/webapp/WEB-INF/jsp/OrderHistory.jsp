@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Author: Ricky Luu -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       th:include="Template :: page">
@@ -21,8 +22,15 @@
 <ul class="rig columns-2">
 <li th:each="CustomerOrder : ${customerOrders}" >
 	 OrderID:<p th:text="${CustomerOrder.orderID}"></p>
-	 Product<p th:each="Product : ${products}"  th:text="${Product.productName}"></p>
-	<p><img src="${Prodcut.image}"></img></p>
+	 Product
+	 <p th:each="ProductData : ${products}">
+	 	<span th:switch="${ProductData.id}">
+	 	<span th:case="${CustomerOrder.orderID}" th:text="${ProductData.product.productName}"></span>
+	 	</span>
+	 	
+	 </p>
+	 
+	<p><img src="${ProductData.product.image}"></img></p>
 	<p><a href="remove">Remove</a></p>
 	<p><a href="remove">Rate</a></p>
 </li>
