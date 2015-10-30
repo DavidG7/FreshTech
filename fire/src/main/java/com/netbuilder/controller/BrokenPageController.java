@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BrokenPageController implements ErrorController{
 
-    private static final String PATH = "/BrokenPage";
+    private static final String PATH = "/error";
 
     @RequestMapping(value = PATH)
     public String error(ModelAndView modelAndView) {
