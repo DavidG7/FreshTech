@@ -10,12 +10,14 @@ import java.awt.Dimension;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.List;
+import java.util.Vector;
 
 import CustomUI.*;
 
 import javax.swing.Box;
-import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -23,11 +25,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
-
-//<<<<<<< HEAD
-//=======
-//>>>>>>> ef1d975f1403ce48560a93618ceee397a370e58c
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import org.springframework.context.ApplicationContext;
@@ -54,7 +53,13 @@ public class AddDiscontinue extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	JLabel heading,optionOne;
-	JTable productTable;
+	
+	int rowSelected = 0;
+	int colSelected = 0;
+	
+	Product product;
+	
+	DefaultTableModel productModel;
 	
 	String newline = System.getProperty("line.separator");
 	
@@ -62,7 +67,13 @@ public class AddDiscontinue extends JPanel{
 	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) mongoContext.getBean(ProductRepository.class);	
 
 	int x = 40; //table height
+	
 	public AddDiscontinue(){
+		
+		productModel = new DefaultTableModel();
+		
+		populateProductColumnNames();
+		populateProductTableData();
 		
 		this.setLayout(new BorderLayout());
 		this.setBackground(new Color(255,255,255));
@@ -73,8 +84,25 @@ public class AddDiscontinue extends JPanel{
 		
 		this.add(top);
 		
+	
 		
 	}
+	
+	public void setRowSelected(int row)
+	{
+		rowSelected = row;
+	}
+	
+	public void setColumnSelected(int col)
+	{
+		colSelected = col;
+	}
+	
+	public void setProduct(Product product)
+	{
+		this.product = product;
+	}
+	
 	
 	public JComponent createAddNewStock()
 	{
@@ -163,9 +191,41 @@ public class AddDiscontinue extends JPanel{
 		return panel;
 	}
 	
+	public void populateProductColumnNames()
+	{
+		productModel.addColumn("Product ID");
+		productModel.addColumn("Product Name");
+		productModel.addColumn("Discontinued?");
+	}
+	
+	public void populateProductTableData()
+	{
+    	List<Product> a = productRepository.findAll();
+
+		for(int j = 0; j < a.size(); j++)
+		{
+			Vector<String> vec = new Vector<String>();
+			
+			vec.add(Integer.toString(a.get(j).getProductId()));
+			vec.add(a.get(j).getProductName());
+			vec.add(String.valueOf(a.get(j).getDiscontinued()));
+			
+			productModel.addRow(vec);
+		}
+	}
+	
+	public void resetTable(DefaultTableModel dataModel)
+	{
+		dataModel.setRowCount(0);
+	}
+	
 	public void updateProductAvailablity(Product product)
 	{
 		product.setDiscontinued(!product.getDiscontinued());
+		
+		System.out.println(product.getDiscontinued());
+		
+		productRepository.save(product);
 	}
 	
 	public JComponent createRightPanel()
@@ -182,17 +242,28 @@ public class AddDiscontinue extends JPanel{
 		rightPanel.add(createAddNewStock());
 		rightPanel.add(Box.createRigidArea(new Dimension(0,30)));
 		CustomButton discontinueStock = new CustomButton("Discontinue selected product"); 
-		 discontinueStock.addActionListener(new ActionListener() {
+		 
+		discontinueStock.addActionListener(new ActionListener() 
+		{
 			 
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	            	//updateProductAvailability()
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				updateProductAvailablity(product);
 	            	
-	            	JOptionPane.showMessageDialog(getParent(),
-	            	        "Product is no longer available");
-	                   }
+				JOptionPane.showMessageDialog(getParent(), "Product is no longer available");
+				
+				productRepository.delete(product.getProductId());
+				
+				productRepository.insert(product);
+				
+				resetTable(productModel);
+				
+				populateProductTableData();
+			}
 	                    
-	     });
+	    });
+		
 		discontinueStock.setMaximumSize(new Dimension(550,20));
 		rightPanel.add(discontinueStock);
 		rightPanel.add(Box.createRigidArea(new Dimension(0,10)));
@@ -207,17 +278,57 @@ public class AddDiscontinue extends JPanel{
 	{
 		Box panel = Box.createVerticalBox();
 		
-		String [] colNames = {"ProductID","Product Name"};
-		Object[][] data = new Object [x][5];
-		        
-    	List<Product> a = productRepository.findAll();
+    	final JTable productTable = new JTable(productModel);
 
-    	for(int i = 0; i <= a.size()-1; i++){
-    		data[i][0] = a.get(i).getProductId();
-    		data[i][1] = a.get(i).getProductName();
-    	}
+		productTable.addMouseListener(new MouseListener()
+		{
+
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+									
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) 
+			{
+				rowSelected = productTable.getSelectedRow();
+				colSelected = productTable.getSelectedColumn();
+				
+				int productID = Integer.parseInt((String) productTable.getModel().getValueAt(rowSelected, 0));
+				
+				Product temp = productRepository.findByProductID(productID);
+				
+				setProduct(temp);
+				
+
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) 
+			{
+			
+					
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) 
+			{
+			
+					
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) 
+			{
+			
+					
+			}
+				
+		}
+		);
 		
-		productTable = new JTable(data, colNames);
 		JTableHeader header = productTable.getTableHeader();
 	    header.setBackground(new Color(0,122,0));
 	    header.setForeground(Color.WHITE);
@@ -225,7 +336,7 @@ public class AddDiscontinue extends JPanel{
 	    panel.add(header);
 	   	    
 	    CustomScrollPane scrollPane = new CustomScrollPane(productTable);
-	   
+	    	   
 	    panel.add(scrollPane);
 	    
 	    return panel;
@@ -247,8 +358,6 @@ public class AddDiscontinue extends JPanel{
 		leftPanel.add(HeadingandImage);
 
 		leftPanel.add(optionOne);
-	
-		
 	
 		leftPanel.add(createListOfProductsPanel());
 		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));

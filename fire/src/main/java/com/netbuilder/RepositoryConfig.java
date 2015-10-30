@@ -169,7 +169,7 @@ public class RepositoryConfig {
 		customerOrderRepository.setSqltemplate(sqlTemplate);
 		return customerOrderRepository;
 	}
-	
+
 	//@Primary
 	/*TODO Not implemented.
 	@Bean
