@@ -108,6 +108,8 @@ public class LogIn extends JPanel implements ActionListener {
       	      	topFrame.revalidate();
           	  	topFrame.repaint();
     		}
+    		else
+    			JOptionPane.showMessageDialog(getParent(),"Please input a correct Username and Password." );
   	      	
     	}
     	else

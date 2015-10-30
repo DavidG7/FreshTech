@@ -25,7 +25,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
-
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -71,6 +70,11 @@ public class AddDiscontinue extends JPanel{
 	
 	public AddDiscontinue(){
 		
+		productModel = new DefaultTableModel();
+		
+		populateProductColumnNames();
+		populateProductTableData();
+		
 		this.setLayout(new BorderLayout());
 		this.setBackground(new Color(255,255,255));
 		
@@ -80,10 +84,7 @@ public class AddDiscontinue extends JPanel{
 		
 		this.add(top);
 		
-		productModel = new DefaultTableModel();
-		
-		populateProductColumnNames();
-		populateProductTableData();
+	
 		
 	}
 	
@@ -248,6 +249,13 @@ public class AddDiscontinue extends JPanel{
 				updateProductAvailablity(product);
 	            	
 				JOptionPane.showMessageDialog(getParent(), "Product is no longer available");
+				
+				productRepository.delete(product);
+				productRepository.insert(product);
+				
+				resetTable(productModel);
+				
+				populateProductTableData();
 			}
 	                    
 	    });
@@ -283,16 +291,13 @@ public class AddDiscontinue extends JPanel{
 				rowSelected = productTable.getSelectedRow();
 				colSelected = productTable.getSelectedColumn();
 				
-				int productID = (int) productTable.getModel().getValueAt(rowSelected, 0);
+				int productID = Integer.parseInt((String) productTable.getModel().getValueAt(rowSelected, 0));
 				
 				Product temp = productRepository.findByProductID(productID);
 				
-				productRepository.delete(temp);
-				productRepository.insert(temp);
+				setProduct(temp);
 				
-				resetTable(productModel);
-				
-				populateProductTableData();
+
 				
 			}
 
@@ -349,8 +354,6 @@ public class AddDiscontinue extends JPanel{
 		leftPanel.add(HeadingandImage);
 
 		leftPanel.add(optionOne);
-	
-		
 	
 		leftPanel.add(createListOfProductsPanel());
 		leftPanel.setBorder(new EmptyBorder(30, 30, 30, 30));
