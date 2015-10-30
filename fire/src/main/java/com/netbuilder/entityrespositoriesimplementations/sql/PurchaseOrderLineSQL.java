@@ -157,7 +157,7 @@ public class PurchaseOrderLineSQL implements PurchaseOrderLineRepository
 		return  purchaseOrderLine;
 	}
 
->>>>>>> cdea4fe47026a71bd63a561d78017be3e55df094
+
 
 	@Override
 	public Iterable<PurchaseOrderLine> findAll(Iterable<Integer> arg0) {
