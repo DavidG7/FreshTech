@@ -222,6 +222,9 @@ public class AddDiscontinue extends JPanel{
 	public void updateProductAvailablity(Product product)
 	{
 		product.setDiscontinued(!product.getDiscontinued());
+		
+		System.out.println(product.getDiscontinued());
+		
 		productRepository.save(product);
 	}
 	
@@ -250,7 +253,8 @@ public class AddDiscontinue extends JPanel{
 	            	
 				JOptionPane.showMessageDialog(getParent(), "Product is no longer available");
 				
-				productRepository.delete(product);
+				productRepository.delete(product.getProductId());
+				
 				productRepository.insert(product);
 				
 				resetTable(productModel);
