@@ -24,6 +24,11 @@ import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrespositoriesimplementations.sql.CustomerOrderLineSQL;
 
+/**
+ * 
+ * @author pnewman
+ *
+ */
 public class BasketService extends GenericService{
 
 	public BasketService(HttpSession session, String sessionName) {

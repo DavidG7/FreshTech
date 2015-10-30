@@ -63,10 +63,14 @@
 				</span>
 
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<form th:action="@{updateBasket}" method="post">
+				<input th:placeholder="'Enter Quantity'" th:name="quantity"/>
+				
 				<button type="submit">
 					<img class="img-thumbnail" alt="hi" src="ImageFolder/shopCart.png"
 						height="28" width="28" /><strong> Add to cart</strong>
 				</button>
+				</form>
 				<p />
 			</div>
 			<hr />

@@ -14,6 +14,11 @@ import com.netbuilder.entityrepositories.CustomerOrderRepository;
 import com.netbuilder.entityrepositories.CustomerRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 
+/**
+ * 
+ * @author pnewman
+ *
+ */
 public class GenericService {
 
 	private int sessionID;

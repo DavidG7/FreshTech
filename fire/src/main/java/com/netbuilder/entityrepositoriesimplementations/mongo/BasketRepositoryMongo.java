@@ -96,12 +96,7 @@ public class BasketRepositoryMongo implements BasketRepository{
 	public long count() {
 		return mongoOperation.count(null, Basket.class);
 	}
-	
-	
 
-
-	
-	
 	@Override
 	public void delete(Integer id) 
 	{

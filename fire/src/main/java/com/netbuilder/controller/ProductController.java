@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -16,18 +17,24 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.netbuilder.DataConfig;
 import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.Basket;
 import com.netbuilder.entities.Product;
+import com.netbuilder.entityrepositories.BasketRepository;
 import com.netbuilder.entityrepositories.ProductRepository;
 import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
 import com.netbuilder.entityrespositoriesimplementations.sql.EmployeeRepositorySQL;
+import com.netbuilder.service.BasketService;
+import com.netbuilder.service.GenericService;
 
 @Controller
 public class ProductController {
 	
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+	BasketRepository basketRepository = mongoContext.getBean(BasketRepository.class);	
 	ProductRepository productRepository = mongoContext.getBean(ProductRepository.class);	
 		
 	List<Product> offerProducts = productRepository.findByOnOffer(true);
+	Product product;
 	 
 	 @RequestMapping("Product")
 	 public String   Product(Model model) {
@@ -79,7 +86,7 @@ public class ProductController {
 						
 			System.out.println("Product outside (ID): "+idFromPage);
 
-		 	Product product = productRepository.findByProductID(idFromPage);			
+		 	product = productRepository.findByProductID(idFromPage);			
 		 	ModelAndView view = new ModelAndView();
 			view.setViewName("Product");
 			view.addObject("product", product);
@@ -87,7 +94,34 @@ public class ProductController {
 			
 			return view;
 					
-		 	}
+		 }
+		
+		@RequestMapping(value="updateBasket", method=RequestMethod.POST)
+		public String updateBasket(ModelAndView modelAndView, HttpSession session, HttpServletRequest request){
+			
+			GenericService service = new GenericService(session, "sessionUser");			
+			
+			System.out.println("Session: "+service.getUserSession());
+			
+			if(!service.isSession()){
+				System.out.println("No session");
+				return "redirect:/Register";
+			}
+			else{
+			int customerID = service.getSessionID();
+			
+			int basketID = (int)basketRepository.count();
+			
+			int quantity = Integer.parseInt(request.getParameter("quantity"));
+			
+			Basket basket = new Basket(basketID, product, quantity, customerID);
+			
+			basketRepository.insert(basket);
+
+			}
+			
+			return "redirect:/ProductCatalogue";
+		}
 	   
 	  }
 	 
