@@ -1,5 +1,6 @@
 package com.netbuilder.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -63,16 +64,45 @@ public class BasketService extends GenericService{
 		return "redirect:/Basket";
 	}
 	
-	public void submitOrder(HttpServletRequest request){		
+	public void submitOrder(HttpServletRequest request){	
 		List<Basket> baskets = this.getBasketRepository().findByCustomerID(this.getSessionID());
-		//String address = request.getParameter("address");
+		List<Address> addresses = this.getAddressRepository().findByCustomerId(this.getSessionID());
+		List<CustomerOrderLine> customerOrderLines = new ArrayList<CustomerOrderLine>();
+		String address=null;
+		
+		System.out.println(request.getParameter("53 Key Crescent"));
+		
+		for(int i=0; i<addresses.size(); i++){
+			System.out.println("Search: "+addresses.get(i).getAddress());
+				address = request.getParameter(addresses.get(i).getAddress()+"");
+				System.out.println("Loop address: "+address);
+		}
+		System.out.println("Over here!: "+address);
 		//int addressID = this.getAddressRepository().findByAddress(address).get(0).getAddressid();
 		Date date = Calendar.getInstance().getTime();
-		CustomerOrder customerOrder = new CustomerOrder(this.getSessionID(), date+"", 55, "Processing", 1);
+		int totalCost=0;
 		for(Basket basket:baskets){
 			CustomerOrderLine customerOrderLine = new CustomerOrderLine(basket.getProduct().getProductId(), basket.getQuantity());
-			System.out.println(customerOrderLine.getCustomerOrderLineID()+customerOrderLine.getProductID()+customerOrderLine.getQuantity());
+			
+			if(basket.getProduct().isOnOffer()==false){
+				totalCost += basket.getQuantity()*basket.getProduct().getPrice();
+			}
+			else{
+				totalCost += basket.getQuantity()*basket.getProduct().getOfferPrice();
+			}
+			
+			System.out.println(customerOrderLine.getProductID()+" and "+customerOrderLine.getQuantity());
+			
+			customerOrderLines.add(customerOrderLine);
+			
+			System.out.println("List: "+customerOrderLines);
 		}
+		CustomerOrder customerOrder = new CustomerOrder(this.getSessionID(), "testDate", totalCost, "Processing", 1);
+		System.out.println(customerOrder);
+		
+		//System.out.println(getCustomerOrderRepository().save(customerOrder));
+		
+		//System.out.println(getCustomerOrderLineRepository().save(customerOrderLines));
 	}
 	
 }

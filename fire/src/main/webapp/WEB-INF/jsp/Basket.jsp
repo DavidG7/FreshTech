@@ -1,4 +1,4 @@
-<!-- Author: Sam Raspin -->
+<!-- Author: Sam Raspin & pnewman -->
 
 <!DOCTYPE html>
 
@@ -32,12 +32,12 @@
 		<div class = "panel-body" >
 		
 		<label for="chooseAddress">Select Delivery Address</label> <br/>
-		<form action="@{submitOrder}" method="post">
-		<select>
-			<option id="chooseAddress" th:each="Address : ${addresses}" th:text="${Address.address}"/>
-		</select>
+		<form th:action="@{submitOrder}" method="post">
+			<select>
+				<option th:id="${Address.address}" th:each="Address : ${addresses}" th:type="radio" th:value="${Address.address}" th:name="${Address.address}" th:text="${Address.address}"/>
+			</select>
+			<input id="checkout" type="submit" th:value="'Place order'"/>
 		</form><br/>
-
 
 		<div class="squareasd" th:each="basket : ${basket}">
  		    <div class="contentasd">
@@ -55,7 +55,8 @@
 	                		<p>Quantity: <span ><input th:name="quantity" th:value="${basket.quantity}" /></span></p>
 
 		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
-		                
+
+	                	<p> <span id="underlined">Total Cost:</span> <br/>&pound;<span th:text="${#numbers.formatDecimal(basket.product.price*basket.quantity, 0, 'COMMA', 2, 'POINT')}"></span></p>		                
 	
 		               		<button type="submit" id="save" name="save" th:value="${basket.basketID}"><strong>Save</strong></button>
 		            	</form>
@@ -69,9 +70,7 @@
 		 </div>
 		 
 	<div>
-		<form th:action="@{submitOrder}" method="post">
-	 		<button id="checkout" type="submit" th:value="'Place order'"><strong>Submit Order</strong></button>
-	 	</form>
+
 	 </div>	 
 		 
 	<div class="push"></div>
