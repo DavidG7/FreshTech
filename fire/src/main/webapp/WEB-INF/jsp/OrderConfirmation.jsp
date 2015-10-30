@@ -18,12 +18,17 @@
 			<div class = "jumbotron">
 			
 				<h2> <b> Thank you for your order!</b> </h2>
+				<h3>Your order has been confirmed. Happy Gardening!</h3>
 				
 			</div>		
 
 		</div>
 		
-			<h3>Your order has been confirmed. Happy Gardening!</h3>
+			<h3>Gnomes away!</h3>
+			
+			<img src= "ImageFolder/Dispatch.gif"/>
+			
+						
 		<div class="push"></div>
 		
 		<form action="/">

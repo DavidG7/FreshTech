@@ -4,7 +4,7 @@
       th:include="Template :: page">
       
     <head th:fragment="header">
-		<link  type="text/css" rel="stylesheet" href="css/Landing.css" />
+	<link  type="text/css" rel="stylesheet" href="css/Landing.css" />
 	<title>NB Gardens</title>
     </head>
     <body>
@@ -73,7 +73,7 @@
 		  <div class="carousel-inner">
 		  
 		    <div class="item active">
-		    	<h3>Special Offers</h3>
+		    	<img src= "ImageFolder/SpecialOffers.png"/>
 		    </div>
 		    
 			<div class="item" th:each="product : ${offerProducts}">
@@ -112,7 +112,7 @@
 		  <div class="carousel-inner">
 
 		    <div class="item active">
-		    	<h3>Discontinued</h3>
+		    	<img src= "ImageFolder/ClearOut.png"/>
 		    </div>
 		    
 		    <div class="item" th:each="product : ${discontinuedProducts}">
