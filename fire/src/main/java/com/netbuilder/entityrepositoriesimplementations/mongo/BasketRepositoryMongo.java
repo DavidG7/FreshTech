@@ -70,7 +70,6 @@ public class BasketRepositoryMongo implements BasketRepository{
 		Query query = new Query();
 		query.addCriteria(Criteria.where("basketID").is(entity.getBasketID()));
 		mongoOperation.save(query, "Basket");
-		
 		return entity;
 	}
 
