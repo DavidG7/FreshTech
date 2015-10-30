@@ -82,7 +82,7 @@ public class BasketService extends GenericService{
 		Date date = Calendar.getInstance().getTime();
 		int totalCost=0;
 		for(Basket basket:baskets){
-			CustomerOrderLine customerOrderLine = new CustomerOrderLine(basket.getProduct().getProductId(), basket.getQuantity());
+			CustomerOrderLine customerOrderLine = new CustomerOrderLine((int)getCustomerOrderRepository().count(),basket.getProduct().getProductId(), basket.getQuantity());
 			
 			if(basket.getProduct().isOnOffer()==false){
 				totalCost += basket.getQuantity()*basket.getProduct().getPrice();
@@ -97,12 +97,17 @@ public class BasketService extends GenericService{
 			
 			System.out.println("List: "+customerOrderLines);
 		}
-		CustomerOrder customerOrder = new CustomerOrder(this.getSessionID(), "testDate", totalCost, "Processing", 1);
+		
+
+		CustomerOrder customerOrder = new CustomerOrder((int)getCustomerOrderRepository().count(),this.getSessionID(), "testDate", totalCost, "Processing", 1);
 		System.out.println(customerOrder);
 		
-		//System.out.println(getCustomerOrderRepository().save(customerOrder));
+		System.out.println(getCustomerOrderRepository().save(customerOrder));
 		
-		//System.out.println(getCustomerOrderLineRepository().save(customerOrderLines));
+		for(CustomerOrderLine customerOrderLine:customerOrderLines){
+			System.out.println(customerOrderLine.getCustomerOrderLineID()+" "+customerOrderLine.getProductID()+" "+customerOrderLine.getQuantity());
+			System.out.println(getCustomerOrderLineRepository().save(customerOrderLine));
+		}
 	}
 	
 }
