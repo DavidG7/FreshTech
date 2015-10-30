@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -56,6 +57,7 @@ public class PredicatedSales extends JPanel
 	int salesNum = 000;
 
 	int x = 35;
+	
 	
 	ApplicationContext mongoContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
 	ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
@@ -141,7 +143,7 @@ public class PredicatedSales extends JPanel
 		rightPanel.add(pie);
 		pie.setBackground(Color.WHITE);
 		pie.setBorder(new EmptyBorder(70,0,0,0));
-		salesPrediction = new JLabel("Expecting " + productName + " to sell " + salesNum + " this quarter");
+		salesPrediction = new JLabel(Integer.toString(salesNum));
 		rightPanel.add(salesPrediction);
 		new CustomFont();
 		salesPrediction.setFont(CustomFont.getFont("BOLD", 12));
@@ -163,7 +165,11 @@ public class PredicatedSales extends JPanel
 		selectionModel.addListSelectionListener(new ListSelectionListener() {
 		    public void valueChanged(ListSelectionEvent e) {
 		    	 pie.refreshChart(quantities[table.getSelectedRow()]);
-		    	
+		    	 
+		    	 int month = Calendar.getInstance().get(Calendar.MONTH);
+		    	 
+		    	 salesNum = quantities[table.getSelectedRow()][DateSorter.getSeason(month)];
+		    	salesPrediction.setText(Integer.toString(salesNum));
 		    	 
 			    
 			   for(int i = 0; i <datesToCustomerOrderLines.length;i++){
