@@ -70,6 +70,7 @@ public class DailyStockReport extends JPanel{
     	List<PurchaseOrderLine> x  = purchaseOrderLineRepository.listAll();
     	List<PurchaseOrder> y = purchaseOrderRepository.listAll();
     	
+    	System.out.println(a.size());
     	for(int i = 0; i <= a.size()-1; i++){
     		int temp =  a.get(i).getProductId();
     		data[i][0] = "Product ID: "+ temp;
