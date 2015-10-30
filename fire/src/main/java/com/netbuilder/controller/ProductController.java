@@ -60,30 +60,6 @@ public class ProductController {
 		 
 		@RequestMapping(value="info", method=RequestMethod.POST)
 		public ModelAndView doPost (HttpServletRequest request, HttpServletResponse response) {
-	 		/*
-			System.out.println("");
-		 		
-			String name = null;
-			String nameFromPage=null;
-			 	for(int i=0; i<productRepository.findAll().size(); i++){
-				 	name = productRepository.findAll().get(i).getProductName();
-					
-				 	if(request.getParameter(name) != null){
-				 		nameFromPage = request.getParameter(name);
-				 	}
-				 	
-					System.out.println("Product inside: "+nameFromPage);
-			}		 
-	
-			System.out.println("Product outside: "+nameFromPage);
-	
-		 	Product product = productRepository.findByProductName(nameFromPage);			
-		 	ModelAndView view = new ModelAndView();
-			view.setViewName("Product");
-			view.addObject("product", product);
-			view.addObject("offerProducts", offerProducts);
-			 */
-			
 		int id = 0;
 			int idFromPage = 0;
 			String idString = null;

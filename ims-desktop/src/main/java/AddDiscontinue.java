@@ -54,6 +54,12 @@ public class AddDiscontinue extends JPanel{
 	
 	JLabel heading,optionOne;
 	
+	final CustomTextArea name = new CustomTextArea("Name");
+	CustomTextArea desc = new CustomTextArea("Description");
+	final CustomTextArea price = new CustomTextArea("Price");
+	
+	JComboBox<String> categoryCombo = new JComboBox<String>();
+	
 	int rowSelected = 0;
 	int colSelected = 0;
 	
@@ -109,16 +115,23 @@ public class AddDiscontinue extends JPanel{
 		CustomButton addNewStock = new CustomButton("Add new stock item");
 		addNewStock.setMaximumSize(new Dimension(550,20));
 		
-		addNewStock.addActionListener(new ActionListener() {
+		addNewStock.addActionListener(new ActionListener() 
+		{
 
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	            	JOptionPane.showMessageDialog(getParent(),
-	            	        "New product is added to inventory" );
-	            			int newId = productRepository.findAll().size()+1;
-	            			System.out.println("NEW ID:" + newId);
-	            			//productRepository.insert(new Product(newId,6,Float.parseFloat(price.getText().substring(1)),String.valueOf(categoryCombo.getSelectedItem()),name.getText(),false,true, 0, String.valueOf(desc.getText()),"placeholder.png"));
-	                    }   
+			@Override
+	        public void actionPerformed(ActionEvent e) 
+			{
+	         	JOptionPane.showMessageDialog(getParent(),
+	            "New product is added to inventory" );
+	         	int newId = productRepository.findAll().size()+1;
+	            			
+	            		
+	            productRepository.insert(new Product(newId,0,Float.parseFloat(price.getText().substring(1)),String.valueOf(categoryCombo.getSelectedItem()),name.getText(),false,true, 0, String.valueOf(desc.getText()),"placeholder.png"));
+	                    
+	            resetTable(productModel);
+				
+				populateProductTableData();
+	        }   
 	     });
 		
 		return addNewStock;
@@ -149,10 +162,10 @@ public class AddDiscontinue extends JPanel{
 		
 		panel.add(optionTwo);
 		
-		final CustomTextArea name = new CustomTextArea("Name");
+		
 		name.setMaximumSize(new Dimension(450,20));	
 		
-		CustomTextArea desc = new CustomTextArea("Description");
+		
 		desc.setMaximumSize(new Dimension(450,20));
 		
 		
@@ -169,10 +182,10 @@ public class AddDiscontinue extends JPanel{
 	{
 		Box panel = Box.createVerticalBox();
 		
-		final CustomTextArea price = new CustomTextArea("Price");
+		
 		price.setMaximumSize(new Dimension(450,20));
 		
-		JComboBox<String> categoryCombo = new JComboBox<String>();
+		
 		
 		categoryCombo.setMaximumSize(new Dimension(450,20));
 		categoryCombo.addItem("Gnome");
@@ -222,6 +235,9 @@ public class AddDiscontinue extends JPanel{
 	public void updateProductAvailablity(Product product)
 	{
 		product.setDiscontinued(!product.getDiscontinued());
+		
+		System.out.println(product.getDiscontinued());
+		
 		productRepository.save(product);
 	}
 	
@@ -250,7 +266,8 @@ public class AddDiscontinue extends JPanel{
 	            	
 				JOptionPane.showMessageDialog(getParent(), "Product is no longer available");
 				
-				productRepository.delete(product);
+				productRepository.delete(product.getProductId());
+				
 				productRepository.insert(product);
 				
 				resetTable(productModel);
@@ -270,12 +287,21 @@ public class AddDiscontinue extends JPanel{
 		
 	}
 	
+    /*public Class<?> getColumnClass(int column) {
+        if (column == 1) {
+            return Integer.class;
+        }
+        return super.getColumnClass(column);
+    }*/
+	
 	public JComponent createListOfProductsPanel()
 	{
 		Box panel = Box.createVerticalBox();
 		
     	final JTable productTable = new JTable(productModel);
+    	
 
+    	
 		productTable.addMouseListener(new MouseListener()
 		{
 
