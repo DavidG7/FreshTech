@@ -2,7 +2,10 @@ package com.netbuilder.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.netbuilder.util.ContactMethod;
 
 /**
@@ -15,6 +18,7 @@ import com.netbuilder.util.ContactMethod;
  * and update/view their orders, addresses and payment methods. 
  *
  */
+@Document (collection="Customer")
 public class Customer implements Serializable {
 	private static final long serialVersionUID = -469127124351435736L;
 	
@@ -33,7 +37,7 @@ public class Customer implements Serializable {
 	
 	private ArrayList<Product> wishList;
 	private ArrayList<Payment> paymentArray;
-	private ArrayList<Address> addressArray;
+	private ArrayList<Address> addressArray = new ArrayList<Address>() ;
 	private ArrayList<Basket> basketArray;
 		
 	/**
@@ -70,7 +74,12 @@ public class Customer implements Serializable {
 		setCustomerContactMethod(preferedContactMethod);	
 	}
 	
+	
 	public Customer() { }
+	
+	public void addAddress(Address address){
+		addressArray.add(new Address());
+	}
 	
 	public int getCustomerID() {
 		return customerID;
@@ -157,6 +166,30 @@ public class Customer implements Serializable {
 	
 	public Address getCustomerAddressAt(int i) {
 		return addressArray.get(i);
+	}
+	
+	public ArrayList<Basket> getCustomerBasketArray() {
+		return basketArray;
+	}
+	
+	public Basket getCustomerBasketAt(int i){
+		return basketArray.get(i);
+	}
+	
+	public ArrayList<Payment> getCustomerPaymentArray() {
+		return paymentArray;
+	}
+	
+	public Payment getCustomerPaymentAt(int i){
+		return paymentArray.get(i);
+	}
+	
+	public ArrayList<Product> getCustomerWishListArray() {
+		return wishList;
+	}
+	
+	public Product getCustomerWishListAt(int i){
+		return wishList.get(i);
 	}
 	
 	

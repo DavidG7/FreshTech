@@ -1,11 +1,29 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.netbuilder.DataConfig;
+import com.netbuilder.RepositoryConfig;
+import com.netbuilder.entities.Product;
+import com.netbuilder.entities.PurchaseOrder;
+import com.netbuilder.entities.PurchaseOrderLine;
+import com.netbuilder.entityrepositories.ProductRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderLineRepository;
+import com.netbuilder.entityrepositories.PurchaseOrderRepository;
+import com.netbuilder.entityrepositoriesimplementations.mongo.ProductRepositoryMongo;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderLineSQL;
+import com.netbuilder.entityrespositoriesimplementations.sql.PurchaseOrderSQL;
 
 import CustomUI.CustomScrollPane;
 import CustomUI.CustomTextArea;
@@ -36,16 +54,53 @@ public class DailyStockReport extends JPanel{
 		
 		setBackground(Color.WHITE);
 		String [] colNames = {"ProductID","Product Name","Quantity","Status"};
-		Object[][] data = new Object [x][5];// <--- Here is where X is used
+		Object[][] data = new Object [x][4];// <--- Here is where X is used
+		
+	      
+	      
+      //  DBCollection coll = GUIMain.mdb.db.getCollection("Product");
+			
+    	@SuppressWarnings("resource")
+		ApplicationContext sqlContext = new AnnotationConfigApplicationContext(DataConfig.class, RepositoryConfig.class);
+    	ProductRepositoryMongo productRepository = (ProductRepositoryMongo) sqlContext.getBean(ProductRepository.class);	
+    	PurchaseOrderLineSQL purchaseOrderLineRepository = (PurchaseOrderLineSQL) sqlContext.getBean(PurchaseOrderLineRepository.class);
+    	PurchaseOrderSQL purchaseOrderRepository = (PurchaseOrderSQL) sqlContext.getBean(PurchaseOrderRepository.class);
+    	
+    	List<Product> a = productRepository.findAll();
+    	List<PurchaseOrderLine> x  = purchaseOrderLineRepository.listAll();
+    	List<PurchaseOrder> y = purchaseOrderRepository.listAll();
+    	
+    	System.out.println(a.size());
+    	for(int i = 0; i <= a.size()-1; i++){
+    		int temp =  a.get(i).getProductId();
+    		data[i][0] = "Product ID: "+ temp;
+    		data[i][1] = a.get(i).getProductName();
+    		data[i][2] = a.get(i).getStockLevel();
+    		System.out.println("ALERT");
+    		for(int j =0; j <= x.size()-1; j++){
+	    		if(x.get(j).getProductID() == temp){
+	    			for(int k = 0; k<=y.size()-1; k++){
+	    				if(y.get(k).getPurchaseOrderID() == x.get(j).getPurchaseOrderLineID() && !y.get(k).getPurchaseOrderStatus().equals("received")){
+	    					data[i][3] = y.get(k).getPurchaseOrderStatus();
+	    				}
+	    			}
+	    		}
+    		}
+    	}
+    	
 		reportTable = new JTable(data,colNames);
+		JTableHeader header = reportTable.getTableHeader();
+	      header.setBackground(new Color(0,122,0));
+	      header.setForeground(Color.WHITE);
+	      
+	      
 		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		topBar.setBackground(Color.WHITE);
 		topBar.add(label);
-		searchText = new CustomTextArea("Search                  "+
-											"                    "+
-											"                    "+
-											"                    ");
+		searchText = new CustomTextArea("Search");
+		searchText.setPreferredSize(new Dimension(500,25));
+		topBar.setPreferredSize(new Dimension(800,80));
 		topBar.add(searchText);
 		panel.add(topBar, BorderLayout.NORTH);
 		panel.add(new CustomScrollPane(reportTable),BorderLayout.CENTER);
@@ -54,9 +109,7 @@ public class DailyStockReport extends JPanel{
 		bottomBar.add(rturn);
 		panel.add(bottomBar,BorderLayout.SOUTH);
 		add(panel);
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400,250);
-		//pack();
 		setVisible(true);
 		
 	}

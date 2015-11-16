@@ -4,24 +4,49 @@ import java.io.Serializable;
 
 import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * 
  * @author sraspin
  *
  */
-public class Product implements Serializable  {
-	private static final long serialVersionUID = -7337349035516644812L;
-	private boolean discontinued = false;
-	private boolean porusware = false;
+@Document (collection="Product")
+public class Product {
+	
 	@Id
-	private int productID = 0;
-	private int stockLevel = 0;
-	private int rating = 0;
-	private float price = 0F;
-	private String category = null;
-	private String productDescription = null;
-	private String image = null;
-	private String productName = null;
+	private int productID;
+	
+	private boolean discontinued;
+	private boolean porusware;
+	
+	private int stockLevel;
+	private int rating;
+	private float price;
+	private String category;
+	private String productDescription;
+	private String image;
+	
+	private String productName;
+	private boolean onOffer;
+	private float offerPrice = price;
+	
+	public boolean isOnOffer() {
+		return onOffer;
+	}
+
+	public void setOnOffer(boolean onOffer) {
+		this.onOffer = onOffer;
+	}
+
+	public float getOfferPrice() {
+		return offerPrice;
+	}
+
+	public void setOfferPrice(float offerPrice) {
+		this.offerPrice = offerPrice;
+	}
+
 	
 	/**
 	 * The Product class contains 2 constructors.
@@ -53,6 +78,21 @@ public class Product implements Serializable  {
 		this.productDescription = product_description;
 		this.image = picture;
 		this.productName = product_name;
+	}
+	
+	public Product(int productID, int stock_level, float the_price, String product_category, String product_name, boolean discontinue, boolean porousware, int product_rating, String product_description, String picture, boolean onOffer, float offerPrice){
+		this.discontinued = discontinue;
+		this.porusware = porousware;
+		this.productID = productID;
+		this.stockLevel = stock_level;
+		this.rating = product_rating;
+		this.price = the_price;
+		this.category = product_category;
+		this.productDescription = product_description;
+		this.image = picture;
+		this.productName = product_name;
+		this.onOffer = onOffer;
+		this.offerPrice = offerPrice;
 	}
 	
 	public void setDiscontinued(boolean value){

@@ -3,6 +3,26 @@ ul.rig {
 	font-size: 0px;
 	margin-left: -2.5%; /* should match li left margin */
 }
+
+#testimages {
+    position: relative;
+    float: left;
+    width:  500px;
+    height: 500px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+
+.gnomeimage {
+    height:  320px;    
+}
+
+#clearrating{
+	clear:both;
+}
+
 ul.rig li {
 	display: inline-block;
 	padding: 10px;

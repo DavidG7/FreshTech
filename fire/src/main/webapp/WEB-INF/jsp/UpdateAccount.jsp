@@ -1,162 +1,18 @@
 <!-- Author: Sam Raspin -->
 
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="ISO-8859-1">
-	
-		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		
-		<script src = "bootstrap\js\bootstrap.js"></script>		
-		
-		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "UpdateAccount.css"/>
 
-		<title>NB Gardens Update User Details</title>
-		
-	</head>
-	
-	<body>
-	
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
-				
-		<nav class="navbar navbar-default">
-		  
-		<div class="container-fluid">
-		
-			<!-- Brand and toggle get grouped for better mobile display -->
-    		<div class="navbar-header" id="navbar-header">
-    		
-   				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
-			        <span class="glyphicon glyphicon-th-list"></span>
-	      		</a>
-   		
-    			<a class="navbar-brand" href="Landing">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
-      			</a>
-
-	    		<div class="row search-row" id = "top-search">
-	  				<div>
-	    				<div class="input-group">
-	    					<span class="input-group-btn">
-	    						<a class="btn btn-default" type="button" id="search-button">
-	      							<span class="glyphicon glyphicon-search"></span>
-	      						</a>
-	      					</span>
-	     					
-
-	     					<input class="form-control" type="text" id="search-bar">
-	     					
-	    				</div>
-					</div>
-				</div>
-				
-			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
-
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-		      
-		      	<ul class = "nav navbar-nav">
-		      	
-		      		<li>
-		        		<a href="Landing" id = "home-button-top">
-		        		<span class= "glyphicon glyphicon-home"></span>
-		        		Home
-		        		</a>
-		        	</li>
-		      	
-		      	</ul>
-		      	
-		      	<ul class = "nav navbar-nav">
-		      	
-		      		<li>
-		        		<a href="ProductCatalogue.html" id = "home-button-top">
-		        		<span class= "glyphicon glyphicon-gift"></span>
-		        		Products
-		        		</a>
-		        	</li>
-		      	
-		      	</ul>
-		      	
-		      	
-		      
-		      	<ul class="nav navbar-nav navbar-right">
-		        
-		        	<li class="dropdown">
-		        
-		          		<a href="#" class="button-top dropdown-toggle" id = "basket-top" data-toggle="dropdown">	      
-		          	
-	  						<span class= "glyphicon glyphicon-shopping-cart"></span>
-						          
-			          		Basket
-			          
-			          		<span class="caret"></span>
-		          
-		          		</a>
-		          
-			          	<ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket">View basket</a></li>
-				            <li><a href="PaymentAgreement">Checkout</a></li>
-				            <li class="divider"></li>
-				            <li><a href="Landing">Cancel Basket</a></li>
-			          	</ul>
-		          
-		        	</li>
-		        
-		        	<li class="dropdown">
-		          		
-		          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="account-top">
-		          			
-		          			<span class="glyphicon glyphicon-user"></span>
-		          		     
-		          		    My Account
-		    		     		
-		     				<span class="caret"></span>
-		     				
-						</a>
-		     		
-		          
-						<ul class="dropdown-menu" id="account-dropdown">
-						  <li><a>Logged in as: ... </a></li>
-						  <li><a href="OrderHistory">Order History</a></li>
-						  <li><a href="OrderTracking">Track an Order</a></li>
-						  <li><a href="UpdateAccount">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails">View Credit</a></li>
-						  <li class="divider"></li>
-						  <li><a href="/">Logout</a></li>
-						</ul>
-		        	
-		        	</li>
-		        
-		        
-		        	<li>
-		        		<a href="About.html" id = "about-button-top">
-		        		<span class="glyphicon glyphicon-question-sign"></span>
-		        		About NB Gardens
-		        		</a>
-		        	</li>
-	        
-				</ul>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="Template :: page">
+      
+    <head th:fragment="header">
+		<link  type="text/css" rel="stylesheet" href="css/UpdateAccount.css" />
+	<title>NB Gardens</title>
+    </head>
+    <body>
     
-			</div><!-- /.navbar-collapse -->
-    
-		</div><!-- /.container-fluid -->	
-		
-		</nav>
-
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
-	
+<div th:fragment="content">
 		<div class="panel panel-default">
 		
 			<div class = "jumbotron">
@@ -167,105 +23,88 @@
 
 		</div>
 	
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
+
 		<div class = "panel-body">
 		
 			<div id="container">
 			
 				<div align="center">
 					<p class="subtitle"><strong>Current Details:</strong></p>
-					
-					<p id="writing"><strong>Contact Details:</strong><br>
-					Joe Bloggs<br>
-					Home telephone: (024) 76 555 555<br>
-					Mob telephone: 077 221 379 50<br>
-					E-mail: joseph.bloggs@gmail.com</p>
-					
-					<p id="writing"><strong>Default Delivery Address:</strong><br>
-					51 Bloggs' Road<br>
-					Blogg City<br>
-					BLG 001<br>
-					West Midlands</p>
-					
-					<p id="writing"><strong>Default Payment Details:</strong><br>
-					Visa Debit Card<br>
-					Card Number: 3456-9012-5678-1234<br>
-					Sort Code: 012345678<br>
-					Cardholder Name: MR G NOME</p>
-					
+					<div id="writing">
+						<p><strong>Contact Details:</strong></p>
+						<span th:text="${customer.customerName}"></span><br/>
+						Home telephone:<span th:text="' ' + ${customer.customerPhone}"></span><br/>
+						Mob telephone: 077 221 379 50<br/>
+						E-mail:<p th:text="${customer.customerEmail}"></p>
+					</div>
+					<div id="writing">
+						<p><strong>Default Delivery Address:</strong><br th:text="${address}"></br></p>
+					</div>
+					<div id="writing">
+						<p><strong>Default Payment Details:</strong><br/></p>
+						Visa Debit Card
+						Card Number:<p><span th:text="${cardnumber}"></span></p>
+						Sort Code: <p><span th:text="${sortcode}"></span></p>
+						<p>Cardholder Name: <span th:text="${customer.customerName}"></span></p>
+					</div>
 				</div>
 			
-				<div id="fixit"><hr></div>
-				
-				
-				
+				<div id="fixit"><hr/></div>
 				
 				<div id="dropmenus">
 		 			<div class="dropdown">
    		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 1" data-toggle="dropdown">Select Default Delivery Address
     					<span class="caret"></span></button>
 						<ul class="dropdown-menu">
-						<li><a href="#">Various</a></li>
-						<li><a href="#">saved</a></li>
-						<li><a href="#">addresses</a></li>
-						<li><a href="#">belong</a></li>
-						<li><a href="#">here</a></li>
+						<li th:each="Address : ${addresses}"><a href="#"><span th:text="${Address.address}" ></span></a></li>
 						</ul><p></p>
 					</div>
-					<div><a href="#"><button type="submit"><strong>Edit Address Details</strong></button></a></div>
+					<div><a href="ChooseAddress"><button type="submit"><strong>Edit Address Details</strong></button></a></div>
 				</div>
 				
 				<div id="dropmenus">
 					<div class="dropdown">
    		 				<button class="btn btn-success dropdown-toggle" type="button" id="dropdown menu 2" data-toggle="dropdown">Select Default Payment Details
     					<span class="caret"></span></button>
-						<ul class="dropdown-menu">
-						<li><a href="#">Various</a></li>
-						<li><a href="#">saved</a></li>
-						<li><a href="#">payment</a></li>
-						<li><a href="#">methods</a></li>
-						<li><a href="#">belong</a></li>
-						<li><a href="#">here</a></li>
+    					<ul class="dropdown-menu" id="colouring">
+						<li th:each="Payment : ${payment}"><a href="#"><span th:text="${Payment.cardNumber}"></span></a></li>
 						</ul><p></p>
 					</div>
-					<div><a href="#"><button type="submit"><strong>Edit Payment Details</strong></button></a></div>
+					<div><a href="AddPaymentDetails"><button type="submit"><strong>Edit Payment Details</strong></button></a></div>
 				</div>
 				
 				
-				<div id="fixit"><hr></div>
+				<div id="fixit"><hr/></div>
 				
-				<div id="writing">
-  					<strong>Alternatively, please enter a<br>new address below:</strong><br><br>
+				<div id="column2">
+  					<strong>Alternatively, please enter a<br/>new address below:</strong><br/><br/>
   					
-					Address Line 1 :<br>
-					<input type = "text" name = "addressline1">
-					<br>
-					<br>
-					Address Line 2 :<br>
-					<input type = "text" name = "addressline2">
-					<br>
-					<br>
-					City :<br>
-					<input type = "text" name = "city">
-					<br>
-					<br>
-					County :<br>
-					<input type = "text" name = "county">
-					<br>
-					<br>
-					Postcode :<br>
-					<input type = "text" name = "postcode">
-					<br>
-					<br>
+					Address Line 1 :<br/>
+					<input type = "text" name = "addressline1"/>
+					<br/>
+					<br/>
+					Address Line 2 :<br/>
+					<input type = "text" name = "addressline2"/>
+					<br/>
+					<br/>
+					City :<br/>
+					<input type = "text" name = "city"/>
+					<br/>
+					<br/>
+					County :<br/>
+					<input type = "text" name = "county"/>
+					<br/>
+					<br/>
+					Postcode :<br/>
+					<input type = "text" name = "postcode"/>
+					<br/>
+					<br/>
 					
        				<button type="submit"><strong>Submit</strong></button>
        			</div>
 			
 				<div id="column2">
-  					<strong>Alternatively, please enter a<br>new payment method below:</strong><br><br>
+  					<strong>Alternatively, please enter a<br/>new payment method below:</strong><br/><br/>
   					
         			<div class="dropdown">
 						
@@ -278,77 +117,65 @@
 						<li><a>American Express</a></li>
 						</ul><p></p>
 					</div>
-					Card Number :<br>
-					<input type = "text" name = "CardNumber">
-					<br>
-					<br>
-					Sort Code :<br>
-					<input type = "text" name = "SortCode">
-					<br>
-					<br>
-					CVV :<br>
-					<input type = "text" name = "CVV">
-					<br>
-					<br>
-					Name on Card :<br>
-					<input type = "text" name = "NameonCard">
-					<br>
-					<br>
-					Billing Address :<br>
-					<input type = "text" name = "BillAdd">
-					<br>
-					<br>
-					Billing Postcode :<br>
-					<input type = "text" name = "BillPost">
-					<br>
-					<br>
+					Card Number :<br/>
+					<input type = "text" name = "CardNumber"/>
+					<br/>
+					<br/>
+					Sort Code :<br/>
+					<input type = "text" name = "SortCode"/>
+					<br/>
+					<br/>
+					CVV :<br/>
+					<input type = "text" name = "CVV"/>
+					<br/>
+					<br/>
+					Name on Card :<br/>
+					<input type = "text" name = "NameonCard"/>
+					<br/>
+					<br/>
+					Billing Address :<br/>
+					<input type = "text" name = "BillAdd"/>
+					<br/>
+					<br/>
+					Billing Postcode :<br/>
+					<input type = "text" name = "BillPost"/>
+					<br/>
+					<br/>
 					
        				<button type="submit"><strong>Submit</strong></button>
        			</div>
        			
        			<div id="column2">
-  					<strong>Update contact details<br>if neccessary:</strong><br><br>
+  					<strong>Update contact details<br/>if neccessary:</strong><br/><br/>
   					
-					First Name :<br>
-					<input type = "text" name = "FirstName">
-					<br>
-					<br>
-					Surname Name :<br>
-					<input type = "text" name = "SurnameName">
-					<br>
-					<br>
-					Home Telephone :<br>
-					<input type = "text" name = "HomePhone">
-					<br>
-					<br>
-					Mobile Telephone :<br>
-					<input type = "text" name = "MobilePhone">
-					<br>
-					<br>
-					Email Address :<br>
-					<input type = "text" name = "Email">
-					<br>
-					<br>
+					First Name :<br/>
+					<input type = "text" name = "FirstName"/>
+					<br/>
+					<br/>
+					Surname Name :<br/>
+					<input type = "text" name = "SurnameName"/>
+					<br/>
+					<br/>
+					Home Telephone :<br/>
+					<input type = "text" name = "HomePhone"/>
+					<br/>
+					<br/>
+					Mobile Telephone :<br/>
+					<input type = "text" name = "MobilePhone"/>
+					<br/>
+					<br/>
+					Email Address :<br/>
+					<input type = "text" name = "Email"/>
+					<br/>
+					<br/>
 					
        				<button type="submit"><strong>Submit</strong></button>
        			</div>
        		</div>
+       		
 		</div>
-
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
-		<div id = "footer" class = "panel-footer">
-	
-			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 
-				as well as Glyphicons <i>(http://glyphicons.com)</i> for the Halfling icon set.
-			</p>
-			<p>
-				Using the Cosmo theme <i>(https://bootswatch.com/cosmo)</i> with our own modifications.
-			</p>
-		
-		</div>	
+		<div class="push"></div>
+		</div>
 		
 	</body>
 	

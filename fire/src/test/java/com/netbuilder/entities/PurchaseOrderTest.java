@@ -15,7 +15,7 @@ public class PurchaseOrderTest {
 	
 	@BeforeClass
 	public static void testPurchaseOrder() {
-		tester = new PurchaseOrder (1, "Confirmed");		
+		//tester = new PurchaseOrder (1, 1, 1 "Confirmed");		
 	}
 	
 	

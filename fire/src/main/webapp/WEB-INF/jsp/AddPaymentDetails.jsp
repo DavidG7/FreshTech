@@ -1,209 +1,81 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="ISO-8859-1">
-	
-		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		
-		<script src = "bootstrap\js\bootstrap.js"></script>		
-		
-		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
-		
 
-
-		<title>NB Gardens Template</title>
-		
-	</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="Template :: page">
+      
+  <head th:fragment="header">
+	<link  type="text/css" rel="stylesheet" href="css/PayDetails.css" />
+	<title>NB Gardens</title>
+  </head>
+  <body>
+	    
+	<div th:fragment="content">
 	
-	<body>
-	
-<!----------------------------------------------------------------------------------->
-<!------ Top navbar. Contains logo, search bar and dropdown for mobile--------------->
-<!----------------------------------------------------------------------------------->		
+			<div class="panel panel-default">
+			
+				<div class = "jumbotron">
 				
-		<nav class="navbar navbar-default">
+					<h2> <b> Create Payments </b> </h2>
+					
+					<h4> Please follow the instructions below to create a new payment method </h4>				
+				
+				</div>		
+	
+			</div>
+	
+		  <div class = "panel-body">
+			  <form action="postCard" method="post">
+			 		 <div id="container" class="centerer">
+			 		 		<div id="dropmenus">
+								<div class="dropdown">
+			  				<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Card Type
+			   				<span class="caret"></span></button>
+			   				<ul class="dropdown-menu">
+					     		<li><a href="#">Mastercard</a></li>
+					      		<li><a href="#">Visa</a></li>
+					      		<li><a href="#">Visa Electron</a></li>
+					      		<li><a href="#">American Express</a></li>
+					      		<li><a href="#">Maestro</a></li>
+				     		</ul>
+				 	 	 </div>
+			  		 </div>
+		 	  <br/>
+			  Name on Card:<br/>
+			  <input type = "text" name = "firstname"/>
+			  <br/>
+			  <br/>
+			  Card Number:<br/>
+			  <input type = "text" name = "cardnumber"/>
+			  <br/> 
+			  <br/>
+			  Card Expiry Date: 
+			  <div class="dropdown">
+		   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Please choose year
+		    	 <span class="caret"></span></button>
+		  		 <ul class="dropdown-menu">
+				     <li><a href="#">2015</a></li>
+				     <li><a href="#">2016</a></li>
+				     <li><a href="#">2017</a></li>
+				     <li><a href="#">2018</a></li>
+				     <li><a href="#">2019</a></li>
+				     <li><a href="#">2020</a></li>
+			     </ul>
+		  	  </div>
+			  <br/>
+			  Security Number:<br/>
+			  <input type = "text" name = "securitynumber"/>
+			  <br/>
+			  <br/>		
+			  <input  type="submit"></input>  
+		 	</div>
+		   </form>
+		  </div>
+		  </div>
+		 
 		  
-		<div class="container-fluid">
-		
-			<!-- Brand and toggle get grouped for better mobile display -->
-    		<div class="navbar-header" id="navbar-header">
-    		
-   				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
-			        <span class="glyphicon glyphicon-th-list"></span>
-	      		</a>
-   		
-    			<a class="navbar-brand" href="Landing.html">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
-      			</a>
-
-	    		<div class="row search-row" id = "top-search">
-	  				<div>
-	    				<div class="input-group">
-	    					<span class="input-group-btn">
-	    						<a class="btn btn-default" type="button" id="search-button">
-	      							<span class="glyphicon glyphicon-search"></span>
-	      						</a>
-	      					</span>
-	     					
-
-	     					<input class="form-control" type="text" id="search-bar">
-	     					
-	    				</div>
-					</div>
-				</div>
-				
-			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
-
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-		      
-		      	<ul class = "nav navbar-nav">
-		      	
-		      		<li>
-		        		<a href="Landing.html" id = "home-button-top">
-		        		<span class= "glyphicon glyphicon-home"></span>
-		        		Home
-		        		</a>
-		        	</li>
-		      	
-		      	</ul>
-		      	
-		      	<ul class = "nav navbar-nav">
-		      	
-		      		<li>
-		        		<a href="ProductCatalogue.html" id = "home-button-top">
-		        		<span class= "glyphicon glyphicon-gift"></span>
-		        		Products
-		        		</a>
-		        	</li>
-		      	
-		      	</ul>
-		      
-		      	<ul class="nav navbar-nav navbar-right">
-		        
-		        	<li class="dropdown">
-		        
-		          		<a href="#" class="button-top dropdown-toggle" id = "basket-top" data-toggle="dropdown">	      
-		          	
-	  						<span class= "glyphicon glyphicon-shopping-cart"></span>
-						          
-			          		Basket
-			          
-			          		<span class="caret"></span>
-		          
-		          		</a>
-		          
-			          	<ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket.html">View basket</a></li>
-				            <li><a href="PaymentAgreement.html">Checkout</a></li>
-				            <li class="divider"></li>
-				            <li><a href="Landing.html">Cancel Basket</a></li>
-			          	</ul>
-		          
-		        	</li>
-		        
-		        	<li class="dropdown">
-		          		
-		          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="account-top">
-		          			
-		          			<span class="glyphicon glyphicon-user"></span>
-		          		     
-		          		    My Account
-		    		     		
-		     				<span class="caret"></span>
-		     				
-						</a>
-		     		
-		          
-						<ul class="dropdown-menu" id="account-dropdown">
-						  <li><a>Logged in as: ... </a></li>
-						  <li><a href="OrderHistory.html">Order History</a></li>
-						  <li><a href="OrderTracking.html">Track an Order</a></li>
-						  <li><a href="UpdateAccount.html">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails.html">View Credit</a></li>
-						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
-						</ul>
-		        	
-		        	</li>
-
-		        	<li>
-		        		<a href="About.html" id = "about-button-top">
-		        		<span class="glyphicon glyphicon-question-sign"></span>
-		        		About NB Gardens
-		        		</a>
-		        	</li>
-	        
-				</ul>
-    
-			</div><!-- /.navbar-collapse -->
-    
-		</div><!-- /.container-fluid -->	
-		
-		</nav>
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
-	
-		<div class="panel panel-default">
-		
-			<div class = "jumbotron">
-			
-				<h2> <b> Create Payments </b> </h2>
-				
-				<h4> Please follow the instructions below to create a new payment method </h4>				
-			
-			</div>		
-
-		</div>
-		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
-		<div class = "panel-body">
-	    <form action="action_page.php">
-		Name on Card:<br>
-		<input type = "text" name = "firstname">
-		<br>
-		<br>
-		Card Number:<br>
-		<input type = "text" name = "cardnumber">
-		<br> 
-		<br>
-		Card Expiry Date: 
-	   <div class="dropdown">
-   		 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Please choose year
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">2015</a></li>
-      <li><a href="#">2016</a></li>
-      <li><a href="#">2017</a></li>
-      <li><a href="#">2018</a></li>
-      <li><a href="#">2019</a></li>
-      <li><a href="#">2020</a></li>
-      </ul>
-  </div>
-		<br>
-		Security Number:<br>
-		<input type = "text" name = "securitynumber">
-		<br>
-		<br>		
-		<a href = "Landing.html"><button type="submit"><strong>Submit</strong></button></a>
-
-</div>
-
-
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
+		  
 
 		
-</body>
+	</body>
 </html>

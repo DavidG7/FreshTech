@@ -7,22 +7,35 @@ import javax.inject.Inject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 import com.netbuilder.entities.Address;
+import com.netbuilder.entities.Product;
 import com.netbuilder.entityrepositories.AddressRepository;
 import com.netbuilder.data.DummyData;
 
-public class AddressRepositoryDummy implements AddressRepository {
+/**
+ * 
+ * @author ???, Thomas Dudley
+ * 
+ * This class it to implement the funcationality of the Address Repository
+ * 
+ * 
+ */
+
+@Repository
+public class AddressRepositoryDummy implements AddressRepository{
 	
-	@Inject 
-	private DummyData initialData;
+	private DummyData dummyData;
 
 	@Override
-	public List<Address> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Address> findAll()
+	{
+		
+		return dummyData.getEntityList(new Address());
+		
 	}
 
 	@Override
@@ -38,13 +51,13 @@ public class AddressRepositoryDummy implements AddressRepository {
 	}
 
 	@Override
-	public <S extends Address> java.util.List<S> insert(Iterable<S> arg0) {
+	public <S extends Address> List<S> insert(Iterable<S> arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Address> java.util.List<S> save(Iterable<S> arg0) {
+	public <S extends Address> List<S> save(Iterable<S> arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -57,19 +70,39 @@ public class AddressRepositoryDummy implements AddressRepository {
 
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void delete(Integer arg0) {
-		// TODO Auto-generated method stub
+		
+		return dummyData.getEntityList(new Address()).size();
 		
 	}
 
 	@Override
-	public void delete(Address arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Integer addressID) 
+	{
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
+			
+		for(int i = 0; i < address.size(); i++)
+		{
+			if(address.get(i).getAddressid() == addressID)
+			{
+				address.remove(i);
+				dummyData.setEntityList(address);
+			}		
+		}	
+	}
+
+	@Override
+	public void delete(Address arg0) 
+	{
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
+		
+		for(Address c : address)
+		{
+			if(c.equals(arg0))
+			{
+				address.remove(arg0);
+				dummyData.setEntityList(address);
+			}
+		}
 		
 	}
 
@@ -80,14 +113,32 @@ public class AddressRepositoryDummy implements AddressRepository {
 	}
 
 	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
+	public void deleteAll() 
+	{
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
 		
+		for(Address c : address)
+		{
+			address.remove(c);
+		}
+		
+		dummyData.setEntityList(address);
+	
 	}
 
 	@Override
-	public boolean exists(Integer arg0) {
-		// TODO Auto-generated method stub
+	public boolean exists(Integer addressID) {
+		
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
+		
+		for(int i = 0; i < address.size(); i++)
+		{
+			if(address.get(i).getAddressid() == addressID)
+			{
+				return true;
+			}
+		}
+		
 		return false;
 	}
 
@@ -98,8 +149,18 @@ public class AddressRepositoryDummy implements AddressRepository {
 	}
 
 	@Override
-	public Address findOne(Integer arg0) {
-		// TODO Auto-generated method stub
+	public Address findOne(Integer addressID) {
+		
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
+		
+		for(int i = 0; i < address.size(); i++)
+		{
+			if(address.get(i).getAddressid() == addressID)
+			{
+				return address.get(i);
+			}
+		}
+		
 		return null;
 	}
 
@@ -113,7 +174,7 @@ public class AddressRepositoryDummy implements AddressRepository {
 	@Override
 	public Address findByAddressID(int addressid) {
 		
-		ArrayList<Address> address = initialData.getEntityList(new Address());
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
 		
 		Address foundaddress = new Address();
 		
@@ -123,51 +184,71 @@ public class AddressRepositoryDummy implements AddressRepository {
 			{
 				foundaddress = address.get(i);
 			}
-			return foundaddress;
+			
 		}
-		return null;
+		return foundaddress;
 	}
 	
 	
 
 	@Override
-	public List<Address> findByCustomerID(int customerid) {
+	public List<Address> findByCustomerId(int customerId) 
+	{
+		ArrayList<Address> address = dummyData.getEntityList(new Address());
 		
-		ArrayList<Address> address = initialData.getEntityList(new Address());
-		
-		ArrayList<Address> foundaddress = new ArrayList<Address>();
+		/*Address foundaddress = new Address();
 		
 		for ( int i = 0 ; i < address.size(); i++)
 		{
-			if(address.get(i).getCustomerid() == customerid)
+			if(address.get(i).getCustomerid() == customerID)
 			{
-				foundaddress.add(address.get(i));
+				foundaddress = address.get(i);
 			}
-		}
+		}*/
 		return address;
 	}
 
 	
 	@Override
-	public List<Address> findByAddress(String address) {
-ArrayList<Address> addressarray = initialData.getEntityList(new Address());
+	public List<Address> findByAddress(String address) 
+	{
+		ArrayList<Address> addressArray = dummyData.getEntityList(new Address());
 		
-		ArrayList<Address> foundaddress = new ArrayList<Address>();
+		/*Address foundAddress = new Address();
 		
-		for ( int i = 0 ; i < addressarray.size(); i++)
+		for ( int i = 0 ; i < addressArray.size(); i++)
 		{
-			if(addressarray.get(i).getAddress() == address)
+			if(addressArray.get(i).getAddress() == address)
 			{
-				foundaddress.add(addressarray.get(i));
+				foundAddress = addressArray.get(i);
 			}
-		}
-		return null;
+		}*/
+		return addressArray;
 	}
 
 	@Override
-	public List<Address> findByPostcode(String postcode) {
+	public List<Address> findByPostcode(String postcode) 
+	{
+		ArrayList<Address> addressArray = dummyData.getEntityList(new Address());
 		
-		return null;
+		/*Address foundAddress = new Address();
+		
+		for ( int i = 0 ; i < addressArray.size(); i++)
+		{
+			if(addressArray.get(i).getPostcode() == postcode)
+			{
+				foundAddress = addressArray.get(i);
+			}
+		}*/
+		return addressArray;
+	}
+
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
 	}
 	
 }

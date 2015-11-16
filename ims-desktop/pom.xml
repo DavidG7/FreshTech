@@ -12,18 +12,35 @@
 	
 	<dependencies>
 		<dependency>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>jfreechart</groupId>
-	<artifactId>jfreechart</artifactId>
-	<version>1.0.0</version>
-	<distributionManagement>
-		<relocation>
-		<groupId>jfree</groupId>
-		<artifactId>jfreechart</artifactId>
-		<version>1.0.0</version>
-		</relocation>
-	</distributionManagement>
-	
+			<modelVersion>4.0.0</modelVersion>
+			<groupId>jfreechart</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.0</version>
+			<distributionManagement>
+				<relocation>
+				<groupId>jfree</groupId>
+				<artifactId>jfreechart</artifactId>
+				<version>1.0.0</version>
+				</relocation>
+			</distributionManagement>
 		</dependency>
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.37</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>1.2.6.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 	</project>
+	
+	

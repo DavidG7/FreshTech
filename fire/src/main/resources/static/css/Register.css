@@ -1,6 +1,17 @@
-@CHARSET "ISO-8859-1";
 
-#centre {
+
+#center {
 	margin-left: 45%;
 	
+}
+#regtext2345 {
+	text-decoration: underline;
+	font-size: 25px;
+	color:green;
+}
+
+#test{
+	font-size: 20px;
+	color: green;
+	text-decoration: underline;
 }

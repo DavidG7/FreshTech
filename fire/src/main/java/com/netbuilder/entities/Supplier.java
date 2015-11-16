@@ -32,14 +32,19 @@ public class Supplier {
 	private String supplierName;
 	private String supplierEmail = "";
 	private String supplierPhone = "";
-	private ContactMethod preferredContactMethod = ContactMethod.NONE;
+	private String preferredContactMethod = "";
+	
+	public Supplier()
+	{
+		
+	}
 	
 	public Supplier (int id, String name){
 		this.supplierId = id;
 		this.supplierName = name;
 	}
 	
-	public Supplier (int id, String name, String email, String phone, ContactMethod pref){
+	public Supplier (int id, String name, String email, String phone, String pref){
 		this.supplierId = id;
 		this.supplierName = name;
 		this.supplierEmail = email;
@@ -59,6 +64,6 @@ public class Supplier {
 	public void setPhone(String x){	supplierPhone = x;	}
 	public String getPhone(){	return supplierPhone;	}
 	
-	public void setPreferredContactMethod(ContactMethod x){	preferredContactMethod = x;	}
-	public ContactMethod getPreferredContactMethod(){	return preferredContactMethod;	}
+	public void setPreferredContactMethod(String x){	preferredContactMethod = x;	}
+	public String getPreferredContactMethod(){	return preferredContactMethod;	}
 }

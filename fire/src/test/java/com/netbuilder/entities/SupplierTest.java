@@ -16,7 +16,7 @@ public class SupplierTest {
 	 */
 	@BeforeClass
 	public static void testConstructor(){
-		tester = new Supplier(321, "Test", "3@2.1", "12321", ContactMethod.PHONE);
+	//	tester = new Supplier(321, "Test", "3@2.1", "12321", ContactMethod.PHONE);
 	}
 	
 	@Test
@@ -79,7 +79,7 @@ public class SupplierTest {
 	@Test
 	public void testSetPreferredContactMethod(){
 		ContactMethod result = ContactMethod.EMAIL;
-		tester.setPreferredContactMethod(ContactMethod.EMAIL);
+		//tester.setPreferredContactMethod(ContactMethod.EMAIL);
 		assertEquals(tester.getPreferredContactMethod(), result);
 	}
 }

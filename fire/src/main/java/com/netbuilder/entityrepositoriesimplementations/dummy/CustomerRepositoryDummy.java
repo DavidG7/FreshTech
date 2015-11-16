@@ -2,13 +2,12 @@ package com.netbuilder.entityrepositoriesimplementations.dummy;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.inject.Alternative;
-import javax.inject.Inject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.netbuilder.data.DummyData;
 import com.netbuilder.entities.Address;
@@ -21,20 +20,27 @@ import com.netbuilder.entityrepositories.CustomerRepository;
  *
  * This class is to implement the functionality of the Customer repository.
  */
-
-@Alternative
+@Repository
 public class CustomerRepositoryDummy implements CustomerRepository
 {
 	
-	@Autowired
 	private DummyData dummyData;
+	
 
 	@Override
 	public List<Customer> findAll() 
 	{
-		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
+		List<Customer> customer = null;
 		
 		return customer;
+	}
+
+	public DummyData getDummyData() {
+		return dummyData;
+	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
 	}
 
 	@Override
@@ -68,9 +74,9 @@ public class CustomerRepositoryDummy implements CustomerRepository
 	}
 
 	@Override
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long count() 
+	{
+		return dummyData.getEntityList(new Customer()).size();
 	}
 
 	@Override
@@ -98,11 +104,11 @@ public class CustomerRepositoryDummy implements CustomerRepository
 		{
 			if(c.equals(arg0))
 			{
-				dummyData.getEntityList(new Customer()).remove(c);
+				customer.remove(arg0);
 			}
-		}
+		}		
 		
-		
+		dummyData.setEntityList(customer);
 	}
 
 	@Override
@@ -117,13 +123,25 @@ public class CustomerRepositoryDummy implements CustomerRepository
 		
 		for(Customer c : customer)
 		{
-			dummyData.getEntityList(new Customer()).remove(c);
+			customer.remove(c);
 		}
+		
+		dummyData.setEntityList(customer);
 	}
 
 	@Override
 	public boolean exists(Integer customerID) {
-		// TODO Auto-generated method stub
+		
+		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
+		
+		for(int i = 0; i < customer.size(); i++)
+		{
+			if(customer.get(i).getCustomerID() == customerID)
+			{
+				return true;
+			}
+		}
+		
 		return false;
 	}
 
@@ -165,7 +183,7 @@ public class CustomerRepositoryDummy implements CustomerRepository
 	}
 
 	@Override
-	public List<Customer> findByCustomerPhone(String customerPhone) 
+	public Customer findByCustomerPhone(String customerPhone) 
 	{
 		
 		ArrayList<Customer> customer = dummyData.getEntityList(new Customer());
@@ -174,13 +192,13 @@ public class CustomerRepositoryDummy implements CustomerRepository
 		
 		for (int i = 0 ; i < customer.size(); i++)
 		{
-			if(customer.get(i).getCustomerPhone().equalsIgnoreCase(customerPhone));
+			if(customer.get(i).getCustomerPhone().equalsIgnoreCase(customerPhone))
 			{
 				foundCustomer.add(customer.get(i));
 			}
 		}
 		
-		return foundCustomer;
+		return foundCustomer.get(0);
 	}
 
 	@Override

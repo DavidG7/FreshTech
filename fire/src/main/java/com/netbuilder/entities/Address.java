@@ -16,22 +16,38 @@ public class Address implements Serializable {
 	/**
 	 * attributes used in the address class
 	 */
-	@Id
+	
 	private int addressID;
 	private String address;
 	private String postcode;
-	private int customerID;
-
+	private int customerId;
+	private String fullAddress;
 	
-   /**
+  
+
+
+/**
     * class constructors
     */
-	public Address (int addressid, String address, String postcode, int customerid){
+	public Address (int addressid, String address, String postcode, int customerId){
 		this.addressID = addressid;
 		this.address = address;
 		this.postcode = postcode;
-		this.customerID = customerid;
+		this.customerId = customerId;
 	}
+	
+	 public String getFullAddress() {
+			return fullAddress=address+","+postcode;
+		}
+
+
+
+		public void setFullAddress(String fullAddress) {
+			this.fullAddress = fullAddress;
+		}
+
+	
+	
 	
 	/**
 	 * @author Tom
@@ -85,28 +101,43 @@ public class Address implements Serializable {
 	/**
 	 * @return the address
 	 */
-	public String getAddress() {
-		return address;
-	}
-	
+
 	/**
 	 * @param address the address to set
 	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
+
 	
 	/**
 	 * @return the customerid
 	 */
-	public int getCustomerid() {
-		return customerID;
+	public int getCustomerId() {
+		return customerId;
 	}
 	
+	public int getAddressID() {
+		return addressID;
+	}
+
+	public void setAddressID(int addressID) {
+		this.addressID = addressID;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
 	/**
 	 * @param customerid the customerid to set
 	 */
-	public void setCustomerid(int customerid) {
-		this.customerID = customerid;
+	public void setCustomerid(int customerId) {
+		this.customerId = customerId;
 	}
 }

@@ -1,21 +1,24 @@
 package com.netbuilder.entities;
 
 import java.io.Serializable;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * 
  * @author pnewman
  *
  */
+@Document (collection="Payment")
 public class Payment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id 
 	private int paymentID;
 	private int customerID;
-	private int cardNumber;
-	private String sortCode;
+	private int cardNumber=0;
+	private String sortCode="\nNo payment selected";
 	
 	/*
 	 * TODO Are both constructors needed?
@@ -28,16 +31,17 @@ public class Payment implements Serializable {
 	 * @param cardNumber
 	 * @param sortCode
 	 */
-	public Payment(int paymentID, int cardNumber, String sortCode) {
+	public Payment(int paymentID, int cardNumber, String sortCode, int customerID) {
 		this.paymentID = paymentID;
 		this.cardNumber = cardNumber;
 		this.sortCode = sortCode;
+		this.customerID=customerID;
 	}
 	
 	/*
 	 * TODO Do we need all getters/setters.
 	 */
-	public int getPaymentID() {
+	public Integer getPaymentID() {
 		return paymentID;
 	}
 
@@ -45,8 +49,8 @@ public class Payment implements Serializable {
 		return cardNumber;
 	}
 
-	public void setCardNumber(int cardNumber) {
-		this.cardNumber = cardNumber;
+	public void setCardNumber(int cardNumber2) {
+		this.cardNumber = cardNumber2;
 	}
 
 	public String getSortCode() {

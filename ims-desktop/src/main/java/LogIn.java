@@ -2,7 +2,19 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
+import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 
 import CustomUI.CustomButton;
@@ -21,9 +33,7 @@ public class LogIn extends JPanel implements ActionListener {
     ImageLoader loader;
  
     public LogIn() {
-    	
-    	//topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        setLayout(new GridLayout(1,2));
+        setLayout(new FlowLayout(FlowLayout.CENTER,20,80));
     
         JPanel leftHalf = new JPanel() {
 			private static final long serialVersionUID = 1L;
@@ -42,22 +52,17 @@ public class LogIn extends JPanel implements ActionListener {
 		myPicture = loader.load();
 		picLabel = new JLabel(new ImageIcon(myPicture));
 		
-        
+        this.setBackground(Color.WHITE);
         rightHalf.add(picLabel);
         rightHalf.setBorder(new EmptyBorder(200,0,0,0));
         rightHalf.setBackground(Color.WHITE);
-        leftHalf.setBorder(new EmptyBorder(200,50,50,50));
+        leftHalf.setBorder(new EmptyBorder(220,0,50,0));
         leftHalf.setBackground(Color.WHITE);
-        //rightHalf.add(new JSeparator(SwingConstants.VERTICAL));
-        
-      
-        
+               
         leftHalf.add(createEntryFields());
         leftHalf.add(createButton());
  
         add(leftHalf);
-        //add(new JSeparator(JSeparator.VERTICAL),BorderLayout.LINE_START);
-      //  add(createLogInDisplay());
         add(rightHalf);
 
 
@@ -67,13 +72,10 @@ public class LogIn extends JPanel implements ActionListener {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
         panel.setBackground(Color.WHITE);
  
-        //JButton button = new JButton("Log in");
         CustomButton button = new CustomButton("Log In");
         button.addActionListener(this);
         panel.add(button);
  
-        //Match the SpringLayout's gap, subtracting 5 to make
-        //up for the default gap FlowLayout provides.
         panel.setBorder(BorderFactory.createEmptyBorder(0, 0,
                                                 GAP-5, GAP-5));
         return panel;
@@ -82,23 +84,42 @@ public class LogIn extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
     	
-    	topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-    	  
-    	  JTabbedPane pane = new JTabbedPane();
-  	   
-	      pane.setForeground(new Color(0,122,0));
-	      pane.setBackground(Color.WHITE);
-	      
-	      pane.addTab("Daily Stock Report", new DailyStockReport());
-	      pane.addTab("Purchase Order", new PurchaseOrder());
-	      pane.addTab("Predicted Sales", new PredicatedSales());
-	      pane.addTab("Add/Discontinue Stock", new AddDiscontinue());
-	         
-	      topFrame.remove(this);
-    	  topFrame.add(pane);
-    	  topFrame.revalidate();
-    	  topFrame.repaint();
-	       
+    	if(userField.getText() != null && passField.getPassword().length != 0)
+    	{	
+    		LoginSQL login = new LoginSQL();
+    		String password = new String(passField.getPassword());
+    		
+    		if (login.establishlogin(userField.getText(), password))
+    		{    			 			
+    			topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+    	      	  
+        		JTabbedPane pane = new JTabbedPane();
+ 
+    	      	JOptionPane.showMessageDialog(getParent(),"Welcome " + userField.getText());
+      	      	        		
+      	      	pane.setForeground(new Color(0,122,0));
+      	      	pane.setBackground(Color.WHITE);
+      	      
+      	      	pane.addTab("Daily Stock Report", new DailyStockReport());
+      	      	pane.addTab("Purchase Order", new PurchaseOrderIMS());
+      	      	pane.addTab("Predicted Sales", new PredicatedSales());
+      	      	pane.addTab("Add/Discontinue Stock", new AddDiscontinue(userField.getText()));
+      	      	
+      	      	topFrame.remove(this);
+      	      	topFrame.add(pane);
+      	      	topFrame.revalidate();
+          	  	topFrame.repaint();
+          	  	
+    		}
+    		else
+    			JOptionPane.showMessageDialog(getParent(),"Please input a correct Username and Password." );
+  	      	
+    	}
+    	else
+    	{
+    		JOptionPane.showMessageDialog(getParent(),"Please input a correct Username and Password." );
+        }
+    
     }
  
  
@@ -111,7 +132,6 @@ public class LogIn extends JPanel implements ActionListener {
                                                             16.0f);
         italicFont = regularFont.deriveFont(Font.ITALIC);
  
-        //Lay out the panel.
         panel.setBorder(BorderFactory.createEmptyBorder(
                                 GAP/2, //top
                                 0,     //left
@@ -121,7 +141,7 @@ public class LogIn extends JPanel implements ActionListener {
                   BorderLayout.LINE_START);
         panel.add(logInDisplay,
                   BorderLayout.CENTER);
-        panel.setPreferredSize(new Dimension(200, 150));
+        panel.setPreferredSize(new Dimension(400, 150));
  
         return panel;
     }
@@ -135,25 +155,19 @@ public class LogIn extends JPanel implements ActionListener {
             "Password: "
         };
  
-
-        
- 
-        //Create the text field and set it up.
-        userField  = new CustomTextArea("Enter Username");
+        userField  = new CustomTextArea("");
         userField.setColumns(10);
         userField.setMaximumSize(new Dimension(300,100));
+        userField.setMinimumSize(new Dimension(300,100));
  
         passField = new JPasswordField();
         passField.setMaximumSize(new Dimension(300,100));
+        passField.setMinimumSize(new Dimension(300,100));
         
         panel.add(new CustomLabel(labelStrings[0],false));
         panel.add(userField);
         panel.add(new CustomLabel(labelStrings[1],false));
         panel.add(passField);
-        
-        
-        
-        
         
         SpringUtilities.makeCompactGrid(panel,
                                         labelStrings.length, 2,
@@ -161,5 +175,4 @@ public class LogIn extends JPanel implements ActionListener {
                                         GAP, GAP/2);//xpad, ypad
         return panel;
     }
-
 }

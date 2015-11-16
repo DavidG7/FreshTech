@@ -16,6 +16,15 @@ import com.netbuilder.entities.*;
 import com.netbuilder.entityrepositories.PaymentRepository;
 import com.netbuilder.data.DummyData;
 
+/**
+ * 
+ * @author ???, Thomas Dudley
+ * 
+ * This class it to implement the of the Address Repository
+ * 
+ * 
+ */
+
 @Alternative
 public class PaymentRepositoryDummy implements PaymentRepository {
 	
@@ -83,22 +92,21 @@ public class PaymentRepositoryDummy implements PaymentRepository {
 	}
 
 	@Override
-	@Deprecated
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long count() 
+	{
+		return dummyData.getEntityList(new Payment()).size();
 	}
 
 	@Override
-	@Deprecated
-	public void delete(String arg0) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	@Deprecated
-	public void delete(Payment arg0) {
-		// TODO Auto-generated method stub
+	public void delete(Payment arg0) 
+	{
+		ArrayList<Payment> payment = new ArrayList<Payment>();
+		
+		if(dummyData.getEntityList(new Product()).contains(arg0))
+		{
+			payment.remove(arg0);
+			dummyData.setEntityList(payment);
+		}	
 	}
 
 	@Override
@@ -108,30 +116,17 @@ public class PaymentRepositoryDummy implements PaymentRepository {
 	}
 
 	@Override
-	@Deprecated
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	@Deprecated
-	public boolean exists(String arg0) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	@Deprecated
-	public Iterable<Payment> findAll(Iterable<String> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	@Deprecated
-	public Payment findOne(String arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteAll() 
+	{	
+		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
+		
+		for(Payment c : payment)
+		{
+			payment.remove(c);
+		}
+		
+		dummyData.setEntityList(payment);
+		
 	}
 
 	@Override
@@ -153,23 +148,112 @@ public class PaymentRepositoryDummy implements PaymentRepository {
 	}
 
 	@Override
-	@Deprecated
-	public List<Payment> findByCustomerID(int customerID) {
+	public ArrayList<Payment> findByCustomerID(int paymentID) 
+	{
+		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
+		
+		ArrayList<Payment> foundPayment = new ArrayList<Payment>();
+		
+		for ( int i = 0 ; i < payment.size(); i++)
+		{
+			if(payment.get(i).getPaymentID() == paymentID)
+			{
+				foundPayment.add(payment.get(i));
+			}
+			
+		}
+		return foundPayment;
+	}
+
+	@Override
+	public Payment findByCardNumber(int cardNumber) 
+	{	
+		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
+		
+		Payment foundPayment = new Payment();
+		
+		for ( int i = 0 ; i < payment.size(); i++)
+		{
+			if(payment.get(i).getPaymentID() == cardNumber)
+			{
+				foundPayment = payment.get(i);
+			}
+			
+		}
+		return foundPayment;
+	}
+
+	@Override
+
+	public List<Payment> findBySortCode(String sortCode) 
+	{
+		
+		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
+		
+		ArrayList<Payment> foundPayment = new ArrayList<Payment>();
+		
+		for ( int i = 0 ; i < payment.size(); i++)
+		{
+			if(payment.get(i).getSortCode().equals(sortCode))
+			{
+				foundPayment.add(payment.get(i));
+			}
+			
+		}
+		return foundPayment;
+	}
+
+	@Override
+	public void delete(Integer arg0) {
+		
+		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
+		
+		for(int i = 0; i < payment.size(); i++)
+		{
+			if(payment.get(i).getPaymentID() == arg0)
+			{
+				payment.remove(i);
+			}
+		}
+		
+		dummyData.setEntityList(payment);	
+		
+	}
+
+	@Override
+	public boolean exists(Integer arg0) 
+	{
+		ArrayList<Payment> payment = dummyData.getEntityList(new Payment());
+		
+		for(int i = 0; i < payment.size(); i++)
+		{
+			if(payment.get(i).getPaymentID() == arg0)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public Payment findOne(Integer arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	@Deprecated
-	public Payment findByCardNumber(int cardNumber) {
+	public Iterable<Payment> findAll(Iterable<Integer> arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	@Deprecated
-	public List<Payment> findBySortCode(String sortCode) {
-		// TODO Auto-generated method stub
-		return null;
+	public DummyData getDummyData() {
+		return dummyData;
 	}
+
+	public void setDummyData(DummyData dummyData) {
+		this.dummyData = dummyData;
+	}
+
 }

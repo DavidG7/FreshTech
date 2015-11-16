@@ -1,158 +1,19 @@
-	<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="ISO-8859-1">
-	
-		<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		
-		<script src = "bootstrap\js\bootstrap.js"></script>		
-		
-		<link type = "text/css" rel = "stylesheet" href = "bootstrap\css\bootstrap_cosmo.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "Template.css"/>
-		
-		<link type = "text/css" rel = "stylesheet" href = "ChooseAddress.css"/>
+<!-- Author: Sam Raspin & pnewman -->
 
-		<title>NB Gardens Add Details</title>
-		
-	</head>
-	
-	<body>
-<!----------------------------------------------------------------------------------->
-<!------Top navbar. Contains logo, search bar and dropdown for mobile---------------->
-<!----------------------------------------------------------------------------------->		
-				
-		<nav class="navbar navbar-default">
-		  
-		<div class="container-fluid">
-		
-			<!-- Brand and toggle get grouped for better mobile display -->
-    		<div class="navbar-header" id="navbar-header">
-    		
-   				<a class="btn btn-default navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse" id="collapse-top">
-			        <span class="glyphicon glyphicon-th-list"></span>
-	      		</a>
-   		
-    			<a class="navbar-brand" href="Landing">
-      				<img id = "logo" alt = "NB Gardens" src = "bootstrap\NBGardensLogo.png"/>
-      			</a>
+<!DOCTYPE html>
 
-	    		<div class="row search-row" id = "top-search">
-	  				<div>
-	    				<div class="input-group">
-	    					<span class="input-group-btn">
-	    						<a class="btn btn-default" type="button" id="search-button">
-	      							<span class="glyphicon glyphicon-search"></span>
-	      						</a>
-	      					</span>
-	     					
-
-	     					<input class="form-control" type="text" id="search-bar">
-	     					
-	    				</div>
-					</div>
-				</div>
-				
-			</div> <!-- /.navbar-header -->
-			
-    		
-<!------------------------------------------------------------------------------->
-<!---------- Collect the nav links, forms, and other content for toggling ------->
-<!------------------------------------------------------------------------------->
-
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-		      
-		      	<ul class = "nav navbar-nav">
-		      	
-		      		<li>
-		        		<a href="Landing" id = "home-button-top">
-		        		<span class= "glyphicon glyphicon-home"></span>
-		        		Home
-		        		</a>
-		        	</li>
-		      	
-		      	</ul>
-		      	
-		      	<ul class = "nav navbar-nav">
-		      	
-		      		<li>
-		        		<a href="ProductCatalogue" id = "home-button-top">
-		        		<span class= "glyphicon glyphicon-gift"></span>
-		        		Products
-		        		</a>
-		        	</li>
-		      	
-		      	</ul>
-		      	
-		      	
-		      
-		      	<ul class="nav navbar-nav navbar-right">
-		        
-		        	<li class="dropdown">
-		        
-		          		<a href="#" class="button-top dropdown-toggle" id = "basket-top" data-toggle="dropdown">	      
-		          	
-	  						<span class= "glyphicon glyphicon-shopping-cart"></span>
-						          
-			          		Basket
-			          
-			          		<span class="caret"></span>
-		          
-		          		</a>
-		          
-			          	<ul class="dropdown-menu" id="basket-dropdown">
-				            <li><a href="Basket">View basket</a></li>
-				            <li><a href="PaymentAgreement">Checkout</a></li>
-				            <li class="divider"></li>
-				            <li><a href="/">Cancel Basket</a></li>
-			          	</ul>
-		          
-		        	</li>
-		        
-		        	<li class="dropdown">
-		          		
-		          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="account-top">
-		          			
-		          			<span class="glyphicon glyphicon-user"></span>
-		          		     
-		          		    My Account
-		    		     		
-		     				<span class="caret"></span>
-		     				
-						</a>
-		     		
-		          
-						<ul class="dropdown-menu" id="account-dropdown">
-						  <li><a>Logged in as: ... </a></li>
-						  <li><a href="OrderHistory">Order History</a></li>
-						  <li><a href="OrderTrackingl">Track an Order</a></li>
-						  <li><a href="UpdateAccount">Update your Account</a></li>
-						  <li><a href="ViewCreditDetails">View Credit</a></li>
-						  <li class="divider"></li>
-						  <li><a href="Landing.html">Logout</a></li>
-						</ul>
-		        	
-		        	</li>
-		        
-		        
-		        	<li>
-		        		<a href="About" id = "about-button-top">
-		        		<span class="glyphicon glyphicon-question-sign"></span>
-		        		About NB Gardens
-		        		</a>
-		        	</li>
-	        
-				</ul>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="Template :: page">
+      
+    <head th:fragment="header">
+		<link type="text/css" rel="stylesheet" href="css/ChooseAddress.css" />
+		<link type="text/css" rel="stylesheet" href="css/Basket.css" />
+	<title>NB Gardens</title>
+    </head>
+    <body>
     
-			</div><!-- /.navbar-collapse -->
-    
-		</div><!-- /.container-fluid -->	
-		
-		</nav>
-
-<!--------------------------------------------->
-<!------Top banner (Jumbotron)------------------>		
-<!--------------------------------------------->
+<div th:fragment="content">
 	
 		<div class="panel panel-default">
 		
@@ -165,96 +26,55 @@
 			</div>		
 
 		</div>
-		
-<!--------------------------------------------->
-<!------INSERT PAGE BODY HERE------------------>		
-<!--------------------------------------------->
-			
-	<!-- Figure out how to change colour of drop down menus -->
-		
-		<div class = "panel-body">
-	    
-	    
-	    
-<p>ITEM 1 - PLACEHOLDER EXAMPLE                 QUANTITY: 1</p> <div class="dropdown">
-   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">8</a></li>
-      <li><a href="#">9</a></li>
-      </ul>
-  </div>
-  
-<!-- Figure out how to change colour of drop down menus -->
-  
-  <br>
-  <p>ITEM 2 - PLACEHOLDER EXAMPLE                 QUANTITY: 5</p> <div class="dropdown">
-   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">8</a></li>
-      <li><a href="#">9</a></li>
-      </ul>
-  </div>
-    <br>
-  
-  <!-- Figure out how to change colour of drop down menus -->
-  <p>ITEM 3 - PLACEHOLDER EXAMPLE                 QUANTITY: 2</p> <div class="dropdown">
-   		 <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Change Quantity
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li><a href="#">7</a></li>
-      <li><a href="#">8</a></li>
-      <li><a href="#">9</a></li>
-      </ul>
-  </div>
 
-<br>
-<br>	    
-<a href="OrderConfirmation.html"><button type="submit" value="Checkout">Checkout</button></a>
 	
-  
-  
-	
-	
-			</div>
+		
+		<div class = "panel-body" >
+		
+		<label for="chooseAddress">Select Delivery Address</label> <br/>
+		<form th:action="@{submitOrder}" method="post">
+			<select>
+				<option th:id="${Address.address}" th:each="Address : ${addresses}" th:type="radio" th:value="${Address.address}" th:name="${Address.address}" th:text="${Address.address}"/>
+			</select>
+			<input id="checkout" type="submit" th:value="'Place order'"/>
+		</form><br/>
 
-<div id = "space"></div>
+		<div class="squareasd" th:each="basket : ${basket}">
+ 		    <div class="contentasd">
+ 		        <div class="tableasd">
+ 		            <div class="table-cellasd">
 
-<!----------------------------->
-<!------Footer----------------->		
-<!----------------------------->
-		
-		<div id = "footer" class = "panel-footer">
+ 		            	<form th:action="@{/info}" method = "post">
+ 		            		<input id="identify" class="img-thumbnail" width="40%" th:name="${basket.product.productId}" type="image" th:value="${basket.product.productName}" th:src="'ImageFolder/'+${basket.product.image}"/>
+							<input th:name="${basket.product.productId}" type="image" th:value="${basket.product.productName}"/>
+						</form>		                	
+
+	                	<p>&pound;<span th:text="${#numbers.formatDecimal(basket.product.price, 0, 'COMMA', 2, 'POINT')}"></span></p>
+	                	
+	                	<form th:action="@{saveBasket}" method="post">
+	                		<p>Quantity: <span ><input th:name="quantity" th:value="${basket.quantity}" /></span></p>
+
+		                <p id="clearingit"><span id="underlined">Description:</span></p><p id="clearingit"> <span th:text="${basket.product.productDescription}"></span></p>
+
+	                	<p> <span id="underlined">Total Cost:</span> <br/>&pound;<span th:text="${#numbers.formatDecimal(basket.product.price*basket.quantity, 0, 'COMMA', 2, 'POINT')}"></span></p>		                
 	
-			<p> Credit to Bootstrap <i>(http://getbootstrap.com)</i> for the overall website design, 
-				as well as Glyphicons <i>(http://glyphicons.com)</i> for the Halfling icon set.
-			</p>
-			<p>
-				Using the Readable theme <i>(https://bootswatch.com/readable)</i> with our own modifications.
-			</p>
-		
-		</div>	
-		
+		               		<button type="submit" id="save" name="save" th:value="${basket.basketID}"><strong>Save</strong></button>
+		            	</form>
+		               	<form th:action="@{removeBasket}" method="post">
+		                	<button type="submit" id="remove" name="remove" th:value="${basket.basketID}"><strong>Remove</strong></button>
+		            	</form>
+		            </div>
+		        </div>
+		    </div>
+		  </div>
+		 </div>
+		 
+	<div>
+
+	 </div>	 
+		 
+	<div class="push"></div>
+
+</div>
 </body>
 </html>

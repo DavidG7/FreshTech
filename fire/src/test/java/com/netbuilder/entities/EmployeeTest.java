@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class EmployeeTest {
 
-	Employee employee = new Employee("Jim","JimDavies27","CatFish",1);
+	Employee employee = new Employee(1,"Jim","JimDavies27","CatFish",1);
 	
 	@Test
 	public void EmployeeGetters() {
